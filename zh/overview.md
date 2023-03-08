@@ -1,4 +1,4 @@
-## AI Service > OCR > Document OCR > Overview
+## AI Service > OCR > Overview
 
 OCR provides a feature to recognize the text area of images and documents and extract the text for each area. It can be used by customers who need to create a database for recognized documents or implement document processing automation.
 

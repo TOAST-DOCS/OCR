@@ -2,9 +2,11 @@
 
 OCR provides a feature to recognize the text area of images and documents and extract the text for each area. It can be used by customers who need to create a database for recognized documents or implement document processing automation.
 
-## Business Registration Certificate Analysis
+## Document OCR
 
-### Main Features
+### Business Registration Certificate Analysis
+
+#### Main Features
 
 * **Recognition of text areas in a business registration certificate**
     * Recognizes the text areas (bounding boxes) in a business registration certificate and provides the coordinates of the areas.
@@ -15,7 +17,7 @@ OCR provides a feature to recognize the text area of images and documents and ex
 * **Analysis results download**
     * You can download the results extracted from a business registration certificate image file as an Excel or JSON file.
 
-### Input Image Guide
+#### Input Image Guide
 
 For more accurate business registration analysis, please refer to the guide below.
 
@@ -30,9 +32,9 @@ For more accurate business registration analysis, please refer to the guide belo
 * The service supports result analysis for black-and-white and color images, but color images are recommended for accurate analysis.
 * The service provides analysis results for the business registration certificate in Korean only.
 
-## Credit Card Analysis
+### Credit Card Analysis
 
-### Main Features
+#### Main Features
 
 * **Recognition of text areas in a credit card**
     * Recognizes the text areas (bounding boxes) of card number and expiration date in a credit card image and provides the coordinates of the areas.
@@ -43,7 +45,7 @@ For more accurate business registration analysis, please refer to the guide belo
 * **Analysis results download**
     * You can download the results extracted from a credit card image file as a JSON file.
 
-### Input Image Guide
+#### Input Image Guide
 
 For more accurate credit card analysis, please refer to the guide below.
 
@@ -60,9 +62,9 @@ For more accurate credit card analysis, please refer to the guide below.
 
 ![Image Example](http://static.toastoven.net/prod_ocr/DocumentRecognizer_ex_img_en.png)
 
-## Analyze ID Card
+### Analyze ID Card
 
-### Main Features
+#### Main Features
 
 * **Recognition of text areas in an ID card**
 	* Recognizes the text areas (bounding boxes) in an ID card and provides the coordinates of the areas.
@@ -76,7 +78,7 @@ For more accurate credit card analysis, please refer to the guide below.
 * **Analysis results download**
 	* You can download the results extracted from an ID card image file as a JSON file.
 
-### Input Image Guide
+#### Input Image Guide
 
 For more accurate ID card analysis, please refer to the guide below.
 

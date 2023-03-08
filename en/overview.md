@@ -1,7 +1,6 @@
-## AI Service > OCR > Document OCR > Overview
+## AI Service > OCR > Overview
 
-Document OCR service provides a feature to recognize the text area of a business registration certificate, credit card, and ID card and extract text for each area, based on NHN Cloud's optical character recognition (OCR) technology.
-It can be used by customers who need to create a database for recognized documents or implement document processing automation. 
+OCR provides a feature to recognize the text area of images and documents and extract the text for each area. It can be used by customers who need to create a database for recognized documents or implement document processing automation.
 
 ## Business Registration Certificate Analysis
 

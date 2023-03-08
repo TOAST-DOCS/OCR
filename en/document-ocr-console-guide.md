@@ -18,7 +18,7 @@ Upload an image of the business registration certificate to analyze.
 
 After uploading the image, click the **Analyze** button and the analysis results will appear on the right side of the screen.
 
-![Business Registration](http://static.toastoven.net/prod_document_ocr/business_ocr_console_en.png)
+![Business Registration](http://static.toastoven.net/prod_ocr/business_ocr_console_en.png)
 
 * [Text (Key Value)] Displays the analyzed contents of the business registration certificate in the form of Key/Value.
 * [JSON] Displays the analysis results in JSON format.
@@ -31,7 +31,7 @@ After uploading the image, click the **Analyze** button and the analysis results
     * [resolution] normal: the resolution is the recommended resolution (HD 1280*720px) or above, low: the resolution is below the recommended resolution
     * [unitType] Coordinate unit for boxes (pixel by default, point for PDF)
     * [boxes] Coordinate values of the recognized area on the image ({x1, y1, x2, y2, x3, y3, x4, y4} format for each box)
-![bbox](http://static.toastoven.net/prod_document_ocr/bbox.png)
+![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
     * [JSON Sample]
 
 ```json
@@ -86,7 +86,7 @@ Upload an image of the credit card to analyze.
 
 After uploading the image, click the **Analyze** button and the analysis results will appear on the right side of the screen.
 
-![Credit Card](http://static.toastoven.net/prod_document_ocr/credit_card_ocr_console_en.png)
+![Credit Card](http://static.toastoven.net/prod_ocr/credit_card_ocr_console_en.png)
 
 * [Text (Key Value)] Displays the analyzed contents of the credit card in the form of Key/Value.
 * [JSON] Displays the analysis results in JSON format.
@@ -101,7 +101,7 @@ After uploading the image, click the **Analyze** button and the analysis results
         * [conf] Confidence of expiration date recognition result
     * [cardNumBoxes] Coordinate values of the card number recognition area on the image ({x1, y1, x2, y2, x3, y3, x4, y4} format for each box)
     * [validThruBox] Coordinate values of the expiration date recognition area on the image
-![bbox](http://static.toastoven.net/prod_document_ocr/bbox.png)
+![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
     * [JSON Sample]
 
 ```json
@@ -174,7 +174,7 @@ Upload an image of an ID card to analyze.
 
 After uploading the image, click the **Analyze** button and the analysis results will appear on the right side of the screen.
 
-![ID Card](http://static.toastoven.net/prod_document_ocr/id_card_ocr_console_en.png)
+![ID Card](http://static.toastoven.net/prod_ocr/id_card_ocr_console_en.png)
 
 
 * [Text (Key Value)] Displays the analyzed contents of the credit card in the form of Key/Value.
@@ -187,7 +187,7 @@ After uploading the image, click the **Analyze** button and the analysis results
       * [value] Value corresponding to a specific key
       * [conf] Confidence of an analysis result
     * [boxes] Coordinate values of the recognized area on the image ({x1, y1, x2, y2, x3, y3, x4, y4} format for each box)
-      ![bbox](http://static.toastoven.net/prod_document_ocr/bbox.png)
+      ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
     * [JSON Sample]
     
 ```json

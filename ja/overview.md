@@ -58,7 +58,7 @@ OCRは、NHN Cloudの 光学文字認識(OCR)技術を利用して画像や文�
 * 縦方向のカードの場合、カードのカード番号と有効期限が正しい方向の画像で認識してください。
 * クレジットカード分析画像例
 
-![Image Example](http://static.toastoven.net/prod_document_ocr/DocumentRecognizer_ex_img_jp.png)
+![Image Example](http://static.toastoven.net/prod_ocr/DocumentRecognizer_ex_img_jp.png)
 
 ## 身分証分析
 

@@ -231,7 +231,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 * 暗号化された項目(cardNums[0].value, totalCardNumなど)は **AES-256/CBC/PKCS7Padding**方式で暗号化されています(対称鍵を利用)。
 
 * boxes[0]
-  ![Bounding box](http://static.toastoven.net/prod_document_ocr/bbox.png)
+  ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 ### 身分証分析API
 
@@ -389,7 +389,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 * 暗号化された項目(keyValues[0].valueなど)は**AES-256/CBC/PKCS7Padding**方式で暗号化されています(対称鍵利用)。
 * boxes[0]
-  ![Bounding box](http://static.toastoven.net/prod_document_ocr/bbox.png)
+  ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 ### 身分証真偽確認API
 

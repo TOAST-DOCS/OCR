@@ -29,6 +29,6 @@
     * [resolution]推奨解像度(HD 1280*720px)以上の場合はnormal、推奨解像度未満はlow
     * [boxes]認識領域の画像上の座標値(box別{x1, y1, x2, y2, x3, y3, x4, y4}の形式)
     
-        ![bbox](http://static.toastoven.net/prod_document_ocr/bbox.png)
+        ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
     
 * 分析結果のコピーおよびダウンロード(JSON)機能を提供します。 

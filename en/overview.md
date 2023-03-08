@@ -58,7 +58,7 @@ For more accurate credit card analysis, please refer to the guide below.
 * If the card is a vertical card, use an image with the card number and expiration date of the vertical card in the correct orientation for recognition.
 * Credit card analysis image example
 
-![Image Example](http://static.toastoven.net/prod_document_ocr/DocumentRecognizer_ex_img_en.png)
+![Image Example](http://static.toastoven.net/prod_ocr/DocumentRecognizer_ex_img_en.png)
 
 ## Analyze ID Card
 

@@ -109,7 +109,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 
 * boxes[0]
  
-    ![Bounding box](http://static.toastoven.net/prod_document_ocr/bbox.png)
+    ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 ### クレジットカード分析API
 
@@ -241,4 +241,4 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-c
 
 * boxes[0]
  
-    ![Bounding box](http://static.toastoven.net/prod_document_ocr/bbox.png)
+    ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)

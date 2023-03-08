@@ -17,7 +17,7 @@
 
 사진을 업로드한 후 **분석** 버튼을 클릭하면 분석 결과가 화면 오른쪽에 나타납니다.
 
-![Vehicle Plate Registration](http://static.toastoven.net/prod_carplate_ocr/VehiclePlateOCR_console_ko.png)
+![Vehicle Plate Registration](http://static.toastoven.net/prod_ocr/VehiclePlateOCR_console_ko.png)
 
 * [텍스트(Key Value)] 분석된 차량 번호판의 내용을 Key/Value 형태로 표시합니다.
 * [JSON] 분석한 결과를 JSON 형태로 표시합니다.
@@ -29,6 +29,6 @@
     * [resolution] 권장 해상도(HD 1280*720px) 이상이면 normal, 권장 해상도 미만은 low
     * [boxes] 인식 영역에 대한 이미지 상의 좌표값(box 별 {x1, y1, x2, y2, x3, y3, x4, y4} 형태)
     
-        ![bbox](http://static.toastoven.net/prod_document_ocr/bbox.png)
+        ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
     
 * 분석 결과 복사 및 다운로드(JSON) 기능을 제공합니다. 

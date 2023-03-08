@@ -18,7 +18,7 @@
 
 画像をアップロードした後、**分析**ボタンをクリックすると、分析結果が画面右側に表示されます。
 
-![Business Registration](http://static.toastoven.net/prod_document_ocr/business_ocr_console_ja.png)
+![Business Registration](http://static.toastoven.net/prod_ocr/business_ocr_console_ja.png)
 
 * [テキスト(Key Value)]分析された事業者登録証の内容をKey/Value形式で表示します。
 * [JSON]分析した結果をJSON形式で表示します。
@@ -31,7 +31,7 @@
     * [resolution]推奨解像度(HD 1280*720px)以上の場合はnormal、推奨解像度未満はlow
     * [unitType] boxes座標単位(基本pixel、PDFの場合point)
     * [boxes]認識領域の画像上の座標値(box別{x1, y1, x2, y2, x3, y3, x4, y4}形式)
-![bbox](http://static.toastoven.net/prod_document_ocr/bbox.png)
+![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
     * [JSON Sample]
 
 ```json
@@ -87,7 +87,7 @@
 
 画像をアップロードした後、**分析**ボタンをクリックすると分析結果が画面右側に表示されます。
 
-![Credit Card](http://static.toastoven.net/prod_document_ocr/credit_card_ocr_console_ja.png)
+![Credit Card](http://static.toastoven.net/prod_ocr/credit_card_ocr_console_ja.png)
 
 * [テキスト(Key Value)]分析されたクレジットカードの内容をKey/Value形式で表示します。
 * [JSON]分析した結果をJSON形式で表示します。
@@ -102,7 +102,7 @@
         * [conf]有効期限認識結果の信頼度
     * [cardNumBoxes]カード番号認識領域の画像上の座標値(box別{x1, y1, x2, y2, x3, y3, x4, y4}形式)
     * [validThruBox]有効期限認識領域の画像上の座標値
-![bbox](http://static.toastoven.net/prod_document_ocr/bbox.png)
+![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
     * [JSON Sample]
 
 ```json
@@ -175,7 +175,7 @@
 
 写真をアップロードした後、**分析**ボタンをクリックすると、分析結果が画面右側に表示されます。
 
-![ID Card](http://static.toastoven.net/prod_document_ocr/id_card_ocr_console_ja.png)
+![ID Card](http://static.toastoven.net/prod_ocr/id_card_ocr_console_ja.png)
 
 
 * [テキスト(Key Value)]分析された身分証の内容をKey/Value形式で表示します。
@@ -188,7 +188,7 @@
       * [value]特定keyに該当する値
       * [conf]分析結果の信頼度
     * [boxes]認識領域の画像上の座標値(box別{x1, y1, x2, y2, x3, y3, x4, y4}形式)
-      ![bbox](http://static.toastoven.net/prod_document_ocr/bbox.png)
+      ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
     * [JSON Sample]
     
 ```json

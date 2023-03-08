@@ -231,7 +231,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 * 암호화된 항목들(cardNums[0].value, totalCardNum등)은 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어 있습니다(대칭 키 이용).
 
 * boxes[0]
-  ![Bounding box](http://static.toastoven.net/prod_document_ocr/bbox.png)
+  ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 ### 신분증 분석 API
 
@@ -389,7 +389,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 * 암호화된 항목들(keyValues[0].value 등)은 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어 있습니다(대칭 키 이용).
 * boxes[0]
-  ![Bounding box](http://static.toastoven.net/prod_document_ocr/bbox.png)
+  ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 ### 신분증 진위 확인 API
 

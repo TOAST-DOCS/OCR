@@ -18,7 +18,7 @@
 
 사진을 업로드한 후 **분석** 버튼을 클릭하면 분석 결과가 화면 오른쪽에 나타납니다.
 
-![Business Registration](http://static.toastoven.net/prod_document_ocr/business_ocr_console_ko.png)
+![Business Registration](http://static.toastoven.net/prod_ocr/business_ocr_console_ko.png)
 
 * [텍스트(Key Value)] 분석된 사업자등록증의 내용을 Key/Value 형태로 표시합니다.
 * [JSON] 분석한 결과를 JSON 형태로 표시합니다.
@@ -31,7 +31,7 @@
     * [resolution] 권장 해상도(HD 1280*720px) 이상이면 normal, 권장 해상도 미만은 low
     * [unitType] boxes 좌표 단위(기본 pixel, PDF의 경우 point)
     * [boxes] 인식 영역에 대한 이미지 상의 좌표값(box 별 {x1, y1, x2, y2, x3, y3, x4, y4} 형태)
-![bbox](http://static.toastoven.net/prod_document_ocr/bbox.png)
+![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
     * [JSON Sample]
 
 ```json
@@ -86,7 +86,7 @@
 
 사진을 업로드한 후 **분석** 버튼을 클릭하면 분석 결과가 화면 오른쪽에 나타납니다.
 
-![Credit Card](http://static.toastoven.net/prod_document_ocr/credit_card_ocr_console_ko.png)
+![Credit Card](http://static.toastoven.net/prod_ocr/credit_card_ocr_console_ko.png)
 
 * [텍스트(Key Value)] 분석된 신용카드의 내용을 Key/Value 형태로 표시합니다.
 * [JSON] 분석한 결과를 JSON 형태로 표시합니다.
@@ -101,7 +101,7 @@
         * [conf] 유효 기간 인식 결과 신뢰도
     * [cardNumBoxes] 카드 번호 인식 영역에 대한 이미지 상의 좌표값(box 별 {x1, y1, x2, y2, x3, y3, x4, y4} 형태)
     * [validThruBox] 유효 기간 인식 영역에 대한 이미지 상의 좌표값
-![bbox](http://static.toastoven.net/prod_document_ocr/bbox.png)
+![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
     * [JSON Sample]
 
 ```json
@@ -174,7 +174,7 @@
 
 사진을 업로드한 후 **분석** 버튼을 클릭하면 분석 결과가 화면 오른쪽에 나타납니다.
 
-![ID Card](http://static.toastoven.net/prod_document_ocr/id_card_ocr_console_ko.png)
+![ID Card](http://static.toastoven.net/prod_ocr/id_card_ocr_console_ko.png)
 
 
 * [텍스트(Key Value)] 분석된 신분증의 내용을 Key/Value 형태로 표시합니다.
@@ -187,7 +187,7 @@
       * [value] 특정 key에 해당하는 값
       * [conf] 분석 결과에 대한 신뢰도
     * [boxes] 인식 영역에 대한 이미지 상의 좌표값(box 별 {x1, y1, x2, y2, x3, y3, x4, y4} 형태)
-      ![bbox](http://static.toastoven.net/prod_document_ocr/bbox.png)
+      ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
     * [JSON Sample]
     
 ```json

@@ -59,7 +59,7 @@ OCR은 NHN Cloud의 광학 문자 인식(OCR) 기술을 이용해 이미지나 �
 * 세로 방향의 카드인 경우, 세로 카드의 카드 번호와 유효 기간이 정방향인 이미지로 인식하세요.
 * 신용카드 분석 이미지 예시
 
-![Image Example](http://static.toastoven.net/prod_document_ocr/DocumentRecognizer_ex_img.png)
+![Image Example](http://static.toastoven.net/prod_ocr/DocumentRecognizer_ex_img.png)
 
 ## 신분증 분석
 

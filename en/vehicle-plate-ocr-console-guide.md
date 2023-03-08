@@ -17,7 +17,7 @@ Upload a license plate image for analysis.
 
 After uploading the image, click the **Analyze** button and the analysis results will appear on the right side of the screen.
 
-![Vehicle Plate Registration](http://static.toastoven.net/prod_carplate_ocr/VehiclePlateOCR_console_en.png)
+![Vehicle Plate Registration](http://static.toastoven.net/prod_ocr/VehiclePlateOCR_console_en.png)
 
 * [Text (Key Value)] Displays the analyzed license plate contents in Key/Value format.
 * [JSON] Displays the analysis results in JSON format.
@@ -29,6 +29,6 @@ After uploading the image, click the **Analyze** button and the analysis results
     * [resolution] normal: the resolution is the recommended resolution (HD 1280*720px) or above, low: the resolution is below the recommended resolution
     * [boxes] Coordinate values of the recognized area on the image ({x1, y1, x2, y2, x3, y3, x4, y4} format for each box)
 
-        ![bbox](http://static.toastoven.net/prod_document_ocr/bbox.png)
+        ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
 
 * Provides a feature to copy and download (in JSON) analysis results.

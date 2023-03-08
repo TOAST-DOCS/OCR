@@ -231,7 +231,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 * Encrypted items (cardNums[0].value, totalCardNum, etc.) are encrypted with the **AES-256/CBC/PKCS7Padding** method (using symmetric key).
 
 * boxes[0]
-![Bounding box](http://static.toastoven.net/prod_document_ocr/bbox.png)
+![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 ### ID Card Analysis API
 
@@ -389,7 +389,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 * Encrypted items (keyValues[0].value, etc.) are encrypted with the **AES-256/CBC/PKCS7Padding** method (using symmetric key).
 * boxes[0]
-  ![Bounding box](http://static.toastoven.net/prod_document_ocr/bbox.png)
+  ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 ### Verify Authenticity API
 

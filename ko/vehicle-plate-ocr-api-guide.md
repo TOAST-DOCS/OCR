@@ -92,5 +92,5 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/vehicle-
 
 * boxes[0]
  
-    ![Bounding box](http://static.toastoven.net/prod_document_ocr/bbox.png)
+    ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 

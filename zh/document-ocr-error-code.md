@@ -37,12 +37,12 @@
 | 5000005 | FILE_READ_FAIL | File read fail. |
 | 5000006 | DECRYPT_FAIL | File decrypt fail. |
 | 5000007 | ENCRYPT_FAIL | File encrypt fail. |
-| 5003001 | OCR_DOCUMENT_BUSINESS_API_FAIL | Document(business) Recognizer Api fail. |
-| 5003002 | OCR_DOCUMENT_BUSINESS_API_RETURN_EMPTY | Document(business) Recognizer Api returned empty body. |
-| 5003003 | OCR_DOCUMENT_BUSINESS_RECOGNITION_FAIL | Document(business) Recognizer failed to recognize the document. |
-| 5003011 | OCR_DOCUMENT_CREDIT_CARD_API_FAIL | Document(credit card) Recognizer Api fail. |
-| 5003012 | OCR_DOCUMENT_CREDIT_CARD_API_RETURN_EMPTY | Document(credit card) Recognizer Api returned empty body. |
-| 5003013 | OCR_DOCUMENT_CREDIT_CARD_RECOGNITION_FAIL | Document(credit card) Recognizer failed to recognize the document. |
-| 5003021 | OCR_DOCUMENT_ID_CARD_API_FAIL | Document(id card) Recognizer Api fail. |
-| 5003022 | OCR_DOCUMENT_ID_CARD_API_RETURN_EMPTY | Document(id card) Recognizer Api returned empty body. |
-| 5003023 | OCR_DOCUMENT_ID_CARD_RECOGNITION_FAIL | Document(id card) Recognizer failed to recognize the document. |
+| 5003001 | OCR_DOCUMENT_BUSINESS_API_FAIL | Document(business) OCR Api fail. |
+| 5003002 | OCR_DOCUMENT_BUSINESS_API_RETURN_EMPTY | Document(business) OCR Api returned empty body. |
+| 5003003 | OCR_DOCUMENT_BUSINESS_RECOGNITION_FAIL | Document(business) OCR failed to recognize the document. |
+| 5003011 | OCR_DOCUMENT_CREDIT_CARD_API_FAIL | Document(credit card) OCR Api fail. |
+| 5003012 | OCR_DOCUMENT_CREDIT_CARD_API_RETURN_EMPTY | Document(credit card) OCR Api returned empty body. |
+| 5003013 | OCR_DOCUMENT_CREDIT_CARD_RECOGNITION_FAIL | Document(credit card) OCR failed to recognize the document. |
+| 5003021 | OCR_DOCUMENT_ID_CARD_API_FAIL | Document(id card) OCR Api fail. |
+| 5003022 | OCR_DOCUMENT_ID_CARD_API_RETURN_EMPTY | Document(id card) OCR Api returned empty body. |
+| 5003023 | OCR_DOCUMENT_ID_CARD_RECOGNITION_FAIL | Document(id card) OCR failed to recognize the document. |

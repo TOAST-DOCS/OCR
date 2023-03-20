@@ -1,4 +1,4 @@
-## AI Service > OCR > Document OCR > APIガイド
+## AI Service > OCR > Document OCR > API v1.0ガイド
 
 ### 事業者登録証分析API
 

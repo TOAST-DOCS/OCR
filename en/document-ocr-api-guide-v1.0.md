@@ -1,4 +1,4 @@
-## AI Service > OCR > Document OCR > API Guide
+## AI Service > OCR > Document OCR > API v1.0 Guide
 
 ### Business Registration Certificate Analysis API
 

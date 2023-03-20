@@ -1,4 +1,4 @@
-## AI Service > OCR > Document OCR >API v2.0 가이드
+## AI Service > OCR > Document OCR > API v2.0 가이드
 
 ### v2.0 API 소개
 

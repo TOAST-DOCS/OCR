@@ -1,5 +1,8 @@
 ## AI Service > OCR > Document OCR > Release Notes
 
+### March 28, 2023
+* Changed the service name from Document Recognizer to OCR
+
 ### February 28, 2023
 * Improved the performance of business registration certificate
 * Improved the console UI

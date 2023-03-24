@@ -1,5 +1,8 @@
 ## AI Service > OCR > Document OCR > 릴리스 노트
 
+### 2023. 03. 28.
+* Document Recognizer에서 OCR로 서비스 명칭 변경
+
 ### 2023. 02. 28.
 * 사업자등록증 인식 성능 개선
 * 콘솔 UI 개선

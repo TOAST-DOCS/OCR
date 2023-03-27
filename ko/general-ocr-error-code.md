@@ -1,4 +1,4 @@
-## AI Service > OCR > General OCR > Error Code
+## AI Service > OCR > General OCR > 오류 코드
 
 | resultCode | resultKey | resultMessage |
 |---|---|----|

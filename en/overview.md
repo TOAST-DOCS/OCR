@@ -92,7 +92,7 @@ For more accurate ID card analysis, please refer to the guide below.
     * It might be difficult to extract the correct key/value if the text is difficult to read due to light reflection or shadows caused by the camera flash, etc.
     * The service supports result analysis for black-and-white and color images, but color images are recommended for accurate analysis.
     * The service provides analysis results for ID cards (resident registration certificate/driver license) in Korean only.
-
+    
 ## Service Targets
 * When you need to register documents (business registration certificate, credit card, and ID card) in the customer's system automatically
 * When you need to implement document processing automation

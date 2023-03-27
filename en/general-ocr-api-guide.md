@@ -1,119 +1,105 @@
-## AI Service > OCR > General OCR > Console User Guide
-
-You can get the results of text analysis included in the image by uploading the image file to the console.
-
-## Image Analysis
-
-### Upload an Image for Analysis
-
-Upload an image to analyze.
-
-- Images can be uploaded in the following two methods:
-    1. Click the **Upload Image** button
-    2. Drag and drop the image
+## AI Service > OCR > General OCR > API Guide
 
 
-### Analysis
+### General OCR API
 
-After uploading the image, click the **Analyze** button and the analysis results will appear on the right side of the screen.
+#### Request
 
-![General OCR Image](http://static.toastoven.net/prod_ocr/GeneralOCR_console_ko.png)
+- You can check the {appKey} and {secretKey} in the **URL & Appkey** menu at the top of the console.
 
-* [Text (Key Value)] Displays the analyzed contents of the credit card in the form of Key/Value.
-* [JSON] Displays the analysis results in JSON format.
-    * [fileType] File extension (jpg, png)
-    * [listOfinferTexts] Analysis result
-        * [value] Recognized text content
-        * [conf] Confidence score of an analysis result
-    * [resolution] normal: the resolution is the recommended resolution (HD 1280\*720px) or above, low: the resolution is below the recommended resolution
-    * [listOfboundingBoxes] Coordinate values of the recognized area on the image ({x1, y1, x2, y2, x3, y3, x4, y4} format for each box)
+[URI]
 
-      ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
+| Method | URI                                                               |
+|---|-------------------------------------------------------------------|
+| POST | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general |
 
-* Provides a feature to copy and download (in JSON) analysis results. 
+[Request Header]
 
-* [JSON Sample]
-```json
+| Name | Value | Description |
+|---|---|---|
+| Authorization | {secretKey} | Security key issued from the console |
+
+[Request Body]
+
+- Put binary data of the image file.
+
+```
+curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
+-F 'image=@sample.png' \
+-H 'Authorization: ${secretKey}'
+```
+
+[Field]
+
+| Name | Type | Description |
+|---|---|---|
+| image | multipart/form-data | Image file |
+
+#### Response
+
+[Response Body]
+
+```
 {
-  "fileType": "png",
-  "gpuUsed": true,
-  "listOfinferTexts": [
-    {
-      "inferTexts": [
-        {
-          "value": "Relevant word",
-          "conf": 0.72
-        }
-      ]
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
     },
-    {
-      "inferTexts": [
-        {
-          "value": "피",
-          "conf": 0.92
-        },
-        {
-          "value": "blood",
-          "conf": 0.59
-        },
-        {
-          "value": "blood",
-          "conf": 0.79
-        }
-      ]
-    },
-    ...
-  ],
-  "listOfboundingBoxes": [
-    {
-      "boundingBoxes": [
-        {
-          "x1": 279,
-          "y1": 122,
-          "x2": 465,
-          "y2": 110,
-          "x3": 467,
-          "y3": 162,
-          "x4": 282,
-          "y4": 173
-        }
-      ]
-    },
-    {
-      "boundingBoxes": [
-        {
-          "x1": 151,
-          "y1": 227,
-          "x2": 197,
-          "y2": 227,
-          "x3": 197,
-          "y3": 269,
-          "x4": 151,
-          "y4": 269
-        },
-        {
-          "x1": 430,
-          "y1": 219,
-          "x2": 546,
-          "y2": 216,
-          "x3": 547,
-          "y3": 255,
-          "x4": 431,
-          "y4": 258
-        },
-        {
-          "x1": 860,
-          "y1": 206,
-          "x2": 969,
-          "y2": 208,
-          "x3": 968,
-          "y3": 251,
-          "x4": 859,
-          "y4": 248
-        }
-      ]
-    },
-    ...
-  ]
+    "result": {
+        "fileType": "png",
+        "listOfInferTextList": [
+            {
+                "value":"stella",
+                "conf":0.99
+            },
+            {
+                "value":"artois",
+                "conf":0.98
+            },
+            {
+                "value":"belgium"
+                "conf":0.98
+            }
+        ],
+        "listOfBoundingBoxList": [
+            {
+                "x1": 32,
+                "y1": 23,
+                "x2": 65,
+                "y2": 23,
+                "x3": 65,
+                "y3": 35,
+                "x4": 32,
+                "y4": 35
+            }
+        ],
+        "resolution": "normal"
+    }
 }
 ```
+
+[Header]
+
+| Name | Type | Description |
+|---|---|---|
+| isSuccessful | Boolean | Analysis API success or not |
+| resultCode | Integer | Result code |
+| resultMessage | String | Result message (success on success, error content on failure) |
+
+[Field]
+
+| Name | Type | Description                                                |
+|---|---|---------------------------------------------------|
+| fileType | String | File extension (jpg, png)                                  |
+| values | List | List of recognition results                                          |
+| listOfInferTextList[0].value | String | Recognized content                                             |
+| listOfInferTextList[0].conf | Double | Confidence score of the recognition result                                         |
+| listOfBoundingBoxList | List | List of bounding box coordinates                         |
+| listOfBoundingBoxList[0] | Object  | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }       |
+| resolution | String | normal: the resolution is the recommended resolution (HD 1280\*720px) or above, low: the resolution is below the recommended resolution |
+
+* boxes[0]
+
+  ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
+

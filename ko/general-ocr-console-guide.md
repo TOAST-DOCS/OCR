@@ -1,36 +1,36 @@
-## AI Service > OCR > General OCR > Console User Guide
+## AI Service > OCR > General OCR > 콘솔 사용 가이드
 
-You can get the results of text analysis included in the image by uploading the image file to the console.
+콘솔에 이미지 파일을 올려 이미지에 포함된 텍스트 분석 결과를 얻을 수 있습니다.
 
-## Image Analysis
+## 이미지 분석
 
-### Upload an Image for Analysis
+### 분석을 위한 이미지 업로드
 
-Upload an image to analyze.
+분석할 이미지를 업로드합니다.
 
-- Images can be uploaded in the following two methods:
-    1. Click the **Upload Image** button
-    2. Drag and drop the image
+- 이미지는 다음 2가지 방법으로 업로드할 수 있습니다.
+    1. **이미지 업로드** 버튼 클릭
+    2. 이미지 드래그 앤드 드롭
 
 
-### Analysis
+### 분석
 
-After uploading the image, click the **Analyze** button and the analysis results will appear on the right side of the screen.
+사진을 업로드한 후 **분석** 버튼을 클릭하면 분석 결과가 화면 오른쪽에 나타납니다.
 
 ![General OCR Image](http://static.toastoven.net/prod_ocr/GeneralOCR_console_ko.png)
 
-* [Text (Key Value)] Displays the analyzed contents of the credit card in the form of Key/Value.
-* [JSON] Displays the analysis results in JSON format.
-    * [fileType] File extension (jpg, png)
-    * [listOfinferTexts] Analysis result
-        * [value] Recognized text content
-        * [conf] Confidence score of an analysis result
-    * [resolution] normal: the resolution is the recommended resolution (HD 1280\*720px) or above, low: the resolution is below the recommended resolution
-    * [listOfboundingBoxes] Coordinate values of the recognized area on the image ({x1, y1, x2, y2, x3, y3, x4, y4} format for each box)
+* [텍스트(Key Value)] 분석된 이미지의 내용을 Key/Value 형태로 표시합니다.
+* [JSON] 분석한 결과를 JSON 형태로 표시합니다.
+    * [fileType] 파일 확장자(jpg, png)
+    * [listOfinferTexts] 분석 결과
+        * [value] 인식한 텍스트 내용
+        * [conf] 분석 결과에 대한 신뢰도
+    * [resolution] 권장 해상도(HD 1280*720px) 이상이면 normal, 권장 해상도 미만은 low
+    * [listOfboundingBoxes] 인식 영역에 대한 이미지 상의 좌표값(box 별 {x1, y1, x2, y2, x3, y3, x4, y4} 형태)
 
       ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
 
-* Provides a feature to copy and download (in JSON) analysis results. 
+* 분석 결과 복사 및 다운로드(JSON) 기능을 제공합니다. 
 
 * [JSON Sample]
 ```json
@@ -41,7 +41,7 @@ After uploading the image, click the **Analyze** button and the analysis results
     {
       "inferTexts": [
         {
-          "value": "Relevant word",
+          "value": "관련단어",
           "conf": 0.72
         }
       ]
@@ -57,7 +57,7 @@ After uploading the image, click the **Analyze** button and the analysis results
           "conf": 0.59
         },
         {
-          "value": "blood",
+          "value": "블러드",
           "conf": 0.79
         }
       ]

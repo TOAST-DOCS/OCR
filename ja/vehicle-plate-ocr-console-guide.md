@@ -17,7 +17,7 @@
 
 写真をアップロードした後、**分析**ボタンをクリックすると分析結果が画面の右側に表示されます。
 
-![Vehicle Plate Registration](http://static.toastoven.net/prod_carplate_ocr/VehiclePlateOCR_console_ja.png)
+![Vehicle Plate Registration](http://static.toastoven.net/prod_ocr/VehiclePlateOCR_console_ja.png)
 
 * [テキスト(Key Value)]分析された車両ナンバープレートの内容をKey/Value形式で表示します。
 * [JSON]分析した結果をJSON形式で表示します。

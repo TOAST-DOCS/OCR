@@ -1,5 +1,8 @@
 ## AI Service > OCR > Vehicle Plate OCR > リリースノート
 
+### 2023. 04. 01.
+Vehicle Plate Recognizerサービスを OCRサービスに統合
+
 ### 2023. 02. 28.
 * ナンバープレート認識性能の改善
 * コンソールのUI改善

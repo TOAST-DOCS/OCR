@@ -1,5 +1,8 @@
 ## AI Service > OCR > Vehicle Plate OCR > Release Notes
 
+### April 1, 2023
+* Integrated Vehicle Plate Recognizer into OCR
+
 ### February 28, 2023
 * Improved the performance of license plate recognition
 * Improved the console UI

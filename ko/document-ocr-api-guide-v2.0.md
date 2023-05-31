@@ -4,7 +4,7 @@
 
 #### v1.0과 달라진 점
 
-1. 전자 봉투 방식으로 보안이 강화되었습니다.
+* 전자 봉투 방식으로 보안이 강화되었습니다.
 
 #### 도메인
 
@@ -21,7 +21,7 @@
 
 * 요청, 응답 시 Base64 인코딩 여부를 확인하십시오.
 * 암호화, 복호화의 상세 모드(예: AES-256/CBC/PKCS7Padding)를 확인하십시오.
-* 암호화에 사용되는 대칭 키는 반드시 32byte 난수로 생성합니다.
+* 암호화에 사용되는 대칭 키는 반드시 32Byte 난수로 생성합니다. 보안을 위해 각 요청마다 새로운 대칭 키를 생성하여 사용하는 것을 권장합니다.
 
 ### 공개 키 발급
 
@@ -445,10 +445,10 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 -H 'Content-Type: application/json' \
 --data-raw '{
   "idType": "driver",
-  "name": "홍길동",
-  "residentNumber": "8001011",
-  "driverLicenseNumber": "112233333344",
-  "serialNum": "A1B2C3"
+  "name": "J/MTycDJ...",
+  "residentNumber": "P12ztmj...",
+  "driverLicenseNumber": "OHjVJrUMh...",
+  "serialNum": "7tnTOKuKGJ..."
 }'
 ```
 

@@ -4,7 +4,7 @@
 
 #### Changes from v1.0
 
-1. Enhanced security with the electronic envelope method.
+* Enhanced security with the electronic envelope method.
 
 #### Domain
 
@@ -445,10 +445,10 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 -H 'Content-Type: application/json' \
 --data-raw '{
   "idType": "driver",
-  "name": "홍길동",
-  "residentNumber": "8001011",
-  "driverLicenseNumber": "112233333344",
-  "serialNum": "A1B2C3"
+  "name": "J/MTycDJ...",
+  "residentNumber": "P12ztmj...",
+  "driverLicenseNumber": "OHjVJrUMh...",
+  "serialNum": "7tnTOKuKGJ..."
 }'
 ```
 

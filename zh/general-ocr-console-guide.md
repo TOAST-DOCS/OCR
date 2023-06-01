@@ -1,0 +1,119 @@
+## AI Service > OCR > General OCR > Console User Guide
+
+You can get the results of text analysis included in the image by uploading the image file to the console.
+
+## Image Analysis
+
+### Upload an Image for Analysis
+
+Upload an image to analyze.
+
+- Images can be uploaded in the following two methods:
+    1. Click the **Upload Image** button
+    2. Drag and drop the image
+
+
+### Analysis
+
+After uploading the image, click the **Analyze** button and the analysis results will appear on the right side of the screen.
+
+![General OCR Image](http://static.toastoven.net/prod_ocr/GeneralOCR_console_ko.png)
+
+* [Text (Key Value)] Displays the analyzed contents of the credit card in the form of Key/Value.
+* [JSON] Displays the analysis results in JSON format.
+    * [fileType] File extension (jpg, png)
+    * [listOfinferTexts] Analysis result
+        * [value] Recognized text content
+        * [conf] Confidence score of an analysis result
+    * [resolution] normal: the resolution is the recommended resolution (HD 1280\*720px) or above, low: the resolution is below the recommended resolution
+    * [listOfboundingBoxes] Coordinate values of the recognized area on the image ({x1, y1, x2, y2, x3, y3, x4, y4} format for each box)
+
+      ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
+
+* Provides a feature to copy and download (in JSON) analysis results. 
+
+* [JSON Sample]
+```json
+{
+  "fileType": "png",
+  "gpuUsed": true,
+  "listOfinferTexts": [
+    {
+      "inferTexts": [
+        {
+          "value": "Relevant word",
+          "conf": 0.72
+        }
+      ]
+    },
+    {
+      "inferTexts": [
+        {
+          "value": "피",
+          "conf": 0.92
+        },
+        {
+          "value": "blood",
+          "conf": 0.59
+        },
+        {
+          "value": "blood",
+          "conf": 0.79
+        }
+      ]
+    },
+    ...
+  ],
+  "listOfboundingBoxes": [
+    {
+      "boundingBoxes": [
+        {
+          "x1": 279,
+          "y1": 122,
+          "x2": 465,
+          "y2": 110,
+          "x3": 467,
+          "y3": 162,
+          "x4": 282,
+          "y4": 173
+        }
+      ]
+    },
+    {
+      "boundingBoxes": [
+        {
+          "x1": 151,
+          "y1": 227,
+          "x2": 197,
+          "y2": 227,
+          "x3": 197,
+          "y3": 269,
+          "x4": 151,
+          "y4": 269
+        },
+        {
+          "x1": 430,
+          "y1": 219,
+          "x2": 546,
+          "y2": 216,
+          "x3": 547,
+          "y3": 255,
+          "x4": 431,
+          "y4": 258
+        },
+        {
+          "x1": 860,
+          "y1": 206,
+          "x2": 969,
+          "y2": 208,
+          "x3": 968,
+          "y3": 251,
+          "x4": 859,
+          "y4": 248
+        }
+      ]
+    },
+    ...
+  ]
+}
+```

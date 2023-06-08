@@ -4,7 +4,7 @@
 
 #### v1.0と違なる点
 
-1. セキュリティがデジタルエンベロープ方式に強化されました。
+* セキュリティがデジタルエンベロープ方式に強化されました。
 
 #### ドメイン
 
@@ -21,7 +21,7 @@
 
 * リクエスト、レスポンス時にBase64エンコードされているかどうかを確認してください。
 * 暗号化、復号の詳細モード(例：AES-256/CBC/PKCS7Padding)を確認してください。
-* 暗号化に使用される対称鍵は、必ず32byte乱数で作成します。
+* 暗号化に使用される対称鍵は、必ず32Byte乱数で作成します。セキュリティのため、リクエストごとに新しい対称鍵を生成して使用することを推奨します。
 
 ### 公開鍵の発行
 
@@ -445,10 +445,10 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 -H 'Content-Type: application/json' \
 --data-raw '{
   "idType": "driver",
-  "name": "홍길동",
-  "residentNumber": "8001011",
-  "driverLicenseNumber": "112233333344",
-  "serialNum": "A1B2C3"
+  "name": "J/MTycDJ...",
+  "residentNumber": "P12ztmj...",
+  "driverLicenseNumber": "OHjVJrUMh...",
+  "serialNum": "7tnTOKuKGJ..."
 }'
 ```
 

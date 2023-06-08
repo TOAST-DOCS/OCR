@@ -21,7 +21,7 @@
 
 * Check whether the request or response is Base64 encoded.
 * Check the detailed mode of encryption and decryption (eg AES-256/CBC/PKCS7Padding).
-* The symmetric key used for encryption must be generated as a 32-byte random number.
+* The symmetric key used for encryption must be generated as a 32 byte random number. For security, it is recommended to create and use a new symmetric key for each request.
 
 ### Issue Public Key
 

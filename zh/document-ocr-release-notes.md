@@ -1,5 +1,8 @@
 ## AI Service > OCR > Document OCR > Release Notes
 
+### June 13, 2023
+* Improved ID card recognition performance
+
 ### March 28, 2023
 * Changed the service name from Document Recognizer to OCR
 

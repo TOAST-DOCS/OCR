@@ -4,7 +4,7 @@
 
 #### Changes from v1.0
 
-1. Enhanced security with the electronic envelope method.
+* Enhanced security with the electronic envelope method.
 
 #### Domain
 
@@ -21,7 +21,7 @@
 
 * Check whether the request or response is Base64 encoded.
 * Check the detailed mode of encryption and decryption (eg AES-256/CBC/PKCS7Padding).
-* The symmetric key used for encryption must be generated as a 32-byte random number.
+* The symmetric key used for encryption must be generated as a 32 byte random number. For security, it is recommended to create and use a new symmetric key for each request.
 
 ### Issue Public Key
 
@@ -445,10 +445,10 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 -H 'Content-Type: application/json' \
 --data-raw '{
   "idType": "driver",
-  "name": "홍길동",
-  "residentNumber": "8001011",
-  "driverLicenseNumber": "112233333344",
-  "serialNum": "A1B2C3"
+  "name": "J/MTycDJ...",
+  "residentNumber": "P12ztmj...",
+  "driverLicenseNumber": "OHjVJrUMh...",
+  "serialNum": "7tnTOKuKGJ..."
 }'
 ```
 

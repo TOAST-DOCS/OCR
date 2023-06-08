@@ -1,5 +1,8 @@
 ## AI Service > OCR > Document OCR > リリースノート
 
+### 2023. 06. 13.
+* 身分証明書認識性能の改善
+
 ### 2023. 03. 28.
 * Document RecognizerからOCRにサービス名称を変更
 

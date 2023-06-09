@@ -48,30 +48,40 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
     },
     "result": {
         "fileType": "png",
-        "listOfInferTextList": [
+        "listOfInferTexts": [
             {
-                "value":"stella",
-                "conf":0.99
-            },
-            {
-                "value":"artois",
-                "conf":0.98
-            },
-            {
-                "value":"belgium"
-                "conf":0.98
+                "inferTexts": [
+                    {
+                        "value":"stella",
+                        "conf":0.99
+                    },
+                    {
+                        "value":"artois",
+                        "conf":0.98
+                    },
+                ],
+                "inferTexts": [
+                    {
+                        "value":"belgium",
+                        "conf":0.99
+                    }
+                ]
             }
         ],
-        "listOfBoundingBoxList": [
+        "listOfBoundingBoxes": [
             {
-                "x1": 32,
-                "y1": 23,
-                "x2": 65,
-                "y2": 23,
-                "x3": 65,
-                "y3": 35,
-                "x4": 32,
-                "y4": 35
+                "boundingBoxes": [
+                    {
+                        "x1": 32,
+                        "y1": 23,
+                        "x2": 65,
+                        "y2": 23,
+                        "x3": 65,
+                        "y3": 35,
+                        "x4": 32,
+                        "y4": 35
+                    }
+                ]
             }
         ],
         "resolution": "normal"
@@ -89,15 +99,15 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 [Field]
 
-| Name | Type | Description                                                |
-|---|---|---------------------------------------------------|
-| fileType | String | File extension (jpg, png)                                  |
-| values | List | List of recognition results                                          |
-| listOfInferTextList[0].value | String | Recognized content                                             |
-| listOfInferTextList[0].conf | Double | Confidence score of the recognition result                                         |
-| listOfBoundingBoxList | List | List of bounding box coordinates                         |
-| listOfBoundingBoxList[0] | Object  | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }       |
-| resolution | String | normal: the resolution is the recommended resolution (HD 1280\*720px) or above, low: the resolution is below the recommended resolution |
+| Name                                    | Type | Description                                                |
+|-----------------------------------------|---|---------------------------------------------------|
+| fileType                                | String | File extension (jpg, png)                                  |
+| values                                  | List | List of recognition results                                          |
+| listOfInferTexts[0].inferTexts[0].value | String | Recognized content                                             |
+| listOfInferTexts[0].inferTexts[0].conf  | Double | Confidence score of the recognition result                                         |
+| listOfBoundingBoxes                     | List | List of bounding box coordinates                         |
+| listOfBoundingBoxes[0].boundingBoxes[0] | Object  | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }       |
+| resolution                              | String | normal: the resolution is the recommended resolution (HD 1280\*720px) or above, low: the resolution is below the recommended resolution |
 
 * boxes[0]
 

@@ -22,11 +22,11 @@ After uploading the image, click the **Analyze** button and the analysis results
 * [Text (Key Value)] Displays the analyzed contents of the credit card in the form of Key/Value.
 * [JSON] Displays the analysis results in JSON format.
     * [fileType] File extension (jpg, png)
-    * [listOfinferTexts] Analysis result
+    * [listOfInferTexts] Analysis result
         * [value] Recognized text content
         * [conf] Confidence score of an analysis result
     * [resolution] normal: the resolution is the recommended resolution (HD 1280\*720px) or above, low: the resolution is below the recommended resolution
-    * [listOfboundingBoxes] Coordinate values of the recognized area on the image ({x1, y1, x2, y2, x3, y3, x4, y4} format for each box)
+    * [listOfBoundingBoxes] Coordinate values of the recognized area on the image ({x1, y1, x2, y2, x3, y3, x4, y4} format for each box)
 
       ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
 
@@ -36,8 +36,7 @@ After uploading the image, click the **Analyze** button and the analysis results
 ```json
 {
   "fileType": "png",
-  "gpuUsed": true,
-  "listOfinferTexts": [
+  "listOfInferTexts": [
     {
       "inferTexts": [
         {
@@ -64,7 +63,7 @@ After uploading the image, click the **Analyze** button and the analysis results
     },
     ...
   ],
-  "listOfboundingBoxes": [
+  "listOfBoundingBoxes": [
     {
       "boundingBoxes": [
         {

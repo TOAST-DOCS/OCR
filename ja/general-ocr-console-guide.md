@@ -30,7 +30,7 @@
 
       ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
 
-* 分析結果のコピーおよびダウンロード(Text, JSON)機能を提供します。 
+* 分析結果のコピーおよびダウンロード(Text、JSON)機能を提供します。 
 
 * [JSON Sample]
 ```json

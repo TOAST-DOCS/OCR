@@ -30,7 +30,7 @@ After uploading the image, click the **Analyze** button and the analysis results
 
       ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
 
-* Provides a feature to copy and download (in JSON) analysis results. 
+* Provides a feature to copy and download (Text, JSON) analysis results. 
 
 * [JSON Sample]
 ```json

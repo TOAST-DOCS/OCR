@@ -128,7 +128,7 @@ OCRは、NHN Cloudの 光学文字認識(OCR)技術を利用して画像や文�
 
 ![Image Example](http://static.toastoven.net/prod_ocr/VehiclePlateOCR_ex_img_ja.png)
 
-# General OCR
+## General OCR
 
 ### 主な機能
 

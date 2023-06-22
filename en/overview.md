@@ -133,11 +133,11 @@ For more accurate license plate analysis, please refer to the guide below.
 ### Main Features
 
 * **Recognition of text areas in image**
-  * Recognizes the text areas (bounding boxes) in an image and provides the coordinates of the areas.
+    * Recognizes the text areas (bounding boxes) in an image and provides the coordinates of the areas.
 * **Confidence**
-  * Detects text in the image and provides a confidence for it.
+    * Detects text in the image and provides a confidence for it.
 * **Analysis results download**
-  * You can download the results extracted from an image file as a JSON file.
+    * You can download the results extracted from an image file as a Text or JSON file.
 
 ### Input Image Guide
 

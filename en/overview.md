@@ -2,6 +2,32 @@
 
 OCR provides a feature to recognize the text area of images and documents and extract the text for each area. It can be used by customers who need to create a database for recognized documents or implement document processing automation.
 
+## General OCR
+
+### Main Features
+
+* **Recognition of text areas in image**
+    * Recognizes the text areas (bounding boxes) in an image and provides the coordinates of the areas.
+* **Confidence**
+    * Detects text in the image and provides a confidence for it.
+* **Analysis results download**
+    * You can download the results extracted from an image file as a Text or JSON file.
+
+### Input Image Guide
+
+For more accurate image analysis, please refer to the guide below.
+
+* File recommendations
+    * File format: Supports analysis of images in .jpeg, .png format.
+    * Maximum size: 5 MB
+    * Recommended resolution: 1280x720
+* Image recommendation
+    * Please use an image taken in a condition where the subject has been laid out as straight as possible on a flat surface.
+    * Please make the image recognized as a full image of a rectangular shape.
+    * It might be difficult to extract text correctly if the text is difficult to read due to light reflection or shadows caused by the camera flash, etc.
+    * The service supports result analysis for black-and-white and color images, but color images are recommended for accurate analysis.
+    * General OCR provides analysis results only for Korean and English.
+
 ## Document OCR
 
 ### Business Registration Certificate Analysis
@@ -127,32 +153,6 @@ For more accurate license plate analysis, please refer to the guide below.
 * Example of a license plate analysis image
 
 ![Image Example](http://static.toastoven.net/prod_ocr/VehiclePlateOCR_ex_img_en.png)
-
-## General OCR
-
-### Main Features
-
-* **Recognition of text areas in image**
-  * Recognizes the text areas (bounding boxes) in an image and provides the coordinates of the areas.
-* **Confidence**
-  * Detects text in the image and provides a confidence for it.
-* **Analysis results download**
-  * You can download the results extracted from an image file as a JSON file.
-
-### Input Image Guide
-
-For more accurate image analysis, please refer to the guide below.
-
-* File recommendations
-    * File format: Supports analysis of images in .jpeg, .png format.
-    * Maximum size: 5 MB
-    * Recommended resolution: 1280x720
-* Image recommendation
-    * Please use an image taken in a condition where the subject has been laid out as straight as possible on a flat surface.
-    * Please make the image recognized as a full image of a rectangular shape.
-    * It might be difficult to extract text correctly if the text is difficult to read due to light reflection or shadows caused by the camera flash, etc.
-    * The service supports result analysis for black-and-white and color images, but color images are recommended for accurate analysis.
-    * General OCR provides analysis results only for Korean and English.
 
 ## Service Targets
 * When you need to register documents (business registration certificate, credit card, and ID card) in the customer's system automatically

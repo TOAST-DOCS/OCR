@@ -24,7 +24,7 @@ For more accurate image analysis, please refer to the guide below.
 * Image recommendation
     * Please use an image taken in a condition where the subject has been laid out as straight as possible on a flat surface.
     * Please make the image recognized as a full image of a rectangular shape.
-    * It might be difficult to extract text correctly if the text is difficult to read due to light reflection or shadows caused by the camera flash, etc.
+    * It may be difficult to accurately extract the text when the text is unidentifiable due to light reflection or shade caused by camera flash, or the text size is small relative to the resolution.
     * The service supports result analysis for black-and-white and color images, but color images are recommended for accurate analysis.
     * General OCR provides analysis results only for Korean and English.
 

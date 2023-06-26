@@ -35,8 +35,8 @@
 | 5000003 | DATABASE_FAIL | Database server error. |
 | 5000004 | RESOURCE_DELETE_FAIL | All or some resource delete fail. |
 | 5000005 | FILE_READ_FAIL | File read fail. |
-| 5000006 | DECRYPT_FAIL | File decrypt fail. |
-| 5000007 | ENCRYPT_FAIL | File encrypt fail. |
+| 5000006 | DECRYPT_FAIL | Decrypt fail. |
+| 5000007 | ENCRYPT_FAIL | Encrypt fail. |
 | 5003001 | OCR_DOCUMENT_BUSINESS_API_FAIL | Document(business) OCR Api fail. |
 | 5003002 | OCR_DOCUMENT_BUSINESS_API_RETURN_EMPTY | Document(business) OCR Api returned empty body. |
 | 5003003 | OCR_DOCUMENT_BUSINESS_RECOGNITION_FAIL | Document(business) OCR failed to recognize the document. |

@@ -2,6 +2,32 @@
 
 OCR provides a feature to recognize the text area of images and documents and extract the text for each area. It can be used by customers who need to create a database for recognized documents or implement document processing automation.
 
+## General OCR
+
+### Main Features
+
+* **Recognition of text areas in image**
+    * Recognizes the text areas (bounding boxes) in an image and provides the coordinates of the areas.
+* **Confidence**
+    * Detects text in the image and provides a confidence for it.
+* **Analysis results download**
+    * You can download the results extracted from an image file as a Text or JSON file.
+
+### Input Image Guide
+
+For more accurate image analysis, please refer to the guide below.
+
+* File recommendations
+    * File format: Supports analysis of images in .jpeg, .png format.
+    * Maximum size: 5 MB
+    * Recommended resolution: 1280x720
+* Image recommendation
+    * Please use an image taken in a condition where the subject has been laid out as straight as possible on a flat surface.
+    * Please make the image recognized as a full image of a rectangular shape.
+    * It may be difficult to accurately extract the text when the text is unidentifiable due to light reflection or shade caused by camera flash, or the text size is small relative to the resolution.
+    * The service supports result analysis for black-and-white and color images, but color images are recommended for accurate analysis.
+    * General OCR provides analysis results only for Korean and English.
+
 ## Document OCR
 
 ### Business Registration Certificate Analysis

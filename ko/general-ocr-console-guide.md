@@ -22,22 +22,21 @@
 * [텍스트(Key Value)] 분석된 이미지의 내용을 Key/Value 형태로 표시합니다.
 * [JSON] 분석한 결과를 JSON 형태로 표시합니다.
     * [fileType] 파일 확장자(jpg, png)
-    * [listOfinferTexts] 분석 결과
+    * [listOfInferTexts] 분석 결과
         * [value] 인식한 텍스트 내용
         * [conf] 분석 결과에 대한 신뢰도
     * [resolution] 권장 해상도(HD 1280*720px) 이상이면 normal, 권장 해상도 미만은 low
-    * [listOfboundingBoxes] 인식 영역에 대한 이미지 상의 좌표값(box 별 {x1, y1, x2, y2, x3, y3, x4, y4} 형태)
+    * [listOfBoundingBoxes] 인식 영역에 대한 이미지 상의 좌표값(box 별 {x1, y1, x2, y2, x3, y3, x4, y4} 형태)
 
       ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
 
-* 분석 결과 복사 및 다운로드(JSON) 기능을 제공합니다. 
+* 분석 결과 복사 및 다운로드(Text, JSON) 기능을 제공합니다. 
 
 * [JSON Sample]
 ```json
 {
   "fileType": "png",
-  "gpuUsed": true,
-  "listOfinferTexts": [
+  "listOfInferTexts": [
     {
       "inferTexts": [
         {
@@ -64,7 +63,7 @@
     },
     ...
   ],
-  "listOfboundingBoxes": [
+  "listOfBoundingBoxes": [
     {
       "boundingBoxes": [
         {

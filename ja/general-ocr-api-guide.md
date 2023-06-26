@@ -48,30 +48,40 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
     },
     "result": {
         "fileType": "png",
-        "listOfInferTextList": [
+        "listOfInferTexts": [
             {
-                "value":"stella",
-                "conf":0.99
-            },
-            {
-                "value":"artois",
-                "conf":0.98
-            },
-            {
-                "value":"belgium"
-                "conf":0.98
+                "inferTexts": [
+                    {
+                        "value":"stella",
+                        "conf":0.99
+                    },
+                    {
+                        "value":"artois",
+                        "conf":0.98
+                    },
+                ],
+                "inferTexts": [
+                    {
+                        "value":"belgium",
+                        "conf":0.99
+                    }
+                ]
             }
         ],
-        "listOfBoundingBoxList": [
+        "listOfBoundingBoxes": [
             {
-                "x1": 32,
-                "y1": 23,
-                "x2": 65,
-                "y2": 23,
-                "x3": 65,
-                "y3": 35,
-                "x4": 32,
-                "y4": 35
+                "boundingBoxes": [
+                    {
+                        "x1": 32,
+                        "y1": 23,
+                        "x2": 65,
+                        "y2": 23,
+                        "x3": 65,
+                        "y3": 35,
+                        "x4": 32,
+                        "y4": 35
+                    }
+                ]
             }
         ],
         "resolution": "normal"
@@ -89,15 +99,15 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 [フィールド]
 
-| 名前 | タイプ | 説明                                              |
-|---|---|---------------------------------------------------|
-| fileType | String | ファイル拡張子(jpg、png)                                  |
-| values | List | 認識結果リスト                                        |
-| listOfInferTextList[0].value | String | 認識内容                                           |
-| listOfInferTextList[0].conf | Double | 認識結果の信頼度                                       |
-| listOfBoundingBoxList | List | 認識領域(Bounding box)座標リスト                       |
-| listOfBoundingBoxList[0] | Object  | 認識領域の座標{ x1, y1, x2, y2, x3, y3, x4, y4 }       |
-| resolution | String | 推奨解像度(HD 1280*720px)以上の場合はnormal、推奨解像度未満はlow |
+| 名前                                         | タイプ | 説明                                              |
+|--------------------------------------------|---|---------------------------------------------------|
+| fileType                                   | String | ファイル拡張子(jpg、png)                                  |
+| values                                     | List | 認識結果リスト                                        |
+| listOfInferTexts[0].inferTexts[0].value | String | 認識内容                                           |
+| listOfInferTexts[0].inferTexts[0].conf  | Double | 認識結果の信頼度                                       |
+| listOfBoundingBoxes                        | List | 認識領域(Bounding box)座標リスト                       |
+| listOfBoundingBoxes[0].boundingBoxes[0]    | Object  | 認識領域の座標{ x1, y1, x2, y2, x3, y3, x4, y4 }       |
+| resolution                                 | String | 推奨解像度(HD 1280*720px)以上の場合はnormal、推奨解像度未満はlow |
 
 * boxes[0]
 

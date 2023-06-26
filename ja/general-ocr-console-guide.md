@@ -22,22 +22,21 @@
 * [テキスト(Key Value)]分析された画像の内容をKey/Value形式で表示します。
 * JSON]分析した結果をJSON形式で表示します。
     * [fileType]ファイル拡張子(jpg、png)
-    * [listOfinferTexts]分析結果
+    * [listOfInferTexts]分析結果
         * [value]認識したテキストの内容
         * [conf]分析結果の信頼度
     * [resolution]推奨解像度(HD 1280*720px)以上ならnormal、推奨解像度未満はlow
-    * [listOfboundingBoxes]認識領域に対する画像上の座標値(boxごとに{x1, y1, x2, y2, x3, y3, x4, y4}形式)
+    * [listOfBoundingBoxes]認識領域に対する画像上の座標値(boxごとに{x1, y1, x2, y2, x3, y3, x4, y4}形式)
 
       ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
 
-* 分析結果のコピーおよびダウンロード(JSON)機能を提供します。 
+* 分析結果のコピーおよびダウンロード(Text、JSON)機能を提供します。 
 
 * [JSON Sample]
 ```json
 {
   "fileType": "png",
-  "gpuUsed": true,
-  "listOfinferTexts": [
+  "listOfInferTexts": [
     {
       "inferTexts": [
         {
@@ -64,7 +63,7 @@
     },
     ...
   ],
-  "listOfboundingBoxes": [
+  "listOfBoundingBoxes": [
     {
       "boundingBoxes": [
         {

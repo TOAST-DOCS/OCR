@@ -387,6 +387,30 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | **issueDate** | string | 인식된 발급 일자 |
 | **issuer** | string | 인식된 발급기관 |
 
+
+
+* **"idType"이 "passport"로 인식될 경우 KeyValues에 포함되는 목록**
+
+| key                 | value type | description                |
+|---------------------| --- |----------------------------| 
+| **passportType**    | string | 인식된 운전면허번호                 |
+| **countryCode**     | string | 인식된 국가코드                   |
+| **passportNo**      | string | 인식된 여권번호                   |
+| **surName**         | string | 인식된 성                      |
+| **givenName**       | string | 인식된 이름                     |
+| **nationality**     | string | 인식된 국적                     |
+| **dateOfBirth**     | string | 인식된 생년월일                   |
+| **dateOfBirthYMD**  | string | 인식된 생년월일<br>(YYYYMMDD 8자리) |
+| **sex**             | string | 인식된 성별                     |
+| **dateOfIssue**     | string | 인식된 발급일                    |
+| **dateOfIssueYMD**  | string | 인식된 발급일<br>(YYYYMMDD 8자리)  |
+| **dateOfExpiry**    | string | 인식된 만료일                    |
+| **dateOfExpiryYMD** | string | 인식된 만료일<br>(YYYYMMDD 8자리)  |
+| **koreanName**      | string | 인식된 한글 성명                  |
+| **personalNo**      | string | 인식된 주민등록번호                 |
+| **MRZ1**            | string | 기계판독영역1                    |
+| **MRZ2**            | string | 기계판독영역2                    |
+
 * 암호화된 항목들(keyValues[0].value 등)은 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어 있습니다(대칭 키 이용).
 * boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)

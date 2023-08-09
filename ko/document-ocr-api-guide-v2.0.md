@@ -377,7 +377,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 * **"idType"이 "driver"로 인식될 경우 KeyValues에 포함되는 목록**
 
 | key | value type | description |
-| --- | --- | --- | 
+| --- | --- | --- |
 | **driverLicenseNumber** | string | 인식된 운전면허번호 |
 | **licenseType** | string | 인식된 면허 종류(1종 보통 등)<br>2개 이상일 경우 문자열 내 "/"로 구분 |
 | **name** | string | 인식된 이름 |
@@ -392,24 +392,24 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 * **"idType"이 "passport"로 인식될 경우 KeyValues에 포함되는 목록**
 
 | key                 | value type | description                |
-|---------------------| --- |----------------------------| 
-| **passportType**    | string | 인식된 운전면허번호                 |
-| **countryCode**     | string | 인식된 국가코드                   |
-| **passportNo**      | string | 인식된 여권번호                   |
-| **surName**         | string | 인식된 성                      |
-| **givenName**       | string | 인식된 이름                     |
-| **nationality**     | string | 인식된 국적                     |
-| **dateOfBirth**     | string | 인식된 생년월일                   |
-| **dateOfBirthYMD**  | string | 인식된 생년월일<br>(YYYYMMDD 8자리) |
-| **sex**             | string | 인식된 성별                     |
-| **dateOfIssue**     | string | 인식된 발급일                    |
-| **dateOfIssueYMD**  | string | 인식된 발급일<br>(YYYYMMDD 8자리)  |
-| **dateOfExpiry**    | string | 인식된 만료일                    |
-| **dateOfExpiryYMD** | string | 인식된 만료일<br>(YYYYMMDD 8자리)  |
-| **koreanName**      | string | 인식된 한글 성명                  |
-| **personalNo**      | string | 인식된 주민등록번호                 |
-| **MRZ1**            | string | 기계판독영역1                    |
-| **MRZ2**            | string | 기계판독영역2                    |
+|---------------------|------------|----------------------------|
+| **passportType**    | string     | 인식된 운전면허번호                 |
+| **countryCode**     | string     | 인식된 국가코드                   |
+| **passportNo**      | string     | 인식된 여권번호                   |
+| **surName**         | string     | 인식된 성                      |
+| **givenName**       | string     | 인식된 이름                     |
+| **nationality**     | string     | 인식된 국적                     |
+| **dateOfBirth**     | string     | 인식된 생년월일                   |
+| **dateOfBirthYMD**  | string     | 인식된 생년월일<br>(YYYYMMDD 8자리) |
+| **sex**             | string     | 인식된 성별                     |
+| **dateOfIssue**     | string     | 인식된 발급일                    |
+| **dateOfIssueYMD**  | string     | 인식된 발급일<br>(YYYYMMDD 8자리)  |
+| **dateOfExpiry**    | string     | 인식된 만료일                    |
+| **dateOfExpiryYMD** | string     | 인식된 만료일<br>(YYYYMMDD 8자리)  |
+| **koreanName**      | string     | 인식된 한글 성명                  |
+| **personalNo**      | string     | 인식된 주민등록번호                 |
+| **MRZ1**            | string     | 기계판독영역1                    |
+| **MRZ2**            | string     | 기계판독영역2                    |
 
 * 암호화된 항목들(keyValues[0].value 등)은 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어 있습니다(대칭 키 이용).
 * boxes[0]
@@ -447,14 +447,17 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 [필드]
 
-| 이름 | 타입 | 설명 | idType | 암호화 여부 |
-| --- | --- | --- | --- | --- |
-| idType | String | resident(주민등록증), driver(운전면허증) |  | X |
-| name | String | 이름 |  | O |
-| residentNumber | String | 주민등록번호<br>- resident(주민등록증)의 경우 주민등록번호 숫자 13자리<br>- driver(운전면허증)의 경우 주민등록번호 앞 6자리와 뒤 첫 번째 1자리를 조합한 숫자 7자리 |  | O |
-| issueDate | String | 주민등록증 발급 일자(YYYYMMDD) | resident | O |
-| driverLicenseNumber | String | 12자리 운전면허번호 | driver | O |
-| serialNum | String | 5~6자리 암호 일련번호 | driver | O |
+| 이름                  | 타입     | 설명                                                                                                         | idType             | 암호화 여부 |
+|---------------------|--------|------------------------------------------------------------------------------------------------------------|--------------------|--------|
+| idType              | String | resident(주민등록증), driver(운전면허증), passport(여권)                                                               |                    | X      |
+| name                | String | 이름                                                                                                         |                    | O      |
+| residentNumber      | String | 주민등록번호<br>- resident(주민등록증)의 경우 주민등록번호 숫자 13자리<br>- driver(운전면허증)의 경우 주민등록번호 앞 6자리와 뒤 첫 번째 1자리를 조합한 숫자 7자리 | resident, driver   | O      |
+| issueDate           | String | 발급 일자(YYYYMMDD)                                                                                            | resident, passport | O      |
+| driverLicenseNumber | String | 12자리 운전면허번호                                                                                                | driver             | O      |
+| serialNum           | String | 5~6자리 암호 일련번호                                                                                              | driver             | O      |
+| passportNumber      | String | 여권 번호(9자리 영문 대문자, 숫자 조합)                                                                                   | passport           | O      |
+| birthDate           | String | 생년월일(YYYYMMDD)                                                                                             | passport           | O      |
+| expirationDate      | String | 만료 일자(YYYYMMDD)                                                                                            | passport           | X      |
 
 * 암호화가 필요한 필드는 반드시 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어야 합니다(대칭 키 이용).
 

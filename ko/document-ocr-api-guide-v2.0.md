@@ -415,6 +415,184 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 * boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
+### 신분증 분석(단독) API
+
+#### 기존 신분증 분석 API와 차이점
+
+* 진위 확인에 필요한 Request-Key를 포함하지 않습니다.
+* 진위 확인이 불가능한 대신 낮은 요금이 부과됩니다.
+
+#### 요청
+
+* {appKey}와 {secretKey}는 콘솔 상단 **URL &amp; Appkey** 메뉴에서 확인할 수 있습니다.
+
+[URI]
+
+| 메서드 | URI                                        |
+| --- |--------------------------------------------|
+| POST | /v2.0/appkeys/{appKey}/id-card/stand-alone |
+
+[요청 헤더]
+
+| 이름 | 값 | 설명 |
+| --- | --- | --- |
+| Authorization | {secretKey} | 콘솔에서 발급 받은 보안 키 |
+| X-Key-Version | {x-key-version} | 발급 받은 공개 키의 버전 |
+| Symmetric-Key | {symmetricKey} | 발급 받은 공개 키로 암호화된 대칭 키 |
+
+* {symmetricKey}는 반드시 **32byte 난수**로 생성해야 합니다.
+* {symmetricKey}는 반드시 **RSA/ECB/PKCS1Padding** 방식으로 암호화되어야 합니다(공개 키 이용).
+
+[Path Variable]
+
+| 이름 | 값 | 설명              |
+| --- | --- |-----------------|
+| appKey | {appKey} | 통합 Appkey 또는 서비스 Appkey |
+
+[필드]
+
+| 이름 | 타입 | 설명 | 암호화 설명 |
+| --- | --- | --- | --- |
+| image | multipart/form–data | 이미지 파일 | 대칭 키로 암호화된 이미지 |
+
+* 이미지 파일은 반드시 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어야 합니다(대칭 키 이용).
+
+[요청 본문]
+
+```
+curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/stand-alone' \
+-F 'image=@sample.png' \
+-H 'Authorization: ${secretKey}' \
+-H 'X-Key-Version: ${x-key-version}' \
+-H 'Symmetric-Key: ${symmetricKey}'
+```
+
+#### 응답
+
+[응답 본문]
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "result": {
+        "fileType": "png",
+        "resolution": "low",
+        "idType": "resident",
+        "keyValues": [
+            {
+                "key": "name",
+                "value": "String",
+                "conf": 0.67
+            },
+            {
+                "key": "residentNumber",
+                "value": "String",
+                "conf": 0.91
+            },
+            {
+                "key": "issueDate",
+                "value": "String",
+                "conf": 0.86
+            },
+            {
+                "key": "issuer",
+                "value": "String",
+                "conf": 0.8
+            }
+        ],
+        "boxes": [
+            {
+                "x1": 280,
+                "y1": 271,
+                "x2": 354,
+                "y2": 271,
+                "x3": 354,
+                "y3": 305,
+                "x4": 280,
+                "y4": 305
+            },
+            ...
+        ]
+    }
+}
+```
+
+[헤더]
+
+| 이름 | 타입 | 설명 |
+| --- | --- | --- |
+| isSuccessful | Boolean | 분석 API 성공 여부 |
+| resultCode | Integer | 결과 코드 |
+| resultMessage | String | 결과 메시지(성공 시 success, 실패 시 오류 내용) |
+
+[필드]
+
+| 이름 | 타입 | 설명 | 암호화 여부 |
+| --- | --- | --- | --- |
+| fileType | String | 파일 확장자(.jpg, .png) |  |
+| resolution | String | 권장 해상도(760\*480px) 이상이면 normal, 권장 해상도 미만은 low |  |
+| idType | String | resident(주민등록증), driver(운전면허증) |  |
+| keyValues | List |  |  |
+| keyValues[0].key | String |  |  |
+| keyValues[0].value | String |  | O |
+| keyValues[0].conf | Double |  |  |
+| boxes | List | 인식 영역(Bounding box) 좌표 목록 |
+| boxes[0] | Object  | 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 } |
+
+* **"idType"이 "resident"로 인식될 경우 KeyValues에 포함되는 목록**
+
+| key | value type | description |
+| --- | --- | --- |
+| **name** | string | 인식된 이름 |
+| **residentNumber** | string | 인식된 주민등록번호 |
+| **issueDate** | string | 인식된 발급 일자 |
+| **issuer** | string | 인식된 발급기관 |
+
+* **"idType"이 "driver"로 인식될 경우 KeyValues에 포함되는 목록**
+
+| key | value type | description |
+| --- | --- | --- |
+| **driverLicenseNumber** | string | 인식된 운전면허번호 |
+| **licenseType** | string | 인식된 면허 종류(1종 보통 등)<br>2개 이상일 경우 문자열 내 "/"로 구분 |
+| **name** | string | 인식된 이름 |
+| **residentNumber** | string | 인식된 주민등록번호 |
+| **condition** | string | 인식된 면허 조건<br>(운전면허증에 따라 해당 필드가 존재하지 않는 경우 해당 필드의 value는 none) |
+| **serialNum** | string | 인식된 암호 일련번호 |
+| **issueDate** | string | 인식된 발급 일자 |
+| **issuer** | string | 인식된 발급기관 |
+
+
+
+* **"idType"이 "passport"로 인식될 경우 KeyValues에 포함되는 목록**
+
+| key                 | value type | description                |
+|---------------------|------------|----------------------------|
+| **passportType**    | string     | 인식된 운전면허번호                 |
+| **countryCode**     | string     | 인식된 국가코드                   |
+| **passportNo**      | string     | 인식된 여권번호                   |
+| **surName**         | string     | 인식된 성                      |
+| **givenName**       | string     | 인식된 이름                     |
+| **nationality**     | string     | 인식된 국적                     |
+| **dateOfBirth**     | string     | 인식된 생년월일                   |
+| **dateOfBirthYMD**  | string     | 인식된 생년월일<br>(YYYYMMDD 8자리) |
+| **sex**             | string     | 인식된 성별                     |
+| **dateOfIssue**     | string     | 인식된 발급일                    |
+| **dateOfIssueYMD**  | string     | 인식된 발급일<br>(YYYYMMDD 8자리)  |
+| **dateOfExpiry**    | string     | 인식된 만료일                    |
+| **dateOfExpiryYMD** | string     | 인식된 만료일<br>(YYYYMMDD 8자리)  |
+| **koreanName**      | string     | 인식된 한글 성명                  |
+| **personalNo**      | string     | 인식된 주민등록번호                 |
+| **MRZ1**            | string     | 기계판독영역1                    |
+| **MRZ2**            | string     | 기계판독영역2                    |
+
+* 암호화된 항목들(keyValues[0].value 등)은 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어 있습니다(대칭 키 이용).
+* boxes[0]
+  ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
+
 ### 신분증 진위 확인 API
 
 #### 요청

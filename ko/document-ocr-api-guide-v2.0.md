@@ -531,17 +531,17 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 
 [필드]
 
-| 이름 | 타입 | 설명 | 암호화 여부 |
-| --- | --- | --- | --- |
-| fileType | String | 파일 확장자(.jpg, .png) |  |
+| 이름 | 타입 | 설명                                             | 암호화 여부 |
+| --- | --- |------------------------------------------------| --- |
+| fileType | String | 파일 확장자(.jpg, .png)                             |  |
 | resolution | String | 권장 해상도(760\*480px) 이상이면 normal, 권장 해상도 미만은 low |  |
-| idType | String | resident(주민등록증), driver(운전면허증) |  |
-| keyValues | List |  |  |
-| keyValues[0].key | String |  |  |
-| keyValues[0].value | String |  | O |
-| keyValues[0].conf | Double |  |  |
-| boxes | List | 인식 영역(Bounding box) 좌표 목록 |
-| boxes[0] | Object  | 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 } |
+| idType | String | resident(주민등록증), driver(운전면허증), passport(여권)   |  |
+| keyValues | List |                                                |  |
+| keyValues[0].key | String |                                                |  |
+| keyValues[0].value | String |                                                | O |
+| keyValues[0].conf | Double |                                                |  |
+| boxes | List | 인식 영역(Bounding box) 좌표 목록                      |
+| boxes[0] | Object  | 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 }    |
 
 * **"idType"이 "resident"로 인식될 경우 KeyValues에 포함되는 목록**
 

@@ -395,7 +395,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 |---------------------|------------|----------------------------|
 | **passportType**    | string     | 인식된 운전면허번호                 |
 | **countryCode**     | string     | 인식된 국가코드                   |
-| **passportNo**      | string     | 인식된 여권번호                   |
+| **passportNo**      | string     | 인식된 여권 번호                  |
 | **surName**         | string     | 인식된 성                      |
 | **givenName**       | string     | 인식된 이름                     |
 | **nationality**     | string     | 인식된 국적                     |
@@ -408,8 +408,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | **dateOfExpiryYMD** | string     | 인식된 만료일<br>(YYYYMMDD 8자리)  |
 | **koreanName**      | string     | 인식된 한글 성명                  |
 | **personalNo**      | string     | 인식된 주민등록번호                 |
-| **MRZ1**            | string     | 기계판독영역1                    |
-| **MRZ2**            | string     | 기계판독영역2                    |
+| **MRZ1**            | string     | 기계 판독 영역1                  |
+| **MRZ2**            | string     | 기계 판독 영역2                  |
 
 * 암호화된 항목들(keyValues[0].value 등)은 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어 있습니다(대칭 키 이용).
 * boxes[0]
@@ -546,24 +546,24 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 * **"idType"이 "resident"로 인식될 경우 KeyValues에 포함되는 목록**
 
 | key | value type | description |
-| --- | --- | --- |
-| **name** | string | 인식된 이름 |
-| **residentNumber** | string | 인식된 주민등록번호 |
-| **issueDate** | string | 인식된 발급 일자 |
-| **issuer** | string | 인식된 발급기관 |
+| --- | --- |-------------|
+| **name** | string | 인식된 이름      |
+| **residentNumber** | string | 인식된 주민등록번호  |
+| **issueDate** | string | 인식된 발급 일자   |
+| **issuer** | string | 인식된 발급 기관   |
 
 * **"idType"이 "driver"로 인식될 경우 KeyValues에 포함되는 목록**
 
-| key | value type | description |
-| --- | --- | --- |
-| **driverLicenseNumber** | string | 인식된 운전면허번호 |
-| **licenseType** | string | 인식된 면허 종류(1종 보통 등)<br>2개 이상일 경우 문자열 내 "/"로 구분 |
-| **name** | string | 인식된 이름 |
-| **residentNumber** | string | 인식된 주민등록번호 |
+| key | value type | description                                                   |
+| --- | --- |---------------------------------------------------------------|
+| **driverLicenseNumber** | string | 인식된 운전면허번호                                                    |
+| **licenseType** | string | 인식된 면허 종류(1종 보통 등)<br>2개 이상일 경우 문자열 내 "/"로 구분                 |
+| **name** | string | 인식된 이름                                                        |
+| **residentNumber** | string | 인식된 주민등록번호                                                    |
 | **condition** | string | 인식된 면허 조건<br>(운전면허증에 따라 해당 필드가 존재하지 않는 경우 해당 필드의 value는 none) |
-| **serialNum** | string | 인식된 암호 일련번호 |
-| **issueDate** | string | 인식된 발급 일자 |
-| **issuer** | string | 인식된 발급기관 |
+| **serialNum** | string | 인식된 암호 일련번호                                                   |
+| **issueDate** | string | 인식된 발급 일자                                                     |
+| **issuer** | string | 인식된 발급 기관                                                     |
 
 
 
@@ -572,8 +572,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | key                 | value type | description                |
 |---------------------|------------|----------------------------|
 | **passportType**    | string     | 인식된 운전면허번호                 |
-| **countryCode**     | string     | 인식된 국가코드                   |
-| **passportNo**      | string     | 인식된 여권번호                   |
+| **countryCode**     | string     | 인식된 국가 코드                  |
+| **passportNo**      | string     | 인식된 여권 번호                  |
 | **surName**         | string     | 인식된 성                      |
 | **givenName**       | string     | 인식된 이름                     |
 | **nationality**     | string     | 인식된 국적                     |
@@ -586,8 +586,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | **dateOfExpiryYMD** | string     | 인식된 만료일<br>(YYYYMMDD 8자리)  |
 | **koreanName**      | string     | 인식된 한글 성명                  |
 | **personalNo**      | string     | 인식된 주민등록번호                 |
-| **MRZ1**            | string     | 기계판독영역1                    |
-| **MRZ2**            | string     | 기계판독영역2                    |
+| **MRZ1**            | string     | 기계 판독 영역1                  |
+| **MRZ2**            | string     | 기계 판독 영역2                  |
 
 * 암호화된 항목들(keyValues[0].value 등)은 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어 있습니다(대칭 키 이용).
 * boxes[0]

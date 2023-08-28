@@ -184,9 +184,9 @@
     * [resolution]推奨解像度(760*480px)以上はnormal、推奨解像度未満はlow
     * [idType]住民登録証の時はresident、運転免許証の時はdriver
     * [keyValues]分析結果
-      * [key]身分証内のkeyに該当する値(名前、住民登録番号など)
-      * [value]特定keyに該当する値
-      * [conf]分析結果の信頼度
+        * [key]身分証内のkeyに該当する値(名前、住民登録番号など)
+        * [value]特定keyに該当する値
+        * [conf]分析結果の信頼度
     * [boxes]認識領域の画像上の座標値(box別{x1, y1, x2, y2, x3, y3, x4, y4}形式)
       ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
     * [JSON Sample]

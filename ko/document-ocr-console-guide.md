@@ -181,7 +181,7 @@
 * [JSON] 분석한 결과를 JSON 형태로 표시합니다.
     * [fileType] 파일 확장자(.jpg, .png)
     * [resolution] 권장 해상도(760*480px) 이상이면 normal, 권장 해상도 미만은 low
-    * [idType] 주민등록증일 때 resident, 운전면허증일 때 driver
+    * [idType] 주민등록증일 때 resident, 운전면허증일 때 driver, 여권일 때 passport
     * [keyValues] 분석 결과
       * [key] 신분증 내 key에 해당하는 값(이름, 주민등록번호 등)
       * [value] 특정 key에 해당하는 값

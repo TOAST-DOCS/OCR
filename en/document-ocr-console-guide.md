@@ -181,7 +181,7 @@ After uploading the image, click the **Analyze** button and the analysis results
 * [JSON] Displays the analysis results in JSON format.
     * [fileType] File extension (.jpg, .png)
     * [resolution] normal: the resolution is the recommended resolution (760\*480px) or above, low: the resolution is below the recommended resolution
-    * [idType] resident: the ID card is resident
+    * [idType] resident for resident registration certificate, driver for driver's license, passport for passport
     * [keyValues] Analysis results
       * [key] Value corresponding to the key in the ID card (name, resident registration number, etc.)
       * [value] Value corresponding to a specific key

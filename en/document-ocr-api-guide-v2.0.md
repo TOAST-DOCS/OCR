@@ -377,7 +377,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 * **List to be included in KeyValues when "idType" is recognized as "driver"**
 
 | key | value type | description |
-| --- | --- | --- | 
+| --- | --- | --- |
 | **driverLicenseNumber** | string | Recognized driver license number |
 | **licenseType** | string | Recognized driver license type (Class 1 Normal, etc.)<br>When the values are 2 or more, separate them with “/” |
 | **name** | string | Recognized name |
@@ -386,6 +386,207 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | **serialNum** | string | Recognized serial number |
 | **issueDate** | string | Recognized issued date |
 | **issuer** | string | Recognized issuer |
+
+
+
+* **List included in KeyValues when "idType" is recognized as "passport"**
+
+| key                 | value type | description                |
+|---------------------|------------|----------------------------|
+| **passportType**    | string     | Recognized driver license number                 |
+| **countryCode**     | string     | Recognized country code                  |
+| **passportNo**      | string     | Recognized passport                  |
+| **surName**         | string     | Recognized surname                      |
+| **givenName**       | string     | Recognized name                     |
+| **nationality**     | string     | Recognized nationality                     |
+| **dateOfBirth**     | string     | Recognized birthdate                   |
+| **dateOfBirthYMD**  | string     | Recognized birthdate<br>(YYYYMMDD 8 digits) |
+| **sex**             | string     | Recognized gender                     |
+| **dateOfIssue**     | string     | Recognized issue date                    |
+| **dateOfIssueYMD**  | string     | Recognized issue date<br>(YYYYMMDD 8 digits)  |
+| **dateOfExpiry**    | string     | Recognized expiration date                    |
+| **dateOfExpiryYMD** | string     | Recognized expiration date<br>(YYYYMMDD 8 digits)  |
+| **koreanName**      | string     | Recognized Korean name                  |
+| **personalNo**      | string     | Recognized resident registration number                 |
+| **MRZ1**            | string     | Machine readable zone 1                  |
+| **MRZ2**            | string     | Machine readable zone 2                  |
+
+* Encrypted items (keyValues[0].value, etc.) are encrypted with the **AES-256/CBC/PKCS7Padding** method (using symmetric key).
+* boxes[0]
+![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
+
+### ID Card Analysis API (Stand alone)
+
+#### Differences from the existing ID analysis API
+
+* It does not contain the Request-Key required for authenticity verification.
+* Authenticity cannot be verified, but a low fee is charged.
+
+#### Request
+
+* You can find the {appKey} and {secretKey} in the **URL & Appkey** menu at the top of the console.
+
+[URI]
+
+| Method | URI                                        |
+| --- |--------------------------------------------|
+| POST | /v2.0/appkeys/{appKey}/id-card/stand-alone |
+
+[Request Header]
+
+| Name | Value | Description |
+| --- | --- | --- |
+| Authorization | {secretKey} | Security key issued from the console |
+| X-Key-Version | {x-key-version} | Version of the public key issued |
+| Symmetric-Key | {symmetricKey} | Symmetric key encrypted with the issued public key |
+
+* {symmetricKey} must be created as a 32- **byte random number**.
+* {symmetricKey} must be encrypted with the**RSA/ECB/PKCS1Padding** method (using public key).
+
+[Path Variable]
+
+| Name | Value | Description              |
+| --- | --- |-----------------|
+| appKey | {appKey} | Integrated Appkey or Service Appkey |
+
+[Field]
+
+| Name | Type | Description | Encryption Description |
+| --- | --- | --- | --- |
+| image | multipart/form-data | Image file | Image encrypted with a symmetric key |
+
+* Image files must be encrypted with the**AES-256/CBC/PKCS7Padding** method (using a symmetric key).
+
+[Request Body]
+
+```
+curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/stand-alone' \
+-F 'image=@sample.png' \
+-H 'Authorization: ${secretKey}' \
+-H 'X-Key-Version: ${x-key-version}' \
+-H 'Symmetric-Key: ${symmetricKey}'
+```
+
+#### Response
+
+[Response Body]
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "result": {
+        "fileType": "png",
+        "resolution": "low",
+        "idType": "resident",
+        "keyValues": [
+            {
+                "key": "name",
+                "value": "String",
+                "conf": 0.67
+            },
+            {
+                "key": "residentNumber",
+                "value": "String",
+                "conf": 0.91
+            },
+            {
+                "key": "issueDate",
+                "value": "String",
+                "conf": 0.86
+            },
+            {
+                "key": "issuer",
+                "value": "String",
+                "conf": 0.8
+            }
+        ],
+        "boxes": [
+            {
+                "x1": 280,
+                "y1": 271,
+                "x2": 354,
+                "y2": 271,
+                "x3": 354,
+                "y3": 305,
+                "x4": 280,
+                "y4": 305
+            }
+        ]
+    }
+}
+```
+
+[Header]
+
+| Name | Type | Description |
+| --- | --- | --- |
+| isSuccessful | Boolean | Analysis API success or not |
+| resultCode | Integer | Result code |
+| resultMessage | String | Result message (success on success, error content on failure) |
+
+[Field]
+
+| Name | Type | Description                                             | Whether encrypted or not |
+| --- | --- |------------------------------------------------| --- |
+| fileType | String | File extension (.jpg, .png)                             |  |
+| resolution | String | normal: the resolution is the recommended resolution (760\*480px) or above, low: the resolution is below the recommended resolution |  |
+| idType | String | resident(resident registration certificate), driver(driver license), passport (passport)   |  |
+| keyValues | List |                                                |  |
+| keyValues[0].key | String |                                                |  |
+| keyValues[0].value | String |                                                | O |
+| keyValues[0].conf | Double |                                                |  |
+| boxes | List | List of bounding box coordinates                      |
+| boxes[0] | Object  | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }    |
+
+* **List included in KeyValues when "idType" is recognized as "resident"**
+
+| key | value type | description |
+| --- | --- |-------------|
+| **name** | string | Recognized name      |
+| **residentNumber** | string | Recognized resident registration number  |
+| **issueDate** | string | Recognized issued date   |
+| **issuer** | string | Recognized issuer   |
+
+* **List to be included in KeyValues when "idType" is recognized as "driver"**
+
+| key | value type | description                                                   |
+| --- | --- |---------------------------------------------------------------|
+| **driverLicenseNumber** | string | Recognized driver license number                                                    |
+| **licenseType** | string | Recognized driver license type (Class 1 Normal, etc.)<br>When the values are 2 or more, separate them with “/”                 |
+| **name** | string | Recognized name                                                        |
+| **residentNumber** | string | Recognized resident registration number                                                    |
+| **condition** | string | Recognized driver license condition<br>(If the field does not exist according to the driver's license, the value of the field is none) |
+| **serialNum** | string | Recognized serial number                                                   |
+| **issueDate** | string | Recognized issued date                                                     |
+| **issuer** | string | Recognized issuer                                                     |
+
+
+
+* **List included in KeyValues when "idType" is recognized as "passport"**
+
+| key                 | value type | description                |
+|---------------------|------------|----------------------------|
+| **passportType**    | string     | Recognized driver license number                 |
+| **countryCode**     | string     | Recognized country code                  |
+| **passportNo**      | string     | Recognized passport                  |
+| **surName**         | string     | Recognized surname                      |
+| **givenName**       | string     | Recognized name                     |
+| **nationality**     | string     | Recognized nationality                     |
+| **dateOfBirth**     | string     | Recognized birthdate                   |
+| **dateOfBirthYMD**  | string     | Recognized birthdate<br>(YYYYMMDD 8 digits) |
+| **sex**             | string     | Recognized gender                     |
+| **dateOfIssue**     | string     | Recognized issue date                    |
+| **dateOfIssueYMD**  | string     | Recognized issue date<br>(YYYYMMDD 8 digits)  |
+| **dateOfExpiry**    | string     | Recognized expiration date                    |
+| **dateOfExpiryYMD** | string     | Recognized expiration date<br>(YYYYMMDD 8 digits)  |
+| **koreanName**      | string     | Recognized Korean name                  |
+| **personalNo**      | string     | Recognized resident registration number                 |
+| **MRZ1**            | string     | Machine readable zone 1                  |
+| **MRZ2**            | string     | Machine readable zone 2                  |
 
 * Encrypted items (keyValues[0].value, etc.) are encrypted with the **AES-256/CBC/PKCS7Padding** method (using symmetric key).
 * boxes[0]
@@ -423,14 +624,17 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 [Field]
 
-| Name | Type | Description | idType | Whether encrypted or not |
-| --- | --- | --- | --- | --- |
-| idType | String | resident(resident registration certificate), driver(driver license) |  | X |
-| name | String | Name |  | O |
-| residentNumber | String | Resident registration number<br>- For resident (resident registration certificate), 13 digits of resident registration number<br>- For a driver (driver's license), 7 digits that comprise of the first 6 digits and the first 1 digit of  resident registration number |  | O |
-| issueDate | String | Issued date f resident registration certificate (YYYYMMDD) | resident | O |
-| driverLicenseNumber | String | 12 digits of driver license number | driver | O |
-| serialNum | String | 5 and 6 digits of serial number | driver | O |
+| Name                  | Type     | Description                                                                                                         | idType             | Whether encrypted or not |
+|---------------------|--------|------------------------------------------------------------------------------------------------------------|--------------------|--------|
+| idType              | String | resident(resident registration certificate), driver(driver license), passport (passport)                                                               |                    | X      |
+| name                | String | Name                                                                                                         |                    | O      |
+| residentNumber      | String | Resident registration number<br>- For resident (resident registration certificate), 13 digits of resident registration number<br>- For a driver (driver's license), 7 digits that comprise of the first 6 digits and the first 1 digit of  resident registration number | resident, driver   | O      |
+| issueDate           | String | Issued date (YYYYMMDD)                                                                                            | resident, passport | O      |
+| driverLicenseNumber | String | 12 digits of driver license number                                                                                                | driver             | O      |
+| serialNum           | String | 5 and 6 digits of serial number                                                                                              | driver             | O      |
+| passportNumber      | String | Passport number (9 digits in uppercase letters and numbers)                                                                                   | passport           | O      |
+| birthDate           | String | Birthdate (YYYYMMDD)                                                                                             | passport           | O      |
+| expirationDate      | String | Expiration date (YYYYMMDD)                                                                                            | passport           | X      |
 
 * A field that requires encryption must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
 

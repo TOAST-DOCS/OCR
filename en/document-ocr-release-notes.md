@@ -1,5 +1,13 @@
 ## AI Service > OCR > Document OCR > Release Notes
 
+### August 29, 2023
+* Added an ID card analysis option
+    * Added a stand alone API
+    * Added passport
+* Added an option to ID card authenticity verification
+    * Added passport
+* Improved the performance of business registration certificate recognition
+
 ### June 13, 2023
 * Improved ID card recognition performance
 

@@ -183,9 +183,9 @@ After uploading the image, click the **Analyze** button and the analysis results
     * [resolution] normal: the resolution is the recommended resolution (760\*480px) or above, low: the resolution is below the recommended resolution
     * [idType] resident for resident registration certificate, driver for driver's license, passport for passport
     * [keyValues] Analysis results
-      * [key] Value corresponding to the key in the ID card (name, resident registration number, etc.)
-      * [value] Value corresponding to a specific key
-      * [conf] Confidence of an analysis result
+        * [key] Value corresponding to the key in the ID card (name, resident registration number, etc.)
+        * [value] Value corresponding to a specific key
+        * [conf] Confidence of an analysis result
     * [boxes] Coordinate values of the recognized area on the image ({x1, y1, x2, y2, x3, y3, x4, y4} format for each box)
       ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
     * [JSON Sample]

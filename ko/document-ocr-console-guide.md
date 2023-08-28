@@ -183,9 +183,9 @@
     * [resolution] 권장 해상도(760*480px) 이상이면 normal, 권장 해상도 미만은 low
     * [idType] 주민등록증일 때 resident, 운전면허증일 때 driver, 여권일 때 passport
     * [keyValues] 분석 결과
-      * [key] 신분증 내 key에 해당하는 값(이름, 주민등록번호 등)
-      * [value] 특정 key에 해당하는 값
-      * [conf] 분석 결과에 대한 신뢰도
+        * [key] 신분증 내 key에 해당하는 값(이름, 주민등록번호 등)
+        * [value] 특정 key에 해당하는 값
+        * [conf] 분석 결과에 대한 신뢰도
     * [boxes] 인식 영역에 대한 이미지 상의 좌표값(box 별 {x1, y1, x2, y2, x3, y3, x4, y4} 형태)
       ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
     * [JSON Sample]

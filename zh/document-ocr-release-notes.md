@@ -2,10 +2,10 @@
 
 ### August 29, 2023
 * Added an ID card analysis option
-  * Added a stand alone API
-  * Added passport
+    * Added a stand alone API
+    * Added passport
 * Added an option to ID card authenticity verification
-  * Added passport
+    * Added passport
 * Improved the performance of business registration certificate recognition
 
 ### June 13, 2023

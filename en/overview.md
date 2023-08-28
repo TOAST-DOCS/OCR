@@ -96,7 +96,7 @@ For more accurate credit card analysis, please refer to the guide below.
 	* Recognizes the text areas (bounding boxes) in an ID card and provides the coordinates of the areas.
 
 * **Extraction and analysis of key data in an ID card**
-    * Key data according to the types of ID cards (resident registration certificate/driver license) is analyzed as a key/value pair, and provides a confidence for it.
+    * Key data according to the types of ID cards (resident registration certificate/driver license/passport) is analyzed as a key/value pair, and provides a confidence for it.
 
 * Verify Authenticity
     * Verifies the authenticity of an ID card based on the result extracted from the image file.
@@ -118,6 +118,7 @@ For more accurate ID card analysis, please refer to the guide below.
     * It might be difficult to extract the correct key/value if the text is difficult to read due to light reflection or shadows caused by the camera flash, etc.
     * The service supports result analysis for black-and-white and color images, but color images are recommended for accurate analysis.
     * The service provides analysis results for ID cards (resident registration certificate/driver license) in Korean only.
+        * Passport can be analyzed for domestic and foreign passports, and for foreign passports, analysis results are provided only for MRZ (machine reading area).
 
 ## Vehicle Plate OCR
 

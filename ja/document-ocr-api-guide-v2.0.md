@@ -357,7 +357,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | --- | --- | --- | --- |
 | fileType | String | ファイル拡張子(.jpg, .png) |  |
 | resolution | String | 推奨解像度(760\*480px)以上はnormal、推奨解像度未満はlow |  |
-| idType | String | resident(住民登録証)、driver(運転免許証) |  |
+| idType | String | resident(住民登録証)、driver(運転免許証)、passport(パスポート) |  |
 | keyValues | List |  |  |
 | keyValues[0].key | String |  |  |
 | keyValues[0].value | String |  | O |

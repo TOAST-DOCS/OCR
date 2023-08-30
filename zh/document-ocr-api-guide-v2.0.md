@@ -353,17 +353,17 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 [Field]
 
-| Name | Type | Description | Whether encrypted or not |
-| --- | --- | --- | --- |
-| fileType | String | File extension (.jpg, .png) |  |
+| Name | Type | Description                                                                                                                         | Whether encrypted or not |
+| --- | --- |-------------------------------------------------------------------------------------------------------------------------------------| --- |
+| fileType | String | File extension (.jpg, .png)                                                                                                         |  |
 | resolution | String | normal: the resolution is the recommended resolution (760\*480px) or above, low: the resolution is below the recommended resolution |  |
-| idType | String | resident(resident registration certificate), driver(driver license) |  |
-| keyValues | List |  |  |
-| keyValues[0].key | String |  |  |
-| keyValues[0].value | String |  | O |
-| keyValues[0].conf | Double |  |  |
-| boxes | List | List of bounding box coordinates |
-| boxes[0] | Object  | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 } |
+| idType | String | resident(resident registration certificate), driver(driver license), passport (passport)                                                               |  |
+| keyValues | List |                                                                                                                                     |  |
+| keyValues[0].key | String |                                                                                                                                     |  |
+| keyValues[0].value | String |                                                                                                                                     | O |
+| keyValues[0].conf | Double |                                                                                                                                     |  |
+| boxes | List | List of bounding box coordinates                                                                                                    |
+| boxes[0] | Object  | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                   |
 
 * **List included in KeyValues when "idType" is recognized as "resident"**
 

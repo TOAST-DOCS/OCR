@@ -14,9 +14,9 @@
 
 [요청 헤더]
 
-| 이름 | 값 | 설명 |
-|---|---|---|
-| Authorization | {secretKey} | 콘솔에서 발급받은 보안 키 |
+| 이름 | 값 | 설명              |
+|---|---|-----------------|
+| Authorization | {secretKey} | 콘솔에서 발급 받은 보안 키 |
 
 [Path Variable]
 
@@ -125,9 +125,9 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 
 [요청 헤더]
 
-| 이름 | 값 | 설명 |
-|---|---|---|
-| Authorization | {secretKey} | 콘솔에서 발급받은 보안 키 |
+| 이름 | 값 | 설명              |
+|---|---|-----------------|
+| Authorization | {secretKey} | 콘솔에서 발급 받은 보안 키 |
 
 [Path Variable]
 
@@ -193,7 +193,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 | 01 | 부가가치세 일반과세자                              |
 | 02 | 부가가치세 간이과세자                              |
 | 03 | 부가가치세 면세사업자                              |
-| 04 | 수익사업을 영위하지 않는 비영리법인이거나 고유번호가 부여된 단체.국가기관 |
+| 04 | 수익 사업을 영위하지 않는 비영리법인이거나 고유번호가 부여된 단체. 국가기관 |
 | 05 | 휴업자                                      |
 | 06 | 폐업자                                      |
 | 09 | 기타                                       |
@@ -212,9 +212,9 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 
 [요청 헤더]
 
-| 이름 | 값 | 설명 |
-|---|---|---|
-| Authorization | {secretKey} | 콘솔에서 발급받은 보안 키 |
+| 이름 | 값 | 설명              |
+|---|---|-----------------|
+| Authorization | {secretKey} | 콘솔에서 발급 받은 보안 키 |
 
 [Path Variable]
 

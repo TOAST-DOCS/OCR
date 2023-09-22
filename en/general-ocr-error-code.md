@@ -2,7 +2,7 @@
 
 | resultCode | resultKey | resultMessage |
 |---|---|----|
-| 0 | SUCCESS | Success |
+| 0 | SUCCESS | SUCCESS |
 | -1 | FAIL | Unknown error. |
 | 400 | BAD_REQUEST | Bad Request |
 | 401 | UNAUTHORIZED | Unauthorized |

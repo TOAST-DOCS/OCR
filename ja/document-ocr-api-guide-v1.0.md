@@ -14,8 +14,8 @@
 
 [リクエストヘッダ]
 
-| 名前 | 値 | 説明 |
-|---|---|---|
+| 名前 | 値 | 説明             |
+|---|---|-----------------|
 | Authorization | {secretKey} | コンソールで発行されたセキュリティキー |
 
 [Path Variable]
@@ -111,6 +111,93 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
  
     ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
+### 事業者登録証 休/廃業照会API
+
+#### リクエスト
+
+- {appKey}と{secretKey}は、コンソール上部の**URL & Appkey**メニューで確認できます。
+
+[URI]
+
+| メソッド | URI                                                                       |
+|---|---------------------------------------------------------------------------|
+| POST | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business/status |
+
+[リクエストヘッダ]
+
+| 名前 | 値 | 説明             |
+|---|---|-----------------|
+| Authorization | {secretKey} | コンソールで発行されたセキュリティキー |
+
+[Path Variable]
+
+| 名前 | 値 | 説明             |
+| --- | --- |-----------------|
+| appKey | {appKey} | 統合AppkeyまたはサービスAppkey |
+
+[フィールド]
+
+| 名前            | タイプ    | 説明 |
+|----------------|--------|---|
+| businessNumber | String | 事業者登録証の登録番号(10桁の数字) |
+
+[リクエスト本文]
+
+```
+curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business/status' \
+-H 'Authorization: ${secretKey}' \
+--data-raw '{
+  "businessNumber": "1234567890"
+}'
+```
+
+#### レスポンス
+
+[レスポンス本文]
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "result": {
+        "statusCode": "00",
+        "statusMessage": ""
+    }
+}
+```
+
+
+[ヘッダ]
+
+| 名前 | タイプ | 説明                             |
+| --- | --- |---------------------------------|
+| isSuccessful | Boolean | 休業/廃業照会API成否              |
+| resultCode | Integer | 結果コード                          |
+| resultMessage | String | 結果メッセージ(成功時はsuccess、失敗時はエラー内容) |
+
+[フィールド]
+
+| 名前        | タイプ    | 説明 |
+|-------------|--------| --- |
+| statusCode | String | 事業者登録証のステータスコード(国税庁の結果コード) |
+| statusMessage | String | 事業者登録証のステータスメッセージ |
+
+* **"statusCode"別の事業者登録証の状態リスト**
+
+| コード値 | 説明                                      |
+|---|------------------------------------------|
+| 00 | 事業を行っていない事業者                        |
+| 01 | 付加価値税一般課税者                             |
+| 02 | 付加価値税簡易課税者                             |
+| 03 | 付加価値税免税事業者                             |
+| 04 | 収益事業を営んでいない非営利法人または固有番号が付与された団体。国家機関 |
+| 05 | 休業者                                      |
+| 06 | 廃業者                                      |
+| 09 | その他                                      |
+
 ### クレジットカード分析API
 
 #### リクエスト
@@ -125,8 +212,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 
 [リクエストヘッダ]
 
-| 名前 | 値 | 説明 |
-|---|---|---|
+| 名前 | 値 | 説明             |
+|---|---|-----------------|
 | Authorization | {secretKey} | コンソールで発行されたセキュリティキー |
 
 [Path Variable]

@@ -31,7 +31,7 @@ After uploading the image, click the **Analyze** button and the analysis results
     * [resolution] normal: the resolution is the recommended resolution (HD 1280*720px) or above, low: the resolution is below the recommended resolution
     * [unitType] Coordinate unit for boxes (pixel by default, point for PDF)
     * [boxes] Coordinate values of the recognized area on the image ({x1, y1, x2, y2, x3, y3, x4, y4} format for each box)
-      ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
+![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
     * [JSON Sample]
 
 ```json
@@ -39,30 +39,30 @@ After uploading the image, click the **Analyze** button and the analysis results
   "fileType": "jpg",
   "unitType": "pixel",
   "keyValues": [
-    {
-      "key":"구분",
-      "value":" 간이과세자",
-      "conf":0.93
-    },
-    {
-      "key":"등록번호",
-      "value":"123-45-67890",
-      "conf":1
-    },
-    ...
+      {
+          "key":"구분",
+          "value":" 간이과세자",
+          "conf":0.93
+      },
+      {
+          "key":"등록번호",
+          "value":"123-45-67890",
+          "conf":1
+      },
+      ...
   ],
   "boxes": [
-    {
-      "x1": 340,
-      "y1": 3231,
-      "x2": 523,
-      "y2": 3231,
-      "x3": 523,
-      "y3": 3297,
-      "x4": 340,
-      "y4": 3297
-    },
-    ...
+      {
+          "x1": 340,
+          "y1": 3231,
+          "x2": 523,
+          "y2": 3231,
+          "x3": 523,
+          "y3": 3297,
+          "x4": 340,
+          "y4": 3297
+      },
+      ...
   ],
   "resolution": "normal"
 }
@@ -70,6 +70,13 @@ After uploading the image, click the **Analyze** button and the analysis results
 
 * Provides the feature to copy or download analysis results (Excel, JSON).
 
+### Modify
+	
+You can modify the content of the business registration certificate after analysis. Click **Modify** to modify the content.
+
+### Retrieve Stoppage/Closure
+
+After analyzing the business registration certificate, you can search whether the business is stopped or closed by the contents of the analysis result. Click **Search for Stoppage/Clousre** to display the search results on the right side of the button.
 
 ## Credit Card Analysis
 
@@ -101,7 +108,7 @@ After uploading the image, click the **Analyze** button and the analysis results
         * [conf] Confidence of expiration date recognition result
     * [cardNumBoxes] Coordinate values of the card number recognition area on the image ({x1, y1, x2, y2, x3, y3, x4, y4} format for each box)
     * [validThruBox] Coordinate values of the expiration date recognition area on the image
-      ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
+![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
     * [JSON Sample]
 
 ```json
@@ -156,7 +163,7 @@ After uploading the image, click the **Analyze** button and the analysis results
   }
 }
 ```
-
+  
 * Provides the feature to copy or download analysis results (JSON).
 
 ## Analyze ID Card
@@ -189,7 +196,7 @@ After uploading the image, click the **Analyze** button and the analysis results
     * [boxes] Coordinate values of the recognized area on the image ({x1, y1, x2, y2, x3, y3, x4, y4} format for each box)
       ![bbox](http://static.toastoven.net/prod_ocr/bbox.png)
     * [JSON Sample]
-
+    
 ```json
 {
   "fileType": "png",
@@ -238,12 +245,12 @@ After uploading the image, click the **Analyze** button and the analysis results
   ]
 }
 ```
-
+  
 * Provides the feature to copy or download analysis results (JSON).
 
 ### Modify
 
-You can modify the content of the ID card after analysis. Click**Modify**to modify the content.
+You can modify the content of the ID card after analysis. Click**Modify**to modify the content. 
 
 ### Verify Authenticity
 

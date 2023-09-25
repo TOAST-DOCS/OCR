@@ -70,6 +70,13 @@ After uploading the image, click the **Analyze** button and the analysis results
 
 * Provides the feature to copy or download analysis results (Excel, JSON).
 
+### Modify
+	
+You can modify the content of the business registration certificate after analysis. Click **Modify** to modify the content.
+
+### Retrieve Stoppage/Closure
+
+After analyzing the business registration certificate, you can search whether the business is stopped or closed by the contents of the analysis result. Click **Search for Stoppage/Clousre** to display the search results on the right side of the button.
 
 ## Credit Card Analysis
 

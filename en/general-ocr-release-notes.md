@@ -1,6 +1,6 @@
 ## AI Service > OCR > General OCR > Release Notes
 
-### September 27, 2023
+### September 26, 2023
 * Improved the performance of image recognition
 
 ### June 27, 2023

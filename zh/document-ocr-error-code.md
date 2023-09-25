@@ -41,6 +41,7 @@
 | 5003001    | OCR_DOCUMENT_BUSINESS_API_FAIL            | Document(business) OCR Api fail.                                                           |
 | 5003002    | OCR_DOCUMENT_BUSINESS_API_RETURN_EMPTY    | Document(business) OCR Api returned empty body.                                            |
 | 5003003    | OCR_DOCUMENT_BUSINESS_RECOGNITION_FAIL    | Document(business) OCR failed to recognize the document.                                   |
+| 5003004    | OCR_DOCUMENT_BUSINESS_STATUS_CHECK_FAIL   | Document(business) Status Api fail.                                                        |
 | 5003011    | OCR_DOCUMENT_CREDIT_CARD_API_FAIL         | Document(credit card) OCR Api fail.                                                        |
 | 5003012    | OCR_DOCUMENT_CREDIT_CARD_API_RETURN_EMPTY | Document(credit card) OCR Api returned empty body.                                         |
 | 5003013    | OCR_DOCUMENT_CREDIT_CARD_RECOGNITION_FAIL | Document(credit card) OCR failed to recognize the document.                                |

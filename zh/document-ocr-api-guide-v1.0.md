@@ -14,8 +14,8 @@
 
 [Request Header]
 
-| Name | Value | Description |
-|---|---|---|
+| Name | Value | Description             |
+|---|---|-----------------|
 | Authorization | {secretKey} | Security key issued from the console |
 
 [Path Variable]
@@ -111,6 +111,93 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 
     ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
+### Retrieve Business Registration Stoppage/Closure API
+
+#### Request
+
+- The {appKey} and {secretKey} can be found in the **URL & Appkey** menu at the top of the console.
+
+[URI]
+
+| Method | URI                                                                       |
+|---|---------------------------------------------------------------------------|
+| POST | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business/status |
+
+[Request Header]
+
+| Name | Value | Description              |
+|---|---|-----------------|
+| Authorization | {secretKey} | Security key issued from the console |
+
+[Path Variable]
+
+| Name | Value | Description              |
+| --- | --- |-----------------|
+| appKey | {appKey} | Integrated Appkey or Service Appkey |
+
+[Field]
+
+| Name             | Type     | Description |
+|----------------|--------|---|
+| businessNumber | String | Business registration certificate number (10 digits) |
+
+[Request Bodoy]
+
+```
+curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business/status' \
+-H 'Authorization: ${secretKey}' \
+--data-raw '{
+  "businessNumber": "1234567890"
+}'
+```
+
+#### Response
+
+[Response Body]
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "result": {
+        "statusCode": "00",
+        "statusMessage": ""
+    }
+}
+```
+
+
+[Header]
+
+| Name | Type | Description                              |
+| --- | --- |---------------------------------|
+| isSuccessful | Boolean | Whether Retrieve stoppage/closure API successful or not               |
+| resultCode | Integer | Result code                           |
+| resultMessage | String | Result message (Success when successful, error when failed) |
+
+[Field]
+
+| Name         | Type     | Description |
+|-------------|--------| --- |
+| statusCode | String | Business registraction certificate status code (Hometax result code) |
+| statusMessage | String | Business registraction certificate status message |
+
+* **List of Business Registration Certificate Statuses by "statusCode"**
+
+| Code value | Description                                       |
+|---|------------------------------------------|
+| 00 | Businesses not in business |
+| 01 | VAT general taxpayers |
+| 02 | VAT simplified taxpayer |
+| 03 | Exempt from VAT |
+| 04 | Non-profit corporation or organization with a unique number that is not engaged in a profitable business. National organizations |
+| 05 | Inactive |
+| 06 | Closed |
+| 09 | Others  |
+
 ### Credit Card Analysis API
 
 #### Request
@@ -182,7 +269,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-c
                         "value": "4444",
                         "conf": 0.89
                     }
-                ],
+        ],
         "totalCardNum": "111222233334444",
         "cardNumBoxes": [
             {

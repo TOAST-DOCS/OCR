@@ -1,6 +1,6 @@
 ## AI Service > OCR > Document OCR > Release Notes
 
-### September 27, 2023
+### September 26, 2023
 * Added a feature to retrieve stoppage/closure of business registration certificates
 * Improved the performance of business registration certificate recognition
 

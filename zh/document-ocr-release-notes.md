@@ -1,5 +1,9 @@
 ## AI Service > OCR > Document OCR > Release Notes
 
+### September 26, 2023
+* Added a feature to retrieve stoppage/closure of business registration certificates
+* Improved the performance of business registration certificate recognition
+
 ### August 29, 2023
 * Added an ID card analysis option
     * Added a stand alone API
@@ -17,7 +21,7 @@
 ### February 28, 2023
 * Improved the performance of business registration certificate
 * Improved the console UI
-  * Removed guide message at the top
+    * Removed guide message at the top
 
 ### December 27, 2022
 * Improved the performance of ID card recognition

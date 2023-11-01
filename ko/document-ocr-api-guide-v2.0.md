@@ -612,7 +612,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | Authorization | {secretKey} | 콘솔에서 발급 받은 보안 키 |
 | X-Key-Version | {x-key-version} | 발급 받은 공개 키의 버전 |
 | Symmetric-Key | {symmetricKey} | 발급 받은 공개 키로 암호화된 대칭 키 |
-| Request-Key | {Request-Key} | 신분증 분석 후 발급받은 Request-Key |
+| Request-Key | {Request-Key} | 신분증 분석 후 발급 받은 Request-Key |
 
 * {symmetricKey}는 반드시 **32byte 난수**로 생성해야 합니다.
 * {symmetricKey}는 반드시 **RSA/ECB/PKCS1Padding** 방식으로 암호화되어야 합니다(공개 키 이용).

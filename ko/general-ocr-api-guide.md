@@ -19,12 +19,12 @@
 
 | 이름 | 값 | 설명 |
 |---|---|---|
-| Authorization | {secretKey} | 콘솔에서 발급받은 보안 키 |
-| Content-Type | multipart/form-data | 컨텐츠 타입 |
+| Authorization | {secretKey} | 콘솔에서 발급 받은 보안 키 |
+| Content-Type | multipart/form-data | 콘텐츠 타입 |
 
 [요청 본문]
 
-- 이미지 파일의 Binary Data를 넣습니다.
+- 이미지 파일의 바이너리 데이터를 넣습니다.
 
 ```
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
@@ -44,8 +44,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 | 이름 | 값 | 설명 |
 |---|---|---|
-| Authorization | {secretKey} | 콘솔에서 발급받은 보안 키 |
-| Content-Type | application/json | 컨텐츠 타입 |
+| Authorization | {secretKey} | 콘솔에서 발급 받은 보안 키 |
+| Content-Type | application/json | 콘텐츠 타입 |
 
 [요청 본문]
 
@@ -158,12 +158,12 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 | 이름 | 값 | 설명 |
 |---|---|---|
-| Authorization | {secretKey} | 콘솔에서 발급받은 보안 키 |
-| Content-Type | multipart/form-data | 컨텐츠 타입 |
+| Authorization | {secretKey} | 콘솔에서 발급 받은 보안 키 |
+| Content-Type | multipart/form-data | 콘텐츠 타입 |
 
 [요청 본문]
 
-- 이미지 파일의 Binary Data를 넣습니다.
+- 이미지 파일의 바이너리 데이터를 넣습니다.
 
 ```
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
@@ -183,8 +183,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 
 | 이름 | 값 | 설명 |
 |---|---|---|
-| Authorization | {secretKey} | 콘솔에서 발급받은 보안 키 |
-| Content-Type | application/json | 컨텐츠 타입 |
+| Authorization | {secretKey} | 콘솔에서 발급 받은 보안 키 |
+| Content-Type | application/json | 콘텐츠 타입 |
 
 [요청 본문]
 
@@ -275,7 +275,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 | listOfInferTexts[0].inferTexts[0].conf  | Double | 인식 결과 신뢰도                                         |
 | listOfBoundingBoxes                     | List | 인식 영역(Bounding box) 좌표 목록                         |
 | listOfBoundingBoxes[0].boundingBoxes[0] | Object  | 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 }       |
-| slicesImages                            | Integer | 입력 이미지의 가로-세로 비율에 따라 내부적으로 분할 된 이미지 개수 |
+| slicesImages                            | Integer | 입력 이미지의 가로-세로 비율에 따라 내부적으로 분할된 이미지 개수 |
 
 * boxes[0]
 

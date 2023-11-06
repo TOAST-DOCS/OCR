@@ -26,7 +26,7 @@
 
 [요청 본문]
 
-- 이미지 파일의 Binary Data를 넣습니다.
+- 이미지 파일의 바이너리 데이터를 넣습니다.
 
 ```
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business' \
@@ -224,7 +224,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 
 [요청 본문]
 
-- 이미지 파일의 Binary Data를 넣습니다.
+- 이미지 파일의 바이너리 데이터를 넣습니다.
 
 ```
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-card' \

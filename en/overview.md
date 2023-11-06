@@ -1,6 +1,7 @@
 ## AI Service > OCR > Overview
 
-OCR provides a feature to recognize the text area of images and documents and extract the text for each area. It can be used by customers who need to create a database for recognized documents or implement document processing automation.
+OCR provides a feature to recognize the text area of images and documents and extract the text for each area. 
+It can be used by customers who need to create a database for recognized documents or implement document processing automation.
 
 ## General OCR
 
@@ -17,10 +18,15 @@ OCR provides a feature to recognize the text area of images and documents and ex
 
 For more accurate image analysis, please refer to the guide below.
 
-* File recommendations
+* File/image URL recommendations
     * File format: Supports analysis of images in .jpeg, .png format.
-    * Maximum size: 5 MB
+    * Maximum size: 5 MB for file content, 20 MB for image URL content
     * Recommended resolution: 1280x720
+    * If you are analyzing a long image, you can use the ‘Segmentation Recognition feature’ to get more accurate analysis results.
+        * Long images with a ‘horizontal to vertical’ or ‘vertical to horizontal’ aspect ratio greater than 1:2.5 can cause poor analysis performance.
+        * If you need accurate recognition when the aspect ratio exceeds 1:2.5, you can use the ‘Segmentation Recognition feature’ to increase the accuracy of the analysis results.
+            * When segmenting and recognizing images, the analysis may include text that is duplicated with some overlapping regions.
+        * If the aspect ratio goes beyond about 1:10, analysis is not possible.
 * Image recommendation
     * Please use an image taken in a condition where the subject has been laid out as straight as possible on a flat surface.
     * Please make the image recognized as a full image of a rectangular shape.

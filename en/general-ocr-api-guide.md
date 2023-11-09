@@ -64,6 +64,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 |---|---|---|
 | imageUrl | String | Image URL |
 
+* If you specify the port directly in the image URL, only ports 80, 443, 10000-12000 can be used.
+
 #### Response
 
 [Response Body]
@@ -202,6 +204,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 | Name | Type | Description |
 |---|---|---|
 | imageUrl | String | Image URL |
+
+* If you specify the port directly in the image URL, only ports 80, 443, 10000-12000 can be used.
 
 #### Response
 

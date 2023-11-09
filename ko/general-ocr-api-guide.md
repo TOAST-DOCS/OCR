@@ -64,6 +64,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 |---|---|---|
 | imageUrl | String | 이미지 URL |
 
+* 이미지 URL에 포트를 직접 지정하는 경우 80, 443, 10000~12000 포트만 사용 가능합니다.
+
 #### 응답
 
 [응답 본문]
@@ -202,6 +204,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 | 이름 | 타입 | 설명 |
 |---|---|---|
 | imageUrl | String | 이미지 URL |
+
+* 이미지 URL에 포트를 직접 지정하는 경우 80, 443, 10000~12000 포트만 사용 가능합니다.
 
 #### 응답
 

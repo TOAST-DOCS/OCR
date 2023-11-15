@@ -393,7 +393,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 | key                 | value type | description                |
 |---------------------|------------|----------------------------|
-| **passportType**    | string     | 認識された運転免許番号               |
+| **passportType**    | string     | 認識されたパスポート番号               |
 | **countryCode**     | string     | 認識された国コード                |
 | **passportNo**      | string     | 認識されたパスポート番号                |
 | **surName**         | string     | 認識された姓                     |
@@ -571,7 +571,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 
 | key                 | value type | description                |
 |---------------------|------------|----------------------------|
-| **passportType**    | string     | 認識された運転免許番号               |
+| **passportType**    | string     | 認識されたパスポート番号               |
 | **countryCode**     | string     | 認識された国コード                |
 | **passportNo**      | string     | 認識されたパスポート番号                |
 | **surName**         | string     | 認識された姓                     |

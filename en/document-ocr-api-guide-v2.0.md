@@ -393,9 +393,9 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 | key                 | value type | description                |
 |---------------------|------------|----------------------------|
-| **passportType**    | string     | Recognized driver license number                 |
+| **passportType**    | string     | Recognized passport type                 |
 | **countryCode**     | string     | Recognized country code                  |
-| **passportNo**      | string     | Recognized passport                  |
+| **passportNo**      | string     | Recognized passport number                  |
 | **surName**         | string     | Recognized surname                      |
 | **givenName**       | string     | Recognized name                     |
 | **nationality**     | string     | Recognized nationality                     |
@@ -570,9 +570,9 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 
 | key                 | value type | description                |
 |---------------------|------------|----------------------------|
-| **passportType**    | string     | Recognized driver license number                 |
+| **passportType**    | string     | Recognized passport type                 |
 | **countryCode**     | string     | Recognized country code                  |
-| **passportNo**      | string     | Recognized passport                  |
+| **passportNo**      | string     | Recognized passport number                 |
 | **surName**         | string     | Recognized surname                      |
 | **givenName**       | string     | Recognized name                     |
 | **nationality**     | string     | Recognized nationality                     |

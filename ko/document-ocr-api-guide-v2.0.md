@@ -393,7 +393,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 | key                 | value type | description                |
 |---------------------|------------|----------------------------|
-| **passportType**    | string     | 인식된 운전면허번호                 |
+| **passportType**    | string     | 인식된 여권 타입                  |
 | **countryCode**     | string     | 인식된 국가 코드                  |
 | **passportNo**      | string     | 인식된 여권 번호                  |
 | **surName**         | string     | 인식된 성                      |
@@ -571,7 +571,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 
 | key                 | value type | description                |
 |---------------------|------------|----------------------------|
-| **passportType**    | string     | 인식된 운전면허번호                 |
+| **passportType**    | string     | 인식된 여권 타입                  |
 | **countryCode**     | string     | 인식된 국가 코드                  |
 | **passportNo**      | string     | 인식된 여권 번호                  |
 | **surName**         | string     | 인식된 성                      |

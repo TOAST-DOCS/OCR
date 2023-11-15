@@ -146,61 +146,61 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 
 ```json
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "result": {
-    "fileType": "png",
-    "resolution": "low",
-    "cardNums": [
-      {
-        "value": "1111",
-        "conf": 0.87
-      },
-      {
-        "value": "2222",
-        "conf": 0.99
-      },
-      {
-        "value": "3333",
-        "conf": 0.97
-      },
-      {
-        "value": "4444",
-        "conf": 0.89
-      }
-    ],
-    "totalCardNum": "111222233334444",
-    "cardNumBoxes": [
-      {
-        "x1": 62,
-        "y1": 256,
-        "x2": 192,
-        "y2": 256,
-        "x3": 192,
-        "y3": 301,
-        "x4": 62,
-        "y4": 301
-      },
-      ...
-    ],
-    "validThru": {
-      "value": "04/19",
-      "conf": 0.53
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
     },
-    "validThruBox": {
-      "x1": 316,
-      "y1": 315,
-      "x2": 426,
-      "y2": 315,
-      "x3": 426,
-      "y3": 347,
-      "x4": 316,
-      "y4": 347
+    "result": {
+        "fileType": "png",
+        "resolution": "low",
+        "cardNums": [
+                    {
+                        "value": "1111",
+                        "conf": 0.87
+                    },
+                    {
+                        "value": "2222",
+                        "conf": 0.99
+                    },
+                    {
+                        "value": "3333",
+                        "conf": 0.97
+                    },
+                    {
+                        "value": "4444",
+                        "conf": 0.89
+                    }
+        ],
+        "totalCardNum": "111222233334444",
+        "cardNumBoxes": [
+            {
+                "x1": 62,
+                "y1": 256,
+                "x2": 192,
+                "y2": 256,
+                "x3": 192,
+                "y3": 301,
+                "x4": 62,
+                "y4": 301
+            },
+            ...
+        ],
+        "validThru": {
+            "value": "04/19",
+            "conf": 0.53
+        },
+        "validThruBox": {
+            "x1": 316,
+            "y1": 315,
+            "x2": 426,
+            "y2": 315,
+            "x3": 426,
+            "y3": 347,
+            "x4": 316,
+            "y4": 347
+        }
     }
-  }
 }
 ```
 
@@ -295,51 +295,51 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 ```json
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "result": {
-    "fileType": "png",
-    "resolution": "low",
-    "idType": "resident",
-    "keyValues": [
-      {
-        "key": "name",
-        "value": "String",
-        "conf": 0.67
-      },
-      {
-        "key": "residentNumber",
-        "value": "String",
-        "conf": 0.91
-      },
-      {
-        "key": "issueDate",
-        "value": "String",
-        "conf": 0.86
-      },
-      {
-        "key": "issuer",
-        "value": "String",
-        "conf": 0.8
-      }
-    ],
-    "boxes": [
-      {
-        "x1": 280,
-        "y1": 271,
-        "x2": 354,
-        "y2": 271,
-        "x3": 354,
-        "y3": 305,
-        "x4": 280,
-        "y4": 305
-      },
-      ...
-    ]
-  }
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "result": {
+        "fileType": "png",
+        "resolution": "low",
+        "idType": "resident",
+        "keyValues": [
+            {
+                "key": "name",
+                "value": "String",
+                "conf": 0.67
+            },
+            {
+                "key": "residentNumber",
+                "value": "String",
+                "conf": 0.91
+            },
+            {
+                "key": "issueDate",
+                "value": "String",
+                "conf": 0.86
+            },
+            {
+                "key": "issuer",
+                "value": "String",
+                "conf": 0.8
+            }
+        ],
+        "boxes": [
+            {
+                "x1": 280,
+                "y1": 271,
+                "x2": 354,
+                "y2": 271,
+                "x3": 354,
+                "y3": 305,
+                "x4": 280,
+                "y4": 305
+            },
+            ...
+        ]
+    }
 }
 ```
 
@@ -393,9 +393,9 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 | key                 | value type | description                |
 |---------------------|------------|----------------------------|
-| **passportType**    | string     | Recognized driver license number                 |
+| **passportType**    | string     | Recognized passport type                 |
 | **countryCode**     | string     | Recognized country code                  |
-| **passportNo**      | string     | Recognized passport                  |
+| **passportNo**      | string     | Recognized passport number                  |
 | **surName**         | string     | Recognized surname                      |
 | **givenName**       | string     | Recognized name                     |
 | **nationality**     | string     | Recognized nationality                     |
@@ -570,9 +570,9 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 
 | key                 | value type | description                |
 |---------------------|------------|----------------------------|
-| **passportType**    | string     | Recognized driver license number                 |
+| **passportType**    | string     | Recognized passport type                 |
 | **countryCode**     | string     | Recognized country code                  |
-| **passportNo**      | string     | Recognized passport                  |
+| **passportNo**      | string     | Recognized passport number                 |
 | **surName**         | string     | Recognized surname                      |
 | **givenName**       | string     | Recognized name                     |
 | **nationality**     | string     | Recognized nationality                     |

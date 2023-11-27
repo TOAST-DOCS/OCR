@@ -11,7 +11,6 @@
 | 405        | METHOD_NOT_ALLOWED                        | Method Not Allowed                                                                         |
 | 415        | UNSUPPORTED_MEDIA_TYPE                    | Unsupported Media Type                                                                     |
 | 4000001    | INVALID_PARAMETER                         | Invalid parameter.                                                                         |
-| 4000002    | MAX_UPLOAD_SIZE_EXCEEDED                  | Max upload file size exceeded.                                                             |
 | 4000003    | INVALID_FILE_TYPE                         | Invalid file type.                                                                         |
 | 4000004    | UPLOADED_FILE_IS_EMPTY                    | Uploaded file is empty.                                                                    |
 | 4000005    | MISSING_REQUIRED_HEADER                   | Required headers is missing.                                                               |
@@ -22,6 +21,8 @@
 | 4000121    | ID_CARD_INFO_NOT_FOUND                    | Id card info not found.                                                                    |
 | 4000122    | AUTHENTICITY_REQUEST_KEY_INVALID          | Request Key is invalid or expired.                                                         |
 | 4000301    | INVALID_KEY_VERSION                       | Invalid key version.                                                                       |
+| 4000302    | INVALID_SYMMETRIC_KEY                       | Invalid symmetric key.                                                                     |
+| 4000303    | INVALID_ENCRYPTED_DATA                       | Invalid encrypted data.                                                                    |
 | 4000401    | SERVICE_NOT_ENABLED                       | Service not enabled. Please submit service use request.                                    |
 | 4000402    | SERVICE_USE_REQUEST_ALREADY_IN_PROGRESS   | Service use request already in progress.                                                   |
 | 4000403    | SERVICE_USE_REQUEST_NOT_IN_PROGRESS       | Service use request not in progress.                                                       |
@@ -31,6 +32,7 @@
 | 4010003    | NOT_ALLOWED_USER                          | Not allowed user.                                                                          |
 | 4010004    | INVALID_PROJECT                           | Invalid project.                                                                           |
 | 4010005    | UNAUTHORIZED_ROLE                         | Unauthorized role.                                                                         |
+| 4131000    | MAX_UPLOAD_SIZE_EXCEEDED                  | Request size is larger than permissible limit. the permissible limit is 5mb.               |
 | 5000001    | INTERNAL_API_FAIL                         | Internal Api fail.                                                                         |
 | 5000002    | ERROR_PARSING_FAIL                        | Error parsing fail.                                                                        |
 | 5000003    | DATABASE_FAIL                             | Database server error.                                                                     |

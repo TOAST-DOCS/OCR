@@ -25,6 +25,7 @@
 | 5000003 | DATABASE_FAIL | Database server error.                                                       |
 | 5000004 | RESOURCE_DELETE_FAIL | All or some resource delete fail.                                            |
 | 5000005 | FILE_READ_FAIL | File read fail.                                                              |
+| 5000503    | API_TEMPORARILY_UNAVAILABLE               | The API you requested is temporarily unavailable. Please try again later.                                                                              |
 | 5004001 | OCR_VEHICLE_PLATE_API_FAIL | Vehicle Plate OCR Api fail.                                                  |
 | 5004002 | OCR_VEHICLE_PLATE_API_RETURN_EMPTY | Vehicle Plate OCR Api returned empty body.                                   |
 | 5004003 | OCR_VEHICLE_PLATE_RECOGNITION_FAIL | Vehicle Plate OCR failed to recognize the vehicle plate.                     |

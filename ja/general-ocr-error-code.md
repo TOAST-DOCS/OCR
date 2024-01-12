@@ -29,6 +29,7 @@
 | 5000003 | DATABASE_FAIL | Database server error.                                                       |
 | 5000004 | RESOURCE_DELETE_FAIL | All or some resource delete fail.                                            |
 | 5000005 | FILE_READ_FAIL | File read fail.                                                              |
+| 5000503    | API_TEMPORARILY_UNAVAILABLE               | The API you requested is temporarily unavailable. Please try again later.                                                                              |
 | 5005001 | OCR_GENERAL_API_FAIL| General OCR Api fail.                                                        |
 | 5005002 | OCR_GENERAL_API_RETURN_EMPTY | General OCR Api returned empty body.                                         |
 | 5005003 | OCR_GENERAL_RECOGNITION_FAIL | General OCR failed to recognize the image.                                   |

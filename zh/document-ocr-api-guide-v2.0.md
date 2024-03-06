@@ -308,22 +308,62 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
             {
                 "key": "name",
                 "value": "String",
-                "conf": 0.67
+                "conf": 0.67,
+                "bbox": {
+                    "x1": 191,
+                    "y1": 75,
+                    "x2": 240,
+                    "y2": 75,
+                    "x3": 240,
+                    "y3": 95,
+                    "x4": 191,
+                    "y4": 95
+                }
             },
             {
                 "key": "residentNumber",
                 "value": "String",
-                "conf": 0.91
+                "conf": 0.91,
+                "bbox": {
+                    "x1": 190,
+                    "y1": 43,
+                    "x2": 382,
+                    "y2": 43,
+                    "x3": 382,
+                    "y3": 64,
+                    "x4": 190,
+                    "y4": 64
+                }
             },
             {
                 "key": "issueDate",
                 "value": "String",
-                "conf": 0.86
+                "conf": 0.86,
+                "bbox": {
+                    "x1": 191,
+                    "y1": 75,
+                    "x2": 240,
+                    "y2": 75,
+                    "x3": 240,
+                    "y3": 95,
+                    "x4": 191,
+                    "y4": 95
+                },
             },
             {
                 "key": "issuer",
                 "value": "String",
-                "conf": 0.8
+                "conf": 0.8,
+                "bbox": {
+                    "x1": 19,
+                    "y1": 10,
+                    "x2": 148,
+                    "y2": 10,
+                    "x3": 148,
+                    "y3": 52,
+                    "x4": 19,
+                    "y4": 52
+                }
             }
         ],
         "boxes": [
@@ -360,9 +400,10 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | idType | String | resident(resident registration certificate), driver(driver license), passport (passport)                                                               |  |
 | keyValues | List |                                                                                                                                     |  |
 | keyValues[0].key | String |                                                                                                                                     |  |
-| keyValues[0].value | String |                                                                                                                                     | O |
-| keyValues[0].conf | Double |                                                                                                                                     |  |
-| boxes | List | List of bounding box coordinates                                                                                                    |
+| keyValues[0].value | String | | O |
+| keyValues[0].bbox | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 } |  |
+| keyValues[0].conf | Double | Confidence of the recognition result |  | |  |
+| boxes | List | List of bounding box coordinates |
 | boxes[0] | Object  | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                   |
 
 * **List included in KeyValues when "idType" is recognized as "resident"**
@@ -414,6 +455,102 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 * Encrypted items (keyValues[0].value, etc.) are encrypted with the **AES-256/CBC/PKCS7Padding** method (using symmetric key).
 * boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
+
+### Verify Authenticity API
+
+#### Request
+
+* You can find the {appKey} and {secretKey} in the **URL & Appkey** menu at the top of the console.
+
+[URI]
+
+| Method | URI |
+| --- | --- |
+| POST | /v2.0/appkeys/{appKey}/id-card/authenticity |
+
+[Request Header]
+
+| Name | Value | Description |
+| --- | --- | --- |
+| Authorization | {secretKey} | Security key issued from the console |
+| X-Key-Version | {x-key-version} | Version of the public key issued |
+| Symmetric-Key | {symmetricKey} | Symmetric key encrypted with the issued public key |
+| Request-Key | {Request-Key} | Request-Key issued after ID card analysis |
+
+* {symmetricKey} must be created as a **32-byte random number**.
+* {symmetricKey} must be encrypted with the **RSA/ECB/PKCS1Padding** method (using public key).
+
+[Path Variable]
+
+| Name | Value | Description              |
+| --- | --- |-----------------|
+| appKey | {appKey} | Integrated Appkey or Service Appkey |
+
+[Field]
+
+| Name | Type | Description                                             | Whether encrypted or not |
+| --- | --- |------------------------------------------------| --- |
+| fileType | String | File extension (.jpg, .png)                             |  |
+| resolution | String | normal: the resolution is the recommended resolution (760\*480px) or above, low: the resolution is below the recommended resolution |  |
+| idType | String | resident(resident registration certificate), driver(driver license), passport (passport)   |  |
+| keyValues | List |                                                |  |
+| keyValues[0].key | String |                                                |  |
+| keyValues[0].value | String |                                                | O |
+| keyValues[0].bbox | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 } |  |
+| keyValues[0].conf | Double | Confidence of the recognition result       |  |          
+| boxes | List | List of bounding box coordinates                      |
+| boxes[0] | Object  | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }    |
+
+* A field that requires encryption must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
+
+[Request Body]
+
+```
+curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/authenticity' \
+-H 'Authorization: ${secretKey}' \
+-H 'X-Key-Version: ${x-key-version}' \
+-H 'Symmetric-Key: ${symmetricKey}' \
+-H 'Request-Key: ${Request-Key}' \
+-H 'Content-Type: application/json' \
+--data-raw '{
+  "idType": "driver",
+  "name": "J/MTycDJ...",
+  "residentNumber": "P12ztmj...",
+  "driverLicenseNumber": "OHjVJrUMh...",
+  "serialNum": "7tnTOKuKGJ..."
+}'
+```
+
+#### Response
+
+[Response Body]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "result": {
+    "isAuthenticity": false
+  }
+}
+```
+
+[Header]
+
+| Name | Type | Description |
+| --- | --- | --- |
+| isSuccessful | Boolean | Whether the Verify Authenticity API succeeds or not |
+| resultCode | Integer | Result code |
+| resultMessage | String | Result message (success on success, error content on failure) |
+
+[Field]
+
+| Name | Type | Description |
+| --- | --- | --- |
+| isAuthenticity | Boolean | Whether it is authentic or not |
 
 ### ID Card Analysis API (Stand alone)
 
@@ -486,22 +623,62 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
             {
                 "key": "name",
                 "value": "String",
-                "conf": 0.67
+                "conf": 0.67,
+                "bbox": {
+                    "x1": 191,
+                    "y1": 75,
+                    "x2": 240,
+                    "y2": 75,
+                    "x3": 240,
+                    "y3": 95,
+                    "x4": 191,
+                    "y4": 95
+                }
             },
             {
                 "key": "residentNumber",
                 "value": "String",
-                "conf": 0.91
+                "conf": 0.91,
+                "bbox": {
+                    "x1": 190,
+                    "y1": 43,
+                    "x2": 382,
+                    "y2": 43,
+                    "x3": 382,
+                    "y3": 64,
+                    "x4": 190,
+                    "y4": 64
+                }
             },
             {
                 "key": "issueDate",
                 "value": "String",
-                "conf": 0.86
+                "conf": 0.86,
+                "bbox": {
+                    "x1": 191,
+                    "y1": 75,
+                    "x2": 240,
+                    "y2": 75,
+                    "x3": 240,
+                    "y3": 95,
+                    "x4": 191,
+                    "y4": 95
+                },
             },
             {
                 "key": "issuer",
                 "value": "String",
-                "conf": 0.8
+                "conf": 0.8,
+                "bbox": {
+                    "x1": 19,
+                    "y1": 10,
+                    "x2": 148,
+                    "y2": 10,
+                    "x3": 148,
+                    "y3": 52,
+                    "x4": 19,
+                    "y4": 52
+                }
             }
         ],
         "boxes": [
@@ -514,7 +691,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
                 "y3": 305,
                 "x4": 280,
                 "y4": 305
-            }
+            },
+            ...
         ]
     }
 }
@@ -538,7 +716,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | keyValues | List |                                                |  |
 | keyValues[0].key | String |                                                |  |
 | keyValues[0].value | String |                                                | O |
-| keyValues[0].conf | Double |                                                |  |
+| keyValues[0].bbox | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 } |  |
+| keyValues[0].conf | Double | Confidence of the recognition result       |  |          
 | boxes | List | List of bounding box coordinates                      |
 | boxes[0] | Object  | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }    |
 
@@ -591,98 +770,3 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 * Encrypted items (keyValues[0].value, etc.) are encrypted with the **AES-256/CBC/PKCS7Padding** method (using symmetric key).
 * boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
-
-### Verify Authenticity API
-
-#### Request
-
-* You can find the {appKey} and {secretKey} in the **URL & Appkey** menu at the top of the console.
-
-[URI]
-
-| Method | URI |
-| --- | --- |
-| POST | /v2.0/appkeys/{appKey}/id-card/authenticity |
-
-[Request Header]
-
-| Name | Value | Description |
-| --- | --- | --- |
-| Authorization | {secretKey} | Security key issued from the console |
-| X-Key-Version | {x-key-version} | Version of the public key issued |
-| Symmetric-Key | {symmetricKey} | Symmetric key encrypted with the issued public key |
-| Request-Key | {Request-Key} | Request-Key issued after ID card analysis |
-
-* {symmetricKey} must be created as a **32-byte random number**.
-* {symmetricKey} must be encrypted with the **RSA/ECB/PKCS1Padding** method (using public key).
-
-[Path Variable]
-
-| Name | Value | Description              |
-| --- | --- |-----------------|
-| appKey | {appKey} | Integrated Appkey or Service Appkey |
-
-[Field]
-
-| Name                  | Type     | Description                                                                                                         | idType             | Whether encrypted or not |
-|---------------------|--------|------------------------------------------------------------------------------------------------------------|--------------------|--------|
-| idType              | String | resident(resident registration certificate), driver(driver license), passport (passport)                                                               |                    | X      |
-| name                | String | Name                                                                                                         |                    | O      |
-| residentNumber      | String | Resident registration number<br>- For resident (resident registration certificate), 13 digits of resident registration number<br>- For a driver (driver's license), 7 digits that comprise of the first 6 digits and the first 1 digit of  resident registration number | resident, driver   | O      |
-| issueDate           | String | Issued date (YYYYMMDD)                                                                                            | resident, passport | O      |
-| driverLicenseNumber | String | 12 digits of driver license number                                                                                                | driver             | O      |
-| serialNum           | String | 5 and 6 digits of serial number                                                                                              | driver             | O      |
-| passportNumber      | String | Passport number (9 digits in uppercase letters and numbers)                                                                                   | passport           | O      |
-| birthDate           | String | Birthdate (YYYYMMDD)                                                                                             | passport           | O      |
-| expirationDate      | String | Expiration date (YYYYMMDD)                                                                                            | passport           | X      |
-
-* A field that requires encryption must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
-
-[Request Body]
-
-```
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/authenticity' \
--H 'Authorization: ${secretKey}' \
--H 'X-Key-Version: ${x-key-version}' \
--H 'Symmetric-Key: ${symmetricKey}' \
--H 'Request-Key: ${Request-Key}' \
--H 'Content-Type: application/json' \
---data-raw '{
-  "idType": "driver",
-  "name": "J/MTycDJ...",
-  "residentNumber": "P12ztmj...",
-  "driverLicenseNumber": "OHjVJrUMh...",
-  "serialNum": "7tnTOKuKGJ..."
-}'
-```
-
-#### Response
-
-[Response Body]
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "result": {
-    "isAuthenticity": false
-  }
-}
-```
-
-[Header]
-
-| Name | Type | Description |
-| --- | --- | --- |
-| isSuccessful | Boolean | Whether the Verify Authenticity API succeeds or not |
-| resultCode | Integer | Result code |
-| resultMessage | String | Result message (success on success, error content on failure) |
-
-[Field]
-
-| Name | Type | Description |
-| --- | --- | --- |
-| isAuthenticity | Boolean | Whether it is authentic or not |

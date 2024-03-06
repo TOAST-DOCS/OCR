@@ -308,22 +308,62 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
             {
                 "key": "name",
                 "value": "String",
-                "conf": 0.67
+                "conf": 0.67,
+                "bbox": {
+                    "x1": 191,
+                    "y1": 75,
+                    "x2": 240,
+                    "y2": 75,
+                    "x3": 240,
+                    "y3": 95,
+                    "x4": 191,
+                    "y4": 95
+                }
             },
             {
                 "key": "residentNumber",
                 "value": "String",
-                "conf": 0.91
+                "conf": 0.91,
+                "bbox": {
+                    "x1": 190,
+                    "y1": 43,
+                    "x2": 382,
+                    "y2": 43,
+                    "x3": 382,
+                    "y3": 64,
+                    "x4": 190,
+                    "y4": 64
+                }
             },
             {
                 "key": "issueDate",
                 "value": "String",
-                "conf": 0.86
+                "conf": 0.86,
+                "bbox": {
+                    "x1": 191,
+                    "y1": 75,
+                    "x2": 240,
+                    "y2": 75,
+                    "x3": 240,
+                    "y3": 95,
+                    "x4": 191,
+                    "y4": 95
+                },
             },
             {
                 "key": "issuer",
                 "value": "String",
-                "conf": 0.8
+                "conf": 0.8,
+                "bbox": {
+                    "x1": 19,
+                    "y1": 10,
+                    "x2": 148,
+                    "y2": 10,
+                    "x3": 148,
+                    "y3": 52,
+                    "x4": 19,
+                    "y4": 52
+                }
             }
         ],
         "boxes": [
@@ -361,7 +401,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | keyValues | List |  |  |
 | keyValues[0].key | String |  |  |
 | keyValues[0].value | String |  | O |
-| keyValues[0].conf | Double |  |  |
+| keyValues[0].bbox | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 } |  |
+| keyValues[0].conf | Double | 有効期限認識結果の信頼度       |  |   
 | boxes | List | 認識領域(Bounding box)座標リスト |
 | boxes[0] | Object  | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 } |
 
@@ -390,184 +431,6 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 
 * **"idType"が"passport"で認識される場合、KeyValuesに含まれるリスト**
-
-| key                 | value type | description                |
-|---------------------|------------|----------------------------|
-| **passportType**    | string     | 認識されたパスポート番号               |
-| **countryCode**     | string     | 認識された国コード                |
-| **passportNo**      | string     | 認識されたパスポート番号                |
-| **surName**         | string     | 認識された姓                     |
-| **givenName**       | string     | 認識された名前                   |
-| **nationality**     | string     | 認識された国籍                    |
-| **dateOfBirth**     | string     | 認識された生年月日                 |
-| **dateOfBirthYMD**  | string     | 認識された生年月日<br>(YYYYMMDD 8桁) |
-| **sex**             | string     | 認識された性別                    |
-| **dateOfIssue**     | string     | 認識された発行日                   |
-| **dateOfIssueYMD**  | string     | 認識された発行日<br>(YYYYMMDD 8桁)  |
-| **dateOfExpiry**    | string     | 認識された有効期限                   |
-| **dateOfExpiryYMD** | string     | 認識された有効期限<br>(YYYYMMDD 8桁)  |
-| **koreanName**      | string     | 認識されたハングル姓名                |
-| **personalNo**      | string     | 認識された住民登録番号               |
-| **MRZ1**            | string     | 機械判読領域1                  |
-| **MRZ2**            | string     | 機械判読領域2                  |
-
-* 暗号化された項目(keyValues[0].valueなど)は**AES-256/CBC/PKCS7Padding**方式で暗号化されています(対称鍵利用)。
-* boxes[0]
-  ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
-
-### 身分証分析(単独) API
-
-#### 既存身分証分析APIとの違い
-
-* 真偽確認に必要なRequest-Keyを含みません。
-* 真偽確認ができない代わりに、低料金が課金されます。
-
-#### リクエスト
-
-* {appKey}と{secretKey}はコンソール上部の**URL &amp; Appkey** メニューで確認できます。
-
-[URI]
-
-| メソッド | URI                                        |
-| --- |--------------------------------------------|
-| POST | /v2.0/appkeys/{appKey}/id-card/stand-alone |
-
-[リクエストヘッダ]
-
-| 名前 | 値 | 説明 |
-| --- | --- | --- |
-| Authorization | {secretKey} | コンソールで発行されたセキュリティキー |
-| X-Key-Version | {x-key-version} | 発行された公開鍵のバージョン |
-| Symmetric-Key | {symmetricKey} | 発行された公開鍵で暗号化された対称鍵 |
-
-* {symmetricKey}は必ず**32byte乱数**で作成する必要があります。
-* {symmetricKey}は必ず**RSA/ECB/PKCS1Padding**方式で暗号化する必要があります(公開鍵利用)。
-
-[Path Variable]
-
-| 名前 | 値 | 説明            |
-| --- | --- |-----------------|
-| appKey | {appKey} | 統合AppkeyまたはサービスAppkey |
-
-[フィールド]
-
-| 名前 | タイプ | 説明 | 暗号化説明 |
-| --- | --- | --- | --- |
-| image | multipart/form–data | イメージファイル | 対称鍵で暗号化されたイメージ |
-
-* イメージファイルは必ず**AES-256/CBC/PKCS7Padding**方式で暗号化する必要があります(対称鍵利用)。
-
-[リクエスト本文]
-
-```
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/stand-alone' \
--F 'image=@sample.png' \
--H 'Authorization: ${secretKey}' \
--H 'X-Key-Version: ${x-key-version}' \
--H 'Symmetric-Key: ${symmetricKey}'
-```
-
-#### レスポンス
-
-[レスポンス本文]
-
-```json
-{
-    "header": {
-        "isSuccessful": true,
-        "resultCode": 0,
-        "resultMessage": "SUCCESS"
-    },
-    "result": {
-        "fileType": "png",
-        "resolution": "low",
-        "idType": "resident",
-        "keyValues": [
-            {
-                "key": "name",
-                "value": "String",
-                "conf": 0.67
-            },
-            {
-                "key": "residentNumber",
-                "value": "String",
-                "conf": 0.91
-            },
-            {
-                "key": "issueDate",
-                "value": "String",
-                "conf": 0.86
-            },
-            {
-                "key": "issuer",
-                "value": "String",
-                "conf": 0.8
-            }
-        ],
-        "boxes": [
-            {
-                "x1": 280,
-                "y1": 271,
-                "x2": 354,
-                "y2": 271,
-                "x3": 354,
-                "y3": 305,
-                "x4": 280,
-                "y4": 305
-            },
-            ...
-        ]
-    }
-}
-```
-
-[ヘッダ]
-
-| 名前 | タイプ | 説明 |
-| --- | --- | --- |
-| isSuccessful | Boolean | 分析API成否 |
-| resultCode | Integer | 結果コード |
-| resultMessage | String | 結果メッセージ(成功時はsuccess、失敗時はエラー内容) |
-
-[フィールド]
-
-| 名前 | タイプ | 説明                                           | 暗号化するかどうか |
-| --- | --- |------------------------------------------------| --- |
-| fileType | String | ファイル拡張子(.jpg, .png)                             |  |
-| resolution | String | 推奨解像度(760\*480px)以上の場合はnormal、推奨解像度未満はlow |  |
-| idType | String | resident(住民登録証)、driver(運転免許証)、passport(パスポート)   |  |
-| keyValues | List |                                                |  |
-| keyValues[0].key | String |                                                |  |
-| keyValues[0].value | String |                                                | O |
-| keyValues[0].conf | Double |                                                |  |
-| boxes | List | 認識領域(Bounding box)座標リスト                    |
-| boxes[0] | Object  | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }    |
-
-* **"idType"が"resident"と認識される場合、KeyValuesに含まれるリスト**
-
-| key | value type | description |
-| --- | --- |-------------|
-| **name** | string | 認識された名前    |
-| **residentNumber** | string | 認識された住民登録番号 |
-| **issueDate** | string | 認識された発行日時 |
-| **issuer** | string | 認識された発行機関 |
-
-* **"idType"が"driver"と認識される場合、KeyValuesに含まれるリスト**
-
-| key | value type | description                                                   |
-| --- | --- |---------------------------------------------------------------|
-| **driverLicenseNumber** | string | 認識された運転免許番号                                                  |
-| **licenseType** | string | 認識された免許種類(1種普通など)<br>2つ以上の場合、文字列内"/"で区切る               |
-| **name** | string | 認識された名前                                                      |
-| **residentNumber** | string | 認識された住民登録番号                                                  |
-| **condition** | string | 認識された免許条件<br>(運転免許証によって該当フィールドが存在しない場合、該当フィールドのvalueはnone) |
-| **serialNum** | string | 認識された暗号一連番号                                                 |
-| **issueDate** | string | 認識された発行日時                                                   |
-| **issuer** | string | 認識された発行機関                                                   |
-
-
-
-* **"idType"が"passport"と認識される場合、KeyValuesに含まれるリスト**
 
 | key                 | value type | description                |
 |---------------------|------------|----------------------------|
@@ -686,3 +549,222 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | 名前 | タイプ | 説明 |
 | --- | --- | --- |
 | isAuthenticity | Boolean | 真偽 |
+
+### 身分証分析(単独) API
+
+#### 既存身分証分析APIとの違い
+
+* 真偽確認に必要なRequest-Keyを含みません。
+* 真偽確認ができない代わりに、低料金が課金されます。
+
+#### リクエスト
+
+* {appKey}と{secretKey}はコンソール上部の**URL &amp; Appkey** メニューで確認できます。
+
+[URI]
+
+| メソッド | URI                                        |
+| --- |--------------------------------------------|
+| POST | /v2.0/appkeys/{appKey}/id-card/stand-alone |
+
+[リクエストヘッダ]
+
+| 名前 | 値 | 説明 |
+| --- | --- | --- |
+| Authorization | {secretKey} | コンソールで発行されたセキュリティキー |
+| X-Key-Version | {x-key-version} | 発行された公開鍵のバージョン |
+| Symmetric-Key | {symmetricKey} | 発行された公開鍵で暗号化された対称鍵 |
+
+* {symmetricKey}は必ず**32byte乱数**で作成する必要があります。
+* {symmetricKey}は必ず**RSA/ECB/PKCS1Padding**方式で暗号化する必要があります(公開鍵利用)。
+
+[Path Variable]
+
+| 名前 | 値 | 説明            |
+| --- | --- |-----------------|
+| appKey | {appKey} | 統合AppkeyまたはサービスAppkey |
+
+[フィールド]
+
+| 名前 | タイプ | 説明 | 暗号化説明 |
+| --- | --- | --- | --- |
+| image | multipart/form–data | イメージファイル | 対称鍵で暗号化されたイメージ |
+
+* イメージファイルは必ず**AES-256/CBC/PKCS7Padding**方式で暗号化する必要があります(対称鍵利用)。
+
+[リクエスト本文]
+
+```
+curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/stand-alone' \
+-F 'image=@sample.png' \
+-H 'Authorization: ${secretKey}' \
+-H 'X-Key-Version: ${x-key-version}' \
+-H 'Symmetric-Key: ${symmetricKey}'
+```
+
+#### レスポンス
+
+[レスポンス本文]
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "result": {
+        "fileType": "png",
+        "resolution": "low",
+        "idType": "resident",
+        "keyValues": [
+            {
+                "key": "name",
+                "value": "String",
+                "conf": 0.67,
+                "bbox": {
+                    "x1": 191,
+                    "y1": 75,
+                    "x2": 240,
+                    "y2": 75,
+                    "x3": 240,
+                    "y3": 95,
+                    "x4": 191,
+                    "y4": 95
+                }
+            },
+            {
+                "key": "residentNumber",
+                "value": "String",
+                "conf": 0.91,
+                "bbox": {
+                    "x1": 190,
+                    "y1": 43,
+                    "x2": 382,
+                    "y2": 43,
+                    "x3": 382,
+                    "y3": 64,
+                    "x4": 190,
+                    "y4": 64
+                }
+            },
+            {
+                "key": "issueDate",
+                "value": "String",
+                "conf": 0.86,
+                "bbox": {
+                    "x1": 191,
+                    "y1": 75,
+                    "x2": 240,
+                    "y2": 75,
+                    "x3": 240,
+                    "y3": 95,
+                    "x4": 191,
+                    "y4": 95
+                },
+            },
+            {
+                "key": "issuer",
+                "value": "String",
+                "conf": 0.8,
+                "bbox": {
+                    "x1": 19,
+                    "y1": 10,
+                    "x2": 148,
+                    "y2": 10,
+                    "x3": 148,
+                    "y3": 52,
+                    "x4": 19,
+                    "y4": 52
+                }
+            }
+        ],
+        "boxes": [
+            {
+                "x1": 280,
+                "y1": 271,
+                "x2": 354,
+                "y2": 271,
+                "x3": 354,
+                "y3": 305,
+                "x4": 280,
+                "y4": 305
+            },
+            ...
+        ]
+    }
+}
+```
+
+[ヘッダ]
+
+| 名前 | タイプ | 説明 |
+| --- | --- | --- |
+| isSuccessful | Boolean | 分析API成否 |
+| resultCode | Integer | 結果コード |
+| resultMessage | String | 結果メッセージ(成功時はsuccess、失敗時はエラー内容) |
+
+[フィールド]
+
+| 名前 | タイプ | 説明                                           | 暗号化するかどうか |
+| --- | --- |------------------------------------------------| --- |
+| fileType | String | ファイル拡張子(.jpg, .png)                             |  |
+| resolution | String | 推奨解像度(760\*480px)以上の場合はnormal、推奨解像度未満はlow |  |
+| idType | String | resident(住民登録証)、driver(運転免許証)、passport(パスポート)   |  |
+| keyValues | List |                                                |  |
+| keyValues[0].key | String |                                                |  |
+| keyValues[0].value | String |                                                | O |
+| keyValues[0].bbox | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 } |  |
+| keyValues[0].conf | Double | 有効期限認識結果の信頼度       |  |   
+| boxes | List | 認識領域(Bounding box)座標リスト                    |
+| boxes[0] | Object  | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }    |
+
+* **"idType"が"resident"と認識される場合、KeyValuesに含まれるリスト**
+
+| key | value type | description |
+| --- | --- |-------------|
+| **name** | string | 認識された名前    |
+| **residentNumber** | string | 認識された住民登録番号 |
+| **issueDate** | string | 認識された発行日時 |
+| **issuer** | string | 認識された発行機関 |
+
+* **"idType"が"driver"と認識される場合、KeyValuesに含まれるリスト**
+
+| key | value type | description                                                   |
+| --- | --- |---------------------------------------------------------------|
+| **driverLicenseNumber** | string | 認識された運転免許番号                                                  |
+| **licenseType** | string | 認識された免許種類(1種普通など)<br>2つ以上の場合、文字列内"/"で区切る               |
+| **name** | string | 認識された名前                                                      |
+| **residentNumber** | string | 認識された住民登録番号                                                  |
+| **condition** | string | 認識された免許条件<br>(運転免許証によって該当フィールドが存在しない場合、該当フィールドのvalueはnone) |
+| **serialNum** | string | 認識された暗号一連番号                                                 |
+| **issueDate** | string | 認識された発行日時                                                   |
+| **issuer** | string | 認識された発行機関                                                   |
+
+
+
+* **"idType"が"passport"と認識される場合、KeyValuesに含まれるリスト**
+
+| key                 | value type | description                |
+|---------------------|------------|----------------------------|
+| **passportType**    | string     | 認識されたパスポート番号               |
+| **countryCode**     | string     | 認識された国コード                |
+| **passportNo**      | string     | 認識されたパスポート番号                |
+| **surName**         | string     | 認識された姓                     |
+| **givenName**       | string     | 認識された名前                   |
+| **nationality**     | string     | 認識された国籍                    |
+| **dateOfBirth**     | string     | 認識された生年月日                 |
+| **dateOfBirthYMD**  | string     | 認識された生年月日<br>(YYYYMMDD 8桁) |
+| **sex**             | string     | 認識された性別                    |
+| **dateOfIssue**     | string     | 認識された発行日                   |
+| **dateOfIssueYMD**  | string     | 認識された発行日<br>(YYYYMMDD 8桁)  |
+| **dateOfExpiry**    | string     | 認識された有効期限                   |
+| **dateOfExpiryYMD** | string     | 認識された有効期限<br>(YYYYMMDD 8桁)  |
+| **koreanName**      | string     | 認識されたハングル姓名                |
+| **personalNo**      | string     | 認識された住民登録番号               |
+| **MRZ1**            | string     | 機械判読領域1                  |
+| **MRZ2**            | string     | 機械判読領域2                  |
+
+* 暗号化された項目(keyValues[0].valueなど)は**AES-256/CBC/PKCS7Padding**方式で暗号化されています(対称鍵利用)。
+* boxes[0]
+  ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)

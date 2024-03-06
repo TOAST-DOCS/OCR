@@ -1,5 +1,8 @@
 ## AI Service > OCR > Document OCR > Release Notes
 
+### March 12, 2024
+* Added information on recognition area coordiates of the analyzed key when ID card analysis is successful
+
 ### September 26, 2023
 * Added a feature to retrieve stoppage/closure of business registration certificates
 * Improved the performance of business registration certificate recognition

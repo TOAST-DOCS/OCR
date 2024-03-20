@@ -488,18 +488,17 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 [Field]
 
-| Name | Type | Description                                             | Whether encrypted or not |
-| --- | --- |------------------------------------------------| --- |
-| fileType | String | File extension (.jpg, .png)                             |  |
-| resolution | String | normal: the resolution is the recommended resolution (760\*480px) or above, low: the resolution is below the recommended resolution |  |
-| idType | String | resident(resident registration certificate), driver(driver license), passport (passport)   |  |
-| keyValues | List |                                                |  |
-| keyValues[0].key | String |                                                |  |
-| keyValues[0].value | String |                                                | O |
-| keyValues[0].bbox | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 } |  |
-| keyValues[0].conf | Double | Confidence of the recognition result       |  |          
-| boxes | List | List of bounding box coordinates                      |
-| boxes[0] | Object  | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }    |
+| Name                  | Type     | Description                                                                                                         | idType             | Whether encrypted or not | Required
+|---------------------|--------|------------------------------------------------------------------------------------------------------------|--------------------|--------|--------|
+| idType              | String | resident(resident registration certificate), driver(driver license), passport (passport)                                                               |                    | X      | O |
+| name                | String | Name                                                                                                         |                    | O      | O |
+| residentNumber      | String | Resident registration number<br>- For resident (resident registration certificate), 13 digits of resident registration number<br>- For a driver (driver's license), 7 digits that comprise of the first 6 digits and the first 1 digit of  resident registration number | resident, driver   | O      | O |
+| issueDate           | String | Issued date (YYYYMMDD)                                                                                            | resident, passport | O      | O |
+| driverLicenseNumber | String | 12 digits of driver license number                                                                                                | driver             | O      | O |
+| serialNum           | String | 5 and 6 digits of serial number                                                                                              | driver             | O      | X |
+| passportNumber      | String | Passport number (9 digits in uppercase letters and numbers)                                                                                   | passport           | O      | O |
+| birthDate           | String | Birthdate (YYYYMMDD)                                                                                             | passport           | O      | O |
+| expirationDate      | String | Expiration date (YYYYMMDD)                                                                                            | passport           | X      | O |
 
 * A field that requires encryption must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
 

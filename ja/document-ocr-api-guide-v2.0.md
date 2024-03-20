@@ -470,23 +470,35 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 [リクエストヘッダ]
 
-| 名前                | タイプ   | 説明                                                                                                       | idType             | 暗号化有無 |
-|---------------------|--------|------------------------------------------------------------------------------------------------------------|--------------------|--------|
-| idType              | String | resident(住民登録証), driver(運転免許証), passport(パスポート)                                                               |                    | X      |
-| name                | String | 名前                                                                                                       |                    | O      |
-| residentNumber      | String | 住民登録番号<br>- resident(住民登録証)の場合、住民登録番号数字13桁<br>- driver(運転免許証)の場合、住民登録番号の前6桁と後ろの最初の1桁を組み合わせた数字7桁 | resident, driver   | O      |
-| issueDate           | String | 発行日時(YYYYMMDD)                                                                                            | resident, passport | O      |
-| driverLicenseNumber | String | 12桁の運転免許番号                                                                                              | driver             | O      |
-| serialNum           | String | 5～6桁の暗号一連番号                                                                                            | driver             | O      |
-| passportNumber      | String | パスポート番号(9桁英字大文字、数字の組み合わせ)                                                                                   | passport           | O      |
-| birthDate           | String | 生年月日(YYYYMMDD)                                                                                             | passport           | O      |
-| expirationDate      | String | 有効期限(YYYYMMDD)                                                                                            | passport           | X      |
+| 名前 | 値 | 説明 |
+| --- | --- | --- |
+| Authorization | {secretKey} | コンソールで発行されたセキュリティキー |
+| X-Key-Version | {x-key-version} | 発行された公開鍵のバージョン |
+| Symmetric-Key | {symmetricKey} | 発行された公開鍵で暗号化された対称鍵 |
+| Request-Key | {Request-Key} | 身分証分析後に発行されたRequest-Key |
+
+* {symmetricKey}は必ず**32byteの乱数**で作成する必要があります。
+* {symmetricKey}は必ず**RSA/ECB/PKCS1Padding**方式で暗号化される必要があります(公開鍵利用)。
 
 [Path Variable]
 
 | 名前 | 値 | 説明           |
 | --- | --- |-----------------|
 | appKey | {appKey} | 統合AppkeyまたはサービスAppkey |
+
+[リクエストヘッダ]
+
+| 名前                | タイプ   | 説明                                                                                                       | idType             | 暗号化有無 | 必須
+|---------------------|--------|------------------------------------------------------------------------------------------------------------|--------------------|--------| --- |
+| idType              | String | resident(住民登録証), driver(運転免許証), passport(パスポート)                                                               |                    | X      | O |
+| name                | String | 名前                                                                                                       |                    | O      | O |
+| residentNumber      | String | 住民登録番号<br>- resident(住民登録証)の場合、住民登録番号数字13桁<br>- driver(運転免許証)の場合、住民登録番号の前6桁と後ろの最初の1桁を組み合わせた数字7桁 | resident, driver   | O      | O |
+| issueDate           | String | 発行日時(YYYYMMDD)                                                                                            | resident, passport | O      | O |
+| driverLicenseNumber | String | 12桁の運転免許番号                                                                                              | driver             | O      | O |
+| serialNum           | String | 5～6桁の暗号一連番号                                                                                            | driver             | O      | X |
+| passportNumber      | String | パスポート番号(9桁英字大文字、数字の組み合わせ)                                                                                   | passport           | O      | O |
+| birthDate           | String | 生年月日(YYYYMMDD)                                                                                             | passport           | O      | O |
+| expirationDate      | String | 有効期限(YYYYMMDD)                                                                                            | passport           | X      | O |
 
 [フィールド]
 

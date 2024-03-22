@@ -8,8 +8,8 @@
 
 #### ドメイン
 
-| 名前 | ドメイン |
-| --- | --- |
+| 名前                 | ドメイン                                                                       |
+|--------------------|----------------------------------------------------------------------------|
 | OCR Public APIドメイン | [https://ocr.api.nhncloudservice.com](https://ocr.api.nhncloudservice.com) |
 
 #### 事前準備(AppKey, SecretKey)
@@ -31,26 +31,26 @@
 
 [URI]
 
-| メソッド | URI |
-| -- | --- |
-| GET | /v2.0/appkeys/{appKey}/public-keys/{serviceName} |
+| メソッド | URI                                              |
+|------|--------------------------------------------------|
+| GET  | /v2.0/appkeys/{appKey}/public-keys/{serviceName} |
 
 [リクエストヘッダ]
 
-| 名前 | 値 | 説明            |
-| --- | --- |-----------------|
+| 名前            | 値           | 説明                  |
+|---------------|-------------|---------------------|
 | Authorization | {secretKey} | コンソールで発行されたセキュリティキー |
 
 [Path Variable]
 
-| 名前 | 値 | 説明           |
-| --- | --- |-----------------|
-| appKey | {appKey} | 統合AppkeyまたはサービスAppkey |
-| serviceName | {serviceName} | credit-card(クレジットカードAPI呼び出し時に使用する公開鍵発行時)、<br> id-card(身分証API呼び出し時に使用する公開鍵発行時)  |
+| 名前          | 値             | 説明                                                                            |
+|-------------|---------------|-------------------------------------------------------------------------------|
+| appKey      | {appKey}      | 統合AppkeyまたはサービスAppkey                                                         |
+| serviceName | {serviceName} | credit-card(クレジットカードAPI呼び出し時に使用する公開鍵発行時)、<br> id-card(身分証API呼び出し時に使用する公開鍵発行時) |
 
 [リクエスト本文]
 
-```
+```shell
 curl -X GET 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/public-keys/{serviceName}' \
 -H 'Authorization: ${secretKey}'
 ```
@@ -75,19 +75,19 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 
 [ヘッダ]
 
-| 名前 | タイプ | 説明 |
-| --- | --- | --- |
-| isSuccessful | Boolean | API成否 |
-| resultCode | Integer | 結果コード |
-| resultMessage | String | 結果メッセージ(成功時はsuccess、失敗時はエラー内容) |
+| 名前            | タイプ     | 説明                             |
+|---------------|---------|--------------------------------|
+| isSuccessful  | Boolean | API成否                          |
+| resultCode    | Integer | 結果コード                          |
+| resultMessage | String  | 結果メッセージ(成功時はsuccess、失敗時はエラー内容) |
 
 [フィールド]
 
-| 名前 | タイプ | 説明               |
-| --- | --- |--------------------|
-| result | Object | 暗号化に必要な公開鍵    |
-| result.key | String | 公開鍵(Base64でエンコードされている) |
-| result.version | String | 公開鍵のバージョン         |
+| 名前             | タイプ    | 説明                     |
+|----------------|--------|------------------------|
+| result         | Object | 暗号化に必要な公開鍵             |
+| result.key     | String | 公開鍵(Base64でエンコードされている) |
+| result.version | String | 公開鍵のバージョン              |
 
 * 公開鍵は **Base64**でエンコードされている状態です。
 
@@ -101,38 +101,38 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 
 [URI]
 
-| メソッド | URI |
-| --- | --- |
+| メソッド | URI                                |
+|------|------------------------------------|
 | POST | /v2.0/appkeys/{appKey}/credit-card |
 
 [リクエストヘッダ]
 
-| 名前 | 値 | 説明                  |
-| --- | --- |-----------------------|
-| Authorization | {secretKey} | コンソールで発行されたセキュリティキー      |
+| 名前            | 値               | 説明                  |
+|---------------|-----------------|---------------------|
+| Authorization | {secretKey}     | コンソールで発行されたセキュリティキー |
 | X-Key-Version | {x-key-version} | 発行された公開鍵のバージョン      |
-| Symmetric-Key | {symmetricKey} | 発行された公開鍵で暗号化された対称鍵 |
+| Symmetric-Key | {symmetricKey}  | 発行された公開鍵で暗号化された対称鍵  |
 
 * {symmetricKey}は必ず**32byte乱数**で作成する必要があります。
 * {symmetricKey}は必ず**RSA/ECB/PKCS1Padding**方式で暗号化されている必要があります(公開鍵利用)。
 
 [Path Variable]
 
-| 名前 | 値 | 説明           |
-| --- | --- |-----------------|
+| 名前     | 値        | 説明                    |
+|--------|----------|-----------------------|
 | appKey | {appKey} | 統合AppkeyまたはサービスAppkey |
 
 [フィールド]
 
-| 名前 | タイプ | 説明 | 暗号化説明       |
-| --- | --- | --- |----------------|
+| 名前    | タイプ                 | 説明       | 暗号化説明          |
+|-------|---------------------|----------|----------------|
 | image | multipart/form–data | イメージファイル | 対称鍵で暗号化されたイメージ |
 
 * イメージファイルは必ず **AES-256/CBC/PKCS7Padding**方式で暗号化されている必要があります(対称鍵利用)。
 
 [リクエスト本文]
 
-```
+```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-card' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
@@ -206,31 +206,32 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 
 [ヘッダ]
 
-| 名前 | タイプ | 説明 |
-| --- | --- | --- |
-| isSuccessful | Boolean | 分析API成否 |
-| resultCode | Integer | 結果コード |
-| resultMessage | String | 結果メッセージ(成功時はsuccess、失敗時はエラー内容) |
+| 名前            | タイプ     | 説明                             |
+|---------------|---------|--------------------------------|
+| isSuccessful  | Boolean | 分析API成否                        |
+| resultCode    | Integer | 結果コード                          |
+| resultMessage | String  | 結果メッセージ(成功時はsuccess、失敗時はエラー内容) |
 
 [フィールド]
 
-| 名前 | タイプ | 説明 | 暗号化するかどうか |
-| --- | --- | --- | --- |
-| fileType | String | ファイル拡張子(.jpg, .png) |  |
-| resolution | String | 推奨解像度(760\*480px)以上の場合はnormal、推奨解像度未満はlow |  |
-| cardNums | List | カード番号認識結果リスト |  |
-| cardNums[0].value | String | 認識結果 | O |
-| cardNums[0].conf | Double | 認識結果の信頼度 |  |
-| totalCardNum | List | カード番号全体認識結果 | O |
-| cardNumBoxes | List | カード番号認識領域(Bounding box)座標リスト |  |
-| cardNumBoxes[0] | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 } |  |
-| validThru.value | String | 有効期限認識内容 | O |
-| validThru.conf | Double | 有効期限認識結果の信頼度 |  |
-| validThruBox | Object | 有効期限認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 } |  |
+| 名前                | タイプ    | 説明                                           | 暗号化するかどうか |
+|-------------------|--------|----------------------------------------------|-----------|
+| fileType          | String | ファイル拡張子(.jpg, .png)                          |           |
+| resolution        | String | 推奨解像度(760\*480px)以上の場合はnormal、推奨解像度未満はlow    |           |
+| cardNums          | List   | カード番号認識結果リスト                                 |           |
+| cardNums[0].value | String | 認識結果                                         | O         |
+| cardNums[0].conf  | Double | 認識結果の信頼度                                     |           |
+| totalCardNum      | List   | カード番号全体認識結果                                  | O         |
+| cardNumBoxes      | List   | カード番号認識領域(Bounding box)座標リスト                 |           |
+| cardNumBoxes[0]   | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }     |           |
+| validThru.value   | String | 有効期限認識内容                                     | O         |
+| validThru.conf    | Double | 有効期限認識結果の信頼度                                 |           |
+| validThruBox      | Object | 有効期限認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 } |           |
 
 * 暗号化された項目(cardNums[0].value, totalCardNumなど)は **AES-256/CBC/PKCS7Padding**方式で暗号化されています(対称鍵を利用)。
 
 * boxes[0]
+
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 ### 身分証分析API
@@ -241,38 +242,38 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 
 [URI]
 
-| メソッド | URI |
-| --- | --- |
+| メソッド | URI                            |
+|------|--------------------------------|
 | POST | /v2.0/appkeys/{appKey}/id-card |
 
 [リクエストヘッダ]
 
-| 名前 | 値 | 説明 |
-| --- | --- | --- |
-| Authorization | {secretKey} | コンソールで発行されたセキュリティキー |
-| X-Key-Version | {x-key-version} | 発行された公開鍵のバージョン |
-| Symmetric-Key | {symmetricKey} | 発行された公開鍵で暗号化された対称鍵 |
+| 名前            | 値               | 説明                  |
+|---------------|-----------------|---------------------|
+| Authorization | {secretKey}     | コンソールで発行されたセキュリティキー |
+| X-Key-Version | {x-key-version} | 発行された公開鍵のバージョン      |
+| Symmetric-Key | {symmetricKey}  | 発行された公開鍵で暗号化された対称鍵  |
 
 * {symmetricKey}は必ず**32byte乱数**で作成する必要があります。
 * {symmetricKey}は必ず**RSA/ECB/PKCS1Padding**方式で暗号化される必要があります(公開鍵利用)。
 
 [Path Variable]
 
-| 名前 | 値 | 説明           |
-| --- | --- |-----------------|
+| 名前     | 値        | 説明                    |
+|--------|----------|-----------------------|
 | appKey | {appKey} | 統合AppkeyまたはサービスAppkey |
 
 [フィールド]
 
-| 名前 | タイプ | 説明 | 暗号化説明 |
-| --- | --- | --- | --- |
+| 名前    | タイプ                 | 説明     | 暗号化説明        |
+|-------|---------------------|--------|--------------|
 | image | multipart/form–data | 画像ファイル | 対称鍵で暗号化された画像 |
 
 * 画像ファイルは必ず**AES-256/CBC/PKCS7Padding**方式で暗号化される必要があります(対称鍵利用)。
 
 [リクエスト本文]
 
-```
+```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
@@ -284,8 +285,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 [レスポンスヘッダ]
 
-| 名前 | 説明 |
-| --- | --- |
+| 名前          | 説明                              |
+|-------------|---------------------------------|
 | Request-Key | 身分証真偽確認API呼び出し時に使用するRequest-Key |
 
 * **Request-Keyを真偽確認API呼び出しに使用して正常レスポンスを得た場合、使用されたRequest-Keyは再使用できません。**
@@ -385,48 +386,48 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 [ヘッダ]
 
-| 名前 | タイプ | 説明 |
-| --- | --- | --- |
-| isSuccessful | Boolean | 分析API成否 |
-| resultCode | Integer | 結果コード |
-| resultMessage | String | 結果メッセージ(成功時はsuccess、失敗時はエラー内容) |
+| 名前            | タイプ     | 説明                             |
+|---------------|---------|--------------------------------|
+| isSuccessful  | Boolean | 分析API成否                        |
+| resultCode    | Integer | 結果コード                          |
+| resultMessage | String  | 結果メッセージ(成功時はsuccess、失敗時はエラー内容) |
 
 [フィールド]
 
-| 名前 | タイプ | 説明 | 暗号化するかどうか |
-| --- | --- | --- | --- |
-| fileType | String | ファイル拡張子(.jpg, .png) |  |
-| resolution | String | 推奨解像度(760\*480px)以上はnormal、推奨解像度未満はlow |  |
-| idType | String | resident(住民登録証)、driver(運転免許証)、passport(パスポート) |  |
-| keyValues | List |  |  |
-| keyValues[0].key | String |  |  |
-| keyValues[0].value | String |  | O |
-| keyValues[0].bbox | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 } |  |
-| keyValues[0].conf | Double | 有効期限認識結果の信頼度       |  |   
-| boxes | List | 認識領域(Bounding box)座標リスト |
-| boxes[0] | Object  | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 } |
+| 名前                 | タイプ    | 説明                                            | 暗号化するかどうか |
+|--------------------|--------|-----------------------------------------------|-----------|
+| fileType           | String | ファイル拡張子(.jpg, .png)                           |           |
+| resolution         | String | 推奨解像度(760\*480px)以上はnormal、推奨解像度未満はlow        |           |
+| idType             | String | resident(住民登録証)、driver(運転免許証)、passport(パスポート) |           |
+| keyValues          | List   |                                               |           |
+| keyValues[0].key   | String |                                               |           |
+| keyValues[0].value | String |                                               | O         |
+| keyValues[0].bbox  | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }      |           |
+| keyValues[0].conf  | Double | 有効期限認識結果の信頼度                                  |           |   
+| boxes              | List   | 認識領域(Bounding box)座標リスト                       |
+| boxes[0]           | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }      |
 
 * **"idType"が"resident"と認識される場合のKeyValuesに含まれるリスト**
 
-| key | value type | description |
-| --- | --- | --- |
-| **name** | string | 認識された名前 |
-| **residentNumber** | string | 認識された住民登録番号 |
-| **issueDate** | string | 認識された発行日時 |
-| **issuer** | string | 認識された発行機関 |
+| key                | value type | description |
+|--------------------|------------|-------------|
+| **name**           | string     | 認識された名前     |
+| **residentNumber** | string     | 認識された住民登録番号 |
+| **issueDate**      | string     | 認識された発行日時   |
+| **issuer**         | string     | 認識された発行機関   |
 
 * **"idType"が"driver"と認識される場合のKeyValuesに含まれるリスト**
 
-| key | value type | description |
-| --- | --- | --- |
-| **driverLicenseNumber** | string | 認識された運転免許番号 |
-| **licenseType** | string | 認識された免許の種類(1種普通など)<br>2つ以上の場合は文字列内の"/"で区分 |
-| **name** | string | 認識された名前 |
-| **residentNumber** | string | 認識された住民登録番号 |
-| **condition** | string | 認識された免許条件<br>(運転免許証に当該フィールドが存在しない場合、当該フィールドのvalueはnone) |
-| **serialNum** | string | 認識された暗号一連番号 |
-| **issueDate** | string | 認識された発行日時 |
-| **issuer** | string | 認識された発行機関 |
+| key                     | value type | description                                             |
+|-------------------------|------------|---------------------------------------------------------|
+| **driverLicenseNumber** | string     | 認識された運転免許番号                                             |
+| **licenseType**         | string     | 認識された免許の種類(1種普通など)<br>2つ以上の場合は文字列内の"/"で区分               |
+| **name**                | string     | 認識された名前                                                 |
+| **residentNumber**      | string     | 認識された住民登録番号                                             |
+| **condition**           | string     | 認識された免許条件<br>(運転免許証に当該フィールドが存在しない場合、当該フィールドのvalueはnone) |
+| **serialNum**           | string     | 認識された暗号一連番号                                             |
+| **issueDate**           | string     | 認識された発行日時                                               |
+| **issuer**              | string     | 認識された発行機関                                               |
 
 
 
@@ -435,25 +436,26 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | key                 | value type | description                |
 |---------------------|------------|----------------------------|
 | **passportType**    | string     | 認識されたパスポート番号               |
-| **countryCode**     | string     | 認識された国コード                |
-| **passportNo**      | string     | 認識されたパスポート番号                |
+| **countryCode**     | string     | 認識された国コード                  |
+| **passportNo**      | string     | 認識されたパスポート番号               |
 | **surName**         | string     | 認識された姓                     |
-| **givenName**       | string     | 認識された名前                   |
+| **givenName**       | string     | 認識された名前                    |
 | **nationality**     | string     | 認識された国籍                    |
-| **dateOfBirth**     | string     | 認識された生年月日                 |
+| **dateOfBirth**     | string     | 認識された生年月日                  |
 | **dateOfBirthYMD**  | string     | 認識された生年月日<br>(YYYYMMDD 8桁) |
 | **sex**             | string     | 認識された性別                    |
 | **dateOfIssue**     | string     | 認識された発行日                   |
 | **dateOfIssueYMD**  | string     | 認識された発行日<br>(YYYYMMDD 8桁)  |
-| **dateOfExpiry**    | string     | 認識された有効期限                   |
-| **dateOfExpiryYMD** | string     | 認識された有効期限<br>(YYYYMMDD 8桁)  |
+| **dateOfExpiry**    | string     | 認識された有効期限                  |
+| **dateOfExpiryYMD** | string     | 認識された有効期限<br>(YYYYMMDD 8桁) |
 | **koreanName**      | string     | 認識されたハングル姓名                |
-| **personalNo**      | string     | 認識された住民登録番号               |
-| **MRZ1**            | string     | 機械判読領域1                  |
-| **MRZ2**            | string     | 機械判読領域2                  |
+| **personalNo**      | string     | 認識された住民登録番号                |
+| **MRZ1**            | string     | 機械判読領域1                    |
+| **MRZ2**            | string     | 機械判読領域2                    |
 
 * 暗号化された項目(keyValues[0].valueなど)は**AES-256/CBC/PKCS7Padding**方式で暗号化されています(対称鍵利用)。
 * boxes[0]
+
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 ### 身分証真偽確認API
@@ -464,58 +466,47 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 [URI]
 
-| メソッド | URI |
-| --- | --- |
+| メソッド | URI                                         |
+|------|---------------------------------------------|
 | POST | /v2.0/appkeys/{appKey}/id-card/authenticity |
 
 [リクエストヘッダ]
 
-| 名前 | 値 | 説明 |
-| --- | --- | --- |
-| Authorization | {secretKey} | コンソールで発行されたセキュリティキー |
-| X-Key-Version | {x-key-version} | 発行された公開鍵のバージョン |
-| Symmetric-Key | {symmetricKey} | 発行された公開鍵で暗号化された対称鍵 |
-| Request-Key | {Request-Key} | 身分証分析後に発行されたRequest-Key |
+| 名前            | 値               | 説明                      |
+|---------------|-----------------|-------------------------|
+| Authorization | {secretKey}     | コンソールで発行されたセキュリティキー     |
+| X-Key-Version | {x-key-version} | 発行された公開鍵のバージョン          |
+| Symmetric-Key | {symmetricKey}  | 発行された公開鍵で暗号化された対称鍵      |
+| Request-Key   | {Request-Key}   | 身分証分析後に発行されたRequest-Key |
 
 * {symmetricKey}は必ず**32byteの乱数**で作成する必要があります。
 * {symmetricKey}は必ず**RSA/ECB/PKCS1Padding**方式で暗号化される必要があります(公開鍵利用)。
 
 [Path Variable]
 
-| 名前 | 値 | 説明           |
-| --- | --- |-----------------|
+| 名前     | 値        | 説明                    |
+|--------|----------|-----------------------|
 | appKey | {appKey} | 統合AppkeyまたはサービスAppkey |
-
-[リクエストヘッダ]
-
-| 名前                | タイプ   | 説明                                                                                                       | idType             | 暗号化有無 | 必須 |
-|---------------------|--------|------------------------------------------------------------------------------------------------------------|--------------------|--------| --- |
-| idType              | String | resident(住民登録証), driver(運転免許証), passport(パスポート)                                                               |                    | X      | O |
-| name                | String | 名前                                                                                                       |                    | O      | O |
-| residentNumber      | String | 住民登録番号<br>- resident(住民登録証)の場合、住民登録番号数字13桁<br>- driver(運転免許証)の場合、住民登録番号の前6桁と後ろの最初の1桁を組み合わせた数字7桁 | resident, driver   | O      | O |
-| issueDate           | String | 発行日時(YYYYMMDD)                                                                                            | resident, passport | O      | O |
-| driverLicenseNumber | String | 12桁の運転免許番号                                                                                              | driver             | O      | O |
-| serialNum           | String | 5～6桁の暗号一連番号                                                                                            | driver             | O      | X |
-| passportNumber      | String | パスポート番号(9桁英字大文字、数字の組み合わせ)                                                                                   | passport           | O      | O |
-| birthDate           | String | 生年月日(YYYYMMDD)                                                                                             | passport           | O      | O |
-| expirationDate      | String | 有効期限(YYYYMMDD)                                                                                            | passport           | X      | O |
 
 [フィールド]
 
-| 名前 | タイプ | 説明 | idType | 暗号化するかどうか |
-| --- | --- | --- | --- | --- |
-| idType | String | resident(住民登録証)、driver(運転免許証) |  | X |
-| name | String | 名前 |  | O |
-| residentNumber | String | 住民登録番号<br>\- resident\(住民登録証\)の場合、住民登録番号の数字13桁<br>\- driver\(運転免許証\)の場合、住民登録番号の前の6桁と後ろの最初の1桁を組み合わせた数字7桁 |  | O |
-| issueDate | String | 住民登録証発行日時(YYYYMMDD) | resident | O |
-| driverLicenseNumber | String | 12桁の運転免許番号 | driver | O |
-| serialNum | String | 5～6桁の暗号一連番号 | driver | O |
+| 名前                  | タイプ    | 説明                                                                                              | idType             | 暗号化有無 | 必須 |
+|---------------------|--------|-------------------------------------------------------------------------------------------------|--------------------|-------|----|
+| idType              | String | resident(住民登録証), driver(運転免許証), passport(パスポート)                                                 |                    | X     | O  |
+| name                | String | 名前                                                                                              |                    | O     | O  |
+| residentNumber      | String | 住民登録番号<br>- resident(住民登録証)の場合、住民登録番号数字13桁<br>- driver(運転免許証)の場合、住民登録番号の前6桁と後ろの最初の1桁を組み合わせた数字7桁 | resident, driver   | O     | O  |
+| issueDate           | String | 発行日時(YYYYMMDD)                                                                                  | resident, passport | O     | O  |
+| driverLicenseNumber | String | 12桁の運転免許番号                                                                                      | driver             | O     | O  |
+| serialNum           | String | 5～6桁の暗号一連番号                                                                                     | driver             | O     | X  |
+| passportNumber      | String | パスポート番号(9桁英字大文字、数字の組み合わせ)                                                                       | passport           | O     | O  |
+| birthDate           | String | 生年月日(YYYYMMDD)                                                                                  | passport           | O     | O  |
+| expirationDate      | String | 有効期限(YYYYMMDD)                                                                                  | passport           | X     | O  |
 
 * 暗号化が必要なフィールドは必ず**AES-256/CBC/PKCS7Padding**方式で暗号化される必要があります(対称鍵利用)。
 
 [リクエスト本文]
 
-```
+```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/authenticity' \
 -H 'Authorization: ${secretKey}' \
 -H 'X-Key-Version: ${x-key-version}' \
@@ -550,16 +541,16 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 
 [ヘッダ]
 
-| 名前 | タイプ | 説明 |
-| --- | --- | --- |
-| isSuccessful | Boolean | 真偽確認API成否 |
-| resultCode | Integer | 結果コード |
-| resultMessage | String | 結果メッセージ(成功時はsuccess、失敗時はエラー内容) |
+| 名前            | タイプ     | 説明                             |
+|---------------|---------|--------------------------------|
+| isSuccessful  | Boolean | 真偽確認API成否                      |
+| resultCode    | Integer | 結果コード                          |
+| resultMessage | String  | 結果メッセージ(成功時はsuccess、失敗時はエラー内容) |
 
 [フィールド]
 
-| 名前 | タイプ | 説明 |
-| --- | --- | --- |
+| 名前             | タイプ     | 説明 |
+|----------------|---------|----|
 | isAuthenticity | Boolean | 真偽 |
 
 ### 身分証分析(単独) API
@@ -576,37 +567,37 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 [URI]
 
 | メソッド | URI                                        |
-| --- |--------------------------------------------|
+|------|--------------------------------------------|
 | POST | /v2.0/appkeys/{appKey}/id-card/stand-alone |
 
 [リクエストヘッダ]
 
-| 名前 | 値 | 説明 |
-| --- | --- | --- |
-| Authorization | {secretKey} | コンソールで発行されたセキュリティキー |
-| X-Key-Version | {x-key-version} | 発行された公開鍵のバージョン |
-| Symmetric-Key | {symmetricKey} | 発行された公開鍵で暗号化された対称鍵 |
+| 名前            | 値               | 説明                  |
+|---------------|-----------------|---------------------|
+| Authorization | {secretKey}     | コンソールで発行されたセキュリティキー |
+| X-Key-Version | {x-key-version} | 発行された公開鍵のバージョン      |
+| Symmetric-Key | {symmetricKey}  | 発行された公開鍵で暗号化された対称鍵  |
 
 * {symmetricKey}は必ず**32byte乱数**で作成する必要があります。
 * {symmetricKey}は必ず**RSA/ECB/PKCS1Padding**方式で暗号化する必要があります(公開鍵利用)。
 
 [Path Variable]
 
-| 名前 | 値 | 説明            |
-| --- | --- |-----------------|
+| 名前     | 値        | 説明                    |
+|--------|----------|-----------------------|
 | appKey | {appKey} | 統合AppkeyまたはサービスAppkey |
 
 [フィールド]
 
-| 名前 | タイプ | 説明 | 暗号化説明 |
-| --- | --- | --- | --- |
+| 名前    | タイプ                 | 説明       | 暗号化説明          |
+|-------|---------------------|----------|----------------|
 | image | multipart/form–data | イメージファイル | 対称鍵で暗号化されたイメージ |
 
 * イメージファイルは必ず**AES-256/CBC/PKCS7Padding**方式で暗号化する必要があります(対称鍵利用)。
 
 [リクエスト本文]
 
-```
+```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/stand-alone' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
@@ -710,73 +701,72 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 
 [ヘッダ]
 
-| 名前 | タイプ | 説明 |
-| --- | --- | --- |
-| isSuccessful | Boolean | 分析API成否 |
-| resultCode | Integer | 結果コード |
-| resultMessage | String | 結果メッセージ(成功時はsuccess、失敗時はエラー内容) |
+| 名前            | タイプ     | 説明                             |
+|---------------|---------|--------------------------------|
+| isSuccessful  | Boolean | 分析API成否                        |
+| resultCode    | Integer | 結果コード                          |
+| resultMessage | String  | 結果メッセージ(成功時はsuccess、失敗時はエラー内容) |
 
 [フィールド]
 
-| 名前 | タイプ | 説明                                           | 暗号化するかどうか |
-| --- | --- |------------------------------------------------| --- |
-| fileType | String | ファイル拡張子(.jpg, .png)                             |  |
-| resolution | String | 推奨解像度(760\*480px)以上の場合はnormal、推奨解像度未満はlow |  |
-| idType | String | resident(住民登録証)、driver(運転免許証)、passport(パスポート)   |  |
-| keyValues | List |                                                |  |
-| keyValues[0].key | String |                                                |  |
-| keyValues[0].value | String |                                                | O |
-| keyValues[0].bbox | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 } |  |
-| keyValues[0].conf | Double | 有効期限認識結果の信頼度       |  |   
-| boxes | List | 認識領域(Bounding box)座標リスト                    |
-| boxes[0] | Object  | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }    |
+| 名前                 | タイプ    | 説明                                            | 暗号化するかどうか |
+|--------------------|--------|-----------------------------------------------|-----------|
+| fileType           | String | ファイル拡張子(.jpg, .png)                           |           |
+| resolution         | String | 推奨解像度(760\*480px)以上の場合はnormal、推奨解像度未満はlow     |           |
+| idType             | String | resident(住民登録証)、driver(運転免許証)、passport(パスポート) |           |
+| keyValues          | List   |                                               |           |
+| keyValues[0].key   | String |                                               |           |
+| keyValues[0].value | String |                                               | O         |
+| keyValues[0].bbox  | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }      |           |
+| keyValues[0].conf  | Double | 有効期限認識結果の信頼度                                  |           |   
+| boxes              | List   | 認識領域(Bounding box)座標リスト                       |
+| boxes[0]           | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }      |
 
 * **"idType"が"resident"と認識される場合、KeyValuesに含まれるリスト**
 
-| key | value type | description |
-| --- | --- |-------------|
-| **name** | string | 認識された名前    |
-| **residentNumber** | string | 認識された住民登録番号 |
-| **issueDate** | string | 認識された発行日時 |
-| **issuer** | string | 認識された発行機関 |
+| key                | value type | description |
+|--------------------|------------|-------------|
+| **name**           | string     | 認識された名前     |
+| **residentNumber** | string     | 認識された住民登録番号 |
+| **issueDate**      | string     | 認識された発行日時   |
+| **issuer**         | string     | 認識された発行機関   |
 
 * **"idType"が"driver"と認識される場合、KeyValuesに含まれるリスト**
 
-| key | value type | description                                                   |
-| --- | --- |---------------------------------------------------------------|
-| **driverLicenseNumber** | string | 認識された運転免許番号                                                  |
-| **licenseType** | string | 認識された免許種類(1種普通など)<br>2つ以上の場合、文字列内"/"で区切る               |
-| **name** | string | 認識された名前                                                      |
-| **residentNumber** | string | 認識された住民登録番号                                                  |
-| **condition** | string | 認識された免許条件<br>(運転免許証によって該当フィールドが存在しない場合、該当フィールドのvalueはnone) |
-| **serialNum** | string | 認識された暗号一連番号                                                 |
-| **issueDate** | string | 認識された発行日時                                                   |
-| **issuer** | string | 認識された発行機関                                                   |
-
-
+| key                     | value type | description                                                |
+|-------------------------|------------|------------------------------------------------------------|
+| **driverLicenseNumber** | string     | 認識された運転免許番号                                                |
+| **licenseType**         | string     | 認識された免許種類(1種普通など)<br>2つ以上の場合、文字列内"/"で区切る                   |
+| **name**                | string     | 認識された名前                                                    |
+| **residentNumber**      | string     | 認識された住民登録番号                                                |
+| **condition**           | string     | 認識された免許条件<br>(運転免許証によって該当フィールドが存在しない場合、該当フィールドのvalueはnone) |
+| **serialNum**           | string     | 認識された暗号一連番号                                                |
+| **issueDate**           | string     | 認識された発行日時                                                  |
+| **issuer**              | string     | 認識された発行機関                                                  |
 
 * **"idType"が"passport"と認識される場合、KeyValuesに含まれるリスト**
 
 | key                 | value type | description                |
 |---------------------|------------|----------------------------|
 | **passportType**    | string     | 認識されたパスポート番号               |
-| **countryCode**     | string     | 認識された国コード                |
-| **passportNo**      | string     | 認識されたパスポート番号                |
+| **countryCode**     | string     | 認識された国コード                  |
+| **passportNo**      | string     | 認識されたパスポート番号               |
 | **surName**         | string     | 認識された姓                     |
-| **givenName**       | string     | 認識された名前                   |
+| **givenName**       | string     | 認識された名前                    |
 | **nationality**     | string     | 認識された国籍                    |
-| **dateOfBirth**     | string     | 認識された生年月日                 |
+| **dateOfBirth**     | string     | 認識された生年月日                  |
 | **dateOfBirthYMD**  | string     | 認識された生年月日<br>(YYYYMMDD 8桁) |
 | **sex**             | string     | 認識された性別                    |
 | **dateOfIssue**     | string     | 認識された発行日                   |
 | **dateOfIssueYMD**  | string     | 認識された発行日<br>(YYYYMMDD 8桁)  |
-| **dateOfExpiry**    | string     | 認識された有効期限                   |
-| **dateOfExpiryYMD** | string     | 認識された有効期限<br>(YYYYMMDD 8桁)  |
+| **dateOfExpiry**    | string     | 認識された有効期限                  |
+| **dateOfExpiryYMD** | string     | 認識された有効期限<br>(YYYYMMDD 8桁) |
 | **koreanName**      | string     | 認識されたハングル姓名                |
-| **personalNo**      | string     | 認識された住民登録番号               |
-| **MRZ1**            | string     | 機械判読領域1                  |
-| **MRZ2**            | string     | 機械判読領域2                  |
+| **personalNo**      | string     | 認識された住民登録番号                |
+| **MRZ1**            | string     | 機械判読領域1                    |
+| **MRZ2**            | string     | 機械判読領域2                    |
 
 * 暗号化された項目(keyValues[0].valueなど)は**AES-256/CBC/PKCS7Padding**方式で暗号化されています(対称鍵利用)。
 * boxes[0]
+
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)

@@ -5,26 +5,26 @@
 
 #### Request
 
-- You can check the {appKey} and {secretKey} in the **URL & Appkey** menu at the top of the console.
+* You can check the {appKey} and {secretKey} in the **URL & Appkey** menu at the top of the console.
 
 [URI]
 
 | Method | URI                                                               |
-|---|-------------------------------------------------------------------|
-| POST | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general |
+|--------|-------------------------------------------------------------------|
+| POST   | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general |
 
 #### Request with image files
 
 [Request Header]
 
-| Name | Value | Description |
-|---|---|---|
-| Authorization | {secretKey} | Security key issued from the console |
-| Content-Type | multipart/form-data | Content type |
+| Name          | Value               | Description                          |
+|---------------|---------------------|--------------------------------------|
+| Authorization | {secretKey}         | Security key issued from the console |
+| Content-Type  | multipart/form-data | Content type                         |
 
 [Request Body]
 
-- Put binary data of the image file.
+* Put binary data of the image file.
 
 ```
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
@@ -35,21 +35,22 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 [Field]
 
-| Name | Type | Description |
-|---|---|---|
-| image | multipart/form-data | Image file |
+| Name  | Type                | Description |
+|-------|---------------------|-------------|
+| image | multipart/form-data | Image file  |
 
 #### Request with image URLs
+
 [Request Header] 
 
-| Name | Value | Description |
-|---|---|---|
-| Authorization | {secretKey} | Security key issued from the console |
-| Content-Type | application/json | Content type |
+| Name          | Value            | Description                          |
+|---------------|------------------|--------------------------------------|
+| Authorization | {secretKey}      | Security key issued from the console |
+| Content-Type  | application/json | Content type                         |
 
 [Request Body]
 
-- Insert the image URL.
+* Insert the image URL.
 
 ```
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
@@ -60,9 +61,9 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 [Field]
 
-| Name | Type | Description |
-|---|---|---|
-| imageUrl | String | Image URL |
+| Name     | Type   | Description |
+|----------|--------|-------------|
+| imageUrl | String | Image URL   |
 
 * If you specify the port directly in the image URL, only ports 80, 443, 10000-12000 can be used.
 
@@ -70,7 +71,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 [Response Body]
 
-```
+```json
 {
     "header": {
         "isSuccessful": true,
@@ -89,7 +90,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
                     {
                         "value":"artois",
                         "conf":0.98
-                    },
+                    }
                 ],
                 "inferTexts": [
                     {
@@ -121,22 +122,22 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 [Header]
 
-| Name | Type | Description |
-|---|---|---|
-| isSuccessful | Boolean | Analysis API success or not |
-| resultCode | Integer | Result code |
-| resultMessage | String | Result message (success on success, error content on failure) |
+| Name          | Type    | Description                                                   |
+|---------------|---------|---------------------------------------------------------------|
+| isSuccessful  | Boolean | Analysis API success or not                                   |
+| resultCode    | Integer | Result code                                                   |
+| resultMessage | String  | Result message (success on success, error content on failure) |
 
 [Field]
 
-| Name                                    | Type | Description                                                |
-|-----------------------------------------|---|---------------------------------------------------|
-| fileType                                | String | File extension (jpg, png)                                  |
-| values                                  | List | List of recognition results                                          |
-| listOfInferTexts[0].inferTexts[0].value | String | Recognized content                                             |
-| listOfInferTexts[0].inferTexts[0].conf  | Double | Confidence score of the recognition result                                         |
-| listOfBoundingBoxes                     | List | List of bounding box coordinates                         |
-| listOfBoundingBoxes[0].boundingBoxes[0] | Object  | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }       |
+| Name                                    | Type   | Description                                                       |
+|-----------------------------------------|--------|-------------------------------------------------------------------|
+| fileType                                | String | File extension (jpg, png)                                         |
+| values                                  | List   | List of recognition results                                       |
+| listOfInferTexts[0].inferTexts[0].value | String | Recognized content                                                |
+| listOfInferTexts[0].inferTexts[0].conf  | Double | Confidence score of the recognition result                        |
+| listOfBoundingBoxes                     | List   | List of bounding box coordinates                                  |
+| listOfBoundingBoxes[0].boundingBoxes[0] | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 } |
 
 * boxes[0]
 
@@ -150,18 +151,18 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 [URI]
 
-| Method | URI                                                               |
-|---|-------------------------------------------------------------------|
-| POST | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping |
+| Method | URI                                                                        |
+|--------|----------------------------------------------------------------------------|
+| POST   | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping |
 
 #### Request with image files
 
 [Request Header] 
 
-| Name | Value | Description |
-|---|---|---|
-| Authorization | {secretKey} | Security key issued from the console |
-| Content-Type | multipart/form-data | Content type |
+| Name          | Value               | Description                          |
+|---------------|---------------------|--------------------------------------|
+| Authorization | {secretKey}         | Security key issued from the console |
+| Content-Type  | multipart/form-data | Content type                         |
 
 [Request Body]
 
@@ -176,17 +177,17 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 
 [Field]
 
-| Name | Type | Description |
-|---|---|---|
-| image | multipart/form-data | Image file |
+| Name  | Type                | Description |
+|-------|---------------------|-------------|
+| image | multipart/form-data | Image file  |
 
 #### Request with image URLs
 [Request Header] 
 
-| Name | Value | Description |
-|---|---|---|
-| Authorization | {secretKey} | Security key issued from the console |
-| Content-Type | application/json | Content type |
+| Name          | Value            | Description                          |
+|---------------|------------------|--------------------------------------|
+| Authorization | {secretKey}      | Security key issued from the console |
+| Content-Type  | application/json | Content type                         |
 
 [Request Body]
 
@@ -201,9 +202,9 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 
 [Field]
 
-| Name | Type | Description |
-|---|---|---|
-| imageUrl | String | Image URL |
+| Name     | Type   | Description |
+|----------|--------|-------------|
+| imageUrl | String | Image URL   |
 
 * If you specify the port directly in the image URL, only ports 80, 443, 10000-12000 can be used.
 
@@ -211,7 +212,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 
 [Response Body]
 
-```
+```json
 {
     "header": {
         "isSuccessful": true,
@@ -230,7 +231,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
                     {
                         "value":"artois",
                         "conf":0.98
-                    },
+                    }
                 ],
                 "inferTexts": [
                     {
@@ -263,22 +264,22 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 
 [Header]
 
-| Name | Type | Description |
-|---|---|---|
-| isSuccessful | Boolean | Analysis API success or not |
-| resultCode | Integer | Result code |
-| resultMessage | String | Result message (success on success, error content on failure) |
+| Name          | Type    | Description                                                   |
+|---------------|---------|---------------------------------------------------------------|
+| isSuccessful  | Boolean | Analysis API success or not                                   |
+| resultCode    | Integer | Result code                                                   |
+| resultMessage | String  | Result message (success on success, error content on failure) |
 
 [Field]
 
-| Name                                      | Type | Description                                                |
-|-----------------------------------------|---|---------------------------------------------------|
-| fileType                                | String | File extension (jpg, png)                                  |
-| values                                  | List | List of recognition results                                          |
-| listOfInferTexts[0].inferTexts[0].value | String | Recognized content                                             |
-| listOfInferTexts[0].inferTexts[0].conf  | Double | Confidence score of the recognition result                                         |
-| listOfBoundingBoxes                     | List | List of bounding box coordinates                         |
-| listOfBoundingBoxes[0].boundingBoxes[0] | Object  | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }       |
+| Name                                    | Type    | Description                                                         |
+|-----------------------------------------|---------|---------------------------------------------------------------------|
+| fileType                                | String  | File extension (jpg, png)                                           |
+| values                                  | List    | List of recognition results                                         |
+| listOfInferTexts[0].inferTexts[0].value | String  | Recognized content                                                  |
+| listOfInferTexts[0].inferTexts[0].conf  | Double  | Confidence score of the recognition result                          |
+| listOfBoundingBoxes                     | List    | List of bounding box coordinates                                    |
+| listOfBoundingBoxes[0].boundingBoxes[0] | Object  | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }   |
 | slicesImages                            | Integer | Number of images internally split based on the image's aspect ratio |
 
 * boxes[0]

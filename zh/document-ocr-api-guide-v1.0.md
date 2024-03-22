@@ -26,7 +26,7 @@
 
 [Request Body]
 
-- Put binary data of the image file.
+* Put binary data of the image file.
 
 ```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business' \
@@ -108,7 +108,6 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 | boxes[0]           | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                      |
 
 * boxes[0]
-
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 ### Retrieve Business Registration Stoppage/Closure API
@@ -327,6 +326,5 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-c
 | validThruBox      | Object | Coordinates of the expiration date recognition area { x1, y1, x2, y2, x3, y3, x4, y4 }                                             |
 
 * boxes[0]
-
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 

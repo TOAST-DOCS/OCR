@@ -4,31 +4,31 @@
 
 #### Request
 
-- You can check the {appKey} and {secretKey} in the **URL & Appkey** menu at the top of the console.
+* You can check the {appKey} and {secretKey} in the **URL & Appkey** menu at the top of the console.
 
 [URI]
 
-| Method | URI |
-|---|---|
-| POST | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business |
+| Method | URI                                                                |
+|--------|--------------------------------------------------------------------|
+| POST   | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business |
 
 [Request Header]
 
-| Name | Value | Description             |
-|---|---|-----------------|
+| Name          | Value       | Description                          |
+|---------------|-------------|--------------------------------------|
 | Authorization | {secretKey} | Security key issued from the console |
 
 [Path Variable]
 
-| Name | Value | Description              |
-| --- | --- |-----------------|
+| Name   | Value    | Description                         |
+|--------|----------|-------------------------------------|
 | appKey | {appKey} | Integrated Appkey or Service Appkey |
 
 [Request Body]
 
 - Put binary data of the image file.
 
-```
+```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}'
@@ -36,9 +36,9 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 
 [Field]
 
-| Name | Type | Description |
-|---|---|---|
-| image | multipart/form-data | Image file |
+| Name  | Type                | Description |
+|-------|---------------------|-------------|
+| image | multipart/form-data | Image file  |
 
 #### Response
 
@@ -87,29 +87,29 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 
 [Header]
 
-| Name | Type | Description |
-|---|---|---|
-| isSuccessful | Boolean | Analysis API success or not |
-| resultCode | Integer | Result code |
-| resultMessage | String | Result message (success on success, error details on failure) |
+| Name          | Type    | Description                                                   |
+|---------------|---------|---------------------------------------------------------------|
+| isSuccessful  | Boolean | Analysis API success or not                                   |
+| resultCode    | Integer | Result code                                                   |
+| resultMessage | String  | Result message (success on success, error details on failure) |
 
 [Field]
 
-| Name | Type | Description |
-|---|---|---|
-| fileType | String | File extension (.pdf, .jpg, .png) |
-| keyValues | List | List of recognition results |
-| keyValues[0].key | String | Recognized item name |
-| keyValues[0].value | String | Recognized content |
-| keyValues[0].conf | Double | Confidence of the recognition result |
-| resolution | String | normal: the resolution is the recommended resolution (HD 1280*720px) or above, low: the resolution is below the recommended resolution |
-| unitType | String | Coordinate unit for boxes (pixel by default, point for PDF) |
-| boxes | List | List of recognized area (bounding box) coordinates |
-| boxes[0] | Object  | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 } |
+| Name               | Type   | Description                                                                                                                            |
+|--------------------|--------|----------------------------------------------------------------------------------------------------------------------------------------|
+| fileType           | String | File extension (.pdf, .jpg, .png)                                                                                                      |
+| keyValues          | List   | List of recognition results                                                                                                            |
+| keyValues[0].key   | String | Recognized item name                                                                                                                   |
+| keyValues[0].value | String | Recognized content                                                                                                                     |
+| keyValues[0].conf  | Double | Confidence of the recognition result                                                                                                   |
+| resolution         | String | normal: the resolution is the recommended resolution (HD 1280*720px) or above, low: the resolution is below the recommended resolution |
+| unitType           | String | Coordinate unit for boxes (pixel by default, point for PDF)                                                                            |
+| boxes              | List   | List of recognized area (bounding box) coordinates                                                                                     |
+| boxes[0]           | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                      |
 
 * boxes[0]
 
-    ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
+  ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 ### Retrieve Business Registration Stoppage/Closure API
 
@@ -120,30 +120,30 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 [URI]
 
 | Method | URI                                                                       |
-|---|---------------------------------------------------------------------------|
-| POST | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business/status |
+|--------|---------------------------------------------------------------------------|
+| POST   | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business/status |
 
 [Request Header]
 
-| Name | Value | Description              |
-|---|---|-----------------|
+| Name          | Value       | Description                          |
+|---------------|-------------|--------------------------------------|
 | Authorization | {secretKey} | Security key issued from the console |
 
 [Path Variable]
 
-| Name | Value | Description              |
-| --- | --- |-----------------|
+| Name   | Value    | Description                         |
+|--------|----------|-------------------------------------|
 | appKey | {appKey} | Integrated Appkey or Service Appkey |
 
 [Field]
 
-| Name             | Type     | Description |
-|----------------|--------|---|
+| Name           | Type   | Description                                          |
+|----------------|--------|------------------------------------------------------|
 | businessNumber | String | Business registration certificate number (10 digits) |
 
 [Request Bodoy]
 
-```
+```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business/status' \
 -H 'Authorization: ${secretKey}' \
 --data-raw '{
@@ -172,31 +172,31 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 
 [Header]
 
-| Name | Type | Description                              |
-| --- | --- |---------------------------------|
-| isSuccessful | Boolean | Whether Retrieve stoppage/closure API successful or not               |
-| resultCode | Integer | Result code                           |
-| resultMessage | String | Result message (Success when successful, error when failed) |
+| Name          | Type    | Description                                                 |
+|---------------|---------|-------------------------------------------------------------|
+| isSuccessful  | Boolean | Whether Retrieve stoppage/closure API successful or not     |
+| resultCode    | Integer | Result code                                                 |
+| resultMessage | String  | Result message (Success when successful, error when failed) |
 
 [Field]
 
-| Name         | Type     | Description |
-|-------------|--------| --- |
-| statusCode | String | Business registraction certificate status code (Hometax result code) |
-| statusMessage | String | Business registraction certificate status message |
+| Name          | Type   | Description                                                          |
+|---------------|--------|----------------------------------------------------------------------|
+| statusCode    | String | Business registraction certificate status code (Hometax result code) |
+| statusMessage | String | Business registraction certificate status message                    |
 
 * **List of Business Registration Certificate Statuses by "statusCode"**
 
-| Code value | Description                                       |
-|---|------------------------------------------|
-| 00 | Businesses not in business |
-| 01 | VAT general taxpayers |
-| 02 | VAT simplified taxpayer |
-| 03 | Exempt from VAT |
-| 04 | Non-profit corporation or organization with a unique number that is not engaged in a profitable business. National organizations |
-| 05 | Inactive |
-| 06 | Closed |
-| 09 | Others  |
+| Code value | Description                                                                                                                      |
+|------------|----------------------------------------------------------------------------------------------------------------------------------|
+| 00         | Businesses not in business                                                                                                       |
+| 01         | VAT general taxpayers                                                                                                            |
+| 02         | VAT simplified taxpayer                                                                                                          |
+| 03         | Exempt from VAT                                                                                                                  |
+| 04         | Non-profit corporation or organization with a unique number that is not engaged in a profitable business. National organizations |
+| 05         | Inactive                                                                                                                         |
+| 06         | Closed                                                                                                                           |
+| 09         | Others                                                                                                                           |
 
 ### Credit Card Analysis API
 
@@ -206,27 +206,27 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 
 [URI]
 
-| Method | URI |
-|---|---|
-| POST | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-card |
+| Method | URI                                                                   |
+|--------|-----------------------------------------------------------------------|
+| POST   | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-card |
 
 [Request Header]
 
-| Name | Value | Description |
-|---|---|---|
+| Name          | Value       | Description                          |
+|---------------|-------------|--------------------------------------|
 | Authorization | {secretKey} | Security key issued from the console |
 
 [Path Variable]
 
-| Name | Value | Description              |
-| --- | --- |-----------------|
+| Name   | Value    | Description                         |
+|--------|----------|-------------------------------------|
 | appKey | {appKey} | Integrated Appkey or Service Appkey |
 
 [Request Body]
 
 - Put binary data of the image file.
 
-```
+```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-card' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}'
@@ -234,9 +234,9 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-c
 
 [Field]
 
-| Name | Type | Description |
-|---|---|---|
-| image | multipart/form–data | Image file |
+| Name  | Type                | Description |
+|-------|---------------------|-------------|
+| image | multipart/form–data | Image file  |
 
 #### Response
 
@@ -304,29 +304,29 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-c
 
 [Header]
 
-| Name | Type | Description |
-|---|---|---|
-| isSuccessful | Boolean | Analysis API success or not |
-| resultCode | Integer | Result code |
-| resultMessage | String | Result message (success on success, error details on failure) |
+| Name          | Type    | Description                                                   |
+|---------------|---------|---------------------------------------------------------------|
+| isSuccessful  | Boolean | Analysis API success or not                                   |
+| resultCode    | Integer | Result code                                                   |
+| resultMessage | String  | Result message (success on success, error details on failure) |
 
 [Field]
 
-| Name | Type | Description |
-|---|---|---|
-| fileType | String | File extension (.jpg, .png) |
-| resolution | String | normal: the resolution is the recommended resolution (760*480px) or above, low: the resolution is below the recommended resolution |
-| cardNums | List | List of card number recognition results |
-| cardNums[0].value | String | Recognition result |
-| cardNums[0].conf | Double | Confidence of the recognition result |
-| totalCardNum | List | Full card number recognition result |
-| cardNumBoxes | List | List of coordinates of the card number recognition area (bounding box) |
-| cardNumBoxes[0] | Object  | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 } |
-| validThru.value | String | Expiration date recognition content |
-| validThru.conf | Double | Confidence of expiration date recognition result |
-| validThruBox | Object  | Coordinates of the expiration date recognition area { x1, y1, x2, y2, x3, y3, x4, y4 } |
+| Name              | Type   | Description                                                                                                                        |
+|-------------------|--------|------------------------------------------------------------------------------------------------------------------------------------|
+| fileType          | String | File extension (.jpg, .png)                                                                                                        |
+| resolution        | String | normal: the resolution is the recommended resolution (760*480px) or above, low: the resolution is below the recommended resolution |
+| cardNums          | List   | List of card number recognition results                                                                                            |
+| cardNums[0].value | String | Recognition result                                                                                                                 |
+| cardNums[0].conf  | Double | Confidence of the recognition result                                                                                               |
+| totalCardNum      | List   | Full card number recognition result                                                                                                |
+| cardNumBoxes      | List   | List of coordinates of the card number recognition area (bounding box)                                                             |
+| cardNumBoxes[0]   | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                  |
+| validThru.value   | String | Expiration date recognition content                                                                                                |
+| validThru.conf    | Double | Confidence of expiration date recognition result                                                                                   |
+| validThruBox      | Object | Coordinates of the expiration date recognition area { x1, y1, x2, y2, x3, y3, x4, y4 }                                             |
 
 * boxes[0]
 
-    ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
+  ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 

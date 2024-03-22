@@ -26,7 +26,7 @@
 
 [Request Body]
 
-- Put binary data of the image file.
+* Put binary data of the image file.
 
 ```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business' \
@@ -46,42 +46,42 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 
 ```json
 {
-    "header": {
-        "isSuccessful": true,
-        "resultCode": 0,
-        "resultMessage": "SUCCESS"
-    },
-    "result": {
-        "fileType": "png",
-        "unitType": "pixel",
-        "keyValues": [
-            {
-                "key":"구분",
-                "value":" 간이과세자",
-                "conf":0.93
-            },
-            {
-                "key":"등록번호",
-                "value":"123-45-67890",
-                "conf":1
-            },
-            ...
-        ],
-        "boxes": [
-            {
-                "x1": 340,
-                "y1": 3231,
-                "x2": 523,
-                "y2": 3231,
-                "x3": 523,
-                "y3": 3297,
-                "x4": 340,
-                "y4": 3297
-            },
-            ...
-        ],
-        "resolution": "normal"
-    }
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "result": {
+    "fileType": "png",
+    "unitType": "pixel",
+    "keyValues": [
+      {
+        "key":"구분",
+        "value":" 간이과세자",
+        "conf":0.93
+      },
+      {
+        "key":"등록번호",
+        "value":"123-45-67890",
+        "conf":1
+      },
+      ...
+    ],
+    "boxes": [
+      {
+        "x1": 340,
+        "y1": 3231,
+        "x2": 523,
+        "y2": 3231,
+        "x3": 523,
+        "y3": 3297,
+        "x4": 340,
+        "y4": 3297
+      },
+      ...
+    ],
+    "resolution": "normal"
+  }
 }
 ```
 
@@ -108,8 +108,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 | boxes[0]           | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                      |
 
 * boxes[0]
-
-    ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
+  ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 ### Retrieve Business Registration Stoppage/Closure API
 
@@ -157,15 +156,15 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 
 ```json
 {
-    "header": {
-        "isSuccessful": true,
-        "resultCode": 0,
-        "resultMessage": "SUCCESS"
-    },
-    "result": {
-        "statusCode": "00",
-        "statusMessage": ""
-    }
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "result": {
+    "statusCode": "00",
+    "statusMessage": ""
+  }
 }
 ```
 
@@ -244,61 +243,61 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-c
 
 ```json
 {
-    "header": {
-        "isSuccessful": true,
-        "resultCode": 0,
-        "resultMessage": "SUCCESS"
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "result": {
+    "fileType": "png",
+    "resolution": "low",
+    "cardNums": [
+      {
+        "value": "1111",
+        "conf": 0.87
+      },
+      {
+        "value": "2222",
+        "conf": 0.99
+      },
+      {
+        "value": "3333",
+        "conf": 0.97
+      },
+      {
+        "value": "4444",
+        "conf": 0.89
+      }
+    ],
+    "totalCardNum": "111222233334444",
+    "cardNumBoxes": [
+      {
+        "x1": 62,
+        "y1": 256,
+        "x2": 192,
+        "y2": 256,
+        "x3": 192,
+        "y3": 301,
+        "x4": 62,
+        "y4": 301
+      },
+      ...
+    ],
+    "validThru": {
+      "value": "04/19",
+      "conf": 0.53
     },
-    "result": {
-        "fileType": "png",
-        "resolution": "low",
-        "cardNums": [
-                    {
-                        "value": "1111",
-                        "conf": 0.87
-                    },
-                    {
-                        "value": "2222",
-                        "conf": 0.99
-                    },
-                    {
-                        "value": "3333",
-                        "conf": 0.97
-                    },
-                    {
-                        "value": "4444",
-                        "conf": 0.89
-                    }
-        ],
-        "totalCardNum": "111222233334444",
-        "cardNumBoxes": [
-            {
-                "x1": 62,
-                "y1": 256,
-                "x2": 192,
-                "y2": 256,
-                "x3": 192,
-                "y3": 301,
-                "x4": 62,
-                "y4": 301
-            },
-            ...
-        ],
-        "validThru": {
-            "value": "04/19",
-            "conf": 0.53
-        },
-        "validThruBox": {
-            "x1": 316,
-            "y1": 315,
-            "x2": 426,
-            "y2": 315,
-            "x3": 426,
-            "y3": 347,
-            "x4": 316,
-            "y4": 347
-        }
+    "validThruBox": {
+      "x1": 316,
+      "y1": 315,
+      "x2": 426,
+      "y2": 315,
+      "x3": 426,
+      "y3": 347,
+      "x4": 316,
+      "y4": 347
     }
+  }
 }
 ```
 
@@ -327,6 +326,5 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-c
 | validThruBox      | Object | Coordinates of the expiration date recognition area { x1, y1, x2, y2, x3, y3, x4, y4 }                                             |
 
 * boxes[0]
-
-    ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
+  ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 

@@ -91,6 +91,5 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/vehicle-
 | boxes[0]        | Object | 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 }       |
 
 * boxes[0]
-
     ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 

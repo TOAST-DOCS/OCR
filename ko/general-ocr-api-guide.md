@@ -138,7 +138,6 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 | listOfBoundingBoxes[0].boundingBoxes[0] | Object | 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 } |
 
 * boxes[0]
-
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 ### General OCR 분할 인식 API
@@ -282,5 +281,4 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 | slicesImages                            | Integer | 입력 이미지의 가로-세로 비율에 따라 내부적으로 분할된 이미지 개수       |
 
 * boxes[0]
-
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)

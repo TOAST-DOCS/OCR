@@ -140,7 +140,6 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 | listOfBoundingBoxes[0].boundingBoxes[0] | Object | 認識領域の座標{ x1, y1, x2, y2, x3, y3, x4, y4 } |
 
 * boxes[0]
-
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 ### General OCR分割認識API
@@ -284,5 +283,4 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 | slicesImages                            | Integer | 入力画像のアスペクト比に応じて内部的に分割された画像の数             |
 
 * boxes[0]
-
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)

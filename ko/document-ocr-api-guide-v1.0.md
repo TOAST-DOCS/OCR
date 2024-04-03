@@ -4,31 +4,31 @@
 
 #### 요청
 
-- {appKey}와 {secretKey}는 콘솔 상단 **URL & Appkey** 메뉴에서 확인이 가능합니다.
+* {appKey}와 {secretKey}는 콘솔 상단 **URL & Appkey** 메뉴에서 확인이 가능합니다.
 
 [URI]
 
-| 메서드 | URI |
-|---|---|
+| 메서드  | URI                                                                |
+|------|--------------------------------------------------------------------|
 | POST | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business |
 
 [요청 헤더]
 
-| 이름 | 값 | 설명              |
-|---|---|-----------------|
+| 이름            | 값           | 설명              |
+|---------------|-------------|-----------------|
 | Authorization | {secretKey} | 콘솔에서 발급 받은 보안 키 |
 
 [Path Variable]
 
-| 이름 | 값 | 설명              |
-| --- | --- |-----------------|
+| 이름     | 값        | 설명                      |
+|--------|----------|-------------------------|
 | appKey | {appKey} | 통합 Appkey 또는 서비스 Appkey |
 
 [요청 본문]
 
 - 이미지 파일의 바이너리 데이터를 넣습니다.
 
-```
+```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}'
@@ -36,8 +36,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 
 [필드]
 
-| 이름 | 타입 | 설명 |
-|---|---|---|
+| 이름    | 타입                  | 설명     |
+|-------|---------------------|--------|
 | image | multipart/form–data | 이미지 파일 |
 
 #### 응답
@@ -87,29 +87,28 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 
 [헤더]
 
-| 이름 | 타입 | 설명 |
-|---|---|---|
-| isSuccessful | Boolean | 분석 API 성공 여부 |
-| resultCode | Integer | 결과 코드 |
-| resultMessage | String | 결과 메시지(성공 시 success, 실패 시 오류 내용) |
+| 이름            | 타입      | 설명                               |
+|---------------|---------|----------------------------------|
+| isSuccessful  | Boolean | 분석 API 성공 여부                     |
+| resultCode    | Integer | 결과 코드                            |
+| resultMessage | String  | 결과 메시지(성공 시 success, 실패 시 오류 내용) |
 
 [필드]
 
-| 이름 | 타입 | 설명 |
-|---|---|---|
-| fileType | String | 파일 확장자(.pdf, .jpg, .png) |
-| keyValues | List | 인식 결과 목록 |
-| keyValues[0].key | String | 인식 항목명 |
-| keyValues[0].value | String | 인식 내용 |
-| keyValues[0].conf | Double | 인식 결과 신뢰도 |
-| resolution | String | 권장 해상도(HD 1280*720px) 이상이면 normal, 권장 해상도 미만은 low |
-| unitType | String | boxes 좌표 단위(기본 pixel, PDF의 경우 point) |
-| boxes | List | 인식 영역(Bounding box) 좌표 목록 |
-| boxes[0] | Object  | 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 } |
+| 이름                 | 타입     | 설명                                                |
+|--------------------|--------|---------------------------------------------------|
+| fileType           | String | 파일 확장자(.pdf, .jpg, .png)                          |
+| keyValues          | List   | 인식 결과 목록                                          |
+| keyValues[0].key   | String | 인식 항목명                                            |
+| keyValues[0].value | String | 인식 내용                                             |
+| keyValues[0].conf  | Double | 인식 결과 신뢰도                                         |
+| resolution         | String | 권장 해상도(HD 1280*720px) 이상이면 normal, 권장 해상도 미만은 low |
+| unitType           | String | boxes 좌표 단위(기본 pixel, PDF의 경우 point)              |
+| boxes              | List   | 인식 영역(Bounding box) 좌표 목록                         |
+| boxes[0]           | Object | 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 }       |
 
 * boxes[0]
- 
-    ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
+  ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 ### 사업자등록증 휴/폐업 조회 API
 
@@ -119,31 +118,31 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 
 [URI]
 
-| 메서드 | URI                                                                       |
-|---|---------------------------------------------------------------------------|
+| 메서드  | URI                                                                       |
+|------|---------------------------------------------------------------------------|
 | POST | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business/status |
 
 [요청 헤더]
 
-| 이름 | 값 | 설명              |
-|---|---|-----------------|
+| 이름            | 값           | 설명              |
+|---------------|-------------|-----------------|
 | Authorization | {secretKey} | 콘솔에서 발급 받은 보안 키 |
 
 [Path Variable]
 
-| 이름 | 값 | 설명              |
-| --- | --- |-----------------|
+| 이름     | 값        | 설명                      |
+|--------|----------|-------------------------|
 | appKey | {appKey} | 통합 Appkey 또는 서비스 Appkey |
 
 [필드]
 
-| 이름             | 타입     | 설명 |
-|----------------|--------|---|
+| 이름             | 타입     | 설명                    |
+|----------------|--------|-----------------------|
 | businessNumber | String | 사업자등록증 등록 번호(10자리 숫자) |
 
 [요청 본문]
 
-```
+```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business/status' \
 -H 'Authorization: ${secretKey}' \
 --data-raw '{
@@ -172,31 +171,31 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 
 [헤더]
 
-| 이름 | 타입 | 설명                              |
-| --- | --- |---------------------------------|
-| isSuccessful | Boolean | 휴/폐업 조회 API 성공 여부               |
-| resultCode | Integer | 결과 코드                           |
-| resultMessage | String | 결과 메시지(성공 시 success, 실패 시 오류 내용) |
+| 이름            | 타입      | 설명                               |
+|---------------|---------|----------------------------------|
+| isSuccessful  | Boolean | 휴/폐업 조회 API 성공 여부                |
+| resultCode    | Integer | 결과 코드                            |
+| resultMessage | String  | 결과 메시지(성공 시 success, 실패 시 오류 내용) |
 
 [필드]
 
-| 이름         | 타입     | 설명 |
-|-------------|--------| --- |
-| statusCode | String | 사업자등록증 상태 코드(국세청 결과 코드) |
-| statusMessage | String | 사업자등록증 상태 메시지 |
+| 이름            | 타입     | 설명                      |
+|---------------|--------|-------------------------|
+| statusCode    | String | 사업자등록증 상태 코드(국세청 결과 코드) |
+| statusMessage | String | 사업자등록증 상태 메시지           |
 
 * **"statusCode"에 따른 사업자등록증 상태 목록**
 
-| 코드값 | 설명                                       |
-|---|------------------------------------------|
-| 00 | 사업을 하고 있지 않는 사업자                         |
-| 01 | 부가가치세 일반과세자                              |
-| 02 | 부가가치세 간이과세자                              |
-| 03 | 부가가치세 면세사업자                              |
-| 04 | 수익 사업을 영위하지 않는 비영리법인이거나 고유번호가 부여된 단체. 국가기관 |
-| 05 | 휴업자                                      |
-| 06 | 폐업자                                      |
-| 09 | 기타                                       |
+| 코드값 | 설명                                         |
+|-----|--------------------------------------------|
+| 00  | 사업을 하고 있지 않는 사업자                           |
+| 01  | 부가가치세 일반과세자                                |
+| 02  | 부가가치세 간이과세자                                |
+| 03  | 부가가치세 면세사업자                                |
+| 04  | 수익 사업을 영위하지 않는 비영리법인이거나 고유번호가 부여된 단체. 국가기관 |
+| 05  | 휴업자                                        |
+| 06  | 폐업자                                        |
+| 09  | 기타                                         |
 
 ### 신용카드 분석 API
 
@@ -206,27 +205,27 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 
 [URI]
 
-| 메서드 | URI |
-|---|---|
+| 메서드  | URI                                                                   |
+|------|-----------------------------------------------------------------------|
 | POST | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-card |
 
 [요청 헤더]
 
-| 이름 | 값 | 설명              |
-|---|---|-----------------|
+| 이름            | 값           | 설명              |
+|---------------|-------------|-----------------|
 | Authorization | {secretKey} | 콘솔에서 발급 받은 보안 키 |
 
 [Path Variable]
 
-| 이름 | 값 | 설명              |
-| --- | --- |-----------------|
+| 이름     | 값        | 설명                      |
+|--------|----------|-------------------------|
 | appKey | {appKey} | 통합 Appkey 또는 서비스 Appkey |
 
 [요청 본문]
 
 - 이미지 파일의 바이너리 데이터를 넣습니다.
 
-```
+```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-card' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}'
@@ -234,8 +233,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-c
 
 [필드]
 
-| 이름 | 타입 | 설명 |
-|---|---|---|
+| 이름    | 타입                  | 설명     |
+|-------|---------------------|--------|
 | image | multipart/form–data | 이미지 파일 |
 
 #### 응답
@@ -304,29 +303,28 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-c
 
 [헤더]
 
-| 이름 | 타입 | 설명 |
-|---|---|---|
-| isSuccessful | Boolean | 분석 API 성공 여부 |
-| resultCode | Integer | 결과 코드 |
-| resultMessage | String | 결과 메시지(성공 시 success, 실패 시 오류 내용) |
+| 이름            | 타입      | 설명                               |
+|---------------|---------|----------------------------------|
+| isSuccessful  | Boolean | 분석 API 성공 여부                     |
+| resultCode    | Integer | 결과 코드                            |
+| resultMessage | String  | 결과 메시지(성공 시 success, 실패 시 오류 내용) |
 
 [필드]
 
-| 이름 | 타입 | 설명 |
-|---|---|---|
-| fileType | String | 파일 확장자(.jpg, .png) |
-| resolution | String | 권장 해상도(760*480px) 이상이면 normal, 권장 해상도 미만은 low |
-| cardNums | List | 카드 번호 인식 결과 목록 |
-| cardNums[0].value | String | 인식 결과 |
-| cardNums[0].conf | Double | 인식 결과 신뢰도 |
-| totalCardNum | List | 카드 번호 전체 인식 결과 |
-| cardNumBoxes | List | 카드 번호 인식 영역(Bounding box) 좌표 목록 |
-| cardNumBoxes[0] | Object  | 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 } |
-| validThru.value | String | 유효 기간 인식 내용 |
-| validThru.conf | Double | 유효 기간 인식 결과 신뢰도 |
-| validThruBox | Object  | 유효 기간 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 } |
+| 이름                | 타입     | 설명                                                |
+|-------------------|--------|---------------------------------------------------|
+| fileType          | String | 파일 확장자(.jpg, .png)                                |
+| resolution        | String | 권장 해상도(760*480px) 이상이면 normal, 권장 해상도 미만은 low     |
+| cardNums          | List   | 카드 번호 인식 결과 목록                                    |
+| cardNums[0].value | String | 인식 결과                                             |
+| cardNums[0].conf  | Double | 인식 결과 신뢰도                                         |
+| totalCardNum      | List   | 카드 번호 전체 인식 결과                                    |
+| cardNumBoxes      | List   | 카드 번호 인식 영역(Bounding box) 좌표 목록                   |
+| cardNumBoxes[0]   | Object | 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 }       |
+| validThru.value   | String | 유효 기간 인식 내용                                       |
+| validThru.conf    | Double | 유효 기간 인식 결과 신뢰도                                   |
+| validThruBox      | Object | 유효 기간 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 } |
 
 * boxes[0]
- 
-    ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
+  ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 

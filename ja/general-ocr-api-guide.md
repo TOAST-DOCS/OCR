@@ -5,28 +5,28 @@
 
 #### リクエスト
 
-- {appKey}と{secretKey}はコンソール上部の**URL & Appkey**メニューで確認できます。
+* {appKey}と{secretKey}はコンソール上部の**URL & Appkey**メニューで確認できます。
 
 [URI]
 
 | メソッド | URI                                                               |
-|---|-------------------------------------------------------------------|
+|------|-------------------------------------------------------------------|
 | POST | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general |
 
 #### 画像ファイルを利用したリクエスト
 
 [リクエストヘッダ]
 
-| 名前 | 値 | 説明 |
-|---|---|---|
-| Authorization | {secretKey} | コンソールで発行されたセキュリティキー |
-| Content-Type | multipart/form-data | コンテンツタイプ |
+| 名前            | 値                   | 説明                  |
+|---------------|---------------------|---------------------|
+| Authorization | {secretKey}         | コンソールで発行されたセキュリティキー |
+| Content-Type  | multipart/form-data | コンテンツタイプ            |
 
 [リクエスト本文]
 
-- 画像ファイルのBinary Dataを入れます。
+* 画像ファイルのBinary Dataを入れます。
 
-```
+```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
@@ -35,23 +35,24 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 [フィールド]
 
-| 名前 | タイプ | 説明 |
-|---|---|---|
+| 名前    | タイプ                 | 説明     |
+|-------|---------------------|--------|
 | image | multipart/form–data | 画像ファイル |
 
 #### 画像URLを利用したリクエスト
+
 [リクエストヘッダ]
 
-| 名前 | 値 | 説明 |
-|---|---|---|
-| Authorization | {secretKey} | コンソールで発行されたセキュリティキー |
-| Content-Type | application/json | コンテンツタイプ |
+| 名前            | 値                | 説明                  |
+|---------------|------------------|---------------------|
+| Authorization | {secretKey}      | コンソールで発行されたセキュリティキー |
+| Content-Type  | application/json | コンテンツタイプ            |
 
 [リクエスト本文]
 
-'- 画像のURLを入れます。
+* 画像のURLを入れます。
 
-```
+```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
 -H 'Authorization: ${secretKey}' \
 -H 'Content-Type: application/json' \
@@ -60,8 +61,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 [フィールド]
 
-| 名前 | タイプ | 説明 |
-|---|---|---|
+| 名前       | タイプ    | 説明    |
+|----------|--------|-------|
 | imageUrl | String | 画像URL |
 
 * イメージURLにポートを直接指定する場合は80、443、10000～12000ポートのみ使用できます。
@@ -70,7 +71,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 [レスポンス本文]
 
-```
+```json
 {
     "header": {
         "isSuccessful": true,
@@ -89,7 +90,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
                     {
                         "value":"artois",
                         "conf":0.98
-                    },
+                    }
                 ],
                 "inferTexts": [
                     {
@@ -121,25 +122,24 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 [ヘッダ]
 
-| 名前 | タイプ | 説明 |
-|---|---|---|
-| isSuccessful | Boolean | 分析APIの成否 |
-| resultCode | Integer | 結果コード |
-| resultMessage | String | 結果メッセージ(成功時はsuccess、失敗時はエラー内容) |
+| 名前            | タイプ     | 説明                             |
+|---------------|---------|--------------------------------|
+| isSuccessful  | Boolean | 分析APIの成否                       |
+| resultCode    | Integer | 結果コード                          |
+| resultMessage | String  | 結果メッセージ(成功時はsuccess、失敗時はエラー内容) |
 
 [フィールド]
 
-| 名前                                         | タイプ | 説明                                              |
-|--------------------------------------------|---|---------------------------------------------------|
-| fileType                                   | String | ファイル拡張子(jpg、png)                                  |
-| values                                     | List | 認識結果リスト                                        |
-| listOfInferTexts[0].inferTexts[0].value | String | 認識内容                                           |
-| listOfInferTexts[0].inferTexts[0].conf  | Double | 認識結果の信頼度                                       |
-| listOfBoundingBoxes                        | List | 認識領域(Bounding box)座標リスト                       |
-| listOfBoundingBoxes[0].boundingBoxes[0]    | Object  | 認識領域の座標{ x1, y1, x2, y2, x3, y3, x4, y4 }       |
+| 名前                                      | タイプ    | 説明                                        |
+|-----------------------------------------|--------|-------------------------------------------|
+| fileType                                | String | ファイル拡張子(jpg、png)                          |
+| values                                  | List   | 認識結果リスト                                   |
+| listOfInferTexts[0].inferTexts[0].value | String | 認識内容                                      |
+| listOfInferTexts[0].inferTexts[0].conf  | Double | 認識結果の信頼度                                  |
+| listOfBoundingBoxes                     | List   | 認識領域(Bounding box)座標リスト                   |
+| listOfBoundingBoxes[0].boundingBoxes[0] | Object | 認識領域の座標{ x1, y1, x2, y2, x3, y3, x4, y4 } |
 
 * boxes[0]
-
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 ### General OCR分割認識API
@@ -150,24 +150,24 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 [URI]
 
-| メソッド | URI                                                               |
-|---|-------------------------------------------------------------------|
+| メソッド | URI                                                                        |
+|------|----------------------------------------------------------------------------|
 | POST | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping |
 
 #### 画像ファイルを利用したリクエスト
 
 [リクエストヘッダ]
 
-| 名前 | 値 | 説明 |
-|---|---|---|
-| Authorization | {secretKey} | コンソールで発行されたセキュリティキー |
-| Content-Type | multipart/form-data | コンテンツタイプ |
+| 名前            | 値                   | 説明                  |
+|---------------|---------------------|---------------------|
+| Authorization | {secretKey}         | コンソールで発行されたセキュリティキー |
+| Content-Type  | multipart/form-data | コンテンツタイプ            |
 
 [リクエスト本文]
 
 - 画像ファイルのバイナリデータを入れます。
 
-```
+```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
@@ -176,23 +176,24 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 
 [フィールド]
 
-| 名前 | タイプ | 説明 |
-|---|---|---|
+| 名前    | タイプ                 | 説明     |
+|-------|---------------------|--------|
 | image | multipart/form–data | 画像ファイル |
 
 #### 画像URLを利用したリクエスト
+
 [リクエストヘッダ]
 
-| 名前 | 値 | 説明 |
-|---|---|---|
-| Authorization | {secretKey} | コンソールで発行されたセキュリティキー |
-| Content-Type | application/json | コンテンツタイプ |
+| 名前            | 値                | 説明                  |
+|---------------|------------------|---------------------|
+| Authorization | {secretKey}      | コンソールで発行されたセキュリティキー |
+| Content-Type  | application/json | コンテンツタイプ            |
 
 [リクエスト本文]
 
-- 画像のURLを入れます。
+* 画像のURLを入れます。
 
-```
+```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
 -H 'Authorization: ${secretKey}' \
 -H 'Content-Type: application/json' \
@@ -201,8 +202,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 
 [フィールド]
 
-| 名前 | タイプ | 説明 |
-|---|---|---|
+| 名前       | タイプ    | 説明    |
+|----------|--------|-------|
 | imageUrl | String | 画像URL |
 
 * イメージURLにポートを直接指定する場合は80、443、10000～12000ポートのみ使用できます。
@@ -211,7 +212,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 
 [レスポンス本文]
 
-```
+```json
 {
     "header": {
         "isSuccessful": true,
@@ -230,7 +231,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
                     {
                         "value":"artois",
                         "conf":0.98
-                    },
+                    }
                 ],
                 "inferTexts": [
                     {
@@ -263,24 +264,23 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 
 [ヘッダ]
 
-| 名前 | タイプ | 説明 |
-|---|---|---|
-| isSuccessful | Boolean | 分析APIの成否 |
-| resultCode | Integer | 結果コード |
-| resultMessage | String | 結果メッセージ(成功時はsuccess、失敗時はエラー内容) |
+| 名前            | タイプ     | 説明                             |
+|---------------|---------|--------------------------------|
+| isSuccessful  | Boolean | 分析APIの成否                       |
+| resultCode    | Integer | 結果コード                          |
+| resultMessage | String  | 結果メッセージ(成功時はsuccess、失敗時はエラー内容) |
 
 [フィールド]
 
-| 名前                                     | タイプ | 説明                                               |
-|-----------------------------------------|---|---------------------------------------------------|
-| fileType                                | String | ファイル拡張子(jpg, png)                                  |
-| values                                  | List | 認識結果リスト                                         |
-| listOfInferTexts[0].inferTexts[0].value | String | 認識内容                                            |
-| listOfInferTexts[0].inferTexts[0].conf  | Double | 認識結果の信頼度                                        |
-| listOfBoundingBoxes                     | List | 認識領域(Bounding box)座標リスト                        |
-| listOfBoundingBoxes[0].boundingBoxes[0] | Object  | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }       |
-| slicesImages                            | Integer | 入力画像のアスペクト比に応じて内部的に分割された画像の数 |
+| 名前                                      | タイプ     | 説明                                       |
+|-----------------------------------------|---------|------------------------------------------|
+| fileType                                | String  | ファイル拡張子(jpg, png)                        |
+| values                                  | List    | 認識結果リスト                                  |
+| listOfInferTexts[0].inferTexts[0].value | String  | 認識内容                                     |
+| listOfInferTexts[0].inferTexts[0].conf  | Double  | 認識結果の信頼度                                 |
+| listOfBoundingBoxes                     | List    | 認識領域(Bounding box)座標リスト                  |
+| listOfBoundingBoxes[0].boundingBoxes[0] | Object  | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 } |
+| slicesImages                            | Integer | 入力画像のアスペクト比に応じて内部的に分割された画像の数             |
 
 * boxes[0]
-
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)

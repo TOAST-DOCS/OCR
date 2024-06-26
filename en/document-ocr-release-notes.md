@@ -1,5 +1,8 @@
 ## AI Service > OCR > Document OCR > Release Notes
 
+### July 9, 2024
+* Improved ID card recognition performance
+
 ### April 9, 2024
 * Changed the password sequence number to not be a required value for driver licenses when requesting ID authenticity verification
 * Improved ID card recognition performance

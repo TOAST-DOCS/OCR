@@ -20,9 +20,10 @@
 | 4000111    | CREDIT_CARD_INFO_NOT_FOUND                | Credit card info not found.                                                                |
 | 4000121    | ID_CARD_INFO_NOT_FOUND                    | Id card info not found.                                                                    |
 | 4000122    | AUTHENTICITY_REQUEST_KEY_INVALID          | Request Key is invalid or expired.                                                         |
+| 4000123    | REGISTRATION_CARD_AUTHENTICATION_LOCKED   | Registration card authentication is locked.                                                |
 | 4000301    | INVALID_KEY_VERSION                       | Invalid key version.                                                                       |
-| 4000302    | INVALID_SYMMETRIC_KEY                       | Invalid symmetric key.                                                                     |
-| 4000303    | INVALID_ENCRYPTED_DATA                       | Invalid encrypted data.                                                                    |
+| 4000302    | INVALID_SYMMETRIC_KEY                     | Invalid symmetric key.                                                                     |
+| 4000303    | INVALID_ENCRYPTED_DATA                    | Invalid encrypted data.                                                                    |
 | 4000401    | SERVICE_NOT_ENABLED                       | Service not enabled. Please submit service use request.                                    |
 | 4000402    | SERVICE_USE_REQUEST_ALREADY_IN_PROGRESS   | Service use request already in progress.                                                   |
 | 4000403    | SERVICE_USE_REQUEST_NOT_IN_PROGRESS       | Service use request not in progress.                                                       |

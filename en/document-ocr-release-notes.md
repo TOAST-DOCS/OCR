@@ -1,5 +1,8 @@
 ## AI Service > OCR > Document OCR > Release Notes
 
+### August 13, 2024
+* Added [error code](./document-ocr-error-code.md) for cases where an error occurs more than 5 times in entering the resident registration card issuance date when requesting verification of ID authenticity
+
 ### July 9, 2024
 * Improved ID card recognition performance
 

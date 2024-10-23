@@ -17,9 +17,9 @@ Upload an image to analyze.
 
 After uploading the image, click the **Analyze** button and the analysis results will appear on the right side of the screen.
 
-![General OCR Image](http://static.toastoven.net/prod_ocr/GeneralOCR_console_ko.png)
+![General OCR Image](http://static.toastoven.net/prod_ocr/GeneralOCR_console_new_en.png)
 
-* [Text (Key Value)] Displays the analyzed contents of the credit card in the form of Key/Value.
+* [Text] Displays the analyzed contents.
 * [JSON] Displays the analysis results in JSON format.
     * [fileType] File extension (jpg, png)
     * [listOfInferTexts] Analysis result

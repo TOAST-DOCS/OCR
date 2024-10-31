@@ -4,7 +4,7 @@
 
 #### 요청
 
-* {appKey}와 {secretKey}는 콘솔 상단 **URL & Appkey** 메뉴에서 확인이 가능합니다.
+* {appKey}와 {secretKey}는 오른쪽 콘솔 상단 **URL & Appkey** 메뉴에서 확인이 가능합니다.
 
 [URI]
 
@@ -16,7 +16,7 @@
 
 | 이름            | 값                   | 설명              |
 |---------------|---------------------|-----------------|
-| Authorization | {secretKey}         | 콘솔에서 발급 받은 보안 키 |
+| Authorization | {secretKey}         | 콘솔에서 발급받은 비밀 키 |
 | Content-Type  | multipart/form-data | 콘텐츠 타입          |
 
 [요청 본문]

@@ -11,6 +11,7 @@
 | 405 | METHOD_NOT_ALLOWED | Method Not Allowed                                                           |
 | 415 | UNSUPPORTED_MEDIA_TYPE | Unsupported Media Type                                                       |
 | 4000001 | INVALID_PARAMETER | Invalid parameter.                                                           |
+| 4000002 | INVALID_FILE | Invalid file.                                                           |
 | 4000003 | INVALID_FILE_TYPE | Invalid file type.                                                           |
 | 4000002 | INVALID_FILE | Invalid file.                                                           |
 | 4000004 | UPLOADED_FILE_IS_EMPTY | Uploaded file is empty.                                                      |

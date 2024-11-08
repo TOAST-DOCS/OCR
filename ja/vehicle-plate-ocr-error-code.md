@@ -13,6 +13,7 @@
 | 4000001 | INVALID_PARAMETER | Invalid parameter.                                                           |
 | 4000002 | INVALID_FILE | Invalid file.                                                           |
 | 4000003 | INVALID_FILE_TYPE | Invalid file type.                                                           |
+| 4000002 | INVALID_FILE | Invalid file.                                                           |
 | 4000004 | UPLOADED_FILE_IS_EMPTY | Uploaded file is empty.                                                      |
 | 4000201 | VEHICLE_PLATE_NOT_FOUND | Vehicle plate not found in the image.                                        |
 | 4010001 | INVALID_APPKEY_SECRETKEY | Invalid appKey or secretKey.                                                 |

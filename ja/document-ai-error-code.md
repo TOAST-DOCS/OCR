@@ -1,4 +1,4 @@
-## AI Service > OCR > Vehicle Plate OCR > エラーコード
+## AI Service > OCR > Document AI > エラーコード
 
 | resultCode | resultKey | resultMessage                                                                |
 |---|---|------------------------------------------------------------------------------|
@@ -11,10 +11,11 @@
 | 405 | METHOD_NOT_ALLOWED | Method Not Allowed                                                           |
 | 415 | UNSUPPORTED_MEDIA_TYPE | Unsupported Media Type                                                       |
 | 4000001 | INVALID_PARAMETER | Invalid parameter.                                                           |
-| 4000003 | INVALID_FILE_TYPE | Invalid file type.                                                           |
 | 4000002 | INVALID_FILE | Invalid file.                                                           |
+| 4000003 | INVALID_FILE_TYPE | Invalid file type.                                                           |
 | 4000004 | UPLOADED_FILE_IS_EMPTY | Uploaded file is empty.                                                      |
-| 4000201 | VEHICLE_PLATE_NOT_FOUND | Vehicle plate not found in the image.                                        |
+| 4000601 | DOCUMENT_AI_NOT_FOUND | Document AI not found in the image.                                          |
+| 4000602 | DOCUMENT_AI_IMAGE_HAS_NO_CHARACTER | Image has no character.                                 |
 | 4010001 | INVALID_APPKEY_SECRETKEY | Invalid appKey or secretKey.                                                 |
 | 4010002 | INVALID_UUID | Invalid uuid.                                                                |
 | 4010003 | NOT_ALLOWED_USER | Not allowed user.                                                            |
@@ -26,7 +27,7 @@
 | 5000003 | DATABASE_FAIL | Database server error.                                                       |
 | 5000004 | RESOURCE_DELETE_FAIL | All or some resource delete fail.                                            |
 | 5000005 | FILE_READ_FAIL | File read fail.                                                              |
-| 5000503    | API_TEMPORARILY_UNAVAILABLE               | The API you requested is temporarily unavailable. Please try again later.                                                                              |
-| 5004001 | OCR_VEHICLE_PLATE_API_FAIL | Vehicle Plate OCR Api fail.                                                  |
-| 5004002 | OCR_VEHICLE_PLATE_API_RETURN_EMPTY | Vehicle Plate OCR Api returned empty body.                                   |
-| 5004003 | OCR_VEHICLE_PLATE_RECOGNITION_FAIL | Vehicle Plate OCR failed to recognize the vehicle plate.                     |
+| 5000503    | API_TEMPORARILY_UNAVAILABLE               | The API you requested is temporarily unavailable. Please try again later.                                                                     |
+| 5006001 | DOCUMENT_AI_API_FAIL | Document Ai Api fail.          |
+| 5006002 | DOCUMENT_AI_API_RETURN_EMPTY | Document AI Api returned empty body.                                 |
+| 5006003 | DOCUMENT_AI_RECOGNITION_FAIL | Document AI Api failed to recognize the image.                                   |

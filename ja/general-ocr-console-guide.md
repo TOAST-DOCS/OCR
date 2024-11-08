@@ -21,6 +21,7 @@
 
 * [テキスト]分析された画像の内容を表示します。
 * [JSON]分析した結果をJSON形式で表示します。
+
     * [fileType]ファイル拡張子(jpg、png)
     * [listOfInferTexts]分析結果
         * [value]認識したテキストの内容

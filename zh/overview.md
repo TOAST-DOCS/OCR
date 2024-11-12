@@ -1,6 +1,7 @@
 ## AI Service > OCR > Overview
 
-OCR provides a feature to recognize the text area of images and documents and extract the text for each area. It can be used by customers who need to create a database for recognized documents or implement document processing automation.
+OCR provides a feature to recognize the text area of images and documents and extract the text for each area. 
+It can be used by customers who need to create a database for recognized documents or implement document processing automation.
 
 ## General OCR
 
@@ -17,13 +18,18 @@ OCR provides a feature to recognize the text area of images and documents and ex
 
 For more accurate image analysis, please refer to the guide below.
 
-* File recommendations
+* File/image URL recommendations
     * File format: Supports analysis of images in .jpeg, .png format.
-    * Maximum size: 5 MB
+    * Maximum size: 5 MB for file content, 20 MB for image URL content
     * Recommended resolution: 1280x720
+    * If you are analyzing a long image, you can use the ‘Segmentation Recognition feature’ to get more accurate analysis results.
+        * Long images with a ‘horizontal to vertical’ or ‘vertical to horizontal’ aspect ratio greater than 1:2.5 can cause poor analysis performance.
+        * If you need accurate recognition when the aspect ratio exceeds 1:2.5, you can use the ‘Segmentation Recognition feature’ to increase the accuracy of the analysis results.
+            * When segmenting and recognizing images, the analysis may include text that is duplicated with some overlapping regions.
+        * If the aspect ratio goes beyond about 1:10, analysis is not possible.
 * Image recommendation
     * Please use an image taken in a condition where the subject has been laid out as straight as possible on a flat surface.
-    * Please make the image recognized as a full image of a rectangular shape.
+    * Use a full image with a rectangular shape.
     * It may be difficult to accurately extract the text when the text is unidentifiable due to light reflection or shade caused by camera flash, or the text size is small relative to the resolution.
     * The service supports result analysis for black-and-white and color images, but color images are recommended for accurate analysis.
     * General OCR provides analysis results only for Korean and English.
@@ -53,7 +59,7 @@ For more accurate business registration analysis, please refer to the guide belo
     * Recommended resolution: 1280 x 720 or higher
 * For PDF, only the analysis results for a single page is provided. (In case of multiple pages, analysis results for the first page is provided.)
 * Please use an image taken in a condition where the subject has been laid out as straight as possible on a flat surface.
-* Please make the image recognized as a full image of a rectangular shape.
+* Use a full image with a rectangular shape.
 * It might be difficult to extract the correct key/value if the text is difficult to read due to light reflection or shadows caused by the camera flash, etc.
 * The service supports result analysis for black-and-white and color images, but color images are recommended for accurate analysis.
 * The service provides analysis results for the business registration certificate in Korean only.
@@ -80,7 +86,7 @@ For more accurate credit card analysis, please refer to the guide below.
     * Maximum size: 5 MB
     * Recommended resolution: 760 x 480
 * Please use an image taken in a condition where the subject has been laid out as straight as possible on a flat surface.
-* Please make the image recognized as a full image of a rectangular shape.
+* Use a full image with a rectangular shape.
 * It might be difficult to extract the correct key/value if the text is difficult to read due to light reflection or shadows caused by the camera flash, etc.
 * The service supports result analysis for black-and-white and color images, but color images are recommended for accurate analysis.
 * If the card is a vertical card, use an image with the card number and expiration date of the vertical card in the correct orientation for recognition.
@@ -114,7 +120,7 @@ For more accurate ID card analysis, please refer to the guide below.
     * Recommended resolution: 760x480
 * Image recommendation
     * Please use an image taken in a condition where the subject has been laid out as straight as possible on a flat surface.
-    * Please make the image recognized as a full image of a rectangular shape.
+    * Use a full image with a rectangular shape.
     * It might be difficult to extract the correct key/value if the text is difficult to read due to light reflection or shadows caused by the camera flash, etc.
     * The service supports result analysis for black-and-white and color images, but color images are recommended for accurate analysis.
     * The service provides analysis results for ID cards (resident registration certificate/driver license) in Korean only.
@@ -155,6 +161,35 @@ For more accurate license plate analysis, please refer to the guide below.
 
 ![Image Example](http://static.toastoven.net/prod_ocr/VehiclePlateOCR_ex_img_en.png)
 
+## Document AI
+
+### Main Features
+
+* Extracts characters from images through OCR and provides question and answer services such as summarizing the content and extracting information based on the extracted information in conjunction with the LLM model.
+* Extracts information in key-value form from images of structured documents such as business licenses, business cards, and more.
+* Support for handwriting recognition enables analysis of handwritten images.
+
+### Input Image Guide
+
+For more accurate image analysis, please refer to the guide below.
+
+* File Recommendations
+    * File format: Supports analysis of images in .jpeg, .png format.
+    * Maximum size: 5 MB
+    * Recommended resolution: 1280 x 720 or higher
+
+* Image Recommendations
+    * Please use an image taken in a condition where the subject has been laid out as straight as possible on a flat surface.
+    * Use a full image with a rectangular shape.
+    * It might be difficult to extract text correctly if the text is difficult to read due to light reflection or shadows caused by the camera flash, etc, or if the character size is small relative to the resolution.
+    * The service supports result analysis for black-and-white and color images, but color images are recommended for accurate analysis.
+    * The text embedded in the image provides analysis results in Korean and English only.
+
+### Cautions for using the service
+
+* Answers generated by Document AI are extracted based on the embedded text within the images you upload.
+* Due to the inherent nature of the generative AI (LLM) technology utilized in Document AI, inappropriate or inaccurate answers may be generated. Please double-check your answers to ensure they meet your intent before using them.
+
 ## Service Targets
 * When you need to register documents (business registration certificate, credit card, and ID card) in the customer's system automatically
 * When you need to implement document processing automation
@@ -164,6 +199,7 @@ For more accurate license plate analysis, please refer to the guide below.
 * When you need to build a traffic enforcement system for illegal parking, overloaded vehicles, and illegal license plates
 * When you need to create a DB of vehicle license plates
 * When you require car information analysis
+* when you need to quickly analyze key information from various images and get the information you need in a question-and-answer format,
 
 ## Privacy Policy
 * While using the OCR service, the customer may collect personal and sensitive information of their users. Therefore, the customer of this service must inform a legal notice to their users as per the Personal Information Protection Act and acquire their consent regarding the matter. Also during this process, work consignment relation regarding the processing of personal information may arise between the customer and NHN Cloud. The customer who assumes the position of consignor may enter into a consignment contract with the consignee, NHN Cloud, separately in writing, and post a privacy policy notice by referencing the following:

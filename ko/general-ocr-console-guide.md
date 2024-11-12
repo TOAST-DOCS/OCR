@@ -17,9 +17,9 @@
 
 사진을 업로드한 후 **분석** 버튼을 클릭하면 분석 결과가 화면 오른쪽에 나타납니다.
 
-![General OCR Image](http://static.toastoven.net/prod_ocr/GeneralOCR_console_ko.png)
+![General OCR Image](http://static.toastoven.net/prod_ocr/GeneralOCR_console_new_ko.png)
 
-* [텍스트(Key Value)] 분석된 이미지의 내용을 Key/Value 형태로 표시합니다.
+* [텍스트] 분석된 이미지의 내용을 표시합니다.
 * [JSON] 분석한 결과를 JSON 형태로 표시합니다.
     * [fileType] 파일 확장자(jpg, png)
     * [listOfInferTexts] 분석 결과

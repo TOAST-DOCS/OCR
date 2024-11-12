@@ -17,10 +17,11 @@
 
 写真をアップロードした後、**分析**ボタンをクリックすると、分析結果が画面右側に表示されます。
 
-![General OCR Image](http://static.toastoven.net/prod_ocr/GeneralOCR_console_ko.png)
+![General OCR Image](http://static.toastoven.net/prod_ocr/GeneralOCR_console_new_ja.png)
 
-* [テキスト(Key Value)]分析された画像の内容をKey/Value形式で表示します。
-* JSON]分析した結果をJSON形式で表示します。
+* [テキスト]分析された画像の内容を表示します。
+* [JSON]分析した結果をJSON形式で表示します。
+
     * [fileType]ファイル拡張子(jpg、png)
     * [listOfInferTexts]分析結果
         * [value]認識したテキストの内容

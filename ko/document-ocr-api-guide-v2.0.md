@@ -129,6 +129,7 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 | image | multipart/form–data | 이미지 파일 | 대칭 키로 암호화된 이미지 |
 
 * 이미지 파일은 반드시 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어야 합니다(대칭 키 이용).
+* IV(초기화 벡터)는 대칭 키의 처음 16바이트(즉, 0~15번째 바이트)를 사용합니다.
 
 [요청 본문]
 
@@ -269,6 +270,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 | image | multipart/form–data | 이미지 파일 | 대칭 키로 암호화된 이미지 |
 
 * 이미지 파일은 반드시 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어야 합니다(대칭 키 이용).
+* IV(초기화 벡터)는 대칭 키의 처음 16바이트(즉, 0~15번째 바이트)를 사용합니다.
 
 [요청 본문]
 
@@ -501,6 +503,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | expirationDate      | String | 만료 일자(YYYYMMDD)                                                                                            | passport           | X      | O     |
 
 * 암호화가 필요한 필드는 반드시 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어야 합니다(대칭 키 이용).
+* IV(초기화 벡터)는 대칭 키의 처음 16바이트(즉, 0~15번째 바이트)를 사용합니다.
 
 [요청 본문]
 
@@ -592,6 +595,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | image | multipart/form–data | 이미지 파일 | 대칭 키로 암호화된 이미지 |
 
 * 이미지 파일은 반드시 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어야 합니다(대칭 키 이용).
+* IV(초기화 벡터)는 대칭 키의 처음 16바이트(즉, 0~15번째 바이트)를 사용합니다.
 
 [요청 본문]
 

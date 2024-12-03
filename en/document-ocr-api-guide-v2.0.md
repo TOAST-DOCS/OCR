@@ -129,6 +129,7 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 | image | multipart/form-data | Image file  | Image encrypted with a symmetric key |
 
 * Image files must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
+* The initialization vector (IV) uses the first 16 bytes (i.e., bytes 0-15) of the symmetric key.
 
 [Request Body]
 
@@ -269,6 +270,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 | image | multipart/form-data | Image file  | Image encrypted with a symmetric key |
 
 * Image files must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
+* The initialization vector (IV) uses the first 16 bytes (i.e., bytes 0-15) of the symmetric key.
 
 [Request Body]
 
@@ -501,6 +503,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | expirationDate      | String | Expiration date (YYYYMMDD)                                                                                                                                                                                                                                              | passport           | X                        | O        |
 
 * A field that requires encryption must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
+* The initialization vector (IV) uses the first 16 bytes (i.e., bytes 0-15) of the symmetric key.
 
 [Request Body]
 
@@ -592,6 +595,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | image | multipart/form-data | Image file  | Image encrypted with a symmetric key |
 
 * Image files must be encrypted with the**AES-256/CBC/PKCS7Padding** method (using a symmetric key).
+* The initialization vector (IV) uses the first 16 bytes (i.e., bytes 0-15) of the symmetric key.
 
 [Request Body]
 

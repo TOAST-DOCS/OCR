@@ -129,6 +129,7 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 | image | multipart/form–data | イメージファイル | 対称鍵で暗号化されたイメージ |
 
 * イメージファイルは必ず **AES-256/CBC/PKCS7Padding**方式で暗号化されている必要があります(対称鍵利用)。
+* IV(初期化ベクトル)は、対称鍵の最初の16バイト(すなわち、0～15番目のバイト)を使用します。
 
 [リクエスト本文]
 
@@ -269,6 +270,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 | image | multipart/form–data | 画像ファイル | 対称鍵で暗号化された画像 |
 
 * 画像ファイルは必ず**AES-256/CBC/PKCS7Padding**方式で暗号化される必要があります(対称鍵利用)。
+* IV(初期化ベクトル)は、対称鍵の最初の16バイト(すなわち、0～15番目のバイト)を使用します。
 
 [リクエスト本文]
 
@@ -501,6 +503,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | expirationDate      | String | 有効期限(YYYYMMDD)                                                                                  | passport           | X     | O  |
 
 * 暗号化が必要なフィールドは必ず**AES-256/CBC/PKCS7Padding**方式で暗号化される必要があります(対称鍵利用)。
+* IV(初期化ベクトル)は、対称鍵の最初の16バイト(すなわち、0～15番目のバイト)を使用します。
 
 [リクエスト本文]
 
@@ -592,6 +595,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | image | multipart/form–data | イメージファイル | 対称鍵で暗号化されたイメージ |
 
 * イメージファイルは必ず**AES-256/CBC/PKCS7Padding**方式で暗号化する必要があります(対称鍵利用)。
+* IV(初期化ベクトル)は、対称鍵の最初の16バイト(すなわち、0～15番目のバイト)を使用します。
 
 [リクエスト本文]
 

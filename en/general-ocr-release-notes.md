@@ -1,5 +1,8 @@
 ## AI Service > OCR > General OCR > Release Notes
 
+### March 11, 2025
+* Improved the speed of image recognition
+
 ### November 28, 2023
 * Added the analysis feature with image URLs
 * Added the segmentation analysis API

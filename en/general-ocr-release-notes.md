@@ -1,5 +1,8 @@
 ## AI Service > OCR > General OCR > Release Notes
 
+### April 15, 2025
+* Improved the speed of image recognition
+
 ### March 11, 2025
 * Improved the speed of image recognition
 

@@ -1,5 +1,8 @@
 ## AI Service > OCR > Document OCR > Release Notes
 
+### April 15, 2025
+* Improved the speed of credit card recognition
+
 ### March 11, 2025
 * Improved the speed of credit card recognition
 * Improved the speed of ID card recognition

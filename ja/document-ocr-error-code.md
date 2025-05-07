@@ -18,6 +18,7 @@
 | 4000006    | API_CALL_LIMIT_EXCEEDED                   | Api call limit exceeded, If you need to adjust the limit, please contact customer service. |
 | 4000101    | INVALID_BUSINESS_REGISTRATION_FORMAT      | Invalid business registration format.                                                      |
 | 4000102    | NOT_EXIST_BUSINESS_NUMBER                 | Business number that does not exist.                                                       |
+| 4000103    | PDF_PASSWORD_PROTECTED                    | PDF file is password protected.                                                   |
 | 4000111    | CREDIT_CARD_INFO_NOT_FOUND                | Credit card info not found.                                                                |
 | 4000121    | ID_CARD_INFO_NOT_FOUND                    | Id card info not found.                                                                    |
 | 4000122    | AUTHENTICITY_REQUEST_KEY_INVALID          | Request Key is invalid or expired.                                                         |

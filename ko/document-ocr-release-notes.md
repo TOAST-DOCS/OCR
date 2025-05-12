@@ -1,5 +1,8 @@
 ## AI Service > OCR > Document OCR > 릴리스 노트
 
+### 2025. 05. 13.
+* 사업자등록증 분석 요청 시 암호가 설정된 PDF 파일에 대한 [오류 코드](./document-ocr-error-code.md) 추가
+
 ### 2025. 04. 15.
 * 신용카드 인식 속도 향상
 

@@ -1,5 +1,8 @@
 ## AI Service > OCR > Document OCR > Release Notes
 
+### May 13, 2025
+* Added [error code](./document-ocr-error-code.md) for password-configured PDF files when requesting business license analysis
+
 ### April 15, 2025
 * Improved the speed of credit card recognition
 

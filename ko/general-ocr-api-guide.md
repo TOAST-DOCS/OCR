@@ -131,7 +131,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 | 이름                                      | 타입     | 설명                                          |
 |-----------------------------------------|--------|---------------------------------------------|
 | fileType                                | String | 파일 확장자(jpg, png)                            |
-| values                                  | List   | 인식 결과 목록                                    |
+| listOfInferTexts                        | List   | 인식 결과 목록                                    |
 | listOfInferTexts[0].inferTexts[0].value | String | 인식 내용                                       |
 | listOfInferTexts[0].inferTexts[0].conf  | Double | 인식 결과 신뢰도                                   |
 | listOfBoundingBoxes                     | List   | 인식 영역(Bounding box) 좌표 목록                   |
@@ -273,7 +273,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 | 이름                                      | 타입      | 설명                                          |
 |-----------------------------------------|---------|---------------------------------------------|
 | fileType                                | String  | 파일 확장자(jpg, png)                            |
-| values                                  | List    | 인식 결과 목록                                    |
+| listOfInferTexts                        | List    | 인식 결과 목록                                    |
 | listOfInferTexts[0].inferTexts[0].value | String  | 인식 내용                                       |
 | listOfInferTexts[0].inferTexts[0].conf  | Double  | 인식 결과 신뢰도                                   |
 | listOfBoundingBoxes                     | List    | 인식 영역(Bounding box) 좌표 목록                   |

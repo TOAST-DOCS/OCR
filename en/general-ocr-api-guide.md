@@ -133,7 +133,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 | Name                                    | Type   | Description                                                       |
 |-----------------------------------------|--------|-------------------------------------------------------------------|
 | fileType                                | String | File extension (jpg, png)                                         |
-| values                                  | List   | List of recognition results                                       |
+| listOfInferTexts                        | List   | List of recognition results                                       |
 | listOfInferTexts[0].inferTexts[0].value | String | Recognized content                                                |
 | listOfInferTexts[0].inferTexts[0].conf  | Double | Confidence score of the recognition result                        |
 | listOfBoundingBoxes                     | List   | List of bounding box coordinates                                  |
@@ -274,7 +274,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 | Name                                    | Type    | Description                                                         |
 |-----------------------------------------|---------|---------------------------------------------------------------------|
 | fileType                                | String  | File extension (jpg, png)                                           |
-| values                                  | List    | List of recognition results                                         |
+| listOfInferTexts                        | List    | List of recognition results                                         |
 | listOfInferTexts[0].inferTexts[0].value | String  | Recognized content                                                  |
 | listOfInferTexts[0].inferTexts[0].conf  | Double  | Confidence score of the recognition result                          |
 | listOfBoundingBoxes                     | List    | List of bounding box coordinates                                    |

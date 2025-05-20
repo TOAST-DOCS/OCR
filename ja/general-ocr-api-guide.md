@@ -133,7 +133,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 | 名前                                      | タイプ    | 説明                                        |
 |-----------------------------------------|--------|-------------------------------------------|
 | fileType                                | String | ファイル拡張子(jpg、png)                          |
-| values                                  | List   | 認識結果リスト                                   |
+| listOfInferTexts                        | List   | 認識結果リスト                                   |
 | listOfInferTexts[0].inferTexts[0].value | String | 認識内容                                      |
 | listOfInferTexts[0].inferTexts[0].conf  | Double | 認識結果の信頼度                                  |
 | listOfBoundingBoxes                     | List   | 認識領域(Bounding box)座標リスト                   |
@@ -275,7 +275,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 | 名前                                      | タイプ     | 説明                                       |
 |-----------------------------------------|---------|------------------------------------------|
 | fileType                                | String  | ファイル拡張子(jpg, png)                        |
-| values                                  | List    | 認識結果リスト                                  |
+| listOfInferTexts                        | List    | 認識結果リスト                                  |
 | listOfInferTexts[0].inferTexts[0].value | String  | 認識内容                                     |
 | listOfInferTexts[0].inferTexts[0].conf  | Double  | 認識結果の信頼度                                 |
 | listOfBoundingBoxes                     | List    | 認識領域(Bounding box)座標リスト                  |

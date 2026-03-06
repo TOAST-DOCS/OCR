@@ -94,8 +94,6 @@ Content-Type: application/json
 
 #### 요청
 
-- {appKey}와 {secretKey}는 콘솔 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
-
 [URI]
 
 | 메서드 | URI                                              |
@@ -163,8 +161,6 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 #### 신용카드 분석 API
 
 #### 요청
-
-- {appKey}와 {secretKey}는 콘솔 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
 
 [URI]
 
@@ -304,8 +300,6 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 ### 신분증 분석 API
 
 #### 요청
-
-- {appKey}와 {secretKey}는 콘솔 상단 **URL &amp; Appkey** 메뉴에서 확인할 수 있습니다.
 
 [URI]
 
@@ -527,8 +521,6 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 #### 요청
 
-- {appKey}와 {secretKey}는 콘솔 상단 **URL &amp; Appkey** 메뉴에서 확인할 수 있습니다.
-
 [URI]
 
 | 메서드 | URI                                         |
@@ -627,8 +619,6 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 - 진위 확인이 불가능한 대신 낮은 요금이 부과됩니다.
 
 #### 요청
-
-- {appKey}와 {secretKey}는 콘솔 상단 **URL &amp; Appkey** 메뉴에서 확인할 수 있습니다.
 
 [URI]
 

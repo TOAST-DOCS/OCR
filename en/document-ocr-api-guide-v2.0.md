@@ -94,8 +94,6 @@ Content-Type: application/json
 
 #### Request
 
-- {appKey}와 {secretKey}는 콘솔 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
-
 [URI]
 
 | Method | URI                                              |
@@ -163,8 +161,6 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 #### Credit Card Analysis API
 
 #### Request
-
-- {appKey}와 {secretKey}는 콘솔 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
 
 [URI]
 
@@ -304,8 +300,6 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 ### ID Card Analysis API
 
 #### Request
-
-- {appKey}와 {secretKey}는 콘솔 상단 **URL &amp; Appkey** 메뉴에서 확인할 수 있습니다.
 
 [URI]
 
@@ -529,8 +523,6 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 #### Request
 
-- {appKey}와 {secretKey}는 콘솔 상단 **URL &amp; Appkey** 메뉴에서 확인할 수 있습니다.
-
 [URI]
 
 | Method | URI                                         |
@@ -629,8 +621,6 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 - Authenticity cannot be verified, but a low fee is charged.
 
 #### Request
-
-- {appKey}와 {secretKey}는 콘솔 상단 **URL &amp; Appkey** 메뉴에서 확인할 수 있습니다.
 
 [URI]
 

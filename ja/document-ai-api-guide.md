@@ -4,8 +4,6 @@
 
 #### リクエスト
 
-* {appKey}と{secretKey}は、右側のコンソール上部の**URL & Appkey**メニューで確認できます。
-
 [URI]
 
 | メソッド | URI                                                               |

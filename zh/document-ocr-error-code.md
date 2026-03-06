@@ -1,7 +1,7 @@
 ## AI Service > OCR > Document OCR > Error Code
 
 | resultCode | resultKey                                 | resultMessage                                                                              |
-|------------|-------------------------------------------|--------------------------------------------------------------------------------------------|
+| ---------- | ----------------------------------------- | ------------------------------------------------------------------------------------------ |
 | 0          | SUCCESS                                   | SUCCESS                                                                                    |
 | -1         | FAIL                                      | Unknown error.                                                                             |
 | 400        | BAD_REQUEST                               | Bad Request                                                                                |
@@ -11,7 +11,7 @@
 | 405        | METHOD_NOT_ALLOWED                        | Method Not Allowed                                                                         |
 | 415        | UNSUPPORTED_MEDIA_TYPE                    | Unsupported Media Type                                                                     |
 | 4000001    | INVALID_PARAMETER                         | Invalid parameter.                                                                         |
-| 4000002 | INVALID_FILE | Invalid file.                                                           |
+| 4000002    | INVALID_FILE                              | Invalid file.                                                                              |
 | 4000003    | INVALID_FILE_TYPE                         | Invalid file type.                                                                         |
 | 4000004    | UPLOADED_FILE_IS_EMPTY                    | Uploaded file is empty.                                                                    |
 | 4000005    | MISSING_REQUIRED_HEADER                   | Required headers is missing.                                                               |
@@ -45,7 +45,7 @@
 | 5000005    | FILE_READ_FAIL                            | File read fail.                                                                            |
 | 5000006    | DECRYPT_FAIL                              | Decrypt fail.                                                                              |
 | 5000007    | ENCRYPT_FAIL                              | Encrypt fail.                                                                              |
-| 5000503    | API_TEMPORARILY_UNAVAILABLE               | The API you requested is temporarily unavailable. Please try again later.                                                                              |
+| 5000503    | API_TEMPORARILY_UNAVAILABLE               | The API you requested is temporarily unavailable. Please try again later.                  |
 | 5003001    | OCR_DOCUMENT_BUSINESS_API_FAIL            | Document(business) OCR Api fail.                                                           |
 | 5003002    | OCR_DOCUMENT_BUSINESS_API_RETURN_EMPTY    | Document(business) OCR Api returned empty body.                                            |
 | 5003003    | OCR_DOCUMENT_BUSINESS_RECOGNITION_FAIL    | Document(business) OCR failed to recognize the document.                                   |

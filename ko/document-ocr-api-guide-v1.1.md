@@ -266,3 +266,132 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 | 05     | 휴업자                                                                      |
 | 06     | 폐업자                                                                      |
 | 09     | 기타                                                                        |
+
+### 신용카드 분석 API
+
+#### 요청
+
+[URI]
+
+| 메서드 | URI                                |
+| ------ | ---------------------------------- |
+| POST   | /v1.1/appkeys/{appKey}/credit-card |
+
+[요청 헤더]
+
+| 이름          | 값          | 설명                       |
+| ------------- | ----------- | -------------------------- |
+| X-NHN-Authorization | Bearer {User Access Key Token}  | User Access Key 토큰                 |
+
+[Path Variable]
+
+| 이름   | 값       | 설명                           |
+| ------ | -------- | ------------------------------ |
+| appKey | {appKey} | 통합 Appkey 또는 서비스 Appkey |
+
+[요청 본문]
+
+- 이미지 파일의 바이너리 데이터를 넣습니다.
+
+```shell
+curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/credit-card' \
+-F 'image=@sample.png' \
+-H 'X-NHN-Authorization: Bearer ${User Access Key Token}'
+```
+
+[필드]
+
+| 이름  | 타입                | 설명        |
+| ----- | ------------------- | ----------- |
+| image | multipart/form–data | 이미지 파일 |
+
+#### 응답
+
+[응답 본문]
+
+```json
+{
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": "SUCCESS"
+    },
+    "result": {
+        "fileType": "png",
+        "resolution": "low",
+        "cardNums": [
+                    {
+                        "value": "1111",
+                        "conf": 0.87
+                    },
+                    {
+                        "value": "2222",
+                        "conf": 0.99
+                    },
+                    {
+                        "value": "3333",
+                        "conf": 0.97
+                    },
+                    {
+                        "value": "4444",
+                        "conf": 0.89
+                    }
+        ],
+        "totalCardNum": "111222233334444",
+        "cardNumBoxes": [
+            {
+                "x1": 62,
+                "y1": 256,
+                "x2": 192,
+                "y2": 256,
+                "x3": 192,
+                "y3": 301,
+                "x4": 62,
+                "y4": 301
+            },
+            ...
+        ],
+        "validThru": {
+            "value": "04/19",
+            "conf": 0.53
+        },
+        "validThruBox": {
+            "x1": 316,
+            "y1": 315,
+            "x2": 426,
+            "y2": 315,
+            "x3": 426,
+            "y3": 347,
+            "x4": 316,
+            "y4": 347
+        }
+    }
+}
+```
+
+[헤더]
+
+| 이름          | 타입    | 설명                                            |
+| ------------- | ------- | ----------------------------------------------- |
+| isSuccessful  | Boolean | 분석 API 성공 여부                              |
+| resultCode    | Integer | 결과 코드                                       |
+| resultMessage | String  | 결과 메시지(성공 시 success, 실패 시 오류 내용) |
+
+[필드]
+
+| 이름              | 타입   | 설명                                                            |
+| ----------------- | ------ | --------------------------------------------------------------- |
+| fileType          | String | 파일 확장자(.jpg, .png)                                         |
+| resolution        | String | 권장 해상도(760\*480px) 이상이면 normal, 권장 해상도 미만은 low |
+| cardNums          | List   | 카드 번호 인식 결과 목록                                        |
+| cardNums[0].value | String | 인식 결과                                                       |
+| cardNums[0].conf  | Double | 인식 결과 신뢰도                                                |
+| totalCardNum      | List   | 카드 번호 전체 인식 결과                                        |
+| cardNumBoxes      | List   | 카드 번호 인식 영역(Bounding box) 좌표 목록                     |
+| cardNumBoxes[0]   | Object | 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 }               |
+| validThru.value   | String | 유효 기간 인식 내용                                             |
+| validThru.conf    | Double | 유효 기간 인식 결과 신뢰도                                      |
+| validThruBox      | Object | 유효 기간 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 }     |
+
+- boxes[0]
+  ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)

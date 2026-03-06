@@ -4,8 +4,6 @@
 
 #### 요청
 
-* {appKey}와 {secretKey}는 콘솔 상단 **URL & Appkey** 메뉴에서 확인이 가능합니다.
-
 [URI]
 
 | 메서드  | URI                                                               |
@@ -143,8 +141,6 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 ### General OCR 분할 인식 API
 
 #### 요청
-
-* {appKey}와 {secretKey}는 콘솔 상단 **URL & Appkey** 메뉴에서 확인이 가능합니다.
 
 [URI]
 

@@ -11,7 +11,7 @@
 ### Authentication and Authorization
 
 Document OCR uses User Access Key tokens for authentication and authorization when making API calls. The User Access Key token is a temporary, Bearer-type access token issued from a User Access Key.
-For more information on issuing and using User Access Key tokens, please refer to the [User Access Key Token](/nhncloud/en/public-api/user-access-key-token).
+For more information on issuing and using User Access Key tokens, see the [User Access Key Token](/nhncloud/en/public-api/user-access-key-token).
 
 ### Common Response Information
 
@@ -70,11 +70,11 @@ Content-Type: application/json
 | 4000002    | Invalid file.                                                                              | Invalid file                                     |
 | 4000003    | Invalid file type.                                                                         | Invalid file type                                |
 | 4000004    | Uploaded file is empty.                                                                    | Uploaded file is empty                           |
-| 4000005    | Required headers is missing.                                                               | Required headers missing                         |
-| 4000006    | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API call limit exceeded                          |
+| 4000005    | Required headers are missing.                                                               | Required headers missing                         |
+| 4000006    | Api call limit exceeded. If you need to adjust the limit, please contact customer service. | API call limit exceeded                          |
 | 4010006    | Invalid token.                                                                             | Invalid token                                    |
 | 4010007    | Permission denied.                                                                         | Permission denied                                |
-| 4131000    | Request size is larger than permissible limit. the permissible limit is 5mb.               | Request size exceeds the permissible limit (5MB) |
+| 4131000    | Request size is larger than the permissible limit. The permissible limit is 5mb.               | Request size exceeds the permissible limit (5MB) |
 
 ### Business Registration Certificate Analysis API
 
@@ -90,7 +90,7 @@ Content-Type: application/json
 
 | Name                | Value          | Description              |
 |---------------------|----------------|--------------------------|
-| X-NHN-Authorization | {Access Token} | Issued Access Token      |
+| X-NHN-Authorization | Bearer {User Access Key Token} | Issued Access Token      |
 
 [Path Variable]
 
@@ -100,12 +100,12 @@ Content-Type: application/json
 
 [Request Body]
 
-* Put binary data of the image file.
+* Put the binary data of the image file.
 
 ```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business' \
 -F 'image=@sample.png' \
--H 'X-NHN-Authorization: ${Access Token}'
+-H 'X-NHN-Authorization: Bearer ${User Access Key Token}'
 ```
 
 [Field]
@@ -198,7 +198,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 
 | Name                | Value          | Description              |
 |---------------------|----------------|--------------------------|
-| X-NHN-Authorization | {Access Token} | Issued Access Token      |
+| X-NHN-Authorization | Bearer {User Access Key Token} | Issued Access Token      |
 
 [Path Variable]
 
@@ -216,7 +216,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 
 ```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business/status' \
--H 'X-NHN-Authorization: ${Access Token}' \
+-H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 --data-raw '{
   "businessNumber": "1234567890"
 }'
@@ -244,7 +244,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 
 | Name          | Type    | Description                                                 |
 |---------------|---------|-------------------------------------------------------------|
-| isSuccessful  | Boolean | Whether Retrieve stoppage/closure API successful or not     |
+| isSuccessful  | Boolean | Whether the Retrieve stoppage/closure API was successful or not     |
 | resultCode    | Integer | Result code                                                 |
 | resultMessage | String  | Result message (Success when successful, error when failed) |
 
@@ -267,3 +267,132 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 | 05         | Inactive                                                                                                                         |
 | 06         | Closed                                                                                                                           |
 | 09         | Others                                                                                                                           |
+
+### Credit Card Analysis API
+
+#### Request
+
+[URI]
+
+| Method | URI                                |
+|--------|------------------------------------|
+| POST   | /v1.1/appkeys/{appKey}/credit-card |
+
+[Request Header]
+
+| Name          | Value       | Description                          |
+|---------------|-------------|--------------------------------------|
+| X-NHN-Authorization | Bearer {User Access Key Token} | User Access Key token |
+
+[Path Variable]
+
+| Name   | Value    | Description                         |
+|--------|----------|-------------------------------------|
+| appKey | {appKey} | Integrated Appkey or Service Appkey |
+
+[Request Body]
+
+- Put the binary data of the image file.
+
+```shell
+curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/credit-card' \
+-F 'image=@sample.png' \
+-H 'X-NHN-Authorization: Bearer ${User Access Key Token}'
+```
+
+[Field]
+
+| Name  | Type                | Description |
+|-------|---------------------|-------------|
+| image | multipart/form–data | Image file  |
+
+#### Response
+
+[Response Body]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "result": {
+    "fileType": "png",
+    "resolution": "low",
+    "cardNums": [
+      {
+        "value": "1111",
+        "conf": 0.87
+      },
+      {
+        "value": "2222",
+        "conf": 0.99
+      },
+      {
+        "value": "3333",
+        "conf": 0.97
+      },
+      {
+        "value": "4444",
+        "conf": 0.89
+      }
+    ],
+    "totalCardNum": "111222233334444",
+    "cardNumBoxes": [
+      {
+        "x1": 62,
+        "y1": 256,
+        "x2": 192,
+        "y2": 256,
+        "x3": 192,
+        "y3": 301,
+        "x4": 62,
+        "y4": 301
+      },
+      ...
+    ],
+    "validThru": {
+      "value": "04/19",
+      "conf": 0.53
+    },
+    "validThruBox": {
+      "x1": 316,
+      "y1": 315,
+      "x2": 426,
+      "y2": 315,
+      "x3": 426,
+      "y3": 347,
+      "x4": 316,
+      "y4": 347
+    }
+  }
+}
+```
+
+[Header]
+
+| Name          | Type    | Description                                                   |
+|---------------|---------|---------------------------------------------------------------|
+| isSuccessful  | Boolean | Analysis API success or not                                   |
+| resultCode    | Integer | Result code                                                   |
+| resultMessage | String  | Result message (success on success, error details on failure) |
+
+[Field]
+
+| Name              | Type   | Description                                                                                                                        |
+|-------------------|--------|------------------------------------------------------------------------------------------------------------------------------------|
+| fileType          | String | File extension (.jpg, .png)                                                                                                        |
+| resolution        | String | normal: the resolution is the recommended resolution (760*480px) or above, low: the resolution is below the recommended resolution |
+| cardNums          | List   | List of card number recognition results                                                                                            |
+| cardNums[0].value | String | Recognition result                                                                                                                 |
+| cardNums[0].conf  | Double | Confidence of the recognition result                                                                                               |
+| totalCardNum      | List   | Full card number recognition result                                                                                                |
+| cardNumBoxes      | List   | List of coordinates of the card number recognition area (bounding box)                                                             |
+| cardNumBoxes[0]   | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                  |
+| validThru.value   | String | Expiration date recognition content                                                                                                |
+| validThru.conf    | Double | Confidence of expiration date recognition result                                                                                   |
+| validThruBox      | Object | Coordinates of the expiration date recognition area { x1, y1, x2, y2, x3, y3, x4, y4 }                                             |
+
+- boxes[0]
+  ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)

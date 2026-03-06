@@ -19,7 +19,7 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 
 ### 응답 공통 정보
 
-모든 API 요청 응답으로 HTTP 200 OK를 전달합니다. API 요청 성공 유무는 Response Body의 header 항목을 참고하여 판단할 수 있습니다.
+모든 API 요청 응답으로 HTTP 200 OK를 전달합니다. API 요청 성공 여부는 Response Body의 header 항목을 참고하여 판단할 수 있습니다.
 
 <details>
   <summary><strong>성공 응답</strong></summary>
@@ -59,7 +59,7 @@ Content-Type: application/json
 
 | 이름          | 타입    | 설명                                          |
 | ------------- | ------- | --------------------------------------------- |
-| resultCode    | int     | 응답 코드<br>성공 시 0, 실패시 오류 코드 반환 |
+| resultCode    | int     | 응답 코드<br>성공 시 0, 실패 시 오류 코드 반환 |
 | resultMessage | String  | 응답 메시지                                   |
 | isSuccessful  | boolean | 성공 여부                                     |
 
@@ -86,15 +86,13 @@ Content-Type: application/json
 
 #### 주의 사항
 
-- 요청, 응답 시 Base64 인코딩 여부를 확인하십시오.
-- 암호화, 복호화의 상세 모드(예: AES-256/CBC/PKCS7Padding)를 확인하십시오.
+- 요청, 응답 시 Base64 인코딩 여부를 확인하세요.
+- 암호화, 복호화의 상세 모드(예: AES-256/CBC/PKCS7Padding)를 확인하세요.
 - 암호화에 사용되는 대칭 키는 반드시 32Byte 난수로 생성합니다. 보안을 위해 각 요청마다 새로운 대칭 키를 생성하여 사용하는 것을 권장합니다.
 
 ### 공개 키 발급
 
 #### 요청
-
-- {appKey}와 {secretKey}는 콘솔 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
 
 [URI]
 
@@ -112,7 +110,7 @@ Content-Type: application/json
 
 | 이름        | 값            | 설명                                                                                                             |
 | ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------- |
-| appKey      | {appKey}      | 통합 Appkey 또는 서비스 Appkey                                                                                   |
+| appKey      | {appKey}      | 프로젝트 통합 Appkey 또는 서비스 Appkey                                                                                   |
 | serviceName | {serviceName} | credit-card(신용카드 API 호출 시 사용할 공개 키 발급 시),<br> id-card(신분증 API 호출 시 사용할 공개 키 발급 시) |
 
 [요청 본문]
@@ -163,8 +161,6 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 #### 신용카드 분석 API
 
 #### 요청
-
-- {appKey}와 {secretKey}는 콘솔 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
 
 [URI]
 
@@ -304,8 +300,6 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 ### 신분증 분석 API
 
 #### 요청
-
-- {appKey}와 {secretKey}는 콘솔 상단 **URL &amp; Appkey** 메뉴에서 확인할 수 있습니다.
 
 [URI]
 
@@ -527,8 +521,6 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 #### 요청
 
-- {appKey}와 {secretKey}는 콘솔 상단 **URL &amp; Appkey** 메뉴에서 확인할 수 있습니다.
-
 [URI]
 
 | 메서드 | URI                                         |
@@ -627,8 +619,6 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 - 진위 확인이 불가능한 대신 낮은 요금이 부과됩니다.
 
 #### 요청
-
-- {appKey}와 {secretKey}는 콘솔 상단 **URL &amp; Appkey** 메뉴에서 확인할 수 있습니다.
 
 [URI]
 

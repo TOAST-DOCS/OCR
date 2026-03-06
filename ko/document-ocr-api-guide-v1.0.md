@@ -19,7 +19,7 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 
 ### 응답 공통 정보
 
-모든 API 요청 응답으로 HTTP 200 OK를 전달합니다. API 요청 성공 유무는 Response Body의 header 항목을 참고하여 판단할 수 있습니다.
+모든 API 요청 응답으로 HTTP 200 OK를 전달합니다. API 요청 성공 여부는 Response Body의 header 항목을 참고하여 판단할 수 있습니다.
 
 <details>
   <summary><strong>성공 응답</strong></summary>
@@ -59,7 +59,7 @@ Content-Type: application/json
 
 | 이름          | 타입    | 설명                                          |
 | ------------- | ------- | --------------------------------------------- |
-| resultCode    | int     | 응답 코드<br>성공 시 0, 실패시 오류 코드 반환 |
+| resultCode    | int     | 응답 코드<br>성공 시 0, 실패 시 오류 코드 반환 |
 | resultMessage | String  | 응답 메시지                                   |
 | isSuccessful  | boolean | 성공 여부                                     |
 
@@ -190,8 +190,6 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 
 #### 요청
 
-- {appKey}와 {secretKey}는 콘솔 상단 **URL & Appkey** 메뉴에서 확인이 가능합니다.
-
 [URI]
 
 | 메서드 | URI                                    |
@@ -275,8 +273,6 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 ### 신용카드 분석 API
 
 #### 요청
-
-- {appKey}와 {secretKey}는 콘솔 상단 **URL & Appkey** 메뉴에서 확인이 가능합니다.
 
 [URI]
 

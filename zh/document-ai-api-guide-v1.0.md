@@ -11,11 +11,11 @@
 ### Authentication and Authorization
 
 AppKey and SecretKey are required to use the Document AI API.
-An Appkey is a unique authentication key issued for each NHN Cloud service, used to identify the service and validate API requests. A SecretKey is a private key used to control access to the API.
+An Appkey is a unique authentication key issued for each NHN Cloud service that identifies the service and validates API requests. A SecretKey is a private key used to control access to the API.
 For more information on checking and using Appkeys and SecretKeys, please refer to the [Appkey](/nhncloud/en/public-api/appkey).
 
 Project Integrated Appkey can be used in place of the Appkey. Project Integrated Appkey is a common authentication key that can be shared across multiple services within a single NHN Cloud project.
-For more information on creating and using Project Integrated Appkeys, please refer to the [Project Integrated Appkey](/nhncloud/en/public-api/project-appkey).
+For more information on creating and using Project Integrated Appkeys, see the [Project Integrated Appkey](/nhncloud/en/public-api/project-appkey).
 
 ### Common Response Information
 
@@ -75,9 +75,9 @@ Content-Type: application/json
 | 4000002    | Invalid file.                                                                              | Invalid file                          |
 | 4000003    | Invalid file type.                                                                         | Invalid file type                     |
 | 4000004    | Uploaded file is empty.                                                                    | Uploaded file is empty                |
-| 4000005    | Required headers is missing.                                                               | Required headers missing              |
-| 4000006    | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API call limit exceeded               |
-| 4131000    | Request size is larger than permissible limit. the permissible limit is 5mb.               | Request size exceeds limit (5MB)      |
+| 4000005    | Required headers are missing.                                                               | Required headers missing              |
+| 4000006    | Api call limit exceeded. If you need to adjust the limit, please contact customer service. | API call limit exceeded               |
+| 4131000    | Request size is larger than the permissible limit. The permissible limit is 5mb.               | Request size exceeds limit (5MB)      |
 
 ### Document AI Analysis API
 
@@ -110,7 +110,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/document
 | ---------------- | ---- | -------- | ------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | image            | file | O        |         |                                                | Image file                                                                                                             |
 | documentTypeCode | text | X        | GENERAL | GENERAL, BUSINESS_REGISTRATION, BUSINESS_CARD  | Document type<br> General: GENERAL <br> Business registration: BUSINESS_REGISTRATION <br> Business card: BUSINESS_CARD |
-| prompt           | text | O        |         |                                                | Question content<br>Up to 1000 characters                                                                              |
+| prompt           | text | O        |         |                                                | Question content<br>Up to 1,000 characters                                                                              |
 
 #### Response
 

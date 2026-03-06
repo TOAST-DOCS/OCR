@@ -35,7 +35,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/document
 |-------|--------|---------|--------|--------|--------|
 | image | file | O |     |   | Template image file|
 | documentTypeCode | text | X |  GENERAL | GENERAL, BUSINESS_REGISTRATION, BUSINESS_CARD  | Document type<br> General: GENERAL <br> Business registration: BUSINESS_REGISTRATION <br> Business card: BUSINESS_CARD |
-| prompt | text | O |    |   | Question content<br>Up to 1000 characters  |
+| prompt | text | O |    |   | Question content<br>Up to 1,000 characters  |
 
 #### Response
 

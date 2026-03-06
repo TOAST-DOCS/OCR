@@ -10,11 +10,11 @@
 
 ### 인증 및 권한
 
-Document OCR은(는) API 호출 시 인증/인가를 위해 User Access Key 토큰을 사용합니다. User Access Key 토큰은 User Access Key를 기반으로 발급되는 Bearer 타입의 일시적 액세스 토큰입니다. User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Access Key 토큰](/nhncloud/ko/public-api/user-access-key-token)을 참고하세요.
+Document OCR은 API 호출 시 인증/인가를 위해 User Access Key 토큰을 사용합니다. User Access Key 토큰은 User Access Key를 기반으로 발급되는 Bearer 타입의 일시적 액세스 토큰입니다. User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Access Key 토큰](/nhncloud/ko/public-api/user-access-key-token)을 참고하세요.
 
 ### 응답 공통 정보
 
-모든 API 요청 응답으로 HTTP 200 OK를 전달합니다. API 요청 성공 유무는 Response Body의 header 항목을 참고하여 판단할 수 있습니다.
+모든 API 요청 응답으로 HTTP 200 OK를 전달합니다. API 요청 성공 여부는 Response Body의 header 항목을 참고하여 판단할 수 있습니다.
 
 <details>
   <summary><strong>성공 응답</strong></summary>
@@ -54,7 +54,7 @@ Content-Type: application/json
 
 | 이름          | 타입    | 설명                                          |
 | ------------- | ------- | --------------------------------------------- |
-| resultCode    | int     | 응답 코드<br>성공 시 0, 실패시 오류 코드 반환 |
+| resultCode    | int     | 응답 코드<br>성공 시 0, 실패 시 오류 코드 반환 |
 | resultMessage | String  | 응답 메시지                                   |
 | isSuccessful  | boolean | 성공 여부                                     |
 
@@ -81,8 +81,8 @@ Content-Type: application/json
 
 #### 주의 사항
 
-- 요청, 응답 시 Base64 인코딩 여부를 확인하십시오.
-- 암호화, 복호화의 상세 모드(예: AES-256/CBC/PKCS7Padding)를 확인하십시오.
+- 요청, 응답 시 Base64 인코딩 여부를 확인하세요.
+- 암호화, 복호화의 상세 모드(예: AES-256/CBC/PKCS7Padding)를 확인하세요.
 - 암호화에 사용되는 대칭 키는 반드시 32Byte 난수로 생성합니다. 보안을 위해 각 요청마다 새로운 대칭 키를 생성하여 사용하는 것을 권장합니다.
 
 ### 공개 키 발급
@@ -99,20 +99,20 @@ Content-Type: application/json
 
 | 이름                | 값             | 설명                 |
 | ------------------- | -------------- | -------------------- |
-| X-NHN-Authorization | {Access Token} | User Access Key 토큰 |
+| X-NHN-Authorization | Bearer {User Access Key Token} | User Access Key 토큰 |
 
 [Path Variable]
 
 | 이름        | 값            | 설명                                                                                                             |
 | ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------- |
-| appKey      | {appKey}      | 통합 Appkey 또는 서비스 Appkey                                                                                   |
+| appKey      | {appKey}      | 프로젝트 통합 Appkey 또는 서비스 Appkey                                                                                   |
 | serviceName | {serviceName} | credit-card(신용카드 API 호출 시 사용할 공개 키 발급 시),<br> id-card(신분증 API 호출 시 사용할 공개 키 발급 시) |
 
 [요청 본문]
 
 ```shell
 curl -X GET 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/public-keys/{serviceName}' \
--H 'X-NHN-Authorization: ${Access Token}'
+-H 'X-NHN-Authorization: Bearer ${User Access Key Token}'
 ```
 
 #### 응답
@@ -167,7 +167,7 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 
 | 이름                | 값              | 설명                                 |
 | ------------------- | --------------- | ------------------------------------ |
-| X-NHN-Authorization | {Access Token}  | User Access Key 토큰                 |
+| X-NHN-Authorization | Bearer {User Access Key Token}  | User Access Key 토큰                 |
 | X-Key-Version       | {x-key-version} | 발급 받은 공개 키의 버전             |
 | Symmetric-Key       | {symmetricKey}  | 발급 받은 공개 키로 암호화된 대칭 키 |
 
@@ -178,7 +178,7 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 
 | 이름   | 값       | 설명                           |
 | ------ | -------- | ------------------------------ |
-| appKey | {appKey} | 통합 Appkey 또는 서비스 Appkey |
+| appKey | {appKey} | 프로젝트 통합 Appkey 또는 서비스 Appkey |
 
 [필드]
 
@@ -194,7 +194,7 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 ```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-card' \
 -F 'image=@sample.png' \
--H 'X-NHN-Authorization: ${Access Token}' \
+-H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 -H 'X-Key-Version: ${x-key-version}' \
 -H 'Symmetric-Key: ${symmetricKey}'
 ```
@@ -306,7 +306,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 
 | 이름                | 값              | 설명                                 |
 | ------------------- | --------------- | ------------------------------------ |
-| X-NHN-Authorization | {Access Token}  | User Access Key 토큰                 |
+| X-NHN-Authorization | Bearer {User Access Key Token}  | User Access Key 토큰                 |
 | X-Key-Version       | {x-key-version} | 발급 받은 공개 키의 버전             |
 | Symmetric-Key       | {symmetricKey}  | 발급 받은 공개 키로 암호화된 대칭 키 |
 
@@ -317,7 +317,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 
 | 이름   | 값       | 설명                           |
 | ------ | -------- | ------------------------------ |
-| appKey | {appKey} | 통합 Appkey 또는 서비스 Appkey |
+| appKey | {appKey} | 프로젝트 통합 Appkey 또는 서비스 Appkey |
 
 [필드]
 
@@ -333,7 +333,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 ```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card' \
 -F 'image=@sample.png' \
--H 'X-NHN-Authorization: ${Access Token}' \
+-H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 -H 'X-Key-Version: ${x-key-version}' \
 -H 'Symmetric-Key: ${symmetricKey}'
 ```
@@ -526,7 +526,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 
 | 이름                | 값              | 설명                                 |
 | ------------------- | --------------- | ------------------------------------ |
-| X-NHN-Authorization | {Access Token}  | User Access Key 토큰                 |
+| X-NHN-Authorization | Bearer {User Access Key Token}  | User Access Key 토큰                 |
 | X-Key-Version       | {x-key-version} | 발급 받은 공개 키의 버전             |
 | Symmetric-Key       | {symmetricKey}  | 발급 받은 공개 키로 암호화된 대칭 키 |
 | Request-Key         | {Request-Key}   | 신분증 분석 후 발급 받은 Request-Key |
@@ -538,7 +538,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 
 | 이름   | 값       | 설명                           |
 | ------ | -------- | ------------------------------ |
-| appKey | {appKey} | 통합 Appkey 또는 서비스 Appkey |
+| appKey | {appKey} | 프로젝트 통합 Appkey 또는 서비스 Appkey |
 
 [필드]
 
@@ -561,7 +561,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 
 ```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/authenticity' \
--H 'X-NHN-Authorization: ${Access Token}' \
+-H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 -H 'X-Key-Version: ${x-key-version}' \
 -H 'Symmetric-Key: ${symmetricKey}' \
 -H 'Request-Key: ${Request-Key}' \
@@ -625,7 +625,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 
 | 이름                | 값              | 설명                                 |
 | ------------------- | --------------- | ------------------------------------ |
-| X-NHN-Authorization | {Access Token}  | User Access Key 토큰                 |
+| X-NHN-Authorization | Bearer {User Access Key Token}  | User Access Key 토큰                 |
 | X-Key-Version       | {x-key-version} | 발급 받은 공개 키의 버전             |
 | Symmetric-Key       | {symmetricKey}  | 발급 받은 공개 키로 암호화된 대칭 키 |
 
@@ -636,7 +636,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 
 | 이름   | 값       | 설명                           |
 | ------ | -------- | ------------------------------ |
-| appKey | {appKey} | 통합 Appkey 또는 서비스 Appkey |
+| appKey | {appKey} | 프로젝트 통합 Appkey 또는 서비스 Appkey |
 
 [필드]
 
@@ -652,7 +652,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 ```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/stand-alone' \
 -F 'image=@sample.png' \
--H 'X-NHN-Authorization: ${Access Token}' \
+-H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 -H 'X-Key-Version: ${x-key-version}' \
 -H 'Symmetric-Key: ${symmetricKey}'
 ```

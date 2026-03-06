@@ -41,7 +41,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 #### Request with image URLs
 
-[Request Header]
+[Request Header] 
 
 | Name          | Value            | Description                          |
 |---------------|------------------|--------------------------------------|
@@ -156,7 +156,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 #### Request with image files
 
-[Request Header]
+[Request Header] 
 
 | Name          | Value               | Description                          |
 |---------------|---------------------|--------------------------------------|
@@ -181,7 +181,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 | image | multipart/form-data | Image file  |
 
 #### Request with image URLs
-[Request Header]
+[Request Header] 
 
 | Name          | Value            | Description                          |
 |---------------|------------------|--------------------------------------|

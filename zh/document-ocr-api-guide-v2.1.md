@@ -80,13 +80,13 @@ Content-Type: application/json
 
 #### Changes from v2.0
 
-* User Access Key token-based authentication has been applied.
+- User Access Key token-based authentication has been applied.
 
 #### Caution
 
-* Check whether the request or response is Base64 encoded.
-* Check the detailed mode of encryption and decryption (eg AES-256/CBC/PKCS7Padding).
-* The symmetric key used for encryption must be generated as a 32 byte random number. For security, it is recommended to create and use a new symmetric key for each request.
+- Check whether the request or response is Base64 encoded.
+- Check the detailed mode of encryption and decryption (eg AES-256/CBC/PKCS7Padding).
+- The symmetric key used for encryption must be generated as a 32 byte random number. For security, it is recommended to create and use a new symmetric key for each request.
 
 ### Issue Public Key
 
@@ -152,7 +152,7 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 | result.key     | String | Public key (Base64 encoded)        |
 | result.version | String | version of public key              |
 
-* The public key is **Base64** encoded.
+- The public key is **Base64** encoded.
 
 ### Credit Card API
 
@@ -174,8 +174,8 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 | X-Key-Version       | {x-key-version} | Version of the public key issued                   |
 | Symmetric-Key       | {symmetricKey}  | Symmetric key encrypted with the issued public key |
 
-* {symmetricKey} must be created as a **32-byte random number**.
-* {symmetricKey} must be encrypted with the **RSA/ECB/PKCS1Padding** method (using public key).
+- {symmetricKey} must be created as a **32-byte random number**.
+- {symmetricKey} must be encrypted with the **RSA/ECB/PKCS1Padding** method (using public key).
 
 [Path Variable]
 
@@ -189,8 +189,8 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 |-------|---------------------|-------------|--------------------------------------|
 | image | multipart/form-data | Image file  | Image encrypted with a symmetric key |
 
-* Image files must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
-* The initialization vector (IV) uses the first 16 bytes (i.e., bytes 0-15) of the symmetric key.
+- Image files must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
+- The initialization vector (IV) uses the first 16 bytes (i.e., bytes 0-15) of the symmetric key.
 
 [Request Body]
 
@@ -290,9 +290,9 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 | validThru.conf    | Double | Confidence of expiration date recognition result                                                                                    |                          |
 | validThruBox      | Object | Coordinates of the expiration date recognition area { x1, y1, x2, y2, x3, y3, x4, y4 }                                              |                          |
 
-* Encrypted items (cardNums[0].value, totalCardNum, etc.) are encrypted with the **AES-256/CBC/PKCS7Padding** method (using symmetric key).
+- Encrypted items (cardNums[0].value, totalCardNum, etc.) are encrypted with the **AES-256/CBC/PKCS7Padding** method (using symmetric key).
 
-* boxes[0]
+- boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 ### ID Card Analysis API
@@ -313,8 +313,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 | X-Key-Version       | {x-key-version} | Version of the public key issued                   |
 | Symmetric-Key       | {symmetricKey}  | Symmetric key encrypted with the issued public key |
 
-* {symmetricKey} must be created as a **32-byte random number**.
-* {symmetricKey} must be encrypted with the **RSA/ECB/PKCS1Padding** method (using public key).
+- {symmetricKey} must be created as a **32-byte random number**.
+- {symmetricKey} must be encrypted with the **RSA/ECB/PKCS1Padding** method (using public key).
 
 [Path Variable]
 
@@ -328,8 +328,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 |-------|---------------------|-------------|--------------------------------------|
 | image | multipart/form-data | Image file  | Image encrypted with a symmetric key |
 
-* Image files must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
-* The initialization vector (IV) uses the first 16 bytes (i.e., bytes 0-15) of the symmetric key.
+- Image files must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
+- The initialization vector (IV) uses the first 16 bytes (i.e., bytes 0-15) of the symmetric key.
 
 [Request Body]
 
@@ -349,8 +349,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 |-------------|-----------------------------------------------------------------|
 | Request-Key | Request-Key to be used when calling the Verify Authenticity API |
 
-* **If you use the Request-Key to make a Authenticity API call and get a normal response, the Request-Key used cannot be reused.**
-* **Request-Key is valid for 1 hour after issuance and cannot be used after that.**
+- **If you use the Request-Key to make a Authenticity API call and get a normal response, the Request-Key used cannot be reused.**
+- **Request-Key is valid for 1 hour after issuance and cannot be used after that.**
 
 [Response Body]
 
@@ -467,7 +467,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 | boxes              | List   | List of bounding box coordinates                                                                                                    |
 | boxes[0]           | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                   |
 
-* **List included in KeyValues when "idType" is recognized as "resident"**
+- **List included in KeyValues when "idType" is recognized as "resident"**
 
 | key                | value type | description                             |
 |--------------------|------------|-----------------------------------------|
@@ -476,7 +476,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 | **issueDate**      | string     | Recognized issued date                  |
 | **issuer**         | string     | Recognized issuer                       |
 
-* **List to be included in KeyValues when "idType" is recognized as "driver"**
+- **List to be included in KeyValues when "idType" is recognized as "driver"**
 
 | key                     | value type | description                                                                                                                            |
 |-------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
@@ -491,7 +491,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 
 
 
-* **List included in KeyValues when "idType" is recognized as "passport"**
+- **List included in KeyValues when "idType" is recognized as "passport"**
 
 | key                 | value type | description                                       |
 |---------------------|------------|---------------------------------------------------|
@@ -513,8 +513,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 | **MRZ1**            | string     | Machine readable zone 1                           |
 | **MRZ2**            | string     | Machine readable zone 2                           |
 
-* Encrypted items (keyValues[0].value, etc.) are encrypted with the **AES-256/CBC/PKCS7Padding** method (using symmetric key).
-* boxes[0]
+- Encrypted items (keyValues[0].value, etc.) are encrypted with the **AES-256/CBC/PKCS7Padding** method (using symmetric key).
+- boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 ### Verify Authenticity API
@@ -536,8 +536,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 | Symmetric-Key       | {symmetricKey}  | Symmetric key encrypted with the issued public key |
 | Request-Key         | {Request-Key}   | Request-Key issued after ID card analysis          |
 
-* {symmetricKey} must be created as a **32-byte random number**.
-* {symmetricKey} must be encrypted with the **RSA/ECB/PKCS1Padding** method (using public key).
+- {symmetricKey} must be created as a **32-byte random number**.
+- {symmetricKey} must be encrypted with the **RSA/ECB/PKCS1Padding** method (using public key).
 
 [Path Variable]
 
@@ -559,8 +559,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 | birthDate           | String | Birthdate (YYYYMMDD)                                                                                                                                                                                                                                                    | passport           | O                        | O        |
 | expirationDate      | String | Expiration date (YYYYMMDD)                                                                                                                                                                                                                                              | passport           | X                        | O        |
 
-* A field that requires encryption must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
-* The initialization vector (IV) uses the first 16 bytes (i.e., bytes 0-15) of the symmetric key.
+- A field that requires encryption must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
+- The initialization vector (IV) uses the first 16 bytes (i.e., bytes 0-15) of the symmetric key.
 
 [Request Body]
 
@@ -615,8 +615,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 
 #### Differences from the existing ID analysis API
 
-* It does not contain the Request-Key required for authenticity verification.
-* Authenticity cannot be verified, but a low fee is charged.
+- It does not contain the Request-Key required for authenticity verification.
+- Authenticity cannot be verified, but a low fee is charged.
 
 #### Request
 
@@ -634,8 +634,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 | X-Key-Version       | {x-key-version} | Version of the public key issued                   |
 | Symmetric-Key       | {symmetricKey}  | Symmetric key encrypted with the issued public key |
 
-* {symmetricKey} must be created as a **32-byte random number**.
-* {symmetricKey} must be encrypted with the **RSA/ECB/PKCS1Padding** method (using public key).
+- {symmetricKey} must be created as a **32-byte random number**.
+- {symmetricKey} must be encrypted with the **RSA/ECB/PKCS1Padding** method (using public key).
 
 [Path Variable]
 
@@ -649,8 +649,8 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 |-------|---------------------|-------------|--------------------------------------|
 | image | multipart/form-data | Image file  | Image encrypted with a symmetric key |
 
-* Image files must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
-* The initialization vector (IV) uses the first 16 bytes (i.e., bytes 0-15) of the symmetric key.
+- Image files must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
+- The initialization vector (IV) uses the first 16 bytes (i.e., bytes 0-15) of the symmetric key.
 
 [Request Body]
 
@@ -779,7 +779,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 | boxes              | List   | List of bounding box coordinates                                                                                                    |
 | boxes[0]           | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                   |
 
-* **List included in KeyValues when "idType" is recognized as "resident"**
+- **List included in KeyValues when "idType" is recognized as "resident"**
 
 | key                | value type | description                             |
 |--------------------|------------|-----------------------------------------|
@@ -788,7 +788,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 | **issueDate**      | string     | Recognized issued date                  |
 | **issuer**         | string     | Recognized issuer                       |
 
-* **List to be included in KeyValues when "idType" is recognized as "driver"**
+- **List to be included in KeyValues when "idType" is recognized as "driver"**
 
 | key                     | value type | description                                                                                                                            |
 |-------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
@@ -803,7 +803,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 
 
 
-* **List included in KeyValues when "idType" is recognized as "passport"**
+- **List included in KeyValues when "idType" is recognized as "passport"**
 
 | key                 | value type | description                                       |
 |---------------------|------------|---------------------------------------------------|
@@ -825,6 +825,6 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 | **MRZ1**            | string     | Machine readable zone 1                           |
 | **MRZ2**            | string     | Machine readable zone 2                           |
 
-* Encrypted items (keyValues[0].value, etc.) are encrypted with the **AES-256/CBC/PKCS7Padding** method (using symmetric key).
-* boxes[0]
+- Encrypted items (keyValues[0].value, etc.) are encrypted with the **AES-256/CBC/PKCS7Padding** method (using symmetric key).
+- boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)

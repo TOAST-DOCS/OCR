@@ -130,12 +130,12 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business
         "unitType": "pixel",
         "keyValues": [
             {
-                "key":"category",
-                "value":" simplified taxable person",
+                "key":"구분",
+                "value":" 간이과세자",
                 "conf":0.93
             },
             {
-                "key":"registration number",
+                "key":"등록번호",
                 "value":"123-45-67890",
                 "conf":1
             },

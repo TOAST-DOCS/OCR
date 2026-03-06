@@ -11,7 +11,7 @@
 ### Authentication and Authorization
 
 Document OCR uses User Access Key tokens for authentication and authorization when making API calls. The User Access Key token is a temporary, Bearer-type access token issued from a User Access Key.
-For more information on issuing and using User Access Key tokens, please refer to the [User Access Key Token](/nhncloud/en/public-api/user-access-key-token).
+For more information on issuing and using User Access Key tokens, see the [User Access Key Token](/nhncloud/en/public-api/user-access-key-token).
 
 ### Common Response Information
 
@@ -70,11 +70,11 @@ Content-Type: application/json
 | 4000002    | Invalid file.                                                                              | Invalid file                                     |
 | 4000003    | Invalid file type.                                                                         | Invalid file type                                |
 | 4000004    | Uploaded file is empty.                                                                    | Uploaded file is empty                           |
-| 4000005    | Required headers is missing.                                                               | Required headers missing                         |
-| 4000006    | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API call limit exceeded                          |
+| 4000005    | Required headers are missing.                                                               | Required headers missing                         |
+| 4000006    | Api call limit exceeded. If you need to adjust the limit, please contact customer service. | API call limit exceeded                          |
 | 4010006    | Invalid token.                                                                             | Invalid token                                    |
 | 4010007    | Permission denied.                                                                         | Permission denied                                |
-| 4131000    | Request size is larger than permissible limit. the permissible limit is 5mb.               | Request size exceeds the permissible limit (5MB) |
+| 4131000    | Request size is larger than the permissible limit. The permissible limit is 5mb.               | Request size exceeds the permissible limit (5MB) |
 
 ### Business Registration Certificate Analysis API
 
@@ -100,7 +100,7 @@ Content-Type: application/json
 
 [Request Body]
 
-* Put binary data of the image file.
+* Put the binary data of the image file.
 
 ```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business' \
@@ -130,12 +130,12 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business
         "unitType": "pixel",
         "keyValues": [
             {
-                "key":"구분",
-                "value":" 간이과세자",
+                "key":"category",
+                "value":" simplified taxable person",
                 "conf":0.93
             },
             {
-                "key":"등록번호",
+                "key":"registration number",
                 "value":"123-45-67890",
                 "conf":1
             },
@@ -244,7 +244,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 
 | Name          | Type    | Description                                                 |
 |---------------|---------|-------------------------------------------------------------|
-| isSuccessful  | Boolean | Whether Retrieve stoppage/closure API successful or not     |
+| isSuccessful  | Boolean | Whether the Retrieve stoppage/closure API was successful or not     |
 | resultCode    | Integer | Result code                                                 |
 | resultMessage | String  | Result message (Success when successful, error when failed) |
 

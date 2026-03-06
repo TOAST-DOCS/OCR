@@ -4,7 +4,6 @@
 
 #### 요청
 
-* {appKey}와 {secretKey}는 오른쪽 콘솔 상단 **URL & Appkey** 메뉴에서 확인이 가능합니다.
 
 [URI]
 

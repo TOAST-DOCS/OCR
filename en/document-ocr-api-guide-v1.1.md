@@ -267,3 +267,132 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 | 05         | Inactive                                                                                                                         |
 | 06         | Closed                                                                                                                           |
 | 09         | Others                                                                                                                           |
+
+### Credit Card Analysis API
+
+#### Request
+
+[URI]
+
+| Method | URI                                |
+|--------|------------------------------------|
+| POST   | /v1.1/appkeys/{appKey}/credit-card |
+
+[Request Header]
+
+| Name          | Value       | Description                          |
+|---------------|-------------|--------------------------------------|
+| X-NHN-Authorization | Bearer {User Access Key Token} | User Access Key token |
+
+[Path Variable]
+
+| Name   | Value    | Description                         |
+|--------|----------|-------------------------------------|
+| appKey | {appKey} | Integrated Appkey or Service Appkey |
+
+[Request Body]
+
+- Put the binary data of the image file.
+
+```shell
+curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/credit-card' \
+-F 'image=@sample.png' \
+-H 'X-NHN-Authorization: Bearer ${User Access Key Token}'
+```
+
+[Field]
+
+| Name  | Type                | Description |
+|-------|---------------------|-------------|
+| image | multipart/form–data | Image file  |
+
+#### Response
+
+[Response Body]
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "result": {
+    "fileType": "png",
+    "resolution": "low",
+    "cardNums": [
+      {
+        "value": "1111",
+        "conf": 0.87
+      },
+      {
+        "value": "2222",
+        "conf": 0.99
+      },
+      {
+        "value": "3333",
+        "conf": 0.97
+      },
+      {
+        "value": "4444",
+        "conf": 0.89
+      }
+    ],
+    "totalCardNum": "111222233334444",
+    "cardNumBoxes": [
+      {
+        "x1": 62,
+        "y1": 256,
+        "x2": 192,
+        "y2": 256,
+        "x3": 192,
+        "y3": 301,
+        "x4": 62,
+        "y4": 301
+      },
+      ...
+    ],
+    "validThru": {
+      "value": "04/19",
+      "conf": 0.53
+    },
+    "validThruBox": {
+      "x1": 316,
+      "y1": 315,
+      "x2": 426,
+      "y2": 315,
+      "x3": 426,
+      "y3": 347,
+      "x4": 316,
+      "y4": 347
+    }
+  }
+}
+```
+
+[Header]
+
+| Name          | Type    | Description                                                   |
+|---------------|---------|---------------------------------------------------------------|
+| isSuccessful  | Boolean | Analysis API success or not                                   |
+| resultCode    | Integer | Result code                                                   |
+| resultMessage | String  | Result message (success on success, error details on failure) |
+
+[Field]
+
+| Name              | Type   | Description                                                                                                                        |
+|-------------------|--------|------------------------------------------------------------------------------------------------------------------------------------|
+| fileType          | String | File extension (.jpg, .png)                                                                                                        |
+| resolution        | String | normal: the resolution is the recommended resolution (760*480px) or above, low: the resolution is below the recommended resolution |
+| cardNums          | List   | List of card number recognition results                                                                                            |
+| cardNums[0].value | String | Recognition result                                                                                                                 |
+| cardNums[0].conf  | Double | Confidence of the recognition result                                                                                               |
+| totalCardNum      | List   | Full card number recognition result                                                                                                |
+| cardNumBoxes      | List   | List of coordinates of the card number recognition area (bounding box)                                                             |
+| cardNumBoxes[0]   | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                  |
+| validThru.value   | String | Expiration date recognition content                                                                                                |
+| validThru.conf    | Double | Confidence of expiration date recognition result                                                                                   |
+| validThruBox      | Object | Coordinates of the expiration date recognition area { x1, y1, x2, y2, x3, y3, x4, y4 }                                             |
+
+- boxes[0]
+  ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)

@@ -86,14 +86,14 @@ Content-Type: application/json
 
 | 이름                | 값                  | 설명                  |
 | ------------------- | ------------------- | --------------------- |
-| X-NHN-Authorization | {Access Token}      | User Acccess Key 토큰 |
+| X-NHN-Authorization | Bearer {User Access Key Token}     | User Acccess Key 토큰 |
 | Content-Type        | multipart/form-data | 콘텐츠 타입           |
 
 [요청 본문]
 
 ```shell
 curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/document-ai' \
--H 'X-NHN-Authorization: ${Access Token}' \
+-H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 -F 'image=@sample.png' \
 -F 'prompt="간단하게 요약 해줘"' \
 -F 'documentTypeCode="GENERAL"'

@@ -1,6 +1,6 @@
 ---
 name: dooray-task-to-docs-update
-description: 사내 이슈 트래커(Dooray) 업무 번호로부터 가이드 수정 요청을 분석해 OCR-docs alpha PR로 가는 워크플로우. dooray-cli로 본문/댓글을 조회하고 docs URL을 ko/<file>.md 경로로 매핑한 뒤 alpha 기반 PR을 생성한다.
+description: 사내 이슈 트래커(Dooray) 업무 번호로부터 가이드 수정 요청을 분석해 OCR-docs alpha PR로 가는 워크플로우. dooray-cli로 본문/댓글을 조회하고 docs URL을 ko/<file>.md 경로로 매핑한 뒤 alpha 기반 PR을 생성한다. "Dooray <project-code> NNN 처리", "업무 번호 가이드 수정", "이슈 트래커 가이드 변경 요청 처리", "docs URL 변경 요청", "사내 업무에서 요청온 가이드 수정 반영", "Dooray 댓글에 있는 가이드 수정안 PR로 만들어줘" 같은 요청이 보이면 즉시 이 스킬을 사용한다.
 ---
 
 # Dooray 업무 → OCR-docs PR 워크플로우

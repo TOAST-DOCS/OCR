@@ -105,7 +105,7 @@ For more accurate credit card analysis, please refer to the guide below.
     * Key data according to the types of ID cards (resident registration certificate/driver license/passport) is analyzed as a key/value pair, and provides a confidence for it.
 
 * Verify Authenticity
-    * Verifies the authenticity of an ID card based on the result extracted from the image file.
+    * Verifies the authenticity of an ID card (resident registration certificate, driver's license) based on the result extracted from the image file.
 
 * **Analysis results download**
 	* You can download the results extracted from an ID card image file as a JSON file.

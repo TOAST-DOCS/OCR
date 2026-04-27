@@ -254,4 +254,4 @@ You can modify the content of the ID card after analysis. Click**Modify**to modi
 
 ### Verify Authenticity
 
-You can verify the authenticity of the ID card after analysis. Click **Verify authenticity** and the result appears at the right of the button.
+You can verify the authenticity of the ID card (resident registration certificate, driver's license) after analysis. Click **Verify authenticity** and the result appears at the right of the button.

@@ -349,7 +349,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 | 이름        | 설명                                            |
 | ----------- | ----------------------------------------------- |
-| Request-Key | 신분증 진위 확인 API 호출 시 사용할 Request-Key |
+| Request-Key | 신분증 진위 확인 API 호출 시 사용할 Request-Key (주민등록증, 운전면허증 분석 결과에 한해 제공) |
 
 - **Request-Key를 진위 확인 API 호출에 사용하여 정상 응답을 받은 경우 사용된 Request-Key는 다시 사용할 수 없습니다.**
 - **Request-Key는 발급 이후 1시간 동안 유효하며 그 이후에는 사용할 수 없습니다.**
@@ -549,15 +549,12 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 | 이름                | 타입   | 설명                                                                                                                                                               | idType             | 암호화 여부 | 필수 여부 |
 | ------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ | ----------- | --------- |
-| idType              | String | resident(주민등록증), driver(운전면허증), passport(여권)                                                                                                           |                    | X           | O         |
+| idType              | String | resident(주민등록증), driver(운전면허증)                                                                                                                           |                    | X           | O         |
 | name                | String | 이름                                                                                                                                                               |                    | O           | O         |
 | residentNumber      | String | 주민등록번호<br>- resident(주민등록증)의 경우 주민등록번호 숫자 13자리<br>- driver(운전면허증)의 경우 주민등록번호 앞 6자리와 뒤 첫 번째 1자리를 조합한 숫자 7자리 | resident, driver   | O           | O         |
-| issueDate           | String | 발급 일자(YYYYMMDD)                                                                                                                                                | resident, passport | O           | O         |
+| issueDate           | String | 발급 일자(YYYYMMDD)                                                                                                                                                | resident           | O           | O         |
 | driverLicenseNumber | String | 12자리 운전면허번호                                                                                                                                                | driver             | O           | O         |
 | serialNum           | String | 5~6자리 암호 일련번호                                                                                                                                              | driver             | O           | X         |
-| passportNumber      | String | 여권 번호(9자리 영문 대문자, 숫자 조합)                                                                                                                            | passport           | O           | O         |
-| birthDate           | String | 생년월일(YYYYMMDD)                                                                                                                                                 | passport           | O           | O         |
-| expirationDate      | String | 만료 일자(YYYYMMDD)                                                                                                                                                | passport           | X           | O         |
 
 - 암호화가 필요한 필드는 반드시 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어야 합니다(대칭 키 이용).
 - IV(초기화 벡터)는 대칭 키의 처음 16바이트(즉, 0~15번째 바이트)를 사용합니다.

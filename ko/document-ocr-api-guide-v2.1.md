@@ -83,9 +83,9 @@ Content-Type: application/json
 
 - 요청, 응답 시 Base64 인코딩 여부를 확인하세요.
 - 암호화, 복호화의 상세 모드(예: AES-256/CBC/PKCS7Padding)를 확인하세요.
-- 암호화에 사용되는 대칭 키는 반드시 32Byte 난수로 생성합니다. 보안을 위해 각 요청마다 새로운 대칭 키를 생성하여 사용하는 것을 권장합니다.
+- 암호화에 사용되는 대칭 키는 반드시 32바이트 난수로 생성합니다. 보안을 위해 각 요청마다 새로운 대칭 키를 생성하여 사용하는 것을 권장합니다.
 
-### 공개 키 발급
+### 공개 키 발급 API
 
 #### 요청
 
@@ -151,9 +151,7 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 
 - 공개 키는 **Base64**로 인코딩된 상태입니다.
 
-### 신용카드 API
-
-#### 신용카드 분석 API
+### 신용카드 분석 API
 
 #### 요청
 
@@ -168,10 +166,10 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 | 이름                | 값              | 설명                                 |
 | ------------------- | --------------- | ------------------------------------ |
 | X-NHN-Authorization | Bearer {User Access Key Token}  | User Access Key 토큰                 |
-| X-Key-Version       | {x-key-version} | 발급 받은 공개 키의 버전             |
-| Symmetric-Key       | {symmetricKey}  | 발급 받은 공개 키로 암호화된 대칭 키 |
+| X-Key-Version       | {x-key-version} | 발급받은 공개 키의 버전             |
+| Symmetric-Key       | {symmetricKey}  | 발급받은 공개 키로 암호화된 대칭 키 |
 
-- {symmetricKey}는 반드시 **32byte 난수**로 생성해야 합니다.
+- {symmetricKey}는 반드시 **32바이트 난수**로 생성해야 합니다.
 - {symmetricKey}는 반드시 **RSA/ECB/PKCS1Padding** 방식으로 암호화되어야 합니다(공개 키 이용).
 
 [Path Variable]
@@ -184,7 +182,7 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 
 | 이름  | 타입                | 설명        | 암호화 설명               |
 | ----- | ------------------- | ----------- | ------------------------- |
-| image | multipart/form–data | 이미지 파일 | 대칭 키로 암호화된 이미지 |
+| image | multipart/form-data | 이미지 파일 | 대칭 키로 암호화된 이미지 |
 
 - 이미지 파일은 반드시 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어야 합니다(대칭 키 이용).
 - IV(초기화 벡터)는 대칭 키의 처음 16바이트(즉, 0~15번째 바이트)를 사용합니다.
@@ -276,7 +274,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 | 이름              | 타입   | 설명                                                            | 암호화 여부 |
 | ----------------- | ------ | --------------------------------------------------------------- | ----------- |
 | fileType          | String | 파일 확장자(.jpg, .png)                                         |             |
-| resolution        | String | 권장 해상도(760\*480px) 이상이면 normal, 권장 해상도 미만은 low |             |
+| resolution        | String | 권장 해상도(760x480px) 이상이면 normal, 미만이면 low            |             |
 | cardNums          | List   | 카드 번호 인식 결과 목록                                        |             |
 | cardNums[0].value | String | 인식 결과                                                       | O           |
 | cardNums[0].conf  | Double | 인식 결과 신뢰도                                                |             |
@@ -287,7 +285,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 | validThru.conf    | Double | 유효 기간 인식 결과 신뢰도                                      |             |
 | validThruBox      | Object | 유효 기간 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 }     |             |
 
-- 암호화된 항목들(cardNums[0].value, totalCardNum등)은 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어 있습니다(대칭 키 이용).
+- 암호화된 항목들(cardNums[0].value, totalCardNum 등)은 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어 있습니다(대칭 키 이용).
 
 - boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
@@ -307,10 +305,10 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 | 이름                | 값              | 설명                                 |
 | ------------------- | --------------- | ------------------------------------ |
 | X-NHN-Authorization | Bearer {User Access Key Token}  | User Access Key 토큰                 |
-| X-Key-Version       | {x-key-version} | 발급 받은 공개 키의 버전             |
-| Symmetric-Key       | {symmetricKey}  | 발급 받은 공개 키로 암호화된 대칭 키 |
+| X-Key-Version       | {x-key-version} | 발급받은 공개 키의 버전             |
+| Symmetric-Key       | {symmetricKey}  | 발급받은 공개 키로 암호화된 대칭 키 |
 
-- {symmetricKey}는 반드시 **32byte 난수**로 생성해야 합니다.
+- {symmetricKey}는 반드시 **32바이트 난수**로 생성해야 합니다.
 - {symmetricKey}는 반드시 **RSA/ECB/PKCS1Padding** 방식으로 암호화되어야 합니다(공개 키 이용).
 
 [Path Variable]
@@ -323,7 +321,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 
 | 이름  | 타입                | 설명        | 암호화 설명               |
 | ----- | ------------------- | ----------- | ------------------------- |
-| image | multipart/form–data | 이미지 파일 | 대칭 키로 암호화된 이미지 |
+| image | multipart/form-data | 이미지 파일 | 대칭 키로 암호화된 이미지 |
 
 - 이미지 파일은 반드시 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어야 합니다(대칭 키 이용).
 - IV(초기화 벡터)는 대칭 키의 처음 16바이트(즉, 0~15번째 바이트)를 사용합니다.
@@ -344,7 +342,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 
 | 이름        | 설명                                            |
 | ----------- | ----------------------------------------------- |
-| Request-Key | 신분증 진위 확인 API 호출 시 사용할 Request-Key |
+| Request-Key | 신분증 진위 확인 API 호출 시 사용할 Request-Key (주민등록증, 운전면허증 분석 결과에 한해 제공) |
 
 - **Request-Key를 진위 확인 API 호출에 사용하여 정상 응답을 받은 경우 사용된 Request-Key는 다시 사용할 수 없습니다.**
 - **Request-Key는 발급 이후 1시간 동안 유효하며 그 이후에는 사용할 수 없습니다.**
@@ -454,17 +452,17 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 | 이름               | 타입   | 설명                                                            | 암호화 여부 |
 | ------------------ | ------ | --------------------------------------------------------------- | ----------- |
 | fileType           | String | 파일 확장자(.jpg, .png)                                         |             |
-| resolution         | String | 권장 해상도(760\*480px) 이상이면 normal, 권장 해상도 미만은 low |             |
+| resolution         | String | 권장 해상도(760x480px) 이상이면 normal, 미만이면 low            |             |
 | idType             | String | resident(주민등록증), driver(운전면허증), passport(여권)        |             |
 | keyValues          | List   |                                                                 |             |
 | keyValues[0].key   | String |                                                                 |             |
 | keyValues[0].value | String |                                                                 | O           |
 | keyValues[0].bbox  | Object | 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 }               |             |
 | keyValues[0].conf  | Double | 인식 결과 신뢰도                                                |             |
-| boxes              | List   | 인식 영역(Bounding box) 좌표 목록                               |
-| boxes[0]           | Object | 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 }               |
+| boxes              | List   | 인식 영역(Bounding box) 좌표 목록                               |             |
+| boxes[0]           | Object | 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 }               |             |
 
-- **"idType"이 "resident"로 인식될 경우 KeyValues에 포함되는 목록**
+- **"idType"이 "resident"로 인식될 경우 keyValues에 포함되는 목록**
 
 | key                | value type | description         |
 | ------------------ | ---------- | ------------------- |
@@ -473,7 +471,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 | **issueDate**      | string     | 인식된 발급 일자    |
 | **issuer**         | string     | 인식된 발급기관     |
 
-- **"idType"이 "driver"로 인식될 경우 KeyValues에 포함되는 목록**
+- **"idType"이 "driver"로 인식될 경우 keyValues에 포함되는 목록**
 
 | key                     | value type | description                                                                                     |
 | ----------------------- | ---------- | ----------------------------------------------------------------------------------------------- |
@@ -486,7 +484,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 | **issueDate**           | string     | 인식된 발급 일자                                                                                |
 | **issuer**              | string     | 인식된 발급기관                                                                                 |
 
-- **"idType"이 "passport"로 인식될 경우 KeyValues에 포함되는 목록**
+- **"idType"이 "passport"로 인식될 경우 keyValues에 포함되는 목록**
 
 | key                 | value type | description                         |
 | ------------------- | ---------- | ----------------------------------- |
@@ -527,11 +525,11 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 | 이름                | 값              | 설명                                 |
 | ------------------- | --------------- | ------------------------------------ |
 | X-NHN-Authorization | Bearer {User Access Key Token}  | User Access Key 토큰                 |
-| X-Key-Version       | {x-key-version} | 발급 받은 공개 키의 버전             |
-| Symmetric-Key       | {symmetricKey}  | 발급 받은 공개 키로 암호화된 대칭 키 |
-| Request-Key         | {Request-Key}   | 신분증 분석 후 발급 받은 Request-Key |
+| X-Key-Version       | {x-key-version} | 발급받은 공개 키의 버전             |
+| Symmetric-Key       | {symmetricKey}  | 발급받은 공개 키로 암호화된 대칭 키 |
+| Request-Key         | {Request-Key}   | 신분증 분석 후 발급받은 Request-Key |
 
-- {symmetricKey}는 반드시 **32byte 난수**로 생성해야 합니다.
+- {symmetricKey}는 반드시 **32바이트 난수**로 생성해야 합니다.
 - {symmetricKey}는 반드시 **RSA/ECB/PKCS1Padding** 방식으로 암호화되어야 합니다(공개 키 이용).
 
 [Path Variable]
@@ -544,15 +542,12 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 
 | 이름                | 타입   | 설명                                                                                                                                                               | idType             | 암호화 여부 | 필수 여부 |
 | ------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ | ----------- | --------- |
-| idType              | String | resident(주민등록증), driver(운전면허증), passport(여권)                                                                                                           |                    | X           | O         |
+| idType              | String | resident(주민등록증), driver(운전면허증)                                                                                                                           |                    | X           | O         |
 | name                | String | 이름                                                                                                                                                               |                    | O           | O         |
 | residentNumber      | String | 주민등록번호<br>- resident(주민등록증)의 경우 주민등록번호 숫자 13자리<br>- driver(운전면허증)의 경우 주민등록번호 앞 6자리와 뒤 첫 번째 1자리를 조합한 숫자 7자리 | resident, driver   | O           | O         |
-| issueDate           | String | 발급 일자(YYYYMMDD)                                                                                                                                                | resident, passport | O           | O         |
+| issueDate           | String | 발급 일자(YYYYMMDD)                                                                                                                                                | resident           | O           | O         |
 | driverLicenseNumber | String | 12자리 운전면허번호                                                                                                                                                | driver             | O           | O         |
 | serialNum           | String | 5~6자리 암호 일련번호                                                                                                                                              | driver             | O           | X         |
-| passportNumber      | String | 여권 번호(9자리 영문 대문자, 숫자 조합)                                                                                                                            | passport           | O           | O         |
-| birthDate           | String | 생년월일(YYYYMMDD)                                                                                                                                                 | passport           | O           | O         |
-| expirationDate      | String | 만료 일자(YYYYMMDD)                                                                                                                                                | passport           | X           | O         |
 
 - 암호화가 필요한 필드는 반드시 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어야 합니다(대칭 키 이용).
 - IV(초기화 벡터)는 대칭 키의 처음 16바이트(즉, 0~15번째 바이트)를 사용합니다.
@@ -626,10 +621,10 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 | 이름                | 값              | 설명                                 |
 | ------------------- | --------------- | ------------------------------------ |
 | X-NHN-Authorization | Bearer {User Access Key Token}  | User Access Key 토큰                 |
-| X-Key-Version       | {x-key-version} | 발급 받은 공개 키의 버전             |
-| Symmetric-Key       | {symmetricKey}  | 발급 받은 공개 키로 암호화된 대칭 키 |
+| X-Key-Version       | {x-key-version} | 발급받은 공개 키의 버전             |
+| Symmetric-Key       | {symmetricKey}  | 발급받은 공개 키로 암호화된 대칭 키 |
 
-- {symmetricKey}는 반드시 **32byte 난수**로 생성해야 합니다.
+- {symmetricKey}는 반드시 **32바이트 난수**로 생성해야 합니다.
 - {symmetricKey}는 반드시 **RSA/ECB/PKCS1Padding** 방식으로 암호화되어야 합니다(공개 키 이용).
 
 [Path Variable]
@@ -642,7 +637,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 
 | 이름  | 타입                | 설명        | 암호화 설명               |
 | ----- | ------------------- | ----------- | ------------------------- |
-| image | multipart/form–data | 이미지 파일 | 대칭 키로 암호화된 이미지 |
+| image | multipart/form-data | 이미지 파일 | 대칭 키로 암호화된 이미지 |
 
 - 이미지 파일은 반드시 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어야 합니다(대칭 키 이용).
 - IV(초기화 벡터)는 대칭 키의 처음 16바이트(즉, 0~15번째 바이트)를 사용합니다.
@@ -764,17 +759,17 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 | 이름               | 타입   | 설명                                                            | 암호화 여부 |
 | ------------------ | ------ | --------------------------------------------------------------- | ----------- |
 | fileType           | String | 파일 확장자(.jpg, .png)                                         |             |
-| resolution         | String | 권장 해상도(760\*480px) 이상이면 normal, 권장 해상도 미만은 low |             |
+| resolution         | String | 권장 해상도(760x480px) 이상이면 normal, 미만이면 low            |             |
 | idType             | String | resident(주민등록증), driver(운전면허증), passport(여권)        |             |
 | keyValues          | List   |                                                                 |             |
 | keyValues[0].key   | String |                                                                 |             |
 | keyValues[0].value | String |                                                                 | O           |
 | keyValues[0].bbox  | Object | 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 }               |             |
 | keyValues[0].conf  | Double | 인식 결과 신뢰도                                                |             |
-| boxes              | List   | 인식 영역(Bounding box) 좌표 목록                               |
-| boxes[0]           | Object | 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 }               |
+| boxes              | List   | 인식 영역(Bounding box) 좌표 목록                               |             |
+| boxes[0]           | Object | 인식 영역 좌표 { x1, y1, x2, y2, x3, y3, x4, y4 }               |             |
 
-- **"idType"이 "resident"로 인식될 경우 KeyValues에 포함되는 목록**
+- **"idType"이 "resident"로 인식될 경우 keyValues에 포함되는 목록**
 
 | key                | value type | description         |
 | ------------------ | ---------- | ------------------- |
@@ -783,7 +778,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 | **issueDate**      | string     | 인식된 발급 일자    |
 | **issuer**         | string     | 인식된 발급 기관    |
 
-- **"idType"이 "driver"로 인식될 경우 KeyValues에 포함되는 목록**
+- **"idType"이 "driver"로 인식될 경우 keyValues에 포함되는 목록**
 
 | key                     | value type | description                                                                                     |
 | ----------------------- | ---------- | ----------------------------------------------------------------------------------------------- |
@@ -796,7 +791,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 | **issueDate**           | string     | 인식된 발급 일자                                                                                |
 | **issuer**              | string     | 인식된 발급 기관                                                                                |
 
-- **"idType"이 "passport"로 인식될 경우 KeyValues에 포함되는 목록**
+- **"idType"이 "passport"로 인식될 경우 keyValues에 포함되는 목록**
 
 | key                 | value type | description                         |
 | ------------------- | ---------- | ----------------------------------- |

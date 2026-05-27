@@ -1,5 +1,11 @@
 ## AI Service > OCR > Document OCR > Release Notes
 
+### May 27, 2026
+
+- Deprecated the passport authenticity verification service.
+  - ID authenticity verification has been limited to resident registration card and driver's license.
+  - For more information, see the [API Guide](./document-ocr-api-guide-v2.1.md).
+
 ### March 10, 2026
 
 - API v1.1, v2.1 released

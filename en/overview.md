@@ -105,7 +105,7 @@ For more accurate credit card analysis, please refer to the guide below.
     * Key data according to the types of ID cards (resident registration certificate/driver license/passport) is analyzed as a key/value pair, and provides a confidence for it.
 
 * Verify Authenticity
-    * Verifies the authenticity of an ID card based on the result extracted from the image file.
+    * Verifies the authenticity of an ID card (resident registration certificate, driver's license) based on the result extracted from the image file.
 
 * **Analysis results download**
 	* You can download the results extracted from an ID card image file as a JSON file.
@@ -124,7 +124,7 @@ For more accurate ID card analysis, please refer to the guide below.
     * It might be difficult to extract the correct key/value if the text is difficult to read due to light reflection or shadows caused by the camera flash, etc.
     * The service supports result analysis for black-and-white and color images, but color images are recommended for accurate analysis.
     * The service provides analysis results for ID cards (resident registration certificate/driver license) in Korean only.
-        * Passport can be analyzed for domestic and foreign passports, and for foreign passports, analysis results are provided only for MRZ (machine reading area).
+        * Passport can be analyzed for domestic and foreign passports, and analysis results are provided only for machine reading area (MRZ).
 
 ## Document AI
 

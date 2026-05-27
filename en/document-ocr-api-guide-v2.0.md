@@ -349,7 +349,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 | Name        | Description                                                     |
 |-------------|-----------------------------------------------------------------|
-| Request-Key | Request-Key to be used when calling the Verify Authenticity API |
+| Request-Key | Request-Key to be used when calling the Verify Authenticity API (provided only for resident registration certificate and driver's license analysis results) |
 
 - **If you use the Request-Key to make a Authenticity API call and get a normal response, the Request-Key used cannot be reused.**
 - **Request-Key is valid for 1 hour after issuance and cannot be used after that.**
@@ -460,7 +460,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 |--------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
 | fileType           | String | File extension (.jpg, .png)                                                                                                         |                          |
 | resolution         | String | normal: the resolution is the recommended resolution (760\*480px) or above, low: the resolution is below the recommended resolution |                          |
-| idType             | String | resident(resident registration certificate), driver(driver license), passport (passport)                                            |                          |
+| idType             | String | resident(resident registration certificate), driver(driver's license), passport (passport)                                            |                          |
 | keyValues          | List   |                                                                                                                                     |                          |
 | keyValues[0].key   | String |                                                                                                                                     |                          |
 | keyValues[0].value | String |                                                                                                                                     | O                        |
@@ -482,11 +482,11 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 | key                     | value type | description                                                                                                                            |
 |-------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| **driverLicenseNumber** | string     | Recognized driver license number                                                                                                       |
-| **licenseType**         | string     | Recognized driver license type (Class 1 Normal, etc.)<br>When the values are 2 or more, separate them with "/"                         |
+| **driverLicenseNumber** | string     | Recognized driver's license number                                                                                                       |
+| **licenseType**         | string     | Recognized driver's license type (Class 1 Normal, etc.)<br>When the values are 2 or more, separate them with "/"                         |
 | **name**                | string     | Recognized name                                                                                                                        |
 | **residentNumber**      | string     | Recognized resident registration number                                                                                                |
-| **condition**           | string     | Recognized driver license condition<br>(If the field does not exist according to the driver's license, the value of the field is none) |
+| **condition**           | string     | Recognized driver's license condition<br>(If the field does not exist according to the driver's license, the value of the field is none) |
 | **serialNum**           | string     | Recognized serial number                                                                                                               |
 | **issueDate**           | string     | Recognized issued date                                                                                                                 |
 | **issuer**              | string     | Recognized issuer                                                                                                                      |
@@ -551,15 +551,12 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 | Name                | Type   | Description                                                                                                                                                                                                                                                             | idType             | Whether encrypted or not | Required |
 |---------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|--------------------------|----------|
-| idType              | String | resident(resident registration certificate), driver(driver license), passport (passport)                                                                                                                                                                                |                    | X                        | O        |
+| idType              | String | resident(resident registration certificate), driver(driver's license)                                                                                                                                                                                                     |                    | X                        | O        |
 | name                | String | Name                                                                                                                                                                                                                                                                    |                    | O                        | O        |
 | residentNumber      | String | Resident registration number<br>- For resident (resident registration certificate), 13 digits of resident registration number<br>- For a driver (driver's license), 7 digits that comprise of the first 6 digits and the first 1 digit of  resident registration number | resident, driver   | O                        | O        |
-| issueDate           | String | Issued date (YYYYMMDD)                                                                                                                                                                                                                                                  | resident, passport | O                        | O        |
-| driverLicenseNumber | String | 12 digits of driver license number                                                                                                                                                                                                                                      | driver             | O                        | O        |
+| issueDate           | String | Issued date (YYYYMMDD)                                                                                                                                                                                                                                                  | resident           | O                        | O        |
+| driverLicenseNumber | String | 12 digits of driver's license number                                                                                                                                                                                                                                      | driver             | O                        | O        |
 | serialNum           | String | 5 and 6 digits of serial number                                                                                                                                                                                                                                         | driver             | O                        | X        |
-| passportNumber      | String | Passport number (9 digits in uppercase letters and numbers)                                                                                                                                                                                                             | passport           | O                        | O        |
-| birthDate           | String | Birthdate (YYYYMMDD)                                                                                                                                                                                                                                                    | passport           | O                        | O        |
-| expirationDate      | String | Expiration date (YYYYMMDD)                                                                                                                                                                                                                                              | passport           | X                        | O        |
 
 - A field that requires encryption must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
 - The initialization vector (IV) uses the first 16 bytes (i.e., bytes 0-15) of the symmetric key.
@@ -772,7 +769,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 |--------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
 | fileType           | String | File extension (.jpg, .png)                                                                                                         |                          |
 | resolution         | String | normal: the resolution is the recommended resolution (760\*480px) or above, low: the resolution is below the recommended resolution |                          |
-| idType             | String | resident(resident registration certificate), driver(driver license), passport (passport)                                            |                          |
+| idType             | String | resident(resident registration certificate), driver(driver's license), passport (passport)                                            |                          |
 | keyValues          | List   |                                                                                                                                     |                          |
 | keyValues[0].key   | String |                                                                                                                                     |                          |
 | keyValues[0].value | String |                                                                                                                                     | O                        |
@@ -794,11 +791,11 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 
 | key                     | value type | description                                                                                                                            |
 |-------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| **driverLicenseNumber** | string     | Recognized driver license number                                                                                                       |
-| **licenseType**         | string     | Recognized driver license type (Class 1 Normal, etc.)<br>When the values are 2 or more, separate them with "/"                         |
+| **driverLicenseNumber** | string     | Recognized driver's license number                                                                                                       |
+| **licenseType**         | string     | Recognized driver's license type (Class 1 Normal, etc.)<br>When the values are 2 or more, separate them with "/"                         |
 | **name**                | string     | Recognized name                                                                                                                        |
 | **residentNumber**      | string     | Recognized resident registration number                                                                                                |
-| **condition**           | string     | Recognized driver license condition<br>(If the field does not exist according to the driver's license, the value of the field is none) |
+| **condition**           | string     | Recognized driver's license condition<br>(If the field does not exist according to the driver's license, the value of the field is none) |
 | **serialNum**           | string     | Recognized serial number                                                                                                               |
 | **issueDate**           | string     | Recognized issued date                                                                                                                 |
 | **issuer**              | string     | Recognized issuer                                                                                                                      |

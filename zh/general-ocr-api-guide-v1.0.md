@@ -76,7 +76,7 @@ Content-Type: application/json
 | 4000004    | Uploaded file is empty.                                                                    | Uploaded file is empty                           |
 | 4000005    | Required headers are missing.                                                               | Required headers are missing                     |
 | 4000006    | Api call limit exceeded. If you need to adjust the limit, please contact customer service. | API call limit exceeded                          |
-| 4131000    | Request size is larger than the permissible limit. The permissible limit is 5mb.               | Request size exceeds the permissible limit (5MB) |
+| 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds the permissible limit       |
 
 ### General OCR API
 

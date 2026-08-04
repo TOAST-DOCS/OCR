@@ -6,7 +6,7 @@
 
 | Region                | Endpoint                            |
 | --------------------- | ----------------------------------- |
-| Korea (Pangyo) Region | https://ocr.api.nhncloudservice.com |
+| Korea (Pangyo) Region | https://api-ocr.nhncloudservice.com |
 
 ### Authentication and Authorization
 
@@ -76,7 +76,7 @@ Content-Type: application/json
 | 4000004    | Uploaded file is empty.                                                                    | Uploaded file is empty                           |
 | 4000005    | Required headers is missing.                                                               | Required headers missing                         |
 | 4000006    | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API call limit exceeded                          |
-| 4131000    | Request size is larger than permissible limit. the permissible limit is 5mb.               | Request size exceeds the permissible limit (5MB) |
+| 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds the permissible limit       |
 
 ### Overview of v2.0 API
 
@@ -116,7 +116,7 @@ Content-Type: application/json
 [Request Body]
 
 ```shell
-curl -X GET 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/public-keys/{serviceName}' \
+curl -X GET 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/public-keys/{serviceName}' \
 -H 'Authorization: ${secretKey}'
 ```
 
@@ -197,7 +197,7 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 [Request Body]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-card' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-card' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
 -H 'X-Key-Version: ${x-key-version}' \
@@ -336,7 +336,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 [Request Body]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
 -H 'X-Key-Version: ${x-key-version}' \
@@ -564,7 +564,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 [Request Body]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/authenticity' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/authenticity' \
 -H 'Authorization: ${secretKey}' \
 -H 'X-Key-Version: ${x-key-version}' \
 -H 'Symmetric-Key: ${symmetricKey}' \
@@ -654,7 +654,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 [Request Body]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/stand-alone' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/stand-alone' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
 -H 'X-Key-Version: ${x-key-version}' \

@@ -6,7 +6,7 @@
 
 | Region                | Endpoint                            |
 | --------------------- | ----------------------------------- |
-| Korea (Pangyo) Region | https://ocr.api.nhncloudservice.com |
+| Korea (Pangyo) Region | https://api-ocr.nhncloudservice.com |
 
 ### Authentication and Authorization
 
@@ -76,7 +76,7 @@ Content-Type: application/json
 | 4000004    | Uploaded file is empty.                                                                    | Uploaded file is empty                        |
 | 4000005    | Required headers is missing.                                                               | Required headers missing                      |
 | 4000006    | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API call limit exceeded                       |
-| 4131000    | Request size is larger than permissible limit. the permissible limit is 5mb.               | Request size exceeds the permissible limit (5MB) |
+| 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds the permissible limit    |
 
 ### Business Registration Certificate Analysis API
 
@@ -105,7 +105,7 @@ Content-Type: application/json
 - Put the binary data of the image file.
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/business' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}'
 ```
@@ -217,7 +217,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 [Request Body]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business/status' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/business/status' \
 -H 'Authorization: ${secretKey}' \
 --data-raw '{
   "businessNumber": "1234567890"
@@ -298,7 +298,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 - Put the binary data of the image file.
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-card' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-card' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}'
 ```

@@ -6,7 +6,7 @@
 
 | 리전            | 엔드포인트                          |
 | --------------- | ----------------------------------- |
-| 한국(판교) 리전 | https://ocr.api.nhncloudservice.com |
+| 한국(판교) 리전 | https://api-ocr.nhncloudservice.com |
 
 ### 인증 및 권한
 
@@ -71,7 +71,7 @@ Content-Type: application/json
 | 4000004   | Uploaded file is empty.                                                                    | 업로드된 파일이 비어 있음       |
 | 4000005   | Required headers is missing.                                                               | 필수 헤더 누락                  |
 | 4000006   | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API 호출 한도 초과              |
-| 4131000   | Request size is larger than permissible limit. the permissible limit is 5mb.               | 요청 크기가 허용 한도(5MB) 초과 |
+| 4131000   | Request size is larger than permissible limit.                                             | 요청 크기가 허용 한도 초과                 |
 
 ### v2.1 API 소개
 
@@ -111,7 +111,7 @@ Content-Type: application/json
 [요청 본문]
 
 ```shell
-curl -X GET 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/public-keys/{serviceName}' \
+curl -X GET 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/public-keys/{serviceName}' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}'
 ```
 
@@ -190,7 +190,7 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 [요청 본문]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-card' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-card' \
 -F 'image=@sample.png' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 -H 'X-Key-Version: ${x-key-version}' \
@@ -329,7 +329,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 [요청 본문]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card' \
 -F 'image=@sample.png' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 -H 'X-Key-Version: ${x-key-version}' \
@@ -555,7 +555,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 [요청 본문]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/authenticity' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/authenticity' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 -H 'X-Key-Version: ${x-key-version}' \
 -H 'Symmetric-Key: ${symmetricKey}' \
@@ -645,7 +645,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 [요청 본문]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/stand-alone' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/stand-alone' \
 -F 'image=@sample.png' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 -H 'X-Key-Version: ${x-key-version}' \

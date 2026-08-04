@@ -6,7 +6,7 @@
 
 | 리전            | 엔드포인트                          |
 | --------------- | ----------------------------------- |
-| 한국(판교) 리전 | https://ocr.api.nhncloudservice.com |
+| 한국(판교) 리전 | https://api-ocr.nhncloudservice.com |
 
 ### 인증 및 권한
 
@@ -73,7 +73,7 @@ Content-Type: application/json
 | 4000006   | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API 호출 한도 초과              |
 | 4010006   | Invalid token.                                                                             | 유효하지 않은 토큰              |
 | 4010007   | Permission denied.                                                                         | 권한 없음                       |
-| 4131000   | Request size is larger than permissible limit. the permissible limit is 5mb.               | 요청 크기가 허용 한도(5MB) 초과 |
+| 4131000   | Request size is larger than permissible limit.                                             | 요청 크기가 허용 한도 초과                 |
 
 ### 사업자등록증 분석 API
 
@@ -102,7 +102,7 @@ Content-Type: application/json
 - 이미지 파일의 바이너리 데이터를 넣습니다.
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/business' \
 -F 'image=@sample.png' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}'
 ```
@@ -214,7 +214,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 [요청 본문]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business/status' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/business/status' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 --data-raw '{
   "businessNumber": "1234567890"
@@ -294,7 +294,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 - 이미지 파일의 바이너리 데이터를 넣습니다.
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/credit-card' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/credit-card' \
 -F 'image=@sample.png' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}'
 ```

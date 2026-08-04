@@ -20,7 +20,7 @@ For more accurate image analysis, please refer to the guide below.
 
 * File/image URL recommendations
     * File format: Supports analysis of images in .jpeg, .png format.
-    * Maximum size: 5 MB for file content, 20 MB for image URL content
+    * Maximum size: 20 MB
     * Recommended resolution: 1280x720
     * If you are analyzing a long image, you can use the ‘Segmentation Recognition feature’ to get more accurate analysis results.
         * Long images with a ‘horizontal to vertical’ or ‘vertical to horizontal’ aspect ratio greater than 1:2.5 can cause poor analysis performance.
@@ -55,7 +55,7 @@ For more accurate business registration analysis, please refer to the guide belo
 
 * File recommendations
     * This service supports analysis of business registration certificate images in .pdf, .jpeg, .png format.
-    * Maximum size: 5 MB
+    * Maximum size: 20 MB
     * Recommended resolution: 1280 x 720 or higher
 * For PDF, only the analysis results for a single page is provided. (In case of multiple pages, analysis results for the first page is provided.)
 * Please use an image taken in a condition where the subject has been laid out as straight as possible on a flat surface.
@@ -83,7 +83,7 @@ For more accurate credit card analysis, please refer to the guide below.
 
 * File recommendations
     * File format: Supports analysis of images in .jpeg, .png format.
-    * Maximum size: 5 MB
+    * Maximum size: 20 MB
     * Recommended resolution: 760 x 480
 * Please use an image taken in a condition where the subject has been laid out as straight as possible on a flat surface.
 * Use a full image with a rectangular shape.
@@ -116,7 +116,7 @@ For more accurate ID card analysis, please refer to the guide below.
 
 * File recommendations
     * File format: Supports analysis of images in .jpeg, .png format.
-    * Maximum size: 5 MB
+    * Maximum size: 20 MB
     * Recommended resolution: 760x480
 * Image recommendation
     * Please use an image taken in a condition where the subject has been laid out as straight as possible on a flat surface.
@@ -140,7 +140,7 @@ For more accurate image analysis, please refer to the guide below.
 
 * File Recommendations
     * File format: Supports analysis of images in .jpeg, .png format.
-    * Maximum size: 5 MB
+    * Maximum size: 20 MB
     * Recommended resolution: 1280 x 720 or higher
 
 * Image Recommendations

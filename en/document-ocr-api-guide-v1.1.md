@@ -74,7 +74,7 @@ Content-Type: application/json
 | 4000006    | Api call limit exceeded. If you need to adjust the limit, please contact customer service. | API call limit exceeded                          |
 | 4010006    | Invalid token.                                                                             | Invalid token                                    |
 | 4010007    | Permission denied.                                                                         | Permission denied                                |
-| 4131000    | Request size is larger than the permissible limit. The permissible limit is 5mb.               | Request size exceeds the permissible limit (5MB) |
+| 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds the permissible limit       |
 
 ### Business Registration Certificate Analysis API
 

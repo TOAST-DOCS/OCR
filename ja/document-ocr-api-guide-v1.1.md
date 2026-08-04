@@ -74,7 +74,7 @@ Content-Type: application/json
 | 4000006      | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API呼び出し限度超過           |
 | 4010006      | Invalid token.                                                                             | 無効なトークン                |
 | 4010007      | Permission denied.                                                                         | 権限なし                      |
-| 4131000      | Request size is larger than permissible limit. the permissible limit is 5mb.               | リクエストサイズが許容限度(5MB)超過 |
+| 4131000      | Request size is larger than permissible limit.                                             | リクエストサイズが許容限度超過               |
 
 ### 事業者登録証分析API
 

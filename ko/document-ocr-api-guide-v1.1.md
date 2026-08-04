@@ -73,7 +73,7 @@ Content-Type: application/json
 | 4000006   | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API 호출 한도 초과              |
 | 4010006   | Invalid token.                                                                             | 유효하지 않은 토큰              |
 | 4010007   | Permission denied.                                                                         | 권한 없음                       |
-| 4131000   | Request size is larger than permissible limit. the permissible limit is 5mb.               | 요청 크기가 허용 한도(5MB) 초과 |
+| 4131000   | Request size is larger than permissible limit.                                             | 요청 크기가 허용 한도 초과                 |
 
 ### 사업자등록증 분석 API
 

@@ -6,7 +6,7 @@
 
 | Region                | Endpoint                            |
 | --------------------- | ----------------------------------- |
-| Korea (Pangyo) Region | https://ocr.api.nhncloudservice.com |
+| Korea (Pangyo) Region | https://api-ocr.nhncloudservice.com |
 
 ### Authentication and Authorization
 
@@ -95,7 +95,7 @@ Content-Type: application/json
 [Request Body]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/document-ai' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/document-ai' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 -F 'image=@sample.png' \
 -F 'prompt="Give me a quick summary"' \

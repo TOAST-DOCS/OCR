@@ -9,7 +9,7 @@
 
 | 메서드  | URI                                                               |
 |------|-------------------------------------------------------------------|
-| POST | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/document-ai |
+| POST | https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/document-ai |
 
 [요청 헤더]
 
@@ -21,7 +21,7 @@
 [요청 본문]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/document-ai' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/document-ai' \
 -H 'Authorization: ${secretKey}' \
 -F 'image=@sample.png' \
 -F 'prompt="간단하게 요약 해줘"' \

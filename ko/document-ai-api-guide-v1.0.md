@@ -6,7 +6,7 @@
 
 | 리전            | 엔드포인트                          |
 | --------------- | ----------------------------------- |
-| 한국(판교) 리전 | https://ocr.api.nhncloudservice.com |
+| 한국(판교) 리전 | https://api-ocr.nhncloudservice.com |
 
 ### 인증 및 권한
 
@@ -97,7 +97,7 @@ Content-Type: application/json
 [요청 본문]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/document-ai' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/document-ai' \
 -H 'Authorization: ${secretKey}' \
 -F 'image=@sample.png' \
 -F 'prompt="간단하게 요약 해줘"' \

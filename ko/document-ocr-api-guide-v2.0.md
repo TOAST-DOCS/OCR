@@ -6,7 +6,7 @@
 
 | 리전            | 엔드포인트                          |
 | --------------- | ----------------------------------- |
-| 한국(판교) 리전 | https://ocr.api.nhncloudservice.com |
+| 한국(판교) 리전 | https://api-ocr.nhncloudservice.com |
 
 ### 인증 및 권한
 
@@ -116,7 +116,7 @@ Content-Type: application/json
 [요청 본문]
 
 ```shell
-curl -X GET 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/public-keys/{serviceName}' \
+curl -X GET 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/public-keys/{serviceName}' \
 -H 'Authorization: ${secretKey}'
 ```
 
@@ -195,7 +195,7 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 [요청 본문]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-card' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-card' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
 -H 'X-Key-Version: ${x-key-version}' \
@@ -334,7 +334,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 [요청 본문]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
 -H 'X-Key-Version: ${x-key-version}' \
@@ -560,7 +560,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 [요청 본문]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/authenticity' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/authenticity' \
 -H 'Authorization: ${secretKey}' \
 -H 'X-Key-Version: ${x-key-version}' \
 -H 'Symmetric-Key: ${symmetricKey}' \
@@ -650,7 +650,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 [요청 본문]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/stand-alone' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/stand-alone' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
 -H 'X-Key-Version: ${x-key-version}' \

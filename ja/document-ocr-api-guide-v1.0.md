@@ -6,7 +6,7 @@
 
 | リージョン      | エンドポイント                       |
 | --------------- | ----------------------------------- |
-| 韓国(板橋)リージョン | https://ocr.api.nhncloudservice.com |
+| 韓国(板橋)リージョン | https://api-ocr.nhncloudservice.com |
 
 ### 認証及び権限
 
@@ -105,7 +105,7 @@ Content-Type: application/json
 * 画像ファイルのBinary Dataを入れます。
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/business' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}'
 ```
@@ -217,7 +217,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 [リクエスト本文]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business/status' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/business/status' \
 -H 'Authorization: ${secretKey}' \
 --data-raw '{
   "businessNumber": "1234567890"
@@ -297,7 +297,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 - 画像ファイルのBinary Dataを入れます。
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-card' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-card' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}'
 ```

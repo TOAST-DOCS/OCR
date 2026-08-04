@@ -6,7 +6,7 @@
 
 | リージョン          | エンドポイント                      |
 | ------------------- | ----------------------------------- |
-| 韓国(パンギョ)リージョン | https://ocr.api.nhncloudservice.com |
+| 韓国(パンギョ)リージョン | https://api-ocr.nhncloudservice.com |
 
 ### 認証及び権限
 
@@ -95,7 +95,7 @@ Content-Type: application/json
 [リクエスト本文]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/document-ai' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/document-ai' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 -F 'image=@sample.png' \
 -F 'prompt="簡潔に要約してくれ"' \

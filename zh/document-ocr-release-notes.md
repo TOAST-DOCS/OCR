@@ -9,6 +9,12 @@
 - Maximum request file size increased
   - The maximum request file size has been increased from 5 MB to 20 MB.
 
+### May 27, 2026
+
+- Passport authenticity verification service terminated
+  - ID authenticity verification is now limited to resident registration cards and driver's licenses.
+  - For details, see the [API Guide](./document-ocr-api-guide-v2.1.md).
+
 ### March 10, 2026
 
 - API v1.1, v2.1 released

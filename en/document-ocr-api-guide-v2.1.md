@@ -53,28 +53,28 @@ Content-Type: application/json
 
 </details>
 
-| Name          | Type    | Description                                                        |
-| ------------- | ------- | ------------------------------------------------------------------ |
-| resultCode    | int     | Response code<br>0 on success, error code on failure               |
-| resultMessage | String  | Response message                                                   |
-| isSuccessful  | boolean | Success or not                                                     |
+| Name          | Type    | Description                                          |
+| ------------- | ------- | ---------------------------------------------------- |
+| resultCode    | int     | Response code<br>0 on success, error code on failure |
+| resultMessage | String  | Response message                                     |
+| isSuccessful  | boolean | Success or not                                       |
 
 ### Error Codes
 
 #### Common
 
-| Error Code | Error Message                                                                              | Description                                      |
-| ---------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------ |
-| -1         | Unknown error.                                                                             | Unknown error                                    |
-| 4000001    | Invalid parameter.                                                                         | Invalid parameter                                |
-| 4000002    | Invalid file.                                                                              | Invalid file                                     |
-| 4000003    | Invalid file type.                                                                         | Invalid file type                                |
-| 4000004    | Uploaded file is empty.                                                                    | Uploaded file is empty                           |
-| 4000005    | Required headers is missing.                                                               | Required headers missing                         |
-| 4000006    | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API call limit exceeded                          |
-| 4010006    | Invalid token.                                                                             | Invalid token                                    |
-| 4010007    | Permission denied.                                                                         | Permission denied                                |
-| 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds the permissible limit       |
+| Error Code | Error Message                                                                              | Description                                |
+| ---------- | ------------------------------------------------------------------------------------------ | ------------------------------------------ |
+| -1         | Unknown error.                                                                             | Unknown error                              |
+| 4000001    | Invalid parameter.                                                                         | Invalid parameter                          |
+| 4000002    | Invalid file.                                                                              | Invalid file                               |
+| 4000003    | Invalid file type.                                                                         | Invalid file type                          |
+| 4000004    | Uploaded file is empty.                                                                    | Uploaded file is empty                     |
+| 4000005    | Required headers is missing.                                                               | Required headers missing                   |
+| 4000006    | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API call limit exceeded                    |
+| 4010006    | Invalid token.                                                                             | Invalid token                              |
+| 4010007    | Permission denied.                                                                         | Permission denied                          |
+| 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds the permissible limit |
 
 ### Overview of v2.1 API
 
@@ -95,7 +95,7 @@ Content-Type: application/json
 [URI]
 
 | Method | URI                                              |
-|--------|--------------------------------------------------|
+| ------ | ------------------------------------------------ |
 | GET    | /v2.1/appkeys/{appKey}/public-keys/{serviceName} |
 
 [Request Header]
@@ -107,7 +107,7 @@ Content-Type: application/json
 [Path Variable]
 
 | Name        | Value         | Description                                                                                                                                                |
-|-------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | appKey      | {appKey}      | Integrated Appkey or Service Appkey                                                                                                                        |
 | serviceName | {serviceName} | credit-card (when issuing the public key used for calling the credit card API),<br> id-card (when issuing the public key used for calling the ID card API) |
 
@@ -139,7 +139,7 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 [Header]
 
 | Name          | Type    | Description                                                   |
-|---------------|---------|---------------------------------------------------------------|
+| ------------- | ------- | ------------------------------------------------------------- |
 | isSuccessful  | Boolean | API success or not                                            |
 | resultCode    | Integer | Result code                                                   |
 | resultMessage | String  | Result message (success on success, error content on failure) |
@@ -147,7 +147,7 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 [Field]
 
 | Name           | Type   | Description                        |
-|----------------|--------|------------------------------------|
+| -------------- | ------ | ---------------------------------- |
 | result         | Object | Public key required for encryption |
 | result.key     | String | Public key (Base64 encoded)        |
 | result.version | String | version of public key              |
@@ -163,16 +163,16 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 [URI]
 
 | Method | URI                                |
-|--------|------------------------------------|
+| ------ | ---------------------------------- |
 | POST   | /v2.1/appkeys/{appKey}/credit-card |
 
 [Request Header]
 
-| Name                | Value           | Description                                        |
-|---------------------|-----------------|----------------------------------------------------|
-| X-NHN-Authorization | Bearer {User Access Key Token}  | User Access Key token                              |
-| X-Key-Version       | {x-key-version} | Version of the public key issued                   |
-| Symmetric-Key       | {symmetricKey}  | Symmetric key encrypted with the issued public key |
+| Name                | Value                          | Description                                        |
+| ------------------- | ------------------------------ | -------------------------------------------------- |
+| X-NHN-Authorization | Bearer {User Access Key Token} | User Access Key token                              |
+| X-Key-Version       | {x-key-version}                | Version of the public key issued                   |
+| Symmetric-Key       | {symmetricKey}                 | Symmetric key encrypted with the issued public key |
 
 - {symmetricKey} must be created as a **32-byte random number**.
 - {symmetricKey} must be encrypted with the **RSA/ECB/PKCS1Padding** method (using public key).
@@ -180,13 +180,13 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 [Path Variable]
 
 | Name   | Value    | Description                         |
-|--------|----------|-------------------------------------|
+| ------ | -------- | ----------------------------------- |
 | appKey | {appKey} | Integrated Appkey or Service Appkey |
 
 [Field]
 
 | Name  | Type                | Description | Encryption Description               |
-|-------|---------------------|-------------|--------------------------------------|
+| ----- | ------------------- | ----------- | ------------------------------------ |
 | image | multipart/form-data | Image file  | Image encrypted with a symmetric key |
 
 - Image files must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
@@ -269,7 +269,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 [Header]
 
 | Name          | Type    | Description                                                   |
-|---------------|---------|---------------------------------------------------------------|
+| ------------- | ------- | ------------------------------------------------------------- |
 | isSuccessful  | Boolean | Analysis API success or not                                   |
 | resultCode    | Integer | Result code                                                   |
 | resultMessage | String  | Result message (success on success, error content on failure) |
@@ -277,7 +277,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 [Field]
 
 | Name              | Type   | Description                                                                                                                         | Whether encrypted or not |
-|-------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
+| ----------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | fileType          | String | File extension (.jpg, .png)                                                                                                         |                          |
 | resolution        | String | normal: the resolution is the recommended resolution (760\*480px) or above, low: the resolution is below the recommended resolution |                          |
 | cardNums          | List   | List of card number recognition results                                                                                             |                          |
@@ -302,16 +302,16 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 [URI]
 
 | Method | URI                            |
-|--------|--------------------------------|
+| ------ | ------------------------------ |
 | POST   | /v2.1/appkeys/{appKey}/id-card |
 
 [Request Header]
 
-| Name                | Value           | Description                                        |
-|---------------------|-----------------|----------------------------------------------------|
-| X-NHN-Authorization | Bearer {User Access Key Token}  | User Access Key token                              |
-| X-Key-Version       | {x-key-version} | Version of the public key issued                   |
-| Symmetric-Key       | {symmetricKey}  | Symmetric key encrypted with the issued public key |
+| Name                | Value                          | Description                                        |
+| ------------------- | ------------------------------ | -------------------------------------------------- |
+| X-NHN-Authorization | Bearer {User Access Key Token} | User Access Key token                              |
+| X-Key-Version       | {x-key-version}                | Version of the public key issued                   |
+| Symmetric-Key       | {symmetricKey}                 | Symmetric key encrypted with the issued public key |
 
 - {symmetricKey} must be created as a **32-byte random number**.
 - {symmetricKey} must be encrypted with the **RSA/ECB/PKCS1Padding** method (using public key).
@@ -319,13 +319,13 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 [Path Variable]
 
 | Name   | Value    | Description                         |
-|--------|----------|-------------------------------------|
+| ------ | -------- | ----------------------------------- |
 | appKey | {appKey} | Integrated Appkey or Service Appkey |
 
 [Field]
 
 | Name  | Type                | Description | Encryption Description               |
-|-------|---------------------|-------------|--------------------------------------|
+| ----- | ------------------- | ----------- | ------------------------------------ |
 | image | multipart/form-data | Image file  | Image encrypted with a symmetric key |
 
 - Image files must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
@@ -447,7 +447,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 [Header]
 
 | Name          | Type    | Description                                                   |
-|---------------|---------|---------------------------------------------------------------|
+| ------------- | ------- | ------------------------------------------------------------- |
 | isSuccessful  | Boolean | Analysis API success or not                                   |
 | resultCode    | Integer | Result code                                                   |
 | resultMessage | String  | Result message (success on success, error content on failure) |
@@ -470,7 +470,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 - **List included in KeyValues when "idType" is recognized as "resident"**
 
 | key                | value type | description                             |
-|--------------------|------------|-----------------------------------------|
+| ------------------ | ---------- | --------------------------------------- |
 | **name**           | string     | Recognized name                         |
 | **residentNumber** | string     | Recognized resident registration number |
 | **issueDate**      | string     | Recognized issued date                  |
@@ -478,23 +478,23 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 
 - **List to be included in KeyValues when "idType" is recognized as "driver"**
 
-| key                     | value type | description                                                                                                                            |
-|-------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| key                     | value type | description                                                                                                                              |
+| ----------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | **driverLicenseNumber** | string     | Recognized driver's license number                                                                                                       |
 | **licenseType**         | string     | Recognized driver's license type (Class 1 Normal, etc.)<br>When the values are 2 or more, separate them with "/"                         |
-| **name**                | string     | Recognized name                                                                                                                        |
-| **residentNumber**      | string     | Recognized resident registration number                                                                                                |
+| **name**                | string     | Recognized name                                                                                                                          |
+| **residentNumber**      | string     | Recognized resident registration number                                                                                                  |
 | **condition**           | string     | Recognized driver's license condition<br>(If the field does not exist according to the driver's license, the value of the field is none) |
-| **serialNum**           | string     | Recognized serial number                                                                                                               |
-| **issueDate**           | string     | Recognized issued date                                                                                                                 |
-| **issuer**              | string     | Recognized issuer                                                                                                                      |
+| **serialNum**           | string     | Recognized serial number                                                                                                                 |
+| **issueDate**           | string     | Recognized issued date                                                                                                                   |
+| **issuer**              | string     | Recognized issuer                                                                                                                        |
 
 
 
 - **List included in KeyValues when "idType" is recognized as "passport"**
 
 | key                 | value type | description                                       |
-|---------------------|------------|---------------------------------------------------|
+| ------------------- | ---------- | ------------------------------------------------- |
 | **passportType**    | string     | Recognized passport type                          |
 | **countryCode**     | string     | Recognized country code                           |
 | **passportNo**      | string     | Recognized passport number                        |
@@ -524,17 +524,17 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 [URI]
 
 | Method | URI                                         |
-|--------|---------------------------------------------|
+| ------ | ------------------------------------------- |
 | POST   | /v2.1/appkeys/{appKey}/id-card/authenticity |
 
 [Request Header]
 
-| Name                | Value           | Description                                        |
-|---------------------|-----------------|----------------------------------------------------|
-| X-NHN-Authorization | Bearer {User Access Key Token}  | User Access Key token                              |
-| X-Key-Version       | {x-key-version} | Version of the public key issued                   |
-| Symmetric-Key       | {symmetricKey}  | Symmetric key encrypted with the issued public key |
-| Request-Key         | {Request-Key}   | Request-Key issued after ID card analysis          |
+| Name                | Value                          | Description                                        |
+| ------------------- | ------------------------------ | -------------------------------------------------- |
+| X-NHN-Authorization | Bearer {User Access Key Token} | User Access Key token                              |
+| X-Key-Version       | {x-key-version}                | Version of the public key issued                   |
+| Symmetric-Key       | {symmetricKey}                 | Symmetric key encrypted with the issued public key |
+| Request-Key         | {Request-Key}                  | Request-Key issued after ID card analysis          |
 
 - {symmetricKey} must be created as a **32-byte random number**.
 - {symmetricKey} must be encrypted with the **RSA/ECB/PKCS1Padding** method (using public key).
@@ -542,19 +542,19 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 [Path Variable]
 
 | Name   | Value    | Description                         |
-|--------|----------|-------------------------------------|
+| ------ | -------- | ----------------------------------- |
 | appKey | {appKey} | Integrated Appkey or Service Appkey |
 
 [Field]
 
-| Name                | Type   | Description                                                                                                                                                                                                                                                             | idType             | Whether encrypted or not | Required |
-|---------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|--------------------------|----------|
-| idType              | String | resident(resident registration certificate), driver(driver's license)                                                                                                                                                                                                     |                    | X                        | O        |
-| name                | String | Name                                                                                                                                                                                                                                                                    |                    | O                        | O        |
-| residentNumber      | String | Resident registration number<br>- For resident (resident registration certificate), 13 digits of resident registration number<br>- For a driver (driver's license), 7 digits that comprise of the first 6 digits and the first 1 digit of  resident registration number | resident, driver   | O                        | O        |
-| issueDate           | String | Issued date (YYYYMMDD)                                                                                                                                                                                                                                                  | resident           | O                        | O        |
-| driverLicenseNumber | String | 12 digits of driver's license number                                                                                                                                                                                                                                      | driver             | O                        | O        |
-| serialNum           | String | 5 and 6 digits of serial number                                                                                                                                                                                                                                         | driver             | O                        | X        |
+| Name                | Type   | Description                                                                                                                                                                                                                                                             | idType           | Whether encrypted or not | Required |
+| ------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------ | -------- |
+| idType              | String | resident(resident registration certificate), driver(driver's license)                                                                                                                                                                                                   |                  | X                        | O        |
+| name                | String | Name                                                                                                                                                                                                                                                                    |                  | O                        | O        |
+| residentNumber      | String | Resident registration number<br>- For resident (resident registration certificate), 13 digits of resident registration number<br>- For a driver (driver's license), 7 digits that comprise of the first 6 digits and the first 1 digit of  resident registration number | resident, driver | O                        | O        |
+| issueDate           | String | Issued date (YYYYMMDD)                                                                                                                                                                                                                                                  | resident         | O                        | O        |
+| driverLicenseNumber | String | 12 digits of driver's license number                                                                                                                                                                                                                                    | driver           | O                        | O        |
+| serialNum           | String | 5 and 6 digits of serial number                                                                                                                                                                                                                                         | driver           | O                        | X        |
 
 - A field that requires encryption must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
 - The initialization vector (IV) uses the first 16 bytes (i.e., bytes 0-15) of the symmetric key.
@@ -597,7 +597,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 [Header]
 
 | Name          | Type    | Description                                                   |
-|---------------|---------|---------------------------------------------------------------|
+| ------------- | ------- | ------------------------------------------------------------- |
 | isSuccessful  | Boolean | Whether the Verify Authenticity API succeeds or not           |
 | resultCode    | Integer | Result code                                                   |
 | resultMessage | String  | Result message (success on success, error content on failure) |
@@ -605,7 +605,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 [Field]
 
 | Name           | Type    | Description                    |
-|----------------|---------|--------------------------------|
+| -------------- | ------- | ------------------------------ |
 | isAuthenticity | Boolean | Whether it is authentic or not |
 
 ### ID Card Analysis API (Stand alone)
@@ -620,16 +620,16 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 [URI]
 
 | Method | URI                                        |
-|--------|--------------------------------------------|
+| ------ | ------------------------------------------ |
 | POST   | /v2.1/appkeys/{appKey}/id-card/stand-alone |
 
 [Request Header]
 
-| Name                | Value           | Description                                        |
-|---------------------|-----------------|----------------------------------------------------|
-| X-NHN-Authorization | Bearer {User Access Key Token}  | User Access Key token                              |
-| X-Key-Version       | {x-key-version} | Version of the public key issued                   |
-| Symmetric-Key       | {symmetricKey}  | Symmetric key encrypted with the issued public key |
+| Name                | Value                          | Description                                        |
+| ------------------- | ------------------------------ | -------------------------------------------------- |
+| X-NHN-Authorization | Bearer {User Access Key Token} | User Access Key token                              |
+| X-Key-Version       | {x-key-version}                | Version of the public key issued                   |
+| Symmetric-Key       | {symmetricKey}                 | Symmetric key encrypted with the issued public key |
 
 - {symmetricKey} must be created as a **32-byte random number**.
 - {symmetricKey} must be encrypted with the **RSA/ECB/PKCS1Padding** method (using public key).
@@ -637,13 +637,13 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 [Path Variable]
 
 | Name   | Value    | Description                         |
-|--------|----------|-------------------------------------|
+| ------ | -------- | ----------------------------------- |
 | appKey | {appKey} | Integrated Appkey or Service Appkey |
 
 [Field]
 
 | Name  | Type                | Description | Encryption Description               |
-|-------|---------------------|-------------|--------------------------------------|
+| ----- | ------------------- | ----------- | ------------------------------------ |
 | image | multipart/form-data | Image file  | Image encrypted with a symmetric key |
 
 - Image files must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
@@ -756,7 +756,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 [Header]
 
 | Name          | Type    | Description                                                   |
-|---------------|---------|---------------------------------------------------------------|
+| ------------- | ------- | ------------------------------------------------------------- |
 | isSuccessful  | Boolean | Analysis API success or not                                   |
 | resultCode    | Integer | Result code                                                   |
 | resultMessage | String  | Result message (success on success, error content on failure) |
@@ -764,10 +764,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 [Field]
 
 | Name               | Type   | Description                                                                                                                         | Whether encrypted or not |
-|--------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
+| ------------------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | fileType           | String | File extension (.jpg, .png)                                                                                                         |                          |
 | resolution         | String | normal: the resolution is the recommended resolution (760\*480px) or above, low: the resolution is below the recommended resolution |                          |
-| idType             | String | resident(resident registration certificate), driver(driver's license), passport (passport)                                            |                          |
+| idType             | String | resident(resident registration certificate), driver(driver's license), passport (passport)                                          |                          |
 | keyValues          | List   |                                                                                                                                     |                          |
 | keyValues[0].key   | String |                                                                                                                                     |                          |
 | keyValues[0].value | String |                                                                                                                                     | O                        |
@@ -779,7 +779,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 - **List included in KeyValues when "idType" is recognized as "resident"**
 
 | key                | value type | description                             |
-|--------------------|------------|-----------------------------------------|
+| ------------------ | ---------- | --------------------------------------- |
 | **name**           | string     | Recognized name                         |
 | **residentNumber** | string     | Recognized resident registration number |
 | **issueDate**      | string     | Recognized issued date                  |
@@ -787,23 +787,23 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 
 - **List to be included in KeyValues when "idType" is recognized as "driver"**
 
-| key                     | value type | description                                                                                                                            |
-|-------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| key                     | value type | description                                                                                                                              |
+| ----------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | **driverLicenseNumber** | string     | Recognized driver's license number                                                                                                       |
 | **licenseType**         | string     | Recognized driver's license type (Class 1 Normal, etc.)<br>When the values are 2 or more, separate them with "/"                         |
-| **name**                | string     | Recognized name                                                                                                                        |
-| **residentNumber**      | string     | Recognized resident registration number                                                                                                |
+| **name**                | string     | Recognized name                                                                                                                          |
+| **residentNumber**      | string     | Recognized resident registration number                                                                                                  |
 | **condition**           | string     | Recognized driver's license condition<br>(If the field does not exist according to the driver's license, the value of the field is none) |
-| **serialNum**           | string     | Recognized serial number                                                                                                               |
-| **issueDate**           | string     | Recognized issued date                                                                                                                 |
-| **issuer**              | string     | Recognized issuer                                                                                                                      |
+| **serialNum**           | string     | Recognized serial number                                                                                                                 |
+| **issueDate**           | string     | Recognized issued date                                                                                                                   |
+| **issuer**              | string     | Recognized issuer                                                                                                                        |
 
 
 
 - **List included in KeyValues when "idType" is recognized as "passport"**
 
 | key                 | value type | description                                       |
-|---------------------|------------|---------------------------------------------------|
+| ------------------- | ---------- | ------------------------------------------------- |
 | **passportType**    | string     | Recognized passport type                          |
 | **countryCode**     | string     | Recognized country code                           |
 | **passportNo**      | string     | Recognized passport number                        |

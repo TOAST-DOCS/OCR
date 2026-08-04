@@ -6,7 +6,7 @@
 
 | Region                | Endpoint                            |
 | --------------------- | ----------------------------------- |
-| Korea (Pangyo) Region | https://ocr.api.nhncloudservice.com |
+| Korea (Pangyo) Region | https://api-ocr.nhncloudservice.com |
 
 ### Authentication and Authorization
 
@@ -77,7 +77,7 @@ Content-Type: application/json
 | 4000004    | Uploaded file is empty.                                                                    | Uploaded file is empty                |
 | 4000005    | Required headers are missing.                                                               | Required headers missing              |
 | 4000006    | Api call limit exceeded. If you need to adjust the limit, please contact customer service. | API call limit exceeded               |
-| 4131000    | Request size is larger than the permissible limit. The permissible limit is 5mb.               | Request size exceeds limit (5MB)      |
+| 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds limit            |
 
 ### Document AI Analysis API
 
@@ -97,7 +97,7 @@ Content-Type: application/json
 [Request Body]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/document-ai' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/document-ai' \
 -H 'Authorization: ${secretKey}' \
 -F 'image=@sample.png' \
 -F 'prompt="Give me a quick summary"' \

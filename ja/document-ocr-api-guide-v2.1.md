@@ -6,7 +6,7 @@
 
 | リージョン      | エンドポイント                       |
 | --------------- | ----------------------------------- |
-| 韓国(板橋)リージョン | https://ocr.api.nhncloudservice.com |
+| 韓国(板橋)リージョン | https://api-ocr.nhncloudservice.com |
 
 ### 認証及び権限
 
@@ -74,7 +74,7 @@ Content-Type: application/json
 | 4000006      | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API呼び出し限度超過           |
 | 4010006      | Invalid token.                                                                             | 無効なトークン                |
 | 4010007      | Permission denied.                                                                         | 権限なし                      |
-| 4131000      | Request size is larger than permissible limit. the permissible limit is 5mb.               | リクエストサイズが許容限度(5MB)超過 |
+| 4131000      | Request size is larger than permissible limit.                                             | リクエストサイズが許容限度超過               |
 
 ### v2.1 API紹介
 
@@ -114,7 +114,7 @@ Content-Type: application/json
 [リクエスト本文]
 
 ```shell
-curl -X GET 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/public-keys/{serviceName}' \
+curl -X GET 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/public-keys/{serviceName}' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}'
 ```
 
@@ -195,7 +195,7 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 [リクエスト本文]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-card' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-card' \
 -F 'image=@sample.png' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 -H 'X-Key-Version: ${x-key-version}' \
@@ -334,7 +334,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 [リクエスト本文]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card' \
 -F 'image=@sample.png' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 -H 'X-Key-Version: ${x-key-version}' \
@@ -562,7 +562,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 [リクエスト本文]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/authenticity' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/authenticity' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 -H 'X-Key-Version: ${x-key-version}' \
 -H 'Symmetric-Key: ${symmetricKey}' \
@@ -652,7 +652,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 [リクエスト本文]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/stand-alone' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/stand-alone' \
 -F 'image=@sample.png' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 -H 'X-Key-Version: ${x-key-version}' \

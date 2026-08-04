@@ -1,5 +1,14 @@
 ## AI Service > OCR > Document OCR > Release Notes
 
+### August 11, 2026
+
+- API endpoint domain changed
+  - The new endpoint `https://api-ocr.nhncloudservice.com` has been added.
+  - The existing endpoint `https://ocr.api.nhncloudservice.com` will be supported until July 31, 2027.
+  - Please switch to the new endpoint. For more information, refer to the [API Guide](./document-ocr-api-guide-v2.1.md).
+- Maximum request file size increased
+  - The maximum request file size has been increased from 5 MB to 20 MB.
+
 ### May 27, 2026
 
 - Passport authenticity verification service terminated

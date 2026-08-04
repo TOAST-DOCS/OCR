@@ -11,7 +11,7 @@
 
 | Method | URI                                                               |
 |--------|-------------------------------------------------------------------|
-| POST   | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general |
+| POST   | https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general |
 
 #### Request with image files
 
@@ -27,7 +27,7 @@
 * Put binary data of the image file.
 
 ```
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
 -H 'Content-Type: multipart/form-data'
@@ -53,7 +53,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 * Insert the image URL.
 
 ```
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
 -H 'Authorization: ${secretKey}' \
 -H 'Content-Type: application/json' \
 --data '{ "imageUrl": "https://example.com/example.jpg" }'
@@ -152,7 +152,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 | Method | URI                                                                        |
 |--------|----------------------------------------------------------------------------|
-| POST   | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping |
+| POST   | https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping |
 
 #### Request with image files
 
@@ -168,7 +168,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 - Input the binary data of the image file.
 
 ```
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
 -H 'Content-Type: multipart/form-data'
@@ -193,7 +193,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 - Insert the image URL.
 
 ```
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
 -H 'Authorization: ${secretKey}' \
 -H 'Content-Type: application/json' \
 --data '{ "imageUrl": "https://example.com/example.jpg" }'

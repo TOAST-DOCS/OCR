@@ -6,7 +6,7 @@
 
 | 리전            | 엔드포인트                          |
 | --------------- | ----------------------------------- |
-| 한국(판교) 리전 | https://ocr.api.nhncloudservice.com |
+| 한국(판교) 리전 | https://api-ocr.nhncloudservice.com |
 
 ### 인증 및 권한
 
@@ -102,7 +102,7 @@ Content-Type: application/json
 - 이미지 파일의 바이너리 데이터를 넣습니다.
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
 -H 'Content-Type: multipart/form-data'
@@ -128,7 +128,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 - 이미지 URL을 넣습니다.
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
 -H 'Authorization: ${secretKey}' \
 -H 'Content-Type: application/json' \
 --data '{ "imageUrl": "https://example.com/example.jpg" }'
@@ -241,7 +241,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 - 이미지 파일의 바이너리 데이터를 넣습니다.
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
 -H 'Content-Type: multipart/form-data'
@@ -267,7 +267,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 - 이미지 URL을 넣습니다.
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
 -H 'Authorization: ${secretKey}' \
 -H 'Content-Type: application/json' \
 --data '{ "imageUrl": "https://example.com/example.jpg" }'

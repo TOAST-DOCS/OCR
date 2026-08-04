@@ -6,7 +6,7 @@
 
 | リージョン      | エンドポイント                       |
 | --------------- | ----------------------------------- |
-| 韓国(板橋)リージョン | https://ocr.api.nhncloudservice.com |
+| 韓国(板橋)リージョン | https://api-ocr.nhncloudservice.com |
 
 ### 認証及び権限
 
@@ -116,7 +116,7 @@ Content-Type: application/json
 [リクエスト本文]
 
 ```shell
-curl -X GET 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/public-keys/{serviceName}' \
+curl -X GET 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/public-keys/{serviceName}' \
 -H 'Authorization: ${secretKey}'
 ```
 
@@ -197,7 +197,7 @@ curl -X GET 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 [リクエスト本文]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-card' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-card' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
 -H 'X-Key-Version: ${x-key-version}' \
@@ -336,7 +336,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 [リクエスト本文]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
 -H 'X-Key-Version: ${x-key-version}' \
@@ -564,7 +564,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 [リクエスト本文]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/authenticity' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/authenticity' \
 -H 'Authorization: ${secretKey}' \
 -H 'X-Key-Version: ${x-key-version}' \
 -H 'Symmetric-Key: ${symmetricKey}' \
@@ -654,7 +654,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 [リクエスト本文]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/stand-alone' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/stand-alone' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
 -H 'X-Key-Version: ${x-key-version}' \

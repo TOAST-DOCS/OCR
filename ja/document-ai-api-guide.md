@@ -8,7 +8,7 @@
 
 | メソッド | URI                                                               |
 |------|-------------------------------------------------------------------|
-| POST | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/document-ai |
+| POST | https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/document-ai |
 
 [リクエストヘッダ]
 
@@ -20,7 +20,7 @@
 [リクエスト本文]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/document-ai' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/document-ai' \
 -H 'Authorization: ${secretKey}' \
 -F 'image=@sample.png' \
 -F 'prompt="簡潔に要約してくれ"' \

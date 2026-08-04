@@ -6,7 +6,7 @@
 
 | 리전            | 엔드포인트                          |
 | --------------- | ----------------------------------- |
-| 한국(판교) 리전 | https://ocr.api.nhncloudservice.com |
+| 한국(판교) 리전 | https://api-ocr.nhncloudservice.com |
 
 ### 인증 및 권한
 
@@ -102,7 +102,7 @@ Content-Type: application/json
 - 이미지 파일의 바이너리 데이터를 넣습니다.
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/business' \
 -F 'image=@sample.png' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}'
 ```
@@ -214,7 +214,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 [요청 본문]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business/status' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/business/status' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 --data-raw '{
   "businessNumber": "1234567890"
@@ -294,7 +294,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 - 이미지 파일의 바이너리 데이터를 넣습니다.
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/credit-card' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/credit-card' \
 -F 'image=@sample.png' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}'
 ```

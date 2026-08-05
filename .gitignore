@@ -1,12 +1,8 @@
-# Local-only Claude Code settings (machine-specific permissions etc.)
-.claude/settings.local.json
+# Claude Code local settings, skills, session files — managed outside this repository
+.claude/
 
 # Local project guide (private context, not for public exposure)
 CLAUDE.md
-
-# Claude Code session/scratch directories
-.claude/projects/
-.claude/sessions/
 
 # OMC (oh-my-claudecode) working files
 .omc/

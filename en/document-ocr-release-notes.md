@@ -11,7 +11,7 @@
 
 ### May 27, 2026
 
-- Deprecated the passport authenticity verification service.
+- Passport authenticity verification service terminated
   - ID authenticity verification has been limited to resident registration card and driver's license.
   - For more information, see the [API Guide](./document-ocr-api-guide-v2.1.md).
 

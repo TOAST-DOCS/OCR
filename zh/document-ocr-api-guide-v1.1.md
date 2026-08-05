@@ -53,28 +53,28 @@ Content-Type: application/json
 
 </details>
 
-| Name          | Type    | Description                                                        |
-| ------------- | ------- | ------------------------------------------------------------------ |
-| resultCode    | int     | Response code<br>0 on success, error code on failure               |
-| resultMessage | String  | Response message                                                   |
-| isSuccessful  | boolean | Success or not                                                     |
+| Name          | Type    | Description                                          |
+| ------------- | ------- | ---------------------------------------------------- |
+| resultCode    | int     | Response code<br>0 on success, error code on failure |
+| resultMessage | String  | Response message                                     |
+| isSuccessful  | boolean | Success or not                                       |
 
 ### Error Codes
 
 #### Common
 
-| Error Code | Error Message                                                                              | Description                                      |
-| ---------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------ |
-| -1         | Unknown error.                                                                             | Unknown error                                    |
-| 4000001    | Invalid parameter.                                                                         | Invalid parameter                                |
-| 4000002    | Invalid file.                                                                              | Invalid file                                     |
-| 4000003    | Invalid file type.                                                                         | Invalid file type                                |
-| 4000004    | Uploaded file is empty.                                                                    | Uploaded file is empty                           |
-| 4000005    | Required headers are missing.                                                               | Required headers missing                         |
-| 4000006    | Api call limit exceeded. If you need to adjust the limit, please contact customer service. | API call limit exceeded                          |
-| 4010006    | Invalid token.                                                                             | Invalid token                                    |
-| 4010007    | Permission denied.                                                                         | Permission denied                                |
-| 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds the permissible limit       |
+| Error Code | Error Message                                                                              | Description                                |
+| ---------- | ------------------------------------------------------------------------------------------ | ------------------------------------------ |
+| -1         | Unknown error.                                                                             | Unknown error                              |
+| 4000001    | Invalid parameter.                                                                         | Invalid parameter                          |
+| 4000002    | Invalid file.                                                                              | Invalid file                               |
+| 4000003    | Invalid file type.                                                                         | Invalid file type                          |
+| 4000004    | Uploaded file is empty.                                                                    | Uploaded file is empty                     |
+| 4000005    | Required headers are missing.                                                              | Required headers missing                   |
+| 4000006    | Api call limit exceeded. If you need to adjust the limit, please contact customer service. | API call limit exceeded                    |
+| 4010006    | Invalid token.                                                                             | Invalid token                              |
+| 4010007    | Permission denied.                                                                         | Permission denied                          |
+| 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds the permissible limit |
 
 ### Business Registration Certificate Analysis API
 
@@ -83,7 +83,7 @@ Content-Type: application/json
 [URI]
 
 | Method | URI                             |
-|--------|---------------------------------|
+| ------ | ------------------------------- |
 | POST   | /v1.1/appkeys/{appKey}/business |
 
 [Request Header]
@@ -95,7 +95,7 @@ Content-Type: application/json
 [Path Variable]
 
 | Name   | Value    | Description                         |
-|--------|----------|-------------------------------------|
+| ------ | -------- | ----------------------------------- |
 | appKey | {appKey} | Integrated Appkey or Service Appkey |
 
 [Request Body]
@@ -162,7 +162,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 [Header]
 
 | Name          | Type    | Description                                                   |
-|---------------|---------|---------------------------------------------------------------|
+| ------------- | ------- | ------------------------------------------------------------- |
 | isSuccessful  | Boolean | Analysis API success or not                                   |
 | resultCode    | Integer | Result code                                                   |
 | resultMessage | String  | Result message (success on success, error details on failure) |
@@ -170,7 +170,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 [Field]
 
 | Name               | Type   | Description                                                                                                                            |
-|--------------------|--------|----------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
 | fileType           | String | File extension (.pdf, .jpg, .png)                                                                                                      |
 | keyValues          | List   | List of recognition results                                                                                                            |
 | keyValues[0].key   | String | Recognized item name                                                                                                                   |
@@ -191,7 +191,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 [URI]
 
 | Method | URI                                    |
-|--------|----------------------------------------|
+| ------ | -------------------------------------- |
 | POST   | /v1.1/appkeys/{appKey}/business/status |
 
 [Request Header]
@@ -203,13 +203,13 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 [Path Variable]
 
 | Name   | Value    | Description                         |
-|--------|----------|-------------------------------------|
+| ------ | -------- | ----------------------------------- |
 | appKey | {appKey} | Integrated Appkey or Service Appkey |
 
 [Field]
 
 | Name           | Type   | Description                                          |
-|----------------|--------|------------------------------------------------------|
+| -------------- | ------ | ---------------------------------------------------- |
 | businessNumber | String | Business registration certificate number (10 digits) |
 
 [Request Body]
@@ -242,11 +242,11 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 
 [Header]
 
-| Name          | Type    | Description                                                 |
-|---------------|---------|-------------------------------------------------------------|
-| isSuccessful  | Boolean | Whether the Retrieve stoppage/closure API was successful or not     |
-| resultCode    | Integer | Result code                                                 |
-| resultMessage | String  | Result message (Success when successful, error when failed) |
+| Name          | Type    | Description                                                     |
+| ------------- | ------- | --------------------------------------------------------------- |
+| isSuccessful  | Boolean | Whether the Retrieve stoppage/closure API was successful or not |
+| resultCode    | Integer | Result code                                                     |
+| resultMessage | String  | Result message (Success when successful, error when failed)     |
 
 [Field]
 
@@ -258,7 +258,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 * **List of Business Registration Certificate Statuses by "statusCode"**
 
 | Code value | Description                                                                                                                      |
-|------------|----------------------------------------------------------------------------------------------------------------------------------|
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | 00         | Businesses not in business                                                                                                       |
 | 01         | VAT general taxpayers                                                                                                            |
 | 02         | VAT simplified taxpayer                                                                                                          |
@@ -275,7 +275,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 [URI]
 
 | Method | URI                                |
-|--------|------------------------------------|
+| ------ | ---------------------------------- |
 | POST   | /v1.1/appkeys/{appKey}/credit-card |
 
 [Request Header]
@@ -287,7 +287,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 [Path Variable]
 
 | Name   | Value    | Description                         |
-|--------|----------|-------------------------------------|
+| ------ | -------- | ----------------------------------- |
 | appKey | {appKey} | Integrated Appkey or Service Appkey |
 
 [Request Body]
@@ -373,7 +373,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/credit-c
 [Header]
 
 | Name          | Type    | Description                                                   |
-|---------------|---------|---------------------------------------------------------------|
+| ------------- | ------- | ------------------------------------------------------------- |
 | isSuccessful  | Boolean | Analysis API success or not                                   |
 | resultCode    | Integer | Result code                                                   |
 | resultMessage | String  | Result message (success on success, error details on failure) |
@@ -381,7 +381,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/credit-c
 [Field]
 
 | Name              | Type   | Description                                                                                                                        |
-|-------------------|--------|------------------------------------------------------------------------------------------------------------------------------------|
+| ----------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------- |
 | fileType          | String | File extension (.jpg, .png)                                                                                                        |
 | resolution        | String | normal: the resolution is the recommended resolution (760*480px) or above, low: the resolution is below the recommended resolution |
 | cardNums          | List   | List of card number recognition results                                                                                            |

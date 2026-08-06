@@ -2,12 +2,12 @@
 
 ### August 11, 2026
 
-- API endpoint domain changed
-  - The new endpoint `https://api-ocr.nhncloudservice.com` has been added.
-  - The existing endpoint `https://ocr.api.nhncloudservice.com` will be supported until July 31, 2027.
-  - Please switch to the new endpoint. For more information, refer to the [API Guide](./general-ocr-api-guide-v1.1.md).
-- Maximum request file size increased
-  - The maximum request file size has been increased from 5 MB to 20 MB.
+- API endpoint domain change
+  - Added the new endpoint `https://api-ocr.nhncloudservice.com`.
+  - The existing endpoint `https://ocr.api.nhncloudservice.com` will be maintained until July 31, 2027, after which support will end.
+  - Switch to the new endpoint. For more information, see the [API Guide](./document-ai-api-guide-v1.1.md).
+- Increased the maximum request file size
+  - Increased the maximum request file size from 5 MB to 20 MB.
 
 ### March 10, 2026
 

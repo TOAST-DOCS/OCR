@@ -10,7 +10,7 @@
 
 | Method  | URI                                                               |
 |------|-------------------------------------------------------------------|
-| POST | https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/document-ai |
+| POST | https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/document-ai |
 
 [Request Header]
 
@@ -22,7 +22,7 @@
 [Request Body]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/document-ai' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/document-ai' \
 -H 'Authorization: ${secretKey}' \
 -F 'image=@sample.png' \
 -F 'prompt="Give me a quick summary"' \

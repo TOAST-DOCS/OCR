@@ -6,7 +6,7 @@
 
 | Region               | Endpoint                            |
 | -------------------- | ----------------------------------- |
-| Korea (Pangyo) Region | https://ocr.api.nhncloudservice.com |
+| Korea (Pangyo) Region | https://api-ocr.nhncloudservice.com |
 
 ### Authentication and Authorization
 
@@ -76,7 +76,7 @@ Content-Type: application/json
 | 4000004    | Uploaded file is empty.                                                                    | Uploaded file is empty                           |
 | 4000005    | Required headers are missing.                                                               | Required headers are missing                     |
 | 4000006    | Api call limit exceeded. If you need to adjust the limit, please contact customer service. | API call limit exceeded                          |
-| 4131000    | Request size is larger than the permissible limit. The permissible limit is 5mb.               | Request size exceeds the permissible limit (5MB) |
+| 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds the permissible limit       |
 
 ### General OCR API
 
@@ -102,7 +102,7 @@ Content-Type: application/json
 - Put the binary data of the image file.
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
 -H 'Content-Type: multipart/form-data'
@@ -128,7 +128,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 - Put the image URL.
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
 -H 'Authorization: ${secretKey}' \
 -H 'Content-Type: application/json' \
 --data '{ "imageUrl": "https://example.com/example.jpg" }'
@@ -241,7 +241,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 - Put the binary data of the image file.
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
 -H 'Content-Type: multipart/form-data'
@@ -267,7 +267,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 - Put the image URL.
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
 -H 'Authorization: ${secretKey}' \
 -H 'Content-Type: application/json' \
 --data '{ "imageUrl": "https://example.com/example.jpg" }'

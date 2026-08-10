@@ -6,7 +6,7 @@
 
 | リージョン              | エンドポイント                      |
 | ----------------------- | ----------------------------------- |
-| 韓国(パンギョ)リージョン | https://ocr.api.nhncloudservice.com |
+| 韓国(パンギョ)リージョン | https://api-ocr.nhncloudservice.com |
 
 ### 認証及び権限
 
@@ -76,7 +76,7 @@ Content-Type: application/json
 | 4000004      | Uploaded file is empty.                                                                    | アップロードされたファイルが空      |
 | 4000005      | Required headers is missing.                                                               | 必須ヘッダ不足                      |
 | 4000006      | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API呼び出し上限超過                 |
-| 4131000      | Request size is larger than permissible limit. the permissible limit is 5mb.               | リクエストサイズが許容上限(5MB)超過 |
+| 4131000      | Request size is larger than permissible limit.                                             | リクエストサイズが許容上限超過                     |
 
 ### General OCR API
 
@@ -102,7 +102,7 @@ Content-Type: application/json
 - 画像ファイルのバイナリデータを入れます。
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
 -H 'Content-Type: multipart/form-data'
@@ -128,7 +128,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 - 画像のURLを入れます。
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general' \
 -H 'Authorization: ${secretKey}' \
 -H 'Content-Type: application/json' \
 --data '{ "imageUrl": "https://example.com/example.jpg" }'
@@ -241,7 +241,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 - 画像ファイルのバイナリデータを入れます。
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
 -F 'image=@sample.png' \
 -H 'Authorization: ${secretKey}' \
 -H 'Content-Type: multipart/form-data'
@@ -267,7 +267,7 @@ curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 - 画像のURLを入れます。
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping' \
 -H 'Authorization: ${secretKey}' \
 -H 'Content-Type: application/json' \
 --data '{ "imageUrl": "https://example.com/example.jpg" }'

@@ -6,7 +6,7 @@
 
 | 리전            | 엔드포인트                          |
 | --------------- | ----------------------------------- |
-| 한국(판교) 리전 | https://ocr.api.nhncloudservice.com |
+| 한국(판교) 리전 | https://api-ocr.nhncloudservice.com |
 
 ### 인증 및 권한
 
@@ -77,7 +77,7 @@ Content-Type: application/json
 | 4000004   | Uploaded file is empty.                                                                    | 업로드된 파일이 비어 있음       |
 | 4000005   | Required headers is missing.                                                               | 필수 헤더 누락                  |
 | 4000006   | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API 호출 한도 초과              |
-| 4131000   | Request size is larger than permissible limit. the permissible limit is 5mb.               | 요청 크기가 허용 한도(5MB) 초과 |
+| 4131000   | Request size is larger than permissible limit.                                             | 요청 크기가 허용 한도 초과                 |
 
 ### Document AI 분석 API
 
@@ -97,7 +97,7 @@ Content-Type: application/json
 [요청 본문]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.0/appkeys/{appKey}/document-ai' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/document-ai' \
 -H 'Authorization: ${secretKey}' \
 -F 'image=@sample.png' \
 -F 'prompt="간단하게 요약 해줘"' \

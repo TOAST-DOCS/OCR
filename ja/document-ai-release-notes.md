@@ -1,5 +1,14 @@
 ## AI Service > OCR > Document AI > リリースノート
 
+### 2026. 08. 11.
+
+- APIエンドポイントドメインの変更
+  - 新規エンドポイント `https://api-ocr.nhncloudservice.com` が追加されました。
+  - 既存のエンドポイント `https://ocr.api.nhncloudservice.com` は、2027年7月31日まで維持された後、サポートが終了します。
+  - 新規エンドポイントへ切り替えてください。詳細については、[APIガイド](./document-ai-api-guide-v1.1.md)を参照してください。
+- リクエストファイルの最大容量拡大
+  - リクエストファイルの最大容量が5MBから20MBに拡大されました。
+
 ### 2026. 03. 10.
 
 - API v1.1リリース

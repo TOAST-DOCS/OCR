@@ -26,7 +26,8 @@
 | 4010005    | UNAUTHORIZED_ROLE                   | Unauthorized role.                                                           |
 | 4010006    | INVALID_TOKEN                       | Invalid token.                                                               |
 | 4010007    | PERMISSION_DENIED                   | Permission denied.                                                           |
-| 4131000    | MAX_UPLOAD_SIZE_EXCEEDED            | Request size is larger than permissible limit. the permissible limit is 5mb. |
+| 4041007    | URL_NOT_FOUND                       | URL Not Found                                                                |
+| 4131000    | MAX_UPLOAD_SIZE_EXCEEDED            | Request size is larger than permissible limit.                               |
 | 5000001    | INTERNAL_API_FAIL                   | Internal Api fail.                                                           |
 | 5000002    | ERROR_PARSING_FAIL                  | Error parsing fail.                                                          |
 | 5000003    | DATABASE_FAIL                       | Database server error.                                                       |

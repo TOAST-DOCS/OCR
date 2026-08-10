@@ -6,7 +6,7 @@
 
 | リージョン          | エンドポイント                      |
 | ------------------- | ----------------------------------- |
-| 韓国(パンギョ)リージョン | https://ocr.api.nhncloudservice.com |
+| 韓国(パンギョ)リージョン | https://api-ocr.nhncloudservice.com |
 
 ### 認証及び権限
 
@@ -75,7 +75,7 @@ Content-Type: application/json
 | 4000006      | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API呼び出し上限超過                 |
 | 4010006      | Invalid token.                                                                             | 無効なトークン                      |
 | 4010007      | Permission denied.                                                                         | 権限なし                            |
-| 4131000      | Request size is larger than permissible limit. the permissible limit is 5mb.               | リクエストサイズが許容上限(5MB)超過 |
+| 4131000      | Request size is larger than permissible limit.                                             | リクエストサイズが許容上限超過                     |
 
 ### Document AI 分析 API
 
@@ -95,7 +95,7 @@ Content-Type: application/json
 [リクエスト本文]
 
 ```shell
-curl -X POST 'https://ocr.api.nhncloudservice.com/v1.1/appkeys/{appKey}/document-ai' \
+curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/document-ai' \
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}' \
 -F 'image=@sample.png' \
 -F 'prompt="簡潔に要約してくれ"' \

@@ -53,28 +53,28 @@ Content-Type: application/json
 
 </details>
 
-| Name          | Type    | Description                                                         |
-| ------------- | ------- | ------------------------------------------------------------------- |
-| resultCode    | int     | Response code<br>Returns 0 on success, error code on failure        |
-| resultMessage | String  | Response message                                                    |
-| isSuccessful  | boolean | Success or not                                                      |
+| Name          | Type    | Description                                                  |
+| ------------- | ------- | ------------------------------------------------------------ |
+| resultCode    | int     | Response code<br>Returns 0 on success, error code on failure |
+| resultMessage | String  | Response message                                             |
+| isSuccessful  | boolean | Success or not                                               |
 
 ### Error Codes
 
 #### Common
 
-| Error Code | Error Message                                                                              | Description                                      |
-| ---------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------ |
-| -1         | Unknown error.                                                                             | Unknown error                                    |
-| 4000001    | Invalid parameter.                                                                         | Invalid parameter                                |
-| 4000002    | Invalid file.                                                                              | Invalid file                                     |
-| 4000003    | Invalid file type.                                                                         | Invalid file type                                |
-| 4000004    | Uploaded file is empty.                                                                    | Uploaded file is empty                           |
-| 4000005    | Required headers are missing.                                                               | Required headers are missing                     |
-| 4000006    | Api call limit exceeded. If you need to adjust the limit, please contact customer service. | API call limit exceeded                          |
-| 4010006    | Invalid token.                                                                             | Invalid token                                    |
-| 4010007    | Permission denied.                                                                         | Permission denied                                |
-| 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds the permissible limit       |
+| Error Code | Error Message                                                                              | Description                                |
+| ---------- | ------------------------------------------------------------------------------------------ | ------------------------------------------ |
+| -1         | Unknown error.                                                                             | Unknown error                              |
+| 4000001    | Invalid parameter.                                                                         | Invalid parameter                          |
+| 4000002    | Invalid file.                                                                              | Invalid file                               |
+| 4000003    | Invalid file type.                                                                         | Invalid file type                          |
+| 4000004    | Uploaded file is empty.                                                                    | Uploaded file is empty                     |
+| 4000005    | Required headers are missing.                                                              | Required headers are missing               |
+| 4000006    | Api call limit exceeded. If you need to adjust the limit, please contact customer service. | API call limit exceeded                    |
+| 4010006    | Invalid token.                                                                             | Invalid token                              |
+| 4010007    | Permission denied.                                                                         | Permission denied                          |
+| 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds the permissible limit |
 
 ### General OCR API
 
@@ -90,10 +90,10 @@ Content-Type: application/json
 
 [Request Header]
 
-| Name                | Value               | Description              |
-| ------------------- | ------------------- | ------------------------ |
-| X-NHN-Authorization | Bearer {User Access Key Token}      | User Access Key token    |
-| Content-Type        | multipart/form-data | Content type             |
+| Name                | Value                          | Description           |
+| ------------------- | ------------------------------ | --------------------- |
+| X-NHN-Authorization | Bearer {User Access Key Token} | User Access Key token |
+| Content-Type        | multipart/form-data            | Content type          |
 
 [Request Body]
 
@@ -116,10 +116,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general'
 
 [Request Header]
 
-| Name                | Value            | Description              |
-| ------------------- | ---------------- | ------------------------ |
-| X-NHN-Authorization | Bearer {User Access Key Token}   | User Access Key token    |
-| Content-Type        | application/json | Content type             |
+| Name                | Value                          | Description           |
+| ------------------- | ------------------------------ | --------------------- |
+| X-NHN-Authorization | Bearer {User Access Key Token} | User Access Key token |
+| Content-Type        | application/json               | Content type          |
 
 [Request Body]
 
@@ -229,10 +229,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general'
 
 [Request Header]
 
-| Name                | Value               | Description              |
-| ------------------- | ------------------- | ------------------------ |
-| X-NHN-Authorization | Bearer {User Access Key Token}      | User Access Key token    |
-| Content-Type        | multipart/form-data | Content type             |
+| Name                | Value                          | Description           |
+| ------------------- | ------------------------------ | --------------------- |
+| X-NHN-Authorization | Bearer {User Access Key Token} | User Access Key token |
+| Content-Type        | multipart/form-data            | Content type          |
 
 [Request Body]
 
@@ -255,10 +255,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general/
 
 [Request Header]
 
-| Name                | Value            | Description              |
-| ------------------- | ---------------- | ------------------------ |
-| X-NHN-Authorization | Bearer {User Access Key Token}   | User Access Key token    |
-| Content-Type        | application/json | Content type             |
+| Name                | Value                          | Description           |
+| ------------------- | ------------------------------ | --------------------- |
+| X-NHN-Authorization | Bearer {User Access Key Token} | User Access Key token |
+| Content-Type        | application/json               | Content type          |
 
 [Request Body]
 
@@ -343,15 +343,15 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general/
 
 [Field]
 
-| Name                                    | Type    | Description                                                                                     |
-| --------------------------------------- | ------- | ----------------------------------------------------------------------------------------------- |
-| fileType                                | String  | File extension (jpg, png)                                                                       |
-| listOfInferTexts                        | List    | List of recognition results                                                                     |
-| listOfInferTexts[0].inferTexts[0].value | String  | Recognized content                                                                              |
-| listOfInferTexts[0].inferTexts[0].conf  | Double  | Confidence of the recognition result                                                            |
-| listOfBoundingBoxes                     | List    | List of recognized area (bounding box) coordinates                                              |
-| listOfBoundingBoxes[0].boundingBoxes[0] | Object  | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                               |
-| slicesImages                            | Integer | Number of images internally segmented based on the aspect ratio of the input image              |
+| Name                                    | Type    | Description                                                                        |
+| --------------------------------------- | ------- | ---------------------------------------------------------------------------------- |
+| fileType                                | String  | File extension (jpg, png)                                                          |
+| listOfInferTexts                        | List    | List of recognition results                                                        |
+| listOfInferTexts[0].inferTexts[0].value | String  | Recognized content                                                                 |
+| listOfInferTexts[0].inferTexts[0].conf  | Double  | Confidence of the recognition result                                               |
+| listOfBoundingBoxes                     | List    | List of recognized area (bounding box) coordinates                                 |
+| listOfBoundingBoxes[0].boundingBoxes[0] | Object  | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                  |
+| slicesImages                            | Integer | Number of images internally segmented based on the aspect ratio of the input image |
 
 - boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)

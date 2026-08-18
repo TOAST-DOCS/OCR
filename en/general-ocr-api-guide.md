@@ -10,7 +10,7 @@
 [URI]
 
 | Method | URI                                                               |
-|--------|-------------------------------------------------------------------|
+| ------ | ----------------------------------------------------------------- |
 | POST   | https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general |
 
 #### Request with image files
@@ -18,7 +18,7 @@
 [Request Header]
 
 | Name          | Value               | Description                          |
-|---------------|---------------------|--------------------------------------|
+| ------------- | ------------------- | ------------------------------------ |
 | Authorization | {secretKey}         | Security key issued from the console |
 | Content-Type  | multipart/form-data | Content type                         |
 
@@ -36,7 +36,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 [Field]
 
 | Name  | Type                | Description |
-|-------|---------------------|-------------|
+| ----- | ------------------- | ----------- |
 | image | multipart/form-data | Image file  |
 
 #### Request with image URLs
@@ -44,7 +44,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 [Request Header] 
 
 | Name          | Value            | Description                          |
-|---------------|------------------|--------------------------------------|
+| ------------- | ---------------- | ------------------------------------ |
 | Authorization | {secretKey}      | Security key issued from the console |
 | Content-Type  | application/json | Content type                         |
 
@@ -62,7 +62,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 [Field]
 
 | Name     | Type   | Description |
-|----------|--------|-------------|
+| -------- | ------ | ----------- |
 | imageUrl | String | Image URL   |
 
 * If you specify the port directly in the image URL, only ports 80, 443, 10000-12000 can be used.
@@ -123,7 +123,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 [Header]
 
 | Name          | Type    | Description                                                   |
-|---------------|---------|---------------------------------------------------------------|
+| ------------- | ------- | ------------------------------------------------------------- |
 | isSuccessful  | Boolean | Analysis API success or not                                   |
 | resultCode    | Integer | Result code                                                   |
 | resultMessage | String  | Result message (success on success, error content on failure) |
@@ -131,7 +131,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 [Field]
 
 | Name                                    | Type   | Description                                                       |
-|-----------------------------------------|--------|-------------------------------------------------------------------|
+| --------------------------------------- | ------ | ----------------------------------------------------------------- |
 | fileType                                | String | File extension (jpg, png)                                         |
 | listOfInferTexts                        | List   | List of recognition results                                       |
 | listOfInferTexts[0].inferTexts[0].value | String | Recognized content                                                |
@@ -151,7 +151,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 [URI]
 
 | Method | URI                                                                        |
-|--------|----------------------------------------------------------------------------|
+| ------ | -------------------------------------------------------------------------- |
 | POST   | https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping |
 
 #### Request with image files
@@ -159,7 +159,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 [Request Header] 
 
 | Name          | Value               | Description                          |
-|---------------|---------------------|--------------------------------------|
+| ------------- | ------------------- | ------------------------------------ |
 | Authorization | {secretKey}         | Security key issued from the console |
 | Content-Type  | multipart/form-data | Content type                         |
 
@@ -177,14 +177,14 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 [Field]
 
 | Name  | Type                | Description |
-|-------|---------------------|-------------|
+| ----- | ------------------- | ----------- |
 | image | multipart/form-data | Image file  |
 
 #### Request with image URLs
 [Request Header] 
 
 | Name          | Value            | Description                          |
-|---------------|------------------|--------------------------------------|
+| ------------- | ---------------- | ------------------------------------ |
 | Authorization | {secretKey}      | Security key issued from the console |
 | Content-Type  | application/json | Content type                         |
 
@@ -202,7 +202,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 [Field]
 
 | Name     | Type   | Description |
-|----------|--------|-------------|
+| -------- | ------ | ----------- |
 | imageUrl | String | Image URL   |
 
 * If you specify the port directly in the image URL, only ports 80, 443, 10000-12000 can be used.
@@ -264,7 +264,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 [Header]
 
 | Name          | Type    | Description                                                   |
-|---------------|---------|---------------------------------------------------------------|
+| ------------- | ------- | ------------------------------------------------------------- |
 | isSuccessful  | Boolean | Analysis API success or not                                   |
 | resultCode    | Integer | Result code                                                   |
 | resultMessage | String  | Result message (success on success, error content on failure) |
@@ -272,7 +272,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 [Field]
 
 | Name                                    | Type    | Description                                                         |
-|-----------------------------------------|---------|---------------------------------------------------------------------|
+| --------------------------------------- | ------- | ------------------------------------------------------------------- |
 | fileType                                | String  | File extension (jpg, png)                                           |
 | listOfInferTexts                        | List    | List of recognition results                                         |
 | listOfInferTexts[0].inferTexts[0].value | String  | Recognized content                                                  |

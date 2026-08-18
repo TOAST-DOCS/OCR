@@ -1,14 +1,20 @@
-## AI Service > OCR > Document OCR > API v1.0 Guide
+<!-- pre-align:aligned sig=bc8e72c02866 -->
 
-## Document OCR API Common Information
+<a id="ai-service-ocr-document-ocr-api-v10-guide"></a>
+## AI Service > OCR > Document OCR > API v1.0 Guide { #ai-service-ocr-document-ocr-api-v10-guide }
 
-### API Endpoints
+<a id="document-ocr-api-common-information"></a>
+## Document OCR API Common Information { #document-ocr-api-common-information }
+
+<a id="api-endpoints"></a>
+### API Endpoints { #api-endpoints }
 
 | Region                | Endpoint                            |
 | --------------------- | ----------------------------------- |
 | Korea (Pangyo) Region | https://api-ocr.nhncloudservice.com |
 
-### Authentication and Authorization
+<a id="authentication-and-authorization"></a>
+### Authentication and Authorization { #authentication-and-authorization }
 
 AppKey and SecretKey are required to use the Document OCR API.
 An Appkey is a unique authentication key issued for each NHN Cloud service, used to identify the service and validate API requests. A SecretKey is a private key used to control access to the API.
@@ -17,7 +23,8 @@ For more information on checking and using Appkeys and SecretKeys, please refer 
 Project Integrated Appkey can be used in place of the Appkey. Project Integrated Appkey is a common authentication key that can be shared across multiple services within a single NHN Cloud project.
 For more information on creating and using Project Integrated Appkeys, please refer to the [Project Integrated Appkey](/nhncloud/en/public-api/project-appkey).
 
-### Common Response Information
+<a id="common-response-information"></a>
+### Common Response Information { #common-response-information }
 
 All API requests return HTTP 200 OK. The success or failure of an API request can be determined by referring to the header in the Response Body.
 
@@ -63,8 +70,10 @@ Content-Type: application/json
 | resultMessage | String  | Response message                                     |
 | isSuccessful  | boolean | Success or not                                       |
 
-### Error Codes
+<a id="error-codes"></a>
+### Error Codes { #error-codes }
 
+<a id="error-codes-common"></a>
 #### Common
 
 | Error Code | Error Message                                                                              | Description                                |
@@ -78,8 +87,10 @@ Content-Type: application/json
 | 4000006    | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API call limit exceeded                    |
 | 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds the permissible limit |
 
-### Business Registration Certificate Analysis API
+<a id="business-registration-certificate-analysis-api"></a>
+### Business Registration Certificate Analysis API { #business-registration-certificate-analysis-api }
 
+<a id="business-registration-certificate-analysis-api-request"></a>
 #### Request
 
 [URI]
@@ -116,6 +127,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 | ----- | ------------------- | ----------- |
 | image | multipart/form-data | Image file  |
 
+<a id="business-registration-certificate-analysis-api-response"></a>
 #### Response
 
 [Response Body]
@@ -186,8 +198,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 - boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### Retrieve Business Registration Stoppage/Closure API
+<a id="retrieve-business-registration-stoppageclosure-api"></a>
+### Retrieve Business Registration Stoppage/Closure API { #retrieve-business-registration-stoppageclosure-api }
 
+<a id="retrieve-business-registration-stoppageclosure-api-request"></a>
 #### Request
 
 [URI]
@@ -224,6 +238,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 }'
 ```
 
+<a id="retrieve-business-registration-stoppageclosure-api-response"></a>
 #### Response
 
 [Response Body]
@@ -271,8 +286,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 | 06         | Closed                                                                                                                           |
 | 09         | Others                                                                                                                           |
 
-### Credit Card Analysis API
+<a id="credit-card-analysis-api"></a>
+### Credit Card Analysis API { #credit-card-analysis-api }
 
+<a id="credit-card-analysis-api-request"></a>
 #### Request
 
 [URI]
@@ -309,6 +326,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-c
 |-------|---------------------|-------------|
 | image | multipart/form–data | Image file  |
 
+<a id="credit-card-analysis-api-response"></a>
 #### Response
 
 [Response Body]

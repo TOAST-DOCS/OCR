@@ -1,11 +1,16 @@
-## AI Service > OCR > 개요
+<!-- pre-align:aligned sig=1d3b19d4c47d -->
+
+<a id="ai-service-ocr-overview"></a>
+## AI Service > OCR > 개요 { #ai-service-ocr-overview }
 
 OCR은 NHN Cloud의 광학 문자 인식(OCR) 기술로 이미지나 문서의 문자 영역을 인식하고, 영역별 문자를 추출하는 기능을 제공합니다.
 인식한 문서를 DB화하거나 문서 처리 자동화를 구현하는 고객사에서 활용할 수 있습니다.
 
-## General OCR
+<a id="general-ocr"></a>
+## General OCR { #general-ocr }
 
-### 주요 기능
+<a id="main-features"></a>
+### 주요 기능 { #main-features }
 
 * **이미지 문자 영역 인식**
     * 이미지의 문자 영역(bounding box)을 인식하고, 해당 영역의 좌표를 제공합니다.
@@ -14,7 +19,8 @@ OCR은 NHN Cloud의 광학 문자 인식(OCR) 기술로 이미지나 문서의 �
 * **분석 결과 다운로드**
     * 이미지 파일에서 추출한 결과를 Text 및 JSON 파일로 다운로드할 수 있습니다.
 
-### 입력 이미지 가이드
+<a id="input-image-guide"></a>
+### 입력 이미지 가이드 { #input-image-guide }
 
 더 정확한 이미지 분석을 위해 아래 가이드를 참고하세요.
 
@@ -34,10 +40,13 @@ OCR은 NHN Cloud의 광학 문자 인식(OCR) 기술로 이미지나 문서의 �
     * 흑백, 컬러 이미지 모두 결과 분석이 가능하지만, 정확한 분석에는 컬러 이미지를 권장합니다.
     * General OCR은 한국어와 영어 분석 결과만 제공합니다.
 
-## Document OCR
+<a id="document-ocr"></a>
+## Document OCR { #document-ocr }
 
-### 사업자등록증 분석
+<a id="business-registration-certificate-analysis"></a>
+### 사업자등록증 분석 { #business-registration-certificate-analysis }
 
+<a id="business-registration-certificate-analysis-main-features"></a>
 #### 주요 기능
 
 * **사업자등록증 문자 영역 인식**
@@ -47,6 +56,7 @@ OCR은 NHN Cloud의 광학 문자 인식(OCR) 기술로 이미지나 문서의 �
 * **분석 결과 다운로드**
     * 사업자등록증 이미지 파일에서 추출한 결과를 Excel 및 JSON 파일로 다운로드할 수 있습니다.
 
+<a id="business-registration-certificate-analysis-input-image-guide"></a>
 #### 입력 이미지 가이드
 
 더 정확한 사업자등록증 분석을 위해 아래 가이드를 참고하세요.
@@ -62,8 +72,10 @@ OCR은 NHN Cloud의 광학 문자 인식(OCR) 기술로 이미지나 문서의 �
 * 흑백/컬러 이미지 모두 결과 분석이 가능하지만, 정확한 분석에는 컬러 이미지를 권장합니다.
 * 사업자등록증은 한국어 분석 결과만 제공합니다.
 
-### 신용카드 분석
+<a id="credit-card-analysis"></a>
+### 신용카드 분석 { #credit-card-analysis }
 
+<a id="credit-card-analysis-main-features"></a>
 #### 주요 기능
 
 * **신용카드 문자 영역 인식**
@@ -73,6 +85,7 @@ OCR은 NHN Cloud의 광학 문자 인식(OCR) 기술로 이미지나 문서의 �
 * **분석 결과 다운로드**
     * 신용카드 이미지 파일에서 추출한 결과를 JSON 파일로 다운로드할 수 있습니다.
 
+<a id="credit-card-analysis-input-image-guide"></a>
 #### 입력 이미지 가이드
 
 더 정확한 신용카드 분석을 위해 아래 가이드를 참고하세요.
@@ -90,8 +103,10 @@ OCR은 NHN Cloud의 광학 문자 인식(OCR) 기술로 이미지나 문서의 �
 
 ![Image Example](http://static.toastoven.net/prod_ocr/DocumentRecognizer_ex_img.png)
 
-### 신분증 분석
+<a id="analyze-id-card"></a>
+### 신분증 분석 { #analyze-id-card }
 
+<a id="analyze-id-card-main-features"></a>
 #### 주요 기능
 
 * **신분증 문자 영역 인식**
@@ -103,6 +118,7 @@ OCR은 NHN Cloud의 광학 문자 인식(OCR) 기술로 이미지나 문서의 �
 * **분석 결과 다운로드**
     * 신분증 이미지 파일에서 추출한 결과를 JSON 파일로 다운로드할 수 있습니다.
 
+<a id="analyze-id-card-input-image-guide"></a>
 #### 입력 이미지 가이드
 
 더 정확한 신분증 분석을 위해 아래 가이드를 참고하세요.
@@ -119,15 +135,18 @@ OCR은 NHN Cloud의 광학 문자 인식(OCR) 기술로 이미지나 문서의 �
     * 신분증(주민등록증/운전면허증/여권)은 한국어 분석 결과만 제공합니다.
         * 여권은 국내, 외국인 여권의 분석이 가능하며, MRZ(기계 판독 영역)의 분석 결과만 제공합니다.
 
-## Document AI
+<a id="document-ai"></a>
+## Document AI { #document-ai }
 
-### 주요 기능
+<a id="document-ai-main-features"></a>
+### 주요 기능 { #document-ai-main-features }
 
 * OCR로 이미지에서 문자를 추출하고, 추출한 정보를 기반으로 LLM과 연동하여 내용 요약, 정보 추출 등 질의응답 서비스를 제공합니다.
 * 사업자등록증, 명함 등 정형화된 문서 이미지에서 Key/Value 형태로 정보를 추출할 수 있습니다.
 * 필기체 인식을 지원하여 수기로 작성된 이미지를 분석할 수 있습니다.
 
-### 입력 이미지 가이드
+<a id="document-ai-input-image-guide"></a>
+### 입력 이미지 가이드 { #document-ai-input-image-guide }
 
 더 정확한 이미지 분석을 위해 아래 가이드를 참고하세요.
 
@@ -142,23 +161,27 @@ OCR은 NHN Cloud의 광학 문자 인식(OCR) 기술로 이미지나 문서의 �
     * 흑백, 컬러 이미지 모두 결과 분석이 가능하지만, 정확한 분석에는 컬러 이미지를 권장합니다.
     * 이미지에 포함된 텍스트는 한국어와 영어 분석 결과만 제공합니다.
 
-### 서비스 이용 시 주의 사항
+<a id="cautions-for-using-the-service"></a>
+### 서비스 이용 시 주의 사항 { #cautions-for-using-the-service }
 
 * Document AI가 생성하는 답변은 이용자가 업로드한 이미지에 포함된 텍스트를 기반으로 추출됩니다.
 * Document AI에 활용된 생성형 AI(LLM) 기술의 근본적 특성상 부적절하거나 부정확한 답변이 생성될 수 있습니다. 이용자의 의도에 부합한 답변인지 한 번 더 검증한 뒤 이용하세요.
 
-## 서비스 대상
+<a id="service-targets"></a>
+## 서비스 대상 { #service-targets }
 * 문서(사업자등록증, 신용카드, 신분증)를 자동으로 고객사 시스템에 등록하는 경우
 * 문서 처리 자동화를 구현하는 경우
 * 회계/재무 관리 자동화 솔루션을 구축하는 경우
 * 다양한 이미지에서 주요 정보를 빠르게 분석하고, 질의응답 형태로 필요한 정보를 확인하고 싶은 경우
 
-## 개인정보 처리 안내
+<a id="privacy-policy"></a>
+## 개인정보 처리 안내 { #privacy-policy }
 * OCR 서비스를 이용하는 과정에서 고객은 이용자의 개인정보 및 고유식별정보를 수집할 수 있습니다. 따라서 본 서비스를 이용하는 고객은 개인정보 보호법에 따라 이용자에게 법적 고지 사항을 알리고 동의를 받아야 합니다. 또한, 이 과정에서 고객과 NHN Cloud 간 개인정보 처리에 관한 업무 위수탁 관계가 발생할 수 있습니다. 위탁자의 지위에 있는 고객은 수탁사인 NHN Cloud와 별도 서면에 의한 위탁 계약을 체결할 수 있으며 고객이 운영하는 개인정보처리방침에 아래 내용을 참고하여 고지할 수 있습니다.
     * 수탁 업체: 엔에이치엔클라우드㈜
     * 위탁 업무의 내용: OCR 서비스 제공 업무
 
-## 기술적/관리적 수준 합의서
+<a id="agreement-on-technicaladministrative-level"></a>
+## 기술적/관리적 수준 합의서 { #agreement-on-technicaladministrative-level }
 * 고객은 OCR 서비스를 이용하는 과정에서 수집/이용하는 정보의 민감성을 고려하여 기술적, 관리적 보호 조치를 충실히 이행해야 합니다.
 * 고객은 OCR 서비스로 인식된 정보를 전달받기 위해 OCR 서비스 이용 개시 전 통신 구간 암호화를 완료해야 합니다.
 * 고객은 OCR 서비스에 인식을 요청하는 원본 데이터를 안전한 장소에 저장해야 하며, 외부에 노출된 URL로는 접근할 수 없어야 합니다.

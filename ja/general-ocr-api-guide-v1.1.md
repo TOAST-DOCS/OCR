@@ -1,19 +1,26 @@
-## AI Service > OCR > General OCR > API v1.1 ガイド
+<!-- pre-align:aligned sig=2e88c3fa0965 -->
 
-## General OCR API 共通情報
+<a id="ai-service-ocr-general-ocr-api-v11-guide"></a>
+## AI Service > OCR > General OCR > API v1.1 ガイド { #ai-service-ocr-general-ocr-api-v11-guide }
 
-### APIエンドポイント
+<a id="general-ocr-api-common-information"></a>
+## General OCR API 共通情報 { #general-ocr-api-common-information }
+
+<a id="api-endpoints"></a>
+### APIエンドポイント { #api-endpoints }
 
 | リージョン              | エンドポイント                      |
 | ----------------------- | ----------------------------------- |
 | 韓国(パンギョ)リージョン | https://api-ocr.nhncloudservice.com |
 
-### 認証及び権限
+<a id="authentication-and-authorization"></a>
+### 認証及び権限 { #authentication-and-authorization }
 
 General OCRは、API呼び出し時の認証/認可のためにUser Access Keyトークンを使用します。User Access Keyトークンは、User Access Keyに基づいて発行されるBearerタイプの一時的なアクセストークンです。
 User Access Keyトークンの発行及び使用に関する詳細は、[User Access Keyトークン](/nhncloud/ja/public-api/user-access-key-token)を参照してください。
 
-### レスポンス共通情報
+<a id="common-response-information"></a>
+### レスポンス共通情報 { #common-response-information }
 
 すべてのAPIリクエストに対してHTTP 200 OKレスポンスを返します。APIリクエストの成否はResponse Bodyのheader項目を参照して判断できます。
 
@@ -59,8 +66,10 @@ Content-Type: application/json
 | resultMessage | String  | レスポンスメッセージ                               |
 | isSuccessful  | boolean | 成否                                              |
 
-### エラーコード
+<a id="error-codes"></a>
+### エラーコード { #error-codes }
 
+<a id="error-codes-common"></a>
 #### 共通
 
 | エラーコード | エラーメッセージ                                                                           | 説明                                |
@@ -76,8 +85,10 @@ Content-Type: application/json
 | 4010007      | Unauthorized.                                                                              | 権限なし                            |
 | 4131000      | Request size is larger than permissible limit.                                             | リクエストサイズが許容上限超過                     |
 
-### General OCR API
+<a id="general-ocr-api"></a>
+### General OCR API { #general-ocr-api }
 
+<a id="general-ocr-api-request"></a>
 #### リクエスト
 
 [URI]
@@ -86,6 +97,7 @@ Content-Type: application/json
 | -------- | ------------------------------ |
 | POST     | /v1.1/appkeys/{appKey}/general |
 
+<a id="general-ocr-api-request-with-image-file"></a>
 #### 画像ファイルを利用したリクエスト
 
 [リクエストヘッダ]
@@ -112,6 +124,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general'
 | ----- | ------------------- | ---------- |
 | image | multipart/form-data | 画像ファイル |
 
+<a id="general-ocr-api-request-with-image-url"></a>
 #### 画像URLを利用したリクエスト
 
 [リクエストヘッダ]
@@ -140,6 +153,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general'
 
 - イメージURLにポートを直接指定する場合は80、443、10000～12000ポートのみ使用できます。
 
+<a id="general-ocr-api-response"></a>
 #### レスポンス
 
 [レスポンス本文]
@@ -215,8 +229,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general'
 - boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### General OCR分割認識API
+<a id="general-ocr-segmentation-recognition-api"></a>
+### General OCR分割認識API { #general-ocr-segmentation-recognition-api }
 
+<a id="general-ocr-segmentation-recognition-api-request"></a>
 #### リクエスト
 
 [URI]
@@ -225,6 +241,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general'
 | -------- | --------------------------------------- |
 | POST     | /v1.1/appkeys/{appKey}/general/cropping |
 
+<a id="general-ocr-segmentation-recognition-api-request-with-image-file"></a>
 #### 画像ファイルを利用したリクエスト
 
 [リクエストヘッダ]
@@ -251,6 +268,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general/
 | ----- | ------------------- | ---------- |
 | image | multipart/form-data | 画像ファイル |
 
+<a id="general-ocr-segmentation-recognition-api-request-with-image-url"></a>
 #### 画像URLを利用したリクエスト
 
 [リクエストヘッダ]
@@ -279,6 +297,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general/
 
 - イメージURLにポートを直接指定する場合は80、443、10000～12000ポートのみ使用できます。
 
+<a id="general-ocr-segmentation-recognition-api-response"></a>
 #### レスポンス
 
 [レスポンス本文]

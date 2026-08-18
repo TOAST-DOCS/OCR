@@ -1,10 +1,15 @@
-## AI Service > OCR > Document AI > Console User Guide
+<!-- pre-align:aligned sig=dbef1ffc99ce -->
+
+<a id="ai-service-ocr-document-ai-console-user-guide"></a>
+## AI Service > OCR > Document AI > Console User Guide { #ai-service-ocr-document-ai-console-user-guide }
 
 You can upload an image file to the console, enter a document type and a question to get answers.
 
-## Document AI Analysis
+<a id="document-ai-analysis"></a>
+## Document AI Analysis { #document-ai-analysis }
 
-### Select document types for analysis
+<a id="select-document-types-for-analysis"></a>
+### Select document types for analysis { #select-document-types-for-analysis }
 
 Select the document type of the image you want to analyze.
 
@@ -12,18 +17,21 @@ Select the document type of the image you want to analyze.
 * Business registration certificate
 * Business card
 
-### Upload an Image for Analysis
+<a id="upload-an-image-for-analysis"></a>
+### Upload an Image for Analysis { #upload-an-image-for-analysis }
 
 Upload an image to analyze.<br>
 Images can be uploaded in the following two methods:
 1. Click **Upload Image**
 2. Drag and drop the image
 
-### Enter a Question
+<a id="enter-a-question"></a>
+### Enter a Question { #enter-a-question }
 
 Enter a question.
 
-### Analysis
+<a id="analysis"></a>
+### Analysis { #analysis }
 
 When you click **Analysis**, the results of your analysis appear on the right side of the screen.
 
@@ -40,6 +48,7 @@ When you click **Analysis**, the results of your analysis appear on the right si
 }
 ```
 
-### Initialize
+<a id="initialize"></a>
+### Initialize { #initialize }
 
 Click **Reset** to reset any images, questions, and answers you entered.

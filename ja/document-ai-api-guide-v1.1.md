@@ -1,19 +1,26 @@
-## AI Service > OCR > Document AI > API v1.1 ガイド
+<!-- pre-align:aligned sig=0c22e33589ae -->
 
-## Document AI API 共通情報
+<a id="ai-service-ocr-document-ai-api-v11-guide"></a>
+## AI Service > OCR > Document AI > API v1.1 ガイド { #ai-service-ocr-document-ai-api-v11-guide }
 
-### API エンドポイント
+<a id="document-ai-api-common-information"></a>
+## Document AI API 共通情報 { #document-ai-api-common-information }
+
+<a id="api-endpoints"></a>
+### API エンドポイント { #api-endpoints }
 
 | リージョン          | エンドポイント                      |
 | ------------------- | ----------------------------------- |
 | 韓国(パンギョ)リージョン | https://api-ocr.nhncloudservice.com |
 
-### 認証及び権限
+<a id="authentication-and-authorization"></a>
+### 認証及び権限 { #authentication-and-authorization }
 
 Document AIは、API呼び出し時の認証/認可のためにUser Access Keyトークンを使用します。User Access Keyトークンは、User Access Keyに基づいて発行されるBearerタイプの一時的なアクセストークンです。
 User Access Keyトークンの発行及び使用に関する詳細は、[User Access Keyトークン](/nhncloud/ja/public-api/user-access-key-token)を参照してください。
 
-### レスポンス共通情報
+<a id="common-response-information"></a>
+### レスポンス共通情報 { #common-response-information }
 
 すべてのAPIリクエストに対してHTTP 200 OKレスポンスを返します。APIリクエストの成否はResponse Bodyのheader項目を参照して判断できます。
 
@@ -60,8 +67,10 @@ Content-Type: application/json
 | resultMessage | String  | レスポンスメッセージ                             |
 | isSuccessful  | boolean | 成否                                            |
 
-### エラーコード
+<a id="error-codes"></a>
+### エラーコード { #error-codes }
 
+<a id="error-codes-common"></a>
 #### 共通
 
 | エラーコード | エラーメッセージ                                                                           | 説明                                |
@@ -77,7 +86,8 @@ Content-Type: application/json
 | 4010007      | Permission denied.                                                                         | 権限なし                            |
 | 4131000      | Request size is larger than permissible limit.                                             | リクエストサイズが許容上限超過                     |
 
-### Document AI 分析 API
+<a id="document-ai-analysis-api"></a>
+### Document AI 分析 API { #document-ai-analysis-api }
 
 [URI]
 
@@ -110,6 +120,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/document
 | documentTypeCode | text   | X            | GENERAL      | GENERAL, BUSINESS_REGISTRATION, BUSINESS_CARD | 文書タイプ<br> 一般: GENERAL <br> 事業者登録証: BUSINESS_REGISTRATION <br> 名刺: BUSINESS_CARD |
 | prompt           | text   | O            |              |                                               | 質問内容<br>最大1000文字                                                                           |
 
+<a id="document-ai-analysis-api-response"></a>
 #### レスポンス
 
 [レスポンス本文]

@@ -1,14 +1,22 @@
-## AI Service > OCR > Document OCR > API v2.0 ガイド
+<!-- machine_translated: true -->
 
-## Document OCR API 共通情報
+<!-- pre-align:aligned sig=e5ad4be08060 -->
 
-### APIエンドポイント
+<a id="ai-service-ocr-document-ocr-api-v20-guide"></a>
+## AI Service > OCR > Document OCR > API v2.0 ガイド { #ai-service-ocr-document-ocr-api-v20-guide }
+
+<a id="document-ocr-api-common-information"></a>
+## Document OCR API 共通情報 { #document-ocr-api-common-information }
+
+<a id="api-endpoints"></a>
+### APIエンドポイント { #api-endpoints }
 
 | リージョン      | エンドポイント                       |
 | --------------- | ----------------------------------- |
 | 韓国(板橋)リージョン | https://api-ocr.nhncloudservice.com |
 
-### 認証及び権限
+<a id="authentication-and-authorization"></a>
+### 認証及び権限 { #authentication-and-authorization }
 
 Document OCR APIを使用するには、AppkeyとSecretKeyが必要です。
 Appkeyは、NHN Cloudの各サービスごとに発行される固有の認証キーであり、APIリクエスト時のサービス識別と有効性検証に使用されます。SecretKeyは、APIへのアクセスを制御するシークレットキーです。
@@ -17,7 +25,8 @@ Appkey及びSecretKeyの確認及び使用に関する詳細は、[Appkey](/nhnc
 Appkeyの代わりに、プロジェクト統合Appkeyを使用することも可能です。プロジェクト統合Appkeyは、NHN Cloudの1つのプロジェクト内の複数のサービスに対して共通で使用できる認証キーです。
 プロジェクト統合Appkeyの作成及び使用に関する詳細は、[プロジェクト統合Appkey](/nhncloud/ja/public-api/project-appkey)を参照してください。
 
-### レスポンス共通情報
+<a id="common-response-information"></a>
+### レスポンス共通情報 { #common-response-information }
 
 すべてのAPIリクエストレスポンスとしてHTTP 200 OKを返します。APIリクエストの成否はResponse Bodyのheader項目を参照して判断できます。
 
@@ -63,8 +72,10 @@ Content-Type: application/json
 | resultMessage | String  | レスポンスメッセージ                        |
 | isSuccessful  | boolean | 成否                                       |
 
-### エラーコード
+<a id="error-codes"></a>
+### エラーコード { #error-codes }
 
+<a id="error-codes-common"></a>
 #### 共通
 
 | エラーコード | エラーメッセージ                                                                           | 説明                          |
@@ -78,20 +89,25 @@ Content-Type: application/json
 | 4000006      | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API呼び出し限度超過           |
 | 4131000      | Request size is larger than permissible limit.                                             | リクエストサイズが許容限度超過               |
 
-### v2.0 API紹介
+<a id="overview-of-v20-api"></a>
+### v2.0 API紹介 { #overview-of-v20-api }
 
+<a id="overview-of-v20-api-changes-from-v10"></a>
 #### v1.0と違なる点
 
 * セキュリティがデジタルエンベロープ方式に強化されました。
 
+<a id="overview-of-v20-api-caution"></a>
 #### 注意事項
 
 * リクエスト、レスポンス時にBase64エンコードされているかどうかを確認してください。
 * 暗号化、復号の詳細モード(例：AES-256/CBC/PKCS7Padding)を確認してください。
 * 暗号化に使用される対称鍵は、必ず32Byte乱数で作成します。セキュリティのため、リクエストごとに新しい対称鍵を生成して使用することを推奨します。
 
-### 公開鍵の発行
+<a id="issue-public-key"></a>
+### 公開鍵発行API { #issue-public-key }
 
+<a id="issue-public-key-request"></a>
 #### リクエスト
 
 [URI]
@@ -110,7 +126,7 @@ Content-Type: application/json
 
 | 名前          | 値             | 説明                                                                            |
 |-------------|---------------|-------------------------------------------------------------------------------|
-| appKey      | {appKey}      | 統合AppkeyまたはサービスAppkey                                                         |
+| appKey      | {appKey}      | プロジェクト統合AppkeyまたはサービスAppkey                                                         |
 | serviceName | {serviceName} | credit-card(クレジットカードAPI呼び出し時に使用する公開鍵発行時)、<br> id-card(身分証API呼び出し時に使用する公開鍵発行時) |
 
 [リクエスト本文]
@@ -120,21 +136,22 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 -H 'Authorization: ${secretKey}'
 ```
 
+<a id="issue-public-key-response"></a>
 #### レスポンス
 
 [レスポンス本文]
 
 ```json
 {
-    "header": {
-        "isSuccessful": true,
-        "resultCode": 0,
-        "resultMessage": "SUCCESS"
-    },
-    "result": {
-        "key": "String",
-        "version": "0"
-     }
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "result": {
+    "key": "String",
+    "version": "0"
+  }
 }
 ```
 
@@ -156,10 +173,10 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 
 * 公開鍵は **Base64**でエンコードされている状態です。
 
-### クレジットカードAPI
+<a id="credit-card-analysis-api"></a>
+### クレジットカード分析API { #credit-card-analysis-api }
 
-#### クレジットカード分析API
-
+<a id="credit-card-analysis-api-request"></a>
 #### リクエスト
 
 [URI]
@@ -183,7 +200,7 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 
 | 名前     | 値        | 説明                    |
 |--------|----------|-----------------------|
-| appKey | {appKey} | 統合AppkeyまたはサービスAppkey |
+| appKey | {appKey} | プロジェクト統合AppkeyまたはサービスAppkey |
 
 [フィールド]
 
@@ -204,6 +221,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 -H 'Symmetric-Key: ${symmetricKey}'
 ```
 
+<a id="credit-card-analysis-api-response"></a>
 #### レスポンス
 
 [レスポンス本文]
@@ -281,7 +299,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 | 名前                | タイプ    | 説明                                           | 暗号化するかどうか |
 |-------------------|--------|----------------------------------------------|-----------|
 | fileType          | String | ファイル拡張子(.jpg, .png)                          |           |
-| resolution        | String | 推奨解像度(760\*480px)以上の場合はnormal、推奨解像度未満はlow    |           |
+| resolution        | String | 推奨解像度(760x480px)以上の場合はnormal、推奨解像度未満はlow    |           |
 | cardNums          | List   | カード番号認識結果リスト                                 |           |
 | cardNums[0].value | String | 認識結果                                         | O         |
 | cardNums[0].conf  | Double | 認識結果の信頼度                                     |           |
@@ -297,8 +315,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 * boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### 身分証分析API
+<a id="id-card-analysis-api"></a>
+### 身分証分析API { #id-card-analysis-api }
 
+<a id="id-card-analysis-api-request"></a>
 #### リクエスト
 
 [URI]
@@ -322,7 +342,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 
 | 名前     | 値        | 説明                    |
 |--------|----------|-----------------------|
-| appKey | {appKey} | 統合AppkeyまたはサービスAppkey |
+| appKey | {appKey} | プロジェクト統合AppkeyまたはサービスAppkey |
 
 [フィールド]
 
@@ -343,6 +363,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 -H 'Symmetric-Key: ${symmetricKey}'
 ```
 
+<a id="id-card-analysis-api-response"></a>
 #### レスポンス
 
 [レスポンスヘッダ]
@@ -519,8 +540,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 * boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### 身分証真偽確認API
+<a id="verify-authenticity-api"></a>
+### 身分証真偽確認API { #verify-authenticity-api }
 
+<a id="verify-authenticity-api-request"></a>
 #### リクエスト
 
 [URI]
@@ -545,7 +568,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 | 名前     | 値        | 説明                    |
 |--------|----------|-----------------------|
-| appKey | {appKey} | 統合AppkeyまたはサービスAppkey |
+| appKey | {appKey} | プロジェクト統合AppkeyまたはサービスAppkey |
 
 [フィールド]
 
@@ -579,20 +602,21 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 }'
 ```
 
+<a id="verify-authenticity-api-response"></a>
 #### レスポンス
 
 [レスポンス本文]
 
 ```json
 {
-    "header": {
-        "isSuccessful": true,
-        "resultCode": 0,
-        "resultMessage": "SUCCESS"
-    },
-    "result": {
-        "isAuthenticity": false
-    }
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "result": {
+    "isAuthenticity": false
+  }
 }
 ```
 
@@ -610,13 +634,16 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 |----------------|---------|----|
 | isAuthenticity | Boolean | 真偽 |
 
-### 身分証分析(単独) API
+<a id="id-card-analysis-api-stand-alone"></a>
+### 身分証分析(単独) API { #id-card-analysis-api-stand-alone }
 
+<a id="id-card-analysis-api-stand-alone-differences-from-the-existing-id-analysis-api"></a>
 #### 既存身分証分析APIとの違い
 
 * 真偽確認に必要なRequest-Keyを含みません。
 * 真偽確認ができない代わりに、低料金が課金されます。
 
+<a id="id-card-analysis-api-stand-alone-request"></a>
 #### リクエスト
 
 [URI]
@@ -640,7 +667,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 
 | 名前     | 値        | 説明                    |
 |--------|----------|-----------------------|
-| appKey | {appKey} | 統合AppkeyまたはサービスAppkey |
+| appKey | {appKey} | プロジェクト統合AppkeyまたはサービスAppkey |
 
 [フィールド]
 
@@ -661,6 +688,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 -H 'Symmetric-Key: ${symmetricKey}'
 ```
 
+<a id="id-card-analysis-api-stand-alone-response"></a>
 #### レスポンス
 
 [レスポンス本文]
@@ -774,7 +802,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | keyValues[0].key   | String |                                               |           |
 | keyValues[0].value | String |                                               | O         |
 | keyValues[0].bbox  | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }      |           |
-| keyValues[0].conf  | Double | 有効期限認識結果の信頼度                                  |           |   
+| keyValues[0].conf  | Double | 認識結果の信頼度                                      |           |   
 | boxes              | List   | 認識領域(Bounding box)座標リスト                       |
 | boxes[0]           | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }      |
 

@@ -1,5 +1,7 @@
 <!-- machine_translated: true -->
 
+<!-- pre-align:aligned sig=e5ad4be08060 -->
+
 <a id="ai-service-ocr-document-ocr-api-v20-guide"></a>
 ## AI Service > OCR > Document OCR > API v2.0 Guide { #ai-service-ocr-document-ocr-api-v20-guide }
 

@@ -14,7 +14,6 @@
 | Korea (Pangyo) Region | https://api-ocr.nhncloudservice.com |
 
 <a id="authentication-and-authorization"></a>
-
 ### Authentication and Authorization { #authentication-and-authorization }
 
 AppKey and SecretKey are required to use the Document OCR API.
@@ -25,7 +24,6 @@ Project Integrated Appkey can be used in place of the Appkey. Project Integrated
 For more information on creating and using Project Integrated Appkeys, please refer to the [Project Integrated Appkey](/nhncloud/en/public-api/project-appkey).
 
 <a id="common-response-information"></a>
-
 ### Common Response Information { #common-response-information }
 
 All API requests return HTTP 200 OK. The success or failure of an API request can be determined by referring to the header in the Response Body.
@@ -73,7 +71,6 @@ Content-Type: application/json
 | isSuccessful  | boolean | Success or not                                       |
 
 <a id="error-codes"></a>
-
 ### Error Codes { #error-codes }
 
 <a id="error-codes-common"></a>
@@ -91,7 +88,6 @@ Content-Type: application/json
 | 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds the permissible limit |
 
 <a id="overview-of-v20-api"></a>
-
 ### Overview of v2.0 API { #overview-of-v20-api }
 
 <a id="overview-of-v20-api-changes-from-v10"></a>
@@ -324,7 +320,6 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 <a id="id-card-analysis-api"></a>
-
 ### ID Card Analysis API { #id-card-analysis-api }
 
 <a id="id-card-analysis-api-request"></a>
@@ -550,7 +545,6 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 <a id="verify-authenticity-api"></a>
-
 ### Verify Authenticity API { #verify-authenticity-api }
 
 <a id="verify-authenticity-api-request"></a>

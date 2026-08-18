@@ -58,26 +58,26 @@ Content-Type: application/json
 
 </details>
 
-| Name          | Type    | Description                                                   |
-| ------------- | ------- | ------------------------------------------------------------- |
+| Name          | Type    | Description                                                  |
+| ------------- | ------- | ------------------------------------------------------------ |
 | resultCode    | int     | Response code<br>Returns 0 on success, error code on failure |
-| resultMessage | String  | Response message                                              |
-| isSuccessful  | boolean | Success or not                                                |
+| resultMessage | String  | Response message                                             |
+| isSuccessful  | boolean | Success or not                                               |
 
 ### Error Codes
 
 #### Common
 
-| Error Code | Error Message                                                                              | Description                           |
-| ---------- | ------------------------------------------------------------------------------------------ | ------------------------------------- |
-| -1         | Unknown error.                                                                             | Unknown error                         |
-| 4000001    | Invalid parameter.                                                                         | Invalid parameter                     |
-| 4000002    | Invalid file.                                                                              | Invalid file                          |
-| 4000003    | Invalid file type.                                                                         | Invalid file type                     |
-| 4000004    | Uploaded file is empty.                                                                    | Uploaded file is empty                |
-| 4000005    | Required headers are missing.                                                               | Required headers missing              |
-| 4000006    | Api call limit exceeded. If you need to adjust the limit, please contact customer service. | API call limit exceeded               |
-| 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds limit            |
+| Error Code | Error Message                                                                              | Description                |
+| ---------- | ------------------------------------------------------------------------------------------ | -------------------------- |
+| -1         | Unknown error.                                                                             | Unknown error              |
+| 4000001    | Invalid parameter.                                                                         | Invalid parameter          |
+| 4000002    | Invalid file.                                                                              | Invalid file               |
+| 4000003    | Invalid file type.                                                                         | Invalid file type          |
+| 4000004    | Uploaded file is empty.                                                                    | Uploaded file is empty     |
+| 4000005    | Required headers are missing.                                                              | Required headers missing   |
+| 4000006    | Api call limit exceeded. If you need to adjust the limit, please contact customer service. | API call limit exceeded    |
+| 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds limit |
 
 ### Document AI Analysis API
 
@@ -89,10 +89,10 @@ Content-Type: application/json
 
 [Request Header]
 
-| Name          | Value               | Description                       |
-| ------------- | ------------------- | --------------------------------- |
-| Authorization | {secretKey}         | Security key issued from console  |
-| Content-Type  | multipart/form-data | Content type                      |
+| Name          | Value               | Description                      |
+| ------------- | ------------------- | -------------------------------- |
+| Authorization | {secretKey}         | Security key issued from console |
+| Content-Type  | multipart/form-data | Content type                     |
 
 [Request Body]
 
@@ -106,11 +106,11 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/document
 
 [Field]
 
-| Name             | Type | Required | Default | Valid Range                                    | Description                                                                                                            |
-| ---------------- | ---- | -------- | ------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| image            | file | O        |         |                                                | Image file                                                                                                             |
-| documentTypeCode | text | X        | GENERAL | GENERAL, BUSINESS_REGISTRATION, BUSINESS_CARD  | Document type<br> General: GENERAL <br> Business registration: BUSINESS_REGISTRATION <br> Business card: BUSINESS_CARD |
-| prompt           | text | O        |         |                                                | Question content<br>Up to 1,000 characters                                                                              |
+| Name             | Type | Required | Default | Valid Range                                   | Description                                                                                                            |
+| ---------------- | ---- | -------- | ------- | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| image            | file | O        |         |                                               | Image file                                                                                                             |
+| documentTypeCode | text | X        | GENERAL | GENERAL, BUSINESS_REGISTRATION, BUSINESS_CARD | Document type<br> General: GENERAL <br> Business registration: BUSINESS_REGISTRATION <br> Business card: BUSINESS_CARD |
+| prompt           | text | O        |         |                                               | Question content<br>Up to 1,000 characters                                                                             |
 
 #### Response
 
@@ -131,11 +131,11 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/document
 
 [Header]
 
-| Name          | Type    | Description                                                     |
-| ------------- | ------- | --------------------------------------------------------------- |
-| isSuccessful  | Boolean | Analysis API success or not                                     |
-| resultCode    | Integer | Result code                                                     |
-| resultMessage | String  | Result message (success on success, error content on failure)   |
+| Name          | Type    | Description                                                   |
+| ------------- | ------- | ------------------------------------------------------------- |
+| isSuccessful  | Boolean | Analysis API success or not                                   |
+| resultCode    | Integer | Result code                                                   |
+| resultMessage | String  | Result message (success on success, error content on failure) |
 
 [Field]
 

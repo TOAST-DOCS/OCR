@@ -1,0 +1,16 @@
+# Claude Code local settings, skills, session files — managed outside this repository
+.claude/
+
+# Local project guide (private context, not for public exposure)
+CLAUDE.md
+
+# OMC (oh-my-claudecode) working files
+.omc/
+
+# macOS Finder metadata
+.DS_Store
+
+# Editor temp files
+*.swp
+*.swo
+*~

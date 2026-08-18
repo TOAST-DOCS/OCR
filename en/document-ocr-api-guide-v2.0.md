@@ -105,8 +105,6 @@ Content-Type: application/json
 - The symmetric key used for encryption must be generated as a 32 byte random number. For security, it is recommended to create and use a new symmetric key for each request.
 
 <a id="issue-public-key"></a>
-
-<a id="issue-public-key"></a>
 ### Issue Public Key { #issue-public-key }
 
 <a id="issue-public-key-request"></a>
@@ -174,9 +172,6 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 | result.version | String | version of public key              |
 
 * The public key is **Base64** encoded.
-
-<!-- pre-align: ko에 대응 섹션 없음 — 검토 필요 (Spurious L3 grouping heading 'Credit Card API' inserted by translator; ko has no such wrapper — k14 (신용카드 분석 API) is itself the L3 section heading, matched to t15) -->
-<a id="credit-card-analysis-api"></a>
 
 <!-- pre-align: ko에 대응 섹션 없음 — 검토 필요 (Spurious L3 grouping heading 'Credit Card API' inserted by translator; ko has no such wrapper — k14 (신용카드 분석 API) is itself the L3 section heading, matched to t15) -->
 <a id="credit-card-analysis-api"></a>
@@ -639,8 +634,6 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | Name           | Type    | Description                    |
 | -------------- | ------- | ------------------------------ |
 | isAuthenticity | Boolean | Whether it is authentic or not |
-
-<a id="id-card-analysis-api-stand-alone"></a>
 
 <a id="id-card-analysis-api-stand-alone"></a>
 ### ID Card Analysis API (Stand alone) { #id-card-analysis-api-stand-alone }

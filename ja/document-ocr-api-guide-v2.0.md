@@ -26,8 +26,6 @@ Appkeyの代わりに、プロジェクト統合Appkeyを使用することも�
 プロジェクト統合Appkeyの作成及び使用に関する詳細は、[プロジェクト統合Appkey](/nhncloud/ja/public-api/project-appkey)を参照してください。
 
 <a id="common-response-information"></a>
-
-<a id="common-response-information"></a>
 ### レスポンス共通情報 { #common-response-information }
 
 すべてのAPIリクエストレスポンスとしてHTTP 200 OKを返します。APIリクエストの成否はResponse Bodyのheader項目を参照して判断できます。
@@ -105,8 +103,6 @@ Content-Type: application/json
 * リクエスト、レスポンス時にBase64エンコードされているかどうかを確認してください。
 * 暗号化、復号の詳細モード(例：AES-256/CBC/PKCS7Padding)を確認してください。
 * 暗号化に使用される対称鍵は、必ず32Byte乱数で作成します。セキュリティのため、リクエストごとに新しい対称鍵を生成して使用することを推奨します。
-
-<a id="issue-public-key"></a>
 
 <a id="issue-public-key"></a>
 ### 公開鍵発行API { #issue-public-key }
@@ -545,8 +541,6 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 <a id="verify-authenticity-api"></a>
-
-<a id="verify-authenticity-api"></a>
 ### 身分証真偽確認API { #verify-authenticity-api }
 
 <a id="verify-authenticity-api-request"></a>
@@ -639,8 +633,6 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | 名前             | タイプ     | 説明 |
 |----------------|---------|----|
 | isAuthenticity | Boolean | 真偽 |
-
-<a id="id-card-analysis-api-stand-alone"></a>
 
 <a id="id-card-analysis-api-stand-alone"></a>
 ### 身分証分析(単独) API { #id-card-analysis-api-stand-alone }

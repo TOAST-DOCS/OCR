@@ -1,10 +1,15 @@
+<!-- machine_translated: true -->
+
 <a id="ai-service-ocr-document-ocr-api-v20-guide"></a>
+
 ## AI Service > OCR > Document OCR > API v2.0 Guide { #ai-service-ocr-document-ocr-api-v20-guide }
 
 <a id="document-ocr-api-common-information"></a>
+
 ## Document OCR API Common Information { #document-ocr-api-common-information }
 
 <a id="api-endpoints"></a>
+
 ### API Endpoints { #api-endpoints }
 
 | Region                | Endpoint                            |
@@ -12,6 +17,7 @@
 | Korea (Pangyo) Region | https://api-ocr.nhncloudservice.com |
 
 <a id="authentication-and-authorization"></a>
+
 ### Authentication and Authorization { #authentication-and-authorization }
 
 AppKey and SecretKey are required to use the Document OCR API.
@@ -22,6 +28,7 @@ Project Integrated Appkey can be used in place of the Appkey. Project Integrated
 For more information on creating and using Project Integrated Appkeys, please refer to the [Project Integrated Appkey](/nhncloud/en/public-api/project-appkey).
 
 <a id="common-response-information"></a>
+
 ### Common Response Information { #common-response-information }
 
 All API requests return HTTP 200 OK. The success or failure of an API request can be determined by referring to the header in the Response Body.
@@ -69,6 +76,7 @@ Content-Type: application/json
 | isSuccessful  | boolean | Success or not                                       |
 
 <a id="error-codes"></a>
+
 ### Error Codes { #error-codes }
 
 <a id="error-codes-common"></a>
@@ -86,6 +94,7 @@ Content-Type: application/json
 | 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds the permissible limit |
 
 <a id="overview-of-v20-api"></a>
+
 ### Overview of v2.0 API { #overview-of-v20-api }
 
 <a id="overview-of-v20-api-changes-from-v10"></a>
@@ -101,6 +110,7 @@ Content-Type: application/json
 - The symmetric key used for encryption must be generated as a 32 byte random number. For security, it is recommended to create and use a new symmetric key for each request.
 
 <a id="issue-public-key"></a>
+
 ### Issue Public Key { #issue-public-key }
 
 <a id="issue-public-key-request"></a>
@@ -167,13 +177,11 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 | result.key     | String | Public key (Base64 encoded)        |
 | result.version | String | version of public key              |
 
-* The public key is **Base64** encoded.
+- The public key is **Base64** encoded.
 
-<!-- pre-align: ko에 대응 섹션 없음 — 검토 필요 (Spurious L3 grouping heading 'Credit Card API' inserted by translator; ko has no such wrapper — k14 (신용카드 분석 API) is itself the L3 section heading, matched to t15) -->
 <a id="credit-card-analysis-api"></a>
-### Credit Card API { #credit-card-analysis-api }
 
-### Credit Card Analysis API
+### Credit Card Analysis API { #credit-card-analysis-api }
 
 <a id="credit-card-analysis-api-request"></a>
 #### Request
@@ -315,6 +323,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 <a id="id-card-analysis-api"></a>
+
 ### ID Card Analysis API { #id-card-analysis-api }
 
 <a id="id-card-analysis-api-request"></a>
@@ -369,7 +378,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 
 | Name        | Description                                                     |
 |-------------|-----------------------------------------------------------------|
-| Request-Key | Request-Key to be used when calling the Verify Authenticity API (provided only for resident registration certificate and driver's license analysis results) |
+| Request-Key | Request-Key to be used when calling the ID verification API (provided only for national ID card and driver's license analysis results) |
 
 - **If you use the Request-Key to make a Authenticity API call and get a normal response, the Request-Key used cannot be reused.**
 - **Request-Key is valid for 1 hour after issuance and cannot be used after that.**
@@ -485,7 +494,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | keyValues[0].key   | String |                                                                                                                                     |                          |
 | keyValues[0].value | String |                                                                                                                                     | O                        |
 | keyValues[0].bbox  | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                   |                          |
-| keyValues[0].conf  | Double | Confidence of the recognition result                                                                                                |                          | |  |
+| keyValues[0].conf  | Double | Confidence of the recognition result                                                                                                |                          |
 | boxes              | List   | List of bounding box coordinates                                                                                                    |
 | boxes[0]           | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                   |
 
@@ -540,6 +549,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 <a id="verify-authenticity-api"></a>
+
 ### Verify Authenticity API { #verify-authenticity-api }
 
 <a id="verify-authenticity-api-request"></a>
@@ -634,6 +644,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | isAuthenticity | Boolean | Whether it is authentic or not |
 
 <a id="id-card-analysis-api-stand-alone"></a>
+
 ### ID Card Analysis API (Stand alone) { #id-card-analysis-api-stand-alone }
 
 <a id="id-card-analysis-api-stand-alone-differences-from-the-existing-id-analysis-api"></a>

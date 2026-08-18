@@ -1,10 +1,15 @@
+<!-- machine_translated: true -->
+
 <a id="ai-service-ocr-document-ocr-api-v20-guide"></a>
+
 ## AI Service > OCR > Document OCR > API v2.0 ガイド { #ai-service-ocr-document-ocr-api-v20-guide }
 
 <a id="document-ocr-api-common-information"></a>
+
 ## Document OCR API 共通情報 { #document-ocr-api-common-information }
 
 <a id="api-endpoints"></a>
+
 ### APIエンドポイント { #api-endpoints }
 
 | リージョン      | エンドポイント                       |
@@ -12,6 +17,7 @@
 | 韓国(板橋)リージョン | https://api-ocr.nhncloudservice.com |
 
 <a id="authentication-and-authorization"></a>
+
 ### 認証及び権限 { #authentication-and-authorization }
 
 Document OCR APIを使用するには、AppkeyとSecretKeyが必要です。
@@ -22,6 +28,7 @@ Appkeyの代わりに、プロジェクト統合Appkeyを使用することも�
 プロジェクト統合Appkeyの作成及び使用に関する詳細は、[プロジェクト統合Appkey](/nhncloud/ja/public-api/project-appkey)を参照してください。
 
 <a id="common-response-information"></a>
+
 ### レスポンス共通情報 { #common-response-information }
 
 すべてのAPIリクエストレスポンスとしてHTTP 200 OKを返します。APIリクエストの成否はResponse Bodyのheader項目を参照して判断できます。
@@ -69,6 +76,7 @@ Content-Type: application/json
 | isSuccessful  | boolean | 成否                                       |
 
 <a id="error-codes"></a>
+
 ### エラーコード { #error-codes }
 
 <a id="error-codes-common"></a>
@@ -86,21 +94,23 @@ Content-Type: application/json
 | 4131000      | Request size is larger than permissible limit.                                             | リクエストサイズが許容限度超過               |
 
 <a id="overview-of-v20-api"></a>
+
 ### v2.0 API紹介 { #overview-of-v20-api }
 
 <a id="overview-of-v20-api-changes-from-v10"></a>
 #### v1.0と違なる点
 
-* セキュリティがデジタルエンベロープ方式に強化されました。
+- セキュリティがデジタルエンベロープ方式に強化されました。
 
 <a id="overview-of-v20-api-caution"></a>
 #### 注意事項
 
-* リクエスト、レスポンス時にBase64エンコードされているかどうかを確認してください。
-* 暗号化、復号の詳細モード(例：AES-256/CBC/PKCS7Padding)を確認してください。
-* 暗号化に使用される対称鍵は、必ず32Byte乱数で作成します。セキュリティのため、リクエストごとに新しい対称鍵を生成して使用することを推奨します。
+- リクエスト、レスポンス時にBase64エンコードされているかどうかを確認してください。
+- 暗号化、復号の詳細モード(例：AES-256/CBC/PKCS7Padding)を確認してください。
+- 暗号化に使用される対称鍵は、必ず32Byte乱数で作成します。セキュリティのため、リクエストごとに新しい対称鍵を生成して使用することを推奨します。
 
 <a id="issue-public-key"></a>
+
 ### 公開鍵の発行 { #issue-public-key }
 
 <a id="issue-public-key-request"></a>
@@ -139,15 +149,15 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 
 ```json
 {
-    "header": {
-        "isSuccessful": true,
-        "resultCode": 0,
-        "resultMessage": "SUCCESS"
-    },
-    "result": {
-        "key": "String",
-        "version": "0"
-     }
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "result": {
+    "key": "String",
+    "version": "0"
+  }
 }
 ```
 
@@ -170,46 +180,43 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 * 公開鍵は **Base64**でエンコードされている状態です。
 
 <a id="credit-card-analysis-api"></a>
+
 ### クレジットカードAPI { #credit-card-analysis-api }
 
-<!-- pre-align: ko에 대응 섹션 없음 — 검토 필요 (Spurious L4 subheading 'クレジットカード分析API' inserted under t14; ko has no such child — k14 is the single section heading with no repeated-title subheading beneath it) -->
 <a id="credit-card-analysis-api-request"></a>
-#### クレジットカード分析API
-
-<a id="credit-card-analysis-api-response"></a>
 #### リクエスト
 
 [URI]
 
 | メソッド | URI                                |
-|------|------------------------------------|
-| POST | /v2.0/appkeys/{appKey}/credit-card |
+| ------ | ---------------------------------- |
+| POST   | /v2.0/appkeys/{appKey}/credit-card |
 
 [リクエストヘッダ]
 
-| 名前            | 値               | 説明                  |
-|---------------|-----------------|---------------------|
+| 名前          | 値              | 説明                  |
+| ------------- | --------------- | --------------------- |
 | Authorization | {secretKey}     | コンソールで発行されたセキュリティキー |
 | X-Key-Version | {x-key-version} | 発行された公開鍵のバージョン      |
 | Symmetric-Key | {symmetricKey}  | 発行された公開鍵で暗号化された対称鍵  |
 
-* {symmetricKey}は必ず**32byte乱数**で作成する必要があります。
-* {symmetricKey}は必ず**RSA/ECB/PKCS1Padding**方式で暗号化されている必要があります(公開鍵利用)。
+- {symmetricKey}は必ず**32byte乱数**で作成する必要があります。
+- {symmetricKey}は必ず**RSA/ECB/PKCS1Padding**方式で暗号化されている必要があります(公開鍵利用)。
 
 [Path Variable]
 
 | 名前     | 値        | 説明                    |
-|--------|----------|-----------------------|
+| ------ | -------- | ----------------------- |
 | appKey | {appKey} | 統合AppkeyまたはサービスAppkey |
 
 [フィールド]
 
 | 名前    | タイプ                 | 説明       | 暗号化説明          |
-|-------|---------------------|----------|----------------|
-| image | multipart/form–data | イメージファイル | 対称鍵で暗号化されたイメージ |
+| ----- | ------------------- | ---------- | ---------------- |
+| image | multipart/form-data | イメージファイル | 対称鍵で暗号化されたイメージ |
 
-* イメージファイルは必ず **AES-256/CBC/PKCS7Padding**方式で暗号化されている必要があります(対称鍵利用)。
-* IV(初期化ベクトル)は、対称鍵の最初の16バイト(すなわち、0～15番目のバイト)を使用します。
+- イメージファイルは必ず **AES-256/CBC/PKCS7Padding**方式で暗号化されている必要があります(対称鍵利用)。
+- IV(初期化ベクトル)は、対称鍵の最初の16バイト(すなわち、0～15番目のバイト)を使用します。
 
 [リクエスト本文]
 
@@ -221,6 +228,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 -H 'Symmetric-Key: ${symmetricKey}'
 ```
 
+<a id="credit-card-analysis-api-response"></a>
 #### レスポンス
 
 [レスポンス本文]
@@ -288,33 +296,34 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 [ヘッダ]
 
 | 名前            | タイプ     | 説明                             |
-|---------------|---------|--------------------------------|
+| ------------- | ------- | -------------------------------- |
 | isSuccessful  | Boolean | 分析API成否                        |
 | resultCode    | Integer | 結果コード                          |
 | resultMessage | String  | 結果メッセージ(成功時はsuccess、失敗時はエラー内容) |
 
 [フィールド]
 
-| 名前                | タイプ    | 説明                                           | 暗号化するかどうか |
-|-------------------|--------|----------------------------------------------|-----------|
-| fileType          | String | ファイル拡張子(.jpg, .png)                          |           |
-| resolution        | String | 推奨解像度(760\*480px)以上の場合はnormal、推奨解像度未満はlow    |           |
-| cardNums          | List   | カード番号認識結果リスト                                 |           |
-| cardNums[0].value | String | 認識結果                                         | O         |
-| cardNums[0].conf  | Double | 認識結果の信頼度                                     |           |
-| totalCardNum      | List   | カード番号全体認識結果                                  | O         |
-| cardNumBoxes      | List   | カード番号認識領域(Bounding box)座標リスト                 |           |
-| cardNumBoxes[0]   | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }     |           |
-| validThru.value   | String | 有効期限認識内容                                     | O         |
-| validThru.conf    | Double | 有効期限認識結果の信頼度                                 |           |
-| validThruBox      | Object | 有効期限認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 } |           |
+| 名前                | タイプ    | 説明                                                            | 暗号化するかどうか |
+| ----------------- | ------ | --------------------------------------------------------------- | ----------- |
+| fileType          | String | ファイル拡張子(.jpg, .png)                                          |             |
+| resolution        | String | 推奨解像度(760\*480px)以上の場合はnormal、推奨解像度未満はlow                   |             |
+| cardNums          | List   | カード番号認識結果リスト                                                 |             |
+| cardNums[0].value | String | 認識結果                                                         | O           |
+| cardNums[0].conf  | Double | 認識結果の信頼度                                                     |             |
+| totalCardNum      | List   | カード番号全体認識結果                                                  | O           |
+| cardNumBoxes      | List   | カード番号認識領域(Bounding box)座標リスト                                 |             |
+| cardNumBoxes[0]   | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }                     |             |
+| validThru.value   | String | 有効期限認識内容                                                     | O           |
+| validThru.conf    | Double | 有効期限認識結果の信頼度                                                 |             |
+| validThruBox      | Object | 有効期限認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }               |             |
 
-* 暗号化された項目(cardNums[0].value, totalCardNumなど)は **AES-256/CBC/PKCS7Padding**方式で暗号化されています(対称鍵を利用)。
+- 暗号化された項目(cardNums[0].value, totalCardNumなど)は **AES-256/CBC/PKCS7Padding**方式で暗号化されています(対称鍵を利用)。
 
-* boxes[0]
+- boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 <a id="id-card-analysis-api"></a>
+
 ### 身分証分析API { #id-card-analysis-api }
 
 <a id="id-card-analysis-api-request"></a>
@@ -485,8 +494,8 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | keyValues[0].key   | String |                                               |           |
 | keyValues[0].value | String |                                               | O         |
 | keyValues[0].bbox  | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }      |           |
-| keyValues[0].conf  | Double | 有効期限認識結果の信頼度                                  |           |   
-| boxes              | List   | 認識領域(Bounding box)座標リスト                       |
+| keyValues[0].conf  | Double | 認識結果の信頼値                                      |           |
+| boxes              | List   | 認識領域(Bounding box)座標リスト                       |           |
 | boxes[0]           | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }      |
 
 * **"idType"が"resident"と認識される場合のKeyValuesに含まれるリスト**
@@ -511,13 +520,11 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | **issueDate**           | string     | 認識された発行日時                                               |
 | **issuer**              | string     | 認識された発行機関                                               |
 
-
-
 * **"idType"が"passport"で認識される場合、KeyValuesに含まれるリスト**
 
 | key                 | value type | description                |
 |---------------------|------------|----------------------------|
-| **passportType**    | string     | 認識されたパスポート番号               |
+| **passportType**    | string     | 認識されたパスポートタイプ              |
 | **countryCode**     | string     | 認識された国コード                  |
 | **passportNo**      | string     | 認識されたパスポート番号               |
 | **surName**         | string     | 認識された姓                     |
@@ -540,6 +547,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 <a id="verify-authenticity-api"></a>
+
 ### 身分証真偽確認API { #verify-authenticity-api }
 
 <a id="verify-authenticity-api-request"></a>
@@ -578,7 +586,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | residentNumber      | String | 住民登録番号<br>- resident(住民登録証)の場合、住民登録番号数字13桁<br>- driver(運転免許証)の場合、住民登録番号の前6桁と後ろの最初の1桁を組み合わせた数字7桁 | resident, driver   | O     | O  |
 | issueDate           | String | 発行日時(YYYYMMDD)                                                                                  | resident           | O     | O  |
 | driverLicenseNumber | String | 12桁の運転免許番号                                                                                      | driver             | O     | O  |
-| serialNum           | String | 5～6桁の暗号一連番号                                                                                     | driver             | O     | X  |
+| serialNum           | String | 5〜6桁の暗号一連番号                                                                                     | driver             | O     | X  |
 
 * 暗号化が必要なフィールドは必ず**AES-256/CBC/PKCS7Padding**方式で暗号化される必要があります(対称鍵利用)。
 * IV(初期化ベクトル)は、対称鍵の最初の16バイト(すなわち、0～15番目のバイト)を使用します。
@@ -608,14 +616,14 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 
 ```json
 {
-    "header": {
-        "isSuccessful": true,
-        "resultCode": 0,
-        "resultMessage": "SUCCESS"
-    },
-    "result": {
-        "isAuthenticity": false
-    }
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "result": {
+    "isAuthenticity": false
+  }
 }
 ```
 
@@ -634,13 +642,14 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | isAuthenticity | Boolean | 真偽 |
 
 <a id="id-card-analysis-api-stand-alone"></a>
+
 ### 身分証分析(単独) API { #id-card-analysis-api-stand-alone }
 
 <a id="id-card-analysis-api-stand-alone-differences-from-the-existing-id-analysis-api"></a>
 #### 既存身分証分析APIとの違い
 
-* 真偽確認に必要なRequest-Keyを含みません。
-* 真偽確認ができない代わりに、低料金が課金されます。
+- 真偽確認に必要なRequest-Keyを含みません。
+- 真偽確認ができない代わりに、低料金が課金されます。
 
 <a id="id-card-analysis-api-stand-alone-request"></a>
 #### リクエスト
@@ -659,8 +668,8 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | X-Key-Version | {x-key-version} | 発行された公開鍵のバージョン      |
 | Symmetric-Key | {symmetricKey}  | 発行された公開鍵で暗号化された対称鍵  |
 
-* {symmetricKey}は必ず**32byte乱数**で作成する必要があります。
-* {symmetricKey}は必ず**RSA/ECB/PKCS1Padding**方式で暗号化する必要があります(公開鍵利用)。
+- {symmetricKey}は必ず**32byte乱数**で作成する必要があります。
+- {symmetricKey}は必ず**RSA/ECB/PKCS1Padding**方式で暗号化する必要があります(公開鍵利用)。
 
 [Path Variable]
 
@@ -672,10 +681,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 
 | 名前    | タイプ                 | 説明       | 暗号化説明          |
 |-------|---------------------|----------|----------------|
-| image | multipart/form–data | イメージファイル | 対称鍵で暗号化されたイメージ |
+| image | multipart/form-data | イメージファイル | 対称鍵で暗号化されたイメージ |
 
-* イメージファイルは必ず**AES-256/CBC/PKCS7Padding**方式で暗号化する必要があります(対称鍵利用)。
-* IV(初期化ベクトル)は、対称鍵の最初の16バイト(すなわち、0～15番目のバイト)を使用します。
+- イメージファイルは必ず**AES-256/CBC/PKCS7Padding**方式で暗号化する必要があります(対称鍵利用)。
+- IV(初期化ベクトル)は、対称鍵の最初の16バイト(すなわち、0～15番目のバイト)を使用します。
 
 [リクエスト本文]
 
@@ -801,11 +810,11 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | keyValues[0].key   | String |                                               |           |
 | keyValues[0].value | String |                                               | O         |
 | keyValues[0].bbox  | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }      |           |
-| keyValues[0].conf  | Double | 有効期限認識結果の信頼度                                  |           |   
-| boxes              | List   | 認識領域(Bounding box)座標リスト                       |
-| boxes[0]           | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }      |
+| keyValues[0].conf  | Double | 認識結果の信頼度                                      |           |
+| boxes              | List   | 認識領域(Bounding box)座標リスト                       |           |
+| boxes[0]           | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }      |           |
 
-* **"idType"が"resident"と認識される場合、KeyValuesに含まれるリスト**
+- **"idType"が"resident"と認識される場合、KeyValuesに含まれるリスト**
 
 | key                | value type | description |
 |--------------------|------------|-------------|
@@ -814,7 +823,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | **issueDate**      | string     | 認識された発行日時   |
 | **issuer**         | string     | 認識された発行機関   |
 
-* **"idType"が"driver"と認識される場合、KeyValuesに含まれるリスト**
+- **"idType"が"driver"と認識される場合、KeyValuesに含まれるリスト**
 
 | key                     | value type | description                                                |
 |-------------------------|------------|------------------------------------------------------------|
@@ -827,11 +836,11 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | **issueDate**           | string     | 認識された発行日時                                                  |
 | **issuer**              | string     | 認識された発行機関                                                  |
 
-* **"idType"が"passport"と認識される場合、KeyValuesに含まれるリスト**
+- **"idType"が"passport"と認識される場合、KeyValuesに含まれるリスト**
 
 | key                 | value type | description                |
 |---------------------|------------|----------------------------|
-| **passportType**    | string     | 認識されたパスポート番号               |
+| **passportType**    | string     | 認識されたパスポートタイプ              |
 | **countryCode**     | string     | 認識された国コード                  |
 | **passportNo**      | string     | 認識されたパスポート番号               |
 | **surName**         | string     | 認識された姓                     |
@@ -849,6 +858,6 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | **MRZ1**            | string     | 機械判読領域1                    |
 | **MRZ2**            | string     | 機械判読領域2                    |
 
-* 暗号化された項目(keyValues[0].valueなど)は**AES-256/CBC/PKCS7Padding**方式で暗号化されています(対称鍵利用)。
-* boxes[0]
+- 暗号化された項目(keyValues[0].valueなど)は**AES-256/CBC/PKCS7Padding**方式で暗号化されています(対称鍵利用)。
+- boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)

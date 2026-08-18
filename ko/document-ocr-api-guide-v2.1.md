@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=0465062c7662 -->
+
 <a id="ai-service-ocr-document-ocr-api-v21-guide"></a>
 ## AI Service > OCR > Document OCR > API v2.1 가이드 { #ai-service-ocr-document-ocr-api-v21-guide }
 

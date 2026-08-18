@@ -1,15 +1,12 @@
 <!-- machine_translated: true -->
 
 <a id="ai-service-ocr-document-ocr-api-v20-guide"></a>
-
 ## AI Service > OCR > Document OCR > API v2.0 ガイド { #ai-service-ocr-document-ocr-api-v20-guide }
 
 <a id="document-ocr-api-common-information"></a>
-
 ## Document OCR API 共通情報 { #document-ocr-api-common-information }
 
 <a id="api-endpoints"></a>
-
 ### APIエンドポイント { #api-endpoints }
 
 | リージョン      | エンドポイント                       |
@@ -17,7 +14,6 @@
 | 韓国(板橋)リージョン | https://api-ocr.nhncloudservice.com |
 
 <a id="authentication-and-authorization"></a>
-
 ### 認証及び権限 { #authentication-and-authorization }
 
 Document OCR APIを使用するには、AppkeyとSecretKeyが必要です。
@@ -77,7 +73,6 @@ Content-Type: application/json
 | isSuccessful  | boolean | 成否                                       |
 
 <a id="error-codes"></a>
-
 ### エラーコード { #error-codes }
 
 <a id="error-codes-common"></a>
@@ -95,7 +90,6 @@ Content-Type: application/json
 | 4131000      | Request size is larger than permissible limit.                                             | リクエストサイズが許容限度超過               |
 
 <a id="overview-of-v20-api"></a>
-
 ### v2.0 API紹介 { #overview-of-v20-api }
 
 <a id="overview-of-v20-api-changes-from-v10"></a>
@@ -182,7 +176,6 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 * 公開鍵は **Base64**でエンコードされている状態です。
 
 <a id="credit-card-analysis-api"></a>
-
 ### クレジットカード分析API { #credit-card-analysis-api }
 
 <a id="credit-card-analysis-api-request"></a>
@@ -325,7 +318,6 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
 <a id="id-card-analysis-api"></a>
-
 ### 身分証分析API { #id-card-analysis-api }
 
 <a id="id-card-analysis-api-request"></a>

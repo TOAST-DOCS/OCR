@@ -1,18 +1,23 @@
-## AI Service > OCR > Document OCR > API v2.1 가이드
+<a id="ai-service-ocr-document-ocr-api-v21-guide"></a>
+## AI Service > OCR > Document OCR > API v2.1 가이드 { #ai-service-ocr-document-ocr-api-v21-guide }
 
-## Document OCR API 공통 정보
+<a id="document-ocr-api-common-information"></a>
+## Document OCR API 공통 정보 { #document-ocr-api-common-information }
 
-### API 엔드포인트
+<a id="api-endpoints"></a>
+### API 엔드포인트 { #api-endpoints }
 
 | 리전            | 엔드포인트                          |
 | --------------- | ----------------------------------- |
 | 한국(판교) 리전 | https://api-ocr.nhncloudservice.com |
 
-### 인증 및 권한
+<a id="authentication-and-authorization"></a>
+### 인증 및 권한 { #authentication-and-authorization }
 
 Document OCR은 API 호출 시 인증/인가를 위해 User Access Key 토큰을 사용합니다. User Access Key 토큰은 User Access Key를 기반으로 발급되는 Bearer 타입의 일시적 액세스 토큰입니다. User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Access Key 토큰](/nhncloud/ko/public-api/user-access-key-token)을 참고하세요.
 
-### 응답 공통 정보
+<a id="common-response-information"></a>
+### 응답 공통 정보 { #common-response-information }
 
 모든 API 요청 응답으로 HTTP 200 OK를 전달합니다. API 요청 성공 여부는 Response Body의 header 항목을 참고하여 판단할 수 있습니다.
 
@@ -58,8 +63,10 @@ Content-Type: application/json
 | resultMessage | String  | 응답 메시지                                   |
 | isSuccessful  | boolean | 성공 여부                                     |
 
-### 오류 코드
+<a id="error-codes"></a>
+### 오류 코드 { #error-codes }
 
+<a id="error-codes-common"></a>
 #### 공통
 
 | 오류 코드 | 오류 메시지                                                                                | 설명                            |
@@ -73,20 +80,25 @@ Content-Type: application/json
 | 4000006   | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API 호출 한도 초과              |
 | 4131000   | Request size is larger than permissible limit.                                             | 요청 크기가 허용 한도 초과                 |
 
-### v2.1 API 소개
+<a id="overview-of-v21-api"></a>
+### v2.1 API 소개 { #overview-of-v21-api }
 
+<a id="overview-of-v21-api-changes-from-v20"></a>
 #### v2.0과 달라진 점
 
 - User Access Key 토큰 기반 인증 방식이 적용되었습니다.
 
+<a id="overview-of-v21-api-caution"></a>
 #### 주의 사항
 
 - 요청, 응답 시 Base64 인코딩 여부를 확인하세요.
 - 암호화, 복호화의 상세 모드(예: AES-256/CBC/PKCS7Padding)를 확인하세요.
 - 암호화에 사용되는 대칭 키는 반드시 32바이트 난수로 생성합니다. 보안을 위해 각 요청마다 새로운 대칭 키를 생성하여 사용하는 것을 권장합니다.
 
-### 공개 키 발급 API
+<a id="issue-public-key"></a>
+### 공개 키 발급 API { #issue-public-key }
 
+<a id="issue-public-key-request"></a>
 #### 요청
 
 [URI]
@@ -115,6 +127,7 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}'
 ```
 
+<a id="issue-public-key-response"></a>
 #### 응답
 
 [응답 본문]
@@ -151,8 +164,10 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 
 - 공개 키는 **Base64**로 인코딩된 상태입니다.
 
-### 신용카드 분석 API
+<a id="credit-card-analysis-api"></a>
+### 신용카드 분석 API { #credit-card-analysis-api }
 
+<a id="credit-card-analysis-api-request"></a>
 #### 요청
 
 [URI]
@@ -197,6 +212,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 -H 'Symmetric-Key: ${symmetricKey}'
 ```
 
+<a id="credit-card-analysis-api-response"></a>
 #### 응답
 
 [응답 본문]
@@ -290,8 +306,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 - boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### 신분증 분석 API
+<a id="id-card-analysis-api"></a>
+### 신분증 분석 API { #id-card-analysis-api }
 
+<a id="id-card-analysis-api-request"></a>
 #### 요청
 
 [URI]
@@ -336,6 +354,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 -H 'Symmetric-Key: ${symmetricKey}'
 ```
 
+<a id="id-card-analysis-api-response"></a>
 #### 응답
 
 [응답 헤더]
@@ -510,8 +529,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 - boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### 신분증 진위 확인 API
+<a id="verify-authenticity-api"></a>
+### 신분증 진위 확인 API { #verify-authenticity-api }
 
+<a id="verify-authenticity-api-request"></a>
 #### 요청
 
 [URI]
@@ -570,6 +591,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 }'
 ```
 
+<a id="verify-authenticity-api-response"></a>
 #### 응답
 
 [응답 본문]
@@ -601,13 +623,16 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 | -------------- | ------- | --------- |
 | isAuthenticity | Boolean | 진위 여부 |
 
-### 신분증 분석(단독) API
+<a id="id-card-analysis-api-stand-alone"></a>
+### 신분증 분석(단독) API { #id-card-analysis-api-stand-alone }
 
+<a id="id-card-analysis-api-stand-alone-differences-from-the-existing-id-analysis-api"></a>
 #### 기존 신분증 분석 API와 차이점
 
 - 진위 확인에 필요한 Request-Key를 포함하지 않습니다.
 - 진위 확인이 불가능한 대신 낮은 요금이 부과됩니다.
 
+<a id="id-card-analysis-api-stand-alone-request"></a>
 #### 요청
 
 [URI]
@@ -652,6 +677,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 -H 'Symmetric-Key: ${symmetricKey}'
 ```
 
+<a id="id-card-analysis-api-stand-alone-response"></a>
 #### 응답
 
 [응답 본문]

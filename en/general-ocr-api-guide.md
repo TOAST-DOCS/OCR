@@ -1,8 +1,13 @@
-## AI Service > OCR > General OCR > API Guide
+<!-- pre-align:aligned sig=8eec8a51e376 -->
+
+<a id="ai-service-ocr-general-ocr-api-guide"></a>
+## AI Service > OCR > General OCR > API Guide { #ai-service-ocr-general-ocr-api-guide }
 
 
-### General OCR API
+<a id="general-ocr-api"></a>
+### General OCR API { #general-ocr-api }
 
+<a id="general-ocr-api-request"></a>
 #### Request
 
 * You can check the {appKey} and {secretKey} in the **URL & Appkey** menu at the top of the console.
@@ -13,6 +18,7 @@
 | ------ | ----------------------------------------------------------------- |
 | POST   | https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general |
 
+<a id="general-ocr-api-request-with-image-files"></a>
 #### Request with image files
 
 [Request Header]
@@ -39,6 +45,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 | ----- | ------------------- | ----------- |
 | image | multipart/form-data | Image file  |
 
+<a id="general-ocr-api-request-with-image-urls"></a>
 #### Request with image URLs
 
 [Request Header] 
@@ -67,6 +74,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 * If you specify the port directly in the image URL, only ports 80, 443, 10000-12000 can be used.
 
+<a id="general-ocr-api-response"></a>
 #### Response
 
 [Response Body]
@@ -142,8 +150,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 * boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### General OCR segmentation recognition API
+<a id="general-ocr-segmentation-recognition-api"></a>
+### General OCR segmentation recognition API { #general-ocr-segmentation-recognition-api }
 
+<a id="general-ocr-segmentation-recognition-api-request"></a>
 #### Request
 
 - You can check the {appKey} and {secretKey} in the **URL & Appkey** menu at the top of the console.
@@ -154,6 +164,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 | ------ | -------------------------------------------------------------------------- |
 | POST   | https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping |
 
+<a id="general-ocr-segmentation-recognition-api-request-with-image-files"></a>
 #### Request with image files
 
 [Request Header] 
@@ -180,6 +191,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 | ----- | ------------------- | ----------- |
 | image | multipart/form-data | Image file  |
 
+<a id="general-ocr-segmentation-recognition-api-request-with-image-urls"></a>
 #### Request with image URLs
 [Request Header] 
 
@@ -207,6 +219,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 
 * If you specify the port directly in the image URL, only ports 80, 443, 10000-12000 can be used.
 
+<a id="general-ocr-segmentation-recognition-api-response"></a>
 #### Response
 
 [Response Body]

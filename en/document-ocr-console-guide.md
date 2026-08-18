@@ -1,12 +1,17 @@
-## AI Service > OCR > Document OCR > Console User Guide
+<!-- pre-align:aligned sig=0aa4a7e7a7e7 -->
+
+<a id="ai-service-ocr-document-ocr-console-user-guide"></a>
+## AI Service > OCR > Document OCR > Console User Guide { #ai-service-ocr-document-ocr-console-user-guide }
 
 You can get the analysis results by uploading image files of business registration certificates, credit cards, and IDs to the console.
 
 
-## Business Registration Certificate Analysis
+<a id="business-registration-certificate-analysis"></a>
+## Business Registration Certificate Analysis { #business-registration-certificate-analysis }
 
 
-### Upload an Image for Analysis
+<a id="upload-an-image-for-analysis"></a>
+### Upload an Image for Analysis { #upload-an-image-for-analysis }
 
 Upload an image of the business registration certificate to analyze.
 
@@ -14,7 +19,8 @@ Upload an image of the business registration certificate to analyze.
     1. Click the **Upload Image** button
     2. Drag and drop the image
 
-### Analysis
+<a id="analysis"></a>
+### Analysis { #analysis }
 
 After uploading the image, click the **Analyze** button and the analysis results will appear on the right side of the screen.
 
@@ -70,18 +76,22 @@ After uploading the image, click the **Analyze** button and the analysis results
 
 * Provides the feature to copy or download analysis results (Excel, JSON).
 
-### Modify
+<a id="modify"></a>
+### Modify { #modify }
 	
 You can modify the content of the business registration certificate after analysis. Click **Modify** to modify the content.
 
-### Retrieve Stoppage/Closure
+<a id="retrieve-stoppageclosure"></a>
+### Retrieve Stoppage/Closure { #retrieve-stoppageclosure }
 
 After analyzing the business registration certificate, you can search whether the business is stopped or closed by the contents of the analysis result. Click **Search for Stoppage/Clousre** to display the search results on the right side of the button.
 
-## Credit Card Analysis
+<a id="credit-card-analysis"></a>
+## Credit Card Analysis { #credit-card-analysis }
 
 
-### Upload an Image for Analysis
+<a id="credit-card-analysis-upload-an-image-for-analysis"></a>
+### Upload an Image for Analysis { #credit-card-analysis-upload-an-image-for-analysis }
 
 Upload an image of the credit card to analyze.
 
@@ -89,7 +99,8 @@ Upload an image of the credit card to analyze.
     1. Click the **Upload Image** button
     2. Drag and drop the image
 
-### Analysis
+<a id="credit-card-analysis-analysis"></a>
+### Analysis { #credit-card-analysis-analysis }
 
 After uploading the image, click the **Analyze** button and the analysis results will appear on the right side of the screen.
 
@@ -166,10 +177,12 @@ After uploading the image, click the **Analyze** button and the analysis results
   
 * Provides the feature to copy or download analysis results (JSON).
 
-## Analyze ID Card
+<a id="analyze-id-card"></a>
+## Analyze ID Card { #analyze-id-card }
 
 
-### Upload an Image for Analysis
+<a id="analyze-id-card-upload-an-image-for-analysis"></a>
+### Upload an Image for Analysis { #analyze-id-card-upload-an-image-for-analysis }
 
 Upload an image of an ID card to analyze.
 
@@ -177,7 +190,8 @@ Upload an image of an ID card to analyze.
     1. Click the **Upload Image** button
     2. Drag and drop the image
 
-### Analysis
+<a id="analyze-id-card-analysis"></a>
+### Analysis { #analyze-id-card-analysis }
 
 After uploading the image, click the **Analyze** button and the analysis results will appear on the right side of the screen.
 
@@ -248,10 +262,12 @@ After uploading the image, click the **Analyze** button and the analysis results
   
 * Provides the feature to copy or download analysis results (JSON).
 
-### Modify
+<a id="analyze-id-card-modify"></a>
+### Modify { #analyze-id-card-modify }
 
 You can modify the content of the ID card after analysis. Click**Modify**to modify the content. 
 
-### Verify Authenticity
+<a id="verify-authenticity"></a>
+### Verify Authenticity { #verify-authenticity }
 
 You can verify the authenticity of the ID card (resident registration certificate, driver's license) after analysis. Click **Verify authenticity** and the result appears at the right of the button.

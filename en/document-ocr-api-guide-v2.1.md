@@ -1,19 +1,24 @@
-## AI Service > OCR > Document OCR > API v2.1 Guide
+<a id="ai-service-ocr-document-ocr-api-v21-guide"></a>
+## AI Service > OCR > Document OCR > API v2.1 Guide { #ai-service-ocr-document-ocr-api-v21-guide }
 
-## Document OCR API Common Information
+<a id="document-ocr-api-common-information"></a>
+## Document OCR API Common Information { #document-ocr-api-common-information }
 
-### API Endpoints
+<a id="api-endpoints"></a>
+### API Endpoints { #api-endpoints }
 
 | Region                | Endpoint                            |
 | --------------------- | ----------------------------------- |
 | Korea (Pangyo) Region | https://api-ocr.nhncloudservice.com |
 
-### Authentication and Authorization
+<a id="authentication-and-authorization"></a>
+### Authentication and Authorization { #authentication-and-authorization }
 
 Document OCR uses User Access Key tokens for authentication and authorization when making API calls. The User Access Key token is a temporary, Bearer-type access token issued from a User Access Key.
 For more information on issuing and using User Access Key tokens, please refer to the [User Access Key Token](/nhncloud/en/public-api/user-access-key-token).
 
-### Common Response Information
+<a id="common-response-information"></a>
+### Common Response Information { #common-response-information }
 
 All API requests return HTTP 200 OK. The success or failure of an API request can be determined by referring to the header in the Response Body.
 
@@ -59,8 +64,10 @@ Content-Type: application/json
 | resultMessage | String  | Response message                                     |
 | isSuccessful  | boolean | Success or not                                       |
 
-### Error Codes
+<a id="error-codes"></a>
+### Error Codes { #error-codes }
 
+<a id="error-codes-common"></a>
 #### Common
 
 | Error Code | Error Message                                                                              | Description                                |
@@ -76,20 +83,25 @@ Content-Type: application/json
 | 4010007    | Permission denied.                                                                         | Permission denied                          |
 | 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds the permissible limit |
 
-### Overview of v2.1 API
+<a id="overview-of-v21-api"></a>
+### Overview of v2.1 API { #overview-of-v21-api }
 
+<a id="overview-of-v21-api-changes-from-v20"></a>
 #### Changes from v2.0
 
 - User Access Key token-based authentication has been applied.
 
+<a id="overview-of-v21-api-caution"></a>
 #### Caution
 
 - Check whether the request or response is Base64 encoded.
 - Check the detailed mode of encryption and decryption (eg AES-256/CBC/PKCS7Padding).
 - The symmetric key used for encryption must be generated as a 32 byte random number. For security, it is recommended to create and use a new symmetric key for each request.
 
-### Issue Public Key
+<a id="issue-public-key"></a>
+### Issue Public Key { #issue-public-key }
 
+<a id="issue-public-key-request"></a>
 #### Request
 
 [URI]
@@ -118,6 +130,7 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}'
 ```
 
+<a id="issue-public-key-response"></a>
 #### Response
 
 [Response Body]
@@ -154,10 +167,13 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 
 - The public key is **Base64** encoded.
 
-### Credit Card API
+<!-- pre-align: ko에 대응 섹션 없음 — 검토 필요 (Spurious wrapper heading invented by translator; ko has no parent 'Credit Card API' section — k14 '신용카드 분석 API' maps directly to t15, which was incorrectly demoted one level beneath this invented heading) -->
+<a id="credit-card-analysis-api"></a>
+### Credit Card API { #credit-card-analysis-api }
 
-#### Credit Card Analysis API
+### Credit Card Analysis API
 
+<a id="credit-card-analysis-api-request"></a>
 #### Request
 
 [URI]
@@ -202,6 +218,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 -H 'Symmetric-Key: ${symmetricKey}'
 ```
 
+<a id="credit-card-analysis-api-response"></a>
 #### Response
 
 [Response Body]
@@ -295,8 +312,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 - boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### ID Card Analysis API
+<a id="id-card-analysis-api"></a>
+### ID Card Analysis API { #id-card-analysis-api }
 
+<a id="id-card-analysis-api-request"></a>
 #### Request
 
 [URI]
@@ -341,6 +360,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 -H 'Symmetric-Key: ${symmetricKey}'
 ```
 
+<a id="id-card-analysis-api-response"></a>
 #### Response
 
 [Response Header]
@@ -517,8 +537,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 - boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### Verify Authenticity API
+<a id="verify-authenticity-api"></a>
+### Verify Authenticity API { #verify-authenticity-api }
 
+<a id="verify-authenticity-api-request"></a>
 #### Request
 
 [URI]
@@ -577,6 +599,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 }'
 ```
 
+<a id="verify-authenticity-api-response"></a>
 #### Response
 
 [Response Body]
@@ -608,13 +631,16 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 | -------------- | ------- | ------------------------------ |
 | isAuthenticity | Boolean | Whether it is authentic or not |
 
-### ID Card Analysis API (Stand alone)
+<a id="id-card-analysis-api-stand-alone"></a>
+### ID Card Analysis API (Stand alone) { #id-card-analysis-api-stand-alone }
 
+<a id="id-card-analysis-api-stand-alone-differences-from-the-existing-id-analysis-api"></a>
 #### Differences from the existing ID analysis API
 
 - It does not contain the Request-Key required for authenticity verification.
 - Authenticity cannot be verified, but a low fee is charged.
 
+<a id="id-card-analysis-api-stand-alone-request"></a>
 #### Request
 
 [URI]
@@ -659,6 +685,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 -H 'Symmetric-Key: ${symmetricKey}'
 ```
 
+<a id="id-card-analysis-api-stand-alone-response"></a>
 #### Response
 
 [Response Body]

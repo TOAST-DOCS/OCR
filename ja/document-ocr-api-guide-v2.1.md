@@ -1,19 +1,24 @@
-## AI Service > OCR > Document OCR > API v2.1 ガイド
+<a id="ai-service-ocr-document-ocr-api-v21-guide"></a>
+## AI Service > OCR > Document OCR > API v2.1 ガイド { #ai-service-ocr-document-ocr-api-v21-guide }
 
-## Document OCR API 共通情報
+<a id="document-ocr-api-common-information"></a>
+## Document OCR API 共通情報 { #document-ocr-api-common-information }
 
-### APIエンドポイント
+<a id="api-endpoints"></a>
+### APIエンドポイント { #api-endpoints }
 
 | リージョン      | エンドポイント                       |
 | --------------- | ----------------------------------- |
 | 韓国(板橋)リージョン | https://api-ocr.nhncloudservice.com |
 
-### 認証及び権限
+<a id="authentication-and-authorization"></a>
+### 認証及び権限 { #authentication-and-authorization }
 
 Document OCRは、API呼び出し時の認証/認可のためにUser Access Keyトークンを使用します。User Access Keyトークンは、User Access Keyに基づいて発行されるBearerタイプの一時的なアクセストークンです。
 User Access Keyトークンの発行及び使用に関する詳細は、[User Access Keyトークン](/nhncloud/ja/public-api/user-access-key-token)を参照してください。
 
-### レスポンス共通情報
+<a id="common-response-information"></a>
+### レスポンス共通情報 { #common-response-information }
 
 すべてのAPIリクエストレスポンスとしてHTTP 200 OKを返します。APIリクエストの成否はResponse Bodyのheader項目を参照して判断できます。
 
@@ -59,8 +64,10 @@ Content-Type: application/json
 | resultMessage | String  | レスポンスメッセージ                        |
 | isSuccessful  | boolean | 成否                                       |
 
-### エラーコード
+<a id="error-codes"></a>
+### エラーコード { #error-codes }
 
+<a id="error-codes-common"></a>
 #### 共通
 
 | エラーコード | エラーメッセージ                                                                           | 説明                          |
@@ -76,20 +83,25 @@ Content-Type: application/json
 | 4010007      | Permission denied.                                                                         | 権限なし                      |
 | 4131000      | Request size is larger than permissible limit.                                             | リクエストサイズが許容限度超過               |
 
-### v2.1 API紹介
+<a id="overview-of-v21-api"></a>
+### v2.1 API紹介 { #overview-of-v21-api }
 
+<a id="overview-of-v21-api-changes-from-v20"></a>
 #### v2.0と違なる点
 
 - User Access Keyトークンベースの認証方式が適用されました。
 
+<a id="overview-of-v21-api-caution"></a>
 #### 注意事項
 
 * リクエスト、レスポンス時にBase64エンコードされているかどうかを確認してください。
 * 暗号化、復号の詳細モード(例：AES-256/CBC/PKCS7Padding)を確認してください。
 * 暗号化に使用される対称鍵は、必ず32Byte乱数で作成します。セキュリティのため、リクエストごとに新しい対称鍵を生成して使用することを推奨します。
 
-### 公開鍵の発行
+<a id="issue-public-key"></a>
+### 公開鍵の発行 { #issue-public-key }
 
+<a id="issue-public-key-request"></a>
 #### リクエスト
 
 [URI]
@@ -118,6 +130,7 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 -H 'X-NHN-Authorization: Bearer ${User Access Key Token}'
 ```
 
+<a id="issue-public-key-response"></a>
 #### レスポンス
 
 [レスポンス本文]
@@ -154,10 +167,13 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/public-ke
 
 * 公開鍵は **Base64**でエンコードされている状態です。
 
-### クレジットカードAPI
+<!-- pre-align: ko에 대응 섹션 없음 — 검토 필요 (クレジットカードAPI is an invented L3 wrapper section with no Korean counterpart; the Korean source places 신용카드 분석 API (k14) directly at L3 with no parent grouping heading above it) -->
+<a id="credit-card-analysis-api"></a>
+### クレジットカードAPI { #credit-card-analysis-api }
 
-#### クレジットカード分析API
+### クレジットカード分析API
 
+<a id="credit-card-analysis-api-request"></a>
 #### リクエスト
 
 [URI]
@@ -202,6 +218,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 -H 'Symmetric-Key: ${symmetricKey}'
 ```
 
+<a id="credit-card-analysis-api-response"></a>
 #### レスポンス
 
 [レスポンス本文]
@@ -295,8 +312,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/credit-c
 * boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### 身分証分析API
+<a id="id-card-analysis-api"></a>
+### 身分証分析API { #id-card-analysis-api }
 
+<a id="id-card-analysis-api-request"></a>
 #### リクエスト
 
 [URI]
@@ -341,6 +360,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 -H 'Symmetric-Key: ${symmetricKey}'
 ```
 
+<a id="id-card-analysis-api-response"></a>
 #### レスポンス
 
 [レスポンスヘッダ]
@@ -517,8 +537,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 * boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### 身分証真偽確認API
+<a id="verify-authenticity-api"></a>
+### 身分証真偽確認API { #verify-authenticity-api }
 
+<a id="verify-authenticity-api-request"></a>
 #### リクエスト
 
 [URI]
@@ -577,6 +599,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 }'
 ```
 
+<a id="verify-authenticity-api-response"></a>
 #### レスポンス
 
 [レスポンス本文]
@@ -608,13 +631,16 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 |----------------|---------|----|
 | isAuthenticity | Boolean | 真偽 |
 
-### 身分証分析(単独) API
+<a id="id-card-analysis-api-stand-alone"></a>
+### 身分証分析(単独) API { #id-card-analysis-api-stand-alone }
 
+<a id="id-card-analysis-api-stand-alone-differences-from-the-existing-id-analysis-api"></a>
 #### 既存身分証分析APIとの違い
 
 * 真偽確認に必要なRequest-Keyを含みません。
 * 真偽確認ができない代わりに、低料金が課金されます。
 
+<a id="id-card-analysis-api-stand-alone-request"></a>
 #### リクエスト
 
 [URI]
@@ -659,6 +685,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card/
 -H 'Symmetric-Key: ${symmetricKey}'
 ```
 
+<a id="id-card-analysis-api-stand-alone-response"></a>
 #### レスポンス
 
 [レスポンス本文]

@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=b61af28ba765 -->
+<!-- pre-align:aligned sig=1dc1c0f63720 -->
 
 <a id="ai-service-ocr-document-ocr-release-notes"></a>
 ## AI Service > OCR > Document OCR > 릴리스 노트 { #ai-service-ocr-document-ocr-release-notes }

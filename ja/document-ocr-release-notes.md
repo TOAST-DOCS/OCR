@@ -1,6 +1,6 @@
 <!-- machine_translated: true -->
 
-<!-- pre-align:aligned sig=b61af28ba765 -->
+<!-- pre-align:aligned sig=1dc1c0f63720 -->
 
 <a id="ai-service-ocr-document-ocr-release-notes"></a>
 ## AI Service > OCR > Document OCR > リリースノート { #ai-service-ocr-document-ocr-release-notes }

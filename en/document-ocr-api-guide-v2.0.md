@@ -487,9 +487,9 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | keyValues[0].key   | String |                                                                                                                                     |                          |
 | keyValues[0].value | String |                                                                                                                                     | O                        |
 | keyValues[0].bbox  | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                   |                          |
-| keyValues[0].conf  | Double | Confidence of the recognition result                                                                                                |                          | |  |
-| boxes              | List   | List of bounding box coordinates                                                                                                    |
-| boxes[0]           | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                   |
+| keyValues[0].conf  | Double | Confidence of the recognition result                                                                                                |                          |
+| boxes              | List   | List of bounding box coordinates                                                                                                    |                          |
+| boxes[0]           | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                   |                          |
 
 - **List included in KeyValues when "idType" is recognized as "resident"**
 
@@ -580,7 +580,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | residentNumber      | String | Resident registration number<br>- For resident (resident registration certificate), 13 digits of resident registration number<br>- For a driver (driver's license), 7 digits that comprise of the first 6 digits and the first 1 digit of  resident registration number | resident, driver | O                        | O        |
 | issueDate           | String | Issued date (YYYYMMDD)                                                                                                                                                                                                                                                  | resident         | O                        | O        |
 | driverLicenseNumber | String | 12 digits of driver's license number                                                                                                                                                                                                                                    | driver           | O                        | O        |
-| serialNum           | String | 5 and 6 digits of serial number                                                                                                                                                                                                                                         | driver           | O                        | O        |
+| serialNum           | String | Serial number between 5 and 6 digits                                                                                                                                              | driver             | O           | O         |
 
 - A field that requires encryption must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
 - The initialization vector (IV) uses the first 16 bytes (i.e., bytes 0-15) of the symmetric key.

@@ -3,6 +3,15 @@
 <a id="ai-service-ocr-document-ocr-release-notes"></a>
 ## AI Service > OCR > Document OCR > リリースノート { #ai-service-ocr-document-ocr-release-notes }
 
+<a id="september-8-2026"></a>
+## 2026. 09. 08. { #september-8-2026 }
+
+- 運転免許証の真偽確認時に暗号一連番号が必須化
+  - 2026年9月7日から、運転免許証の真偽確認リクエストに暗号一連番号を必ず含める必要があります。
+  - 警察庁の運転免許証真偽確認手続きが強化されたことにより適用される変更です。
+  - 暗号一連番号は運転免許証の分析結果で確認できます。
+  - 詳細については、[APIガイド](./document-ocr-api-guide-v2.1.md)を参照してください。
+
 <a id="august-11-2026"></a>
 ## 2026. 08. 11. { #august-11-2026 }
 

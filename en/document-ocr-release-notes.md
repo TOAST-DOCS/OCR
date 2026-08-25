@@ -3,6 +3,15 @@
 <a id="ai-service-ocr-document-ocr-release-notes"></a>
 ## AI Service > OCR > Document OCR > Release Notes { #ai-service-ocr-document-ocr-release-notes }
 
+<a id="september-8-2026"></a>
+## September 8, 2026 { #september-8-2026 }
+
+- Password serial number required for driver's license verification
+  - From September 7, 2026, the password serial number must be included in driver's license verification requests.
+  - This change applies because the National Police Agency strengthened its driver's license verification procedure.
+  - The password serial number is available in the driver's license analysis result.
+  - For more information, see the [API Guide](./document-ocr-api-guide-v2.1.md).
+
 <a id="august-11-2026"></a>
 ## August 11, 2026 { #august-11-2026 }
 

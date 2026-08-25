@@ -480,15 +480,15 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | 名前                 | タイプ    | 説明                                            | 暗号化するかどうか |
 |--------------------|--------|-----------------------------------------------|-----------|
 | fileType           | String | ファイル拡張子(.jpg, .png)                           |           |
-| resolution         | String | 推奨解像度(760\*480px)以上はnormal、推奨解像度未満はlow        |           |
+| resolution         | String | 推奨解像度(760x480px)以上はnormal、推奨解像度未満はlow        |           |
 | idType             | String | resident(住民登録証)、driver(運転免許証)、passport(パスポート) |           |
 | keyValues          | List   |                                               |           |
 | keyValues[0].key   | String |                                               |           |
 | keyValues[0].value | String |                                               | O         |
 | keyValues[0].bbox  | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }      |           |
-| keyValues[0].conf  | Double | 有効期限認識結果の信頼度                                  |           |   
-| boxes              | List   | 認識領域(Bounding box)座標リスト                       |
-| boxes[0]           | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }      |
+| keyValues[0].conf  | Double | 認識結果の信頼度                                      |           |
+| boxes              | List   | 認識領域(Bounding box)座標リスト                       |           |
+| boxes[0]           | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }      |           |
 
 * **"idType"が"resident"と認識される場合のKeyValuesに含まれるリスト**
 
@@ -579,7 +579,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | residentNumber      | String | 住民登録番号<br>- resident(住民登録証)の場合、住民登録番号数字13桁<br>- driver(運転免許証)の場合、住民登録番号の前6桁と後ろの最初の1桁を組み合わせた数字7桁 | resident, driver   | O     | O  |
 | issueDate           | String | 発行日時(YYYYMMDD)                                                                                  | resident           | O     | O  |
 | driverLicenseNumber | String | 12桁の運転免許番号                                                                                      | driver             | O     | O  |
-| serialNum           | String | 5～6桁の暗号一連番号                                                                                     | driver             | O     | O  |
+| serialNum           | String | 5〜6桁の暗号シリアル番号                                                                                                                                              | driver             | O           | O         |
 
 * 暗号化が必要なフィールドは必ず**AES-256/CBC/PKCS7Padding**方式で暗号化される必要があります(対称鍵利用)。
 * IV(初期化ベクトル)は、対称鍵の最初の16バイト(すなわち、0～15番目のバイト)を使用します。
@@ -796,15 +796,15 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | 名前                 | タイプ    | 説明                                            | 暗号化するかどうか |
 |--------------------|--------|-----------------------------------------------|-----------|
 | fileType           | String | ファイル拡張子(.jpg, .png)                           |           |
-| resolution         | String | 推奨解像度(760\*480px)以上の場合はnormal、推奨解像度未満はlow     |           |
+| resolution         | String | 推奨解像度(760x480px)以上の場合はnormal、推奨解像度未満はlow     |           |
 | idType             | String | resident(住民登録証)、driver(運転免許証)、passport(パスポート) |           |
 | keyValues          | List   |                                               |           |
 | keyValues[0].key   | String |                                               |           |
 | keyValues[0].value | String |                                               | O         |
-| keyValues[0].bbox  | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }      |           |
-| keyValues[0].conf  | Double | 認識結果の信頼度                                      |           |   
-| boxes              | List   | 認識領域(Bounding box)座標リスト                       |
-| boxes[0]           | Object | 認識領域座標{ x1, y1, x2, y2, x3, y3, x4, y4 }      |
+| keyValues[0].bbox  | Object | 認識領域座標 { x1, y1, x2, y2, x3, y3, x4, y4 }      |           |
+| keyValues[0].conf  | Double | 認識結果の信頼度                                      |           |
+| boxes              | List   | 認識領域(Bounding box)座標リスト                       |           |
+| boxes[0]           | Object | 認識領域座標 { x1, y1, x2, y2, x3, y3, x4, y4 }      |           |
 
 * **"idType"が"resident"と認識される場合、KeyValuesに含まれるリスト**
 

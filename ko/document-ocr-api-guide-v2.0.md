@@ -575,7 +575,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | residentNumber      | String | 주민등록번호<br>- resident(주민등록증)의 경우 주민등록번호 숫자 13자리<br>- driver(운전면허증)의 경우 주민등록번호 앞 6자리와 뒤 첫 번째 1자리를 조합한 숫자 7자리 | resident, driver   | O           | O         |
 | issueDate           | String | 발급 일자(YYYYMMDD)                                                                                                                                                | resident           | O           | O         |
 | driverLicenseNumber | String | 12자리 운전면허번호                                                                                                                                                | driver             | O           | O         |
-| serialNum           | String | 5~6자리 암호 일련번호                                                                                                                                              | driver             | O           | X         |
+| serialNum           | String | 5~6자리 암호 일련번호                                                                                                                                              | driver             | O           | O         |
 
 - 암호화가 필요한 필드는 반드시 **AES-256/CBC/PKCS7Padding** 방식으로 암호화되어야 합니다(대칭 키 이용).
 - IV(초기화 벡터)는 대칭 키의 처음 16바이트(즉, 0~15번째 바이트)를 사용합니다.

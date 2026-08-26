@@ -1,4 +1,7 @@
-## AI Service > OCR > General OCR > 오류 코드
+<!-- pre-align:aligned sig=2e44216440c0 -->
+
+<a id="ai-service-ocr-general-ocr-error-code"></a>
+## AI Service > OCR > General OCR > 오류 코드 { #ai-service-ocr-general-ocr-error-code }
 
 | resultCode | resultKey                           | resultMessage                                                             |
 | ---------- | ----------------------------------- | ------------------------------------------------------------------------- |

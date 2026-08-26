@@ -1,10 +1,15 @@
-## AI Service > OCR > General OCR > Console User Guide
+<!-- pre-align:aligned sig=1e79fcef4bcf -->
+
+<a id="ai-service-ocr-general-ocr-console-user-guide"></a>
+## AI Service > OCR > General OCR > Console User Guide { #ai-service-ocr-general-ocr-console-user-guide }
 
 You can get the results of text analysis included in the image by uploading the image file to the console.
 
-## Image Analysis
+<a id="image-analysis"></a>
+## Image Analysis { #image-analysis }
 
-### Upload an Image for Analysis
+<a id="upload-an-image-for-analysis"></a>
+### Upload an Image for Analysis { #upload-an-image-for-analysis }
 
 Upload an image to analyze.
 
@@ -13,7 +18,8 @@ Upload an image to analyze.
     2. Drag and drop the image
 
 
-### Analysis
+<a id="analysis"></a>
+### Analysis { #analysis }
 
 After uploading the image, click the **Analyze** button and the analysis results will appear on the right side of the screen.
 

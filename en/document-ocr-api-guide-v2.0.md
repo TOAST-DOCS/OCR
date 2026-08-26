@@ -1,14 +1,22 @@
-## AI Service > OCR > Document OCR > API v2.0 Guide
+<!-- machine_translated: true -->
 
-## Document OCR API Common Information
+<!-- pre-align:aligned sig=e5ad4be08060 -->
 
-### API Endpoints
+<a id="ai-service-ocr-document-ocr-api-v20-guide"></a>
+## AI Service > OCR > Document OCR > API v2.0 Guide { #ai-service-ocr-document-ocr-api-v20-guide }
+
+<a id="document-ocr-api-common-information"></a>
+## Document OCR API Common Information { #document-ocr-api-common-information }
+
+<a id="api-endpoints"></a>
+### API Endpoints { #api-endpoints }
 
 | Region                | Endpoint                            |
 | --------------------- | ----------------------------------- |
 | Korea (Pangyo) Region | https://api-ocr.nhncloudservice.com |
 
-### Authentication and Authorization
+<a id="authentication-and-authorization"></a>
+### Authentication and Authorization { #authentication-and-authorization }
 
 AppKey and SecretKey are required to use the Document OCR API.
 An Appkey is a unique authentication key issued for each NHN Cloud service, used to identify the service and validate API requests. A SecretKey is a private key used to control access to the API.
@@ -17,7 +25,8 @@ For more information on checking and using Appkeys and SecretKeys, please refer 
 Project Integrated Appkey can be used in place of the Appkey. Project Integrated Appkey is a common authentication key that can be shared across multiple services within a single NHN Cloud project.
 For more information on creating and using Project Integrated Appkeys, please refer to the [Project Integrated Appkey](/nhncloud/en/public-api/project-appkey).
 
-### Common Response Information
+<a id="common-response-information"></a>
+### Common Response Information { #common-response-information }
 
 All API requests return HTTP 200 OK. The success or failure of an API request can be determined by referring to the header in the Response Body.
 
@@ -63,8 +72,10 @@ Content-Type: application/json
 | resultMessage | String  | Response message                                     |
 | isSuccessful  | boolean | Success or not                                       |
 
-### Error Codes
+<a id="error-codes"></a>
+### Error Codes { #error-codes }
 
+<a id="error-codes-common"></a>
 #### Common
 
 | Error Code | Error Message                                                                              | Description                                |
@@ -78,20 +89,25 @@ Content-Type: application/json
 | 4000006    | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API call limit exceeded                    |
 | 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds the permissible limit |
 
-### Overview of v2.0 API
+<a id="overview-of-v20-api"></a>
+### Overview of v2.0 API { #overview-of-v20-api }
 
+<a id="overview-of-v20-api-changes-from-v10"></a>
 #### Changes from v1.0
 
 - Enhanced security with the electronic envelope method.
 
+<a id="overview-of-v20-api-caution"></a>
 #### Caution
 
 - Check whether the request or response is Base64 encoded.
 - Check the detailed mode of encryption and decryption (eg AES-256/CBC/PKCS7Padding).
 - The symmetric key used for encryption must be generated as a 32 byte random number. For security, it is recommended to create and use a new symmetric key for each request.
 
-### Issue Public Key
+<a id="issue-public-key"></a>
+### Issue Public Key { #issue-public-key }
 
+<a id="issue-public-key-request"></a>
 #### Request
 
 [URI]
@@ -120,6 +136,7 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 -H 'Authorization: ${secretKey}'
 ```
 
+<a id="issue-public-key-response"></a>
 #### Response
 
 [Response Body]
@@ -156,10 +173,11 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 
 * The public key is **Base64** encoded.
 
-### Credit Card API
+<!-- pre-align: ko에 대응 섹션 없음 — 검토 필요 (Spurious L3 grouping heading 'Credit Card API' inserted by translator; ko has no such wrapper — k14 (신용카드 분석 API) is itself the L3 section heading, matched to t15) -->
+<a id="credit-card-analysis-api"></a>
+### Credit Card Analysis API { #credit-card-analysis-api }
 
-#### Credit Card Analysis API
-
+<a id="credit-card-analysis-api-request"></a>
 #### Request
 
 [URI]
@@ -181,9 +199,9 @@ curl -X GET 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/public-ke
 
 [Path Variable]
 
-| Name   | Value    | Description                         |
-| ------ | -------- | ----------------------------------- |
-| appKey | {appKey} | Integrated Appkey or Service Appkey |
+| Name   | Value    | Description                                 |
+| ------ | -------- | ------------------------------------------- |
+| appKey | {appKey} | Project Integrated Appkey or Service Appkey |
 
 [Field]
 
@@ -204,6 +222,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 -H 'Symmetric-Key: ${symmetricKey}'
 ```
 
+<a id="credit-card-analysis-api-response"></a>
 #### Response
 
 [Response Body]
@@ -297,8 +316,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/credit-c
 - boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### ID Card Analysis API
+<a id="id-card-analysis-api"></a>
+### ID Card Analysis API { #id-card-analysis-api }
 
+<a id="id-card-analysis-api-request"></a>
 #### Request
 
 [URI]
@@ -343,6 +364,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 -H 'Symmetric-Key: ${symmetricKey}'
 ```
 
+<a id="id-card-analysis-api-response"></a>
 #### Response
 
 [Response Header]
@@ -465,9 +487,9 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | keyValues[0].key   | String |                                                                                                                                     |                          |
 | keyValues[0].value | String |                                                                                                                                     | O                        |
 | keyValues[0].bbox  | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                   |                          |
-| keyValues[0].conf  | Double | Confidence of the recognition result                                                                                                |                          | |  |
-| boxes              | List   | List of bounding box coordinates                                                                                                    |
-| boxes[0]           | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                   |
+| keyValues[0].conf  | Double | Confidence of the recognition result                                                                                                |                          |
+| boxes              | List   | List of bounding box coordinates                                                                                                    |                          |
+| boxes[0]           | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                   |                          |
 
 - **List included in KeyValues when "idType" is recognized as "resident"**
 
@@ -519,8 +541,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 - boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### Verify Authenticity API
+<a id="verify-authenticity-api"></a>
+### Verify Authenticity API { #verify-authenticity-api }
 
+<a id="verify-authenticity-api-request"></a>
 #### Request
 
 [URI]
@@ -556,7 +580,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | residentNumber      | String | Resident registration number<br>- For resident (resident registration certificate), 13 digits of resident registration number<br>- For a driver (driver's license), 7 digits that comprise of the first 6 digits and the first 1 digit of  resident registration number | resident, driver | O                        | O        |
 | issueDate           | String | Issued date (YYYYMMDD)                                                                                                                                                                                                                                                  | resident         | O                        | O        |
 | driverLicenseNumber | String | 12 digits of driver's license number                                                                                                                                                                                                                                    | driver           | O                        | O        |
-| serialNum           | String | 5 and 6 digits of serial number                                                                                                                                                                                                                                         | driver           | O                        | X        |
+| serialNum           | String | Serial number between 5 and 6 digits                                                                                                                                              | driver             | O           | O         |
 
 - A field that requires encryption must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
 - The initialization vector (IV) uses the first 16 bytes (i.e., bytes 0-15) of the symmetric key.
@@ -579,6 +603,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 }'
 ```
 
+<a id="verify-authenticity-api-response"></a>
 #### Response
 
 [Response Body]
@@ -610,13 +635,16 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 | -------------- | ------- | ------------------------------ |
 | isAuthenticity | Boolean | Whether it is authentic or not |
 
-### ID Card Analysis API (Stand alone)
+<a id="id-card-analysis-api-stand-alone"></a>
+### ID Card Analysis API (Stand alone) { #id-card-analysis-api-stand-alone }
 
+<a id="id-card-analysis-api-stand-alone-differences-from-the-existing-id-analysis-api"></a>
 #### Differences from the existing ID analysis API
 
 - It does not contain the Request-Key required for authenticity verification.
 - Authenticity cannot be verified, but a low fee is charged.
 
+<a id="id-card-analysis-api-stand-alone-request"></a>
 #### Request
 
 [URI]
@@ -661,6 +689,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card/
 -H 'Symmetric-Key: ${symmetricKey}'
 ```
 
+<a id="id-card-analysis-api-stand-alone-response"></a>
 #### Response
 
 [Response Body]

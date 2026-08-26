@@ -1,19 +1,26 @@
-## AI Service > OCR > General OCR > API v1.1 Guide
+<!-- pre-align:aligned sig=2e88c3fa0965 -->
 
-## General OCR API Common Information
+<a id="ai-service-ocr-general-ocr-api-v11-guide"></a>
+## AI Service > OCR > General OCR > API v1.1 Guide { #ai-service-ocr-general-ocr-api-v11-guide }
 
-### API Endpoints
+<a id="general-ocr-api-common-information"></a>
+## General OCR API Common Information { #general-ocr-api-common-information }
+
+<a id="api-endpoints"></a>
+### API Endpoints { #api-endpoints }
 
 | Region               | Endpoint                            |
 | -------------------- | ----------------------------------- |
 | Korea (Pangyo) Region | https://api-ocr.nhncloudservice.com |
 
-### Authentication and Authorization
+<a id="authentication-and-authorization"></a>
+### Authentication and Authorization { #authentication-and-authorization }
 
 General OCR uses User Access Key tokens for authentication and authorization when making API calls. The User Access Key token is a temporary, Bearer-type access token issued from a User Access Key.
 For more information on issuing and using User Access Key tokens, please see the [User Access Key Token](/nhncloud/en/public-api/user-access-key-token).
 
-### Common Response Information
+<a id="common-response-information"></a>
+### Common Response Information { #common-response-information }
 
 All API requests return HTTP 200 OK. The success or failure of an API request can be determined by referring to the header field in the response body.
 
@@ -59,8 +66,10 @@ Content-Type: application/json
 | resultMessage | String  | Response message                                             |
 | isSuccessful  | boolean | Success or not                                               |
 
-### Error Codes
+<a id="error-codes"></a>
+### Error Codes { #error-codes }
 
+<a id="error-codes-common"></a>
 #### Common
 
 | Error Code | Error Message                                                                              | Description                                |
@@ -76,8 +85,10 @@ Content-Type: application/json
 | 4010007    | Permission denied.                                                                         | Permission denied                          |
 | 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds the permissible limit |
 
-### General OCR API
+<a id="general-ocr-api"></a>
+### General OCR API { #general-ocr-api }
 
+<a id="general-ocr-api-request"></a>
 #### Request
 
 [URI]
@@ -86,6 +97,7 @@ Content-Type: application/json
 | ------ | ------------------------------ |
 | POST   | /v1.1/appkeys/{appKey}/general |
 
+<a id="general-ocr-api-request-with-image-file"></a>
 #### Request with Image File
 
 [Request Header]
@@ -112,6 +124,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general'
 | ----- | ------------------- | ----------- |
 | image | multipart/form-data | Image file  |
 
+<a id="general-ocr-api-request-with-image-url"></a>
 #### Request with Image URL
 
 [Request Header]
@@ -140,6 +153,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general'
 
 - When directly specifying the port in the image URL, only ports 80, 443, and 10,000-12,000 are available.
 
+<a id="general-ocr-api-response"></a>
 #### Response
 
 [Response Body]
@@ -215,8 +229,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general'
 - boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### General OCR Segmentation Recognition API
+<a id="general-ocr-segmentation-recognition-api"></a>
+### General OCR Segmentation Recognition API { #general-ocr-segmentation-recognition-api }
 
+<a id="general-ocr-segmentation-recognition-api-request"></a>
 #### Request
 
 [URI]
@@ -225,6 +241,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general'
 | ------ | --------------------------------------- |
 | POST   | /v1.1/appkeys/{appKey}/general/cropping |
 
+<a id="general-ocr-segmentation-recognition-api-request-with-image-file"></a>
 #### Request with Image File
 
 [Request Header]
@@ -251,6 +268,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general/
 | ----- | ------------------- | ----------- |
 | image | multipart/form-data | Image file  |
 
+<a id="general-ocr-segmentation-recognition-api-request-with-image-url"></a>
 #### Request with Image URL
 
 [Request Header]
@@ -279,6 +297,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general/
 
 - When directly specifying the port in the image URL, only ports 80, 443, and 10,000-12,000 are available.
 
+<a id="general-ocr-segmentation-recognition-api-response"></a>
 #### Response
 
 [Response Body]

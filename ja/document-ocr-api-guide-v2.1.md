@@ -572,7 +572,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 | residentNumber      | String | 住民登録番号<br>- resident(住民登録証)の場合、住民登録番号数字13桁<br>- driver(運転免許証)の場合、住民登録番号の前6桁と後ろの最初の1桁を組み合わせた数字7桁 | resident, driver   | O     | O  |
 | issueDate           | String | 発行日時(YYYYMMDD)                                                                                  | resident           | O     | O  |
 | driverLicenseNumber | String | 12桁の運転免許番号                                                                                      | driver             | O     | O  |
-| serialNum           | String | 5〜6桁の暗号一連番号                                                                                     | driver             | O     | O  |
+| serialNum           | String | 5〜6桁の暗号シリアル番号                                                                                                                                              | driver             | O           | O         |
 
 * 暗号化が必要なフィールドは必ず**AES-256/CBC/PKCS7Padding**方式で暗号化される必要があります(対称鍵利用)。
 * IV(初期化ベクトル)は、対称鍵の最初の16バイト(すなわち、0〜15番目のバイト)を使用します。

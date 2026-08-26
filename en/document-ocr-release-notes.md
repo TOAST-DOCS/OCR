@@ -1,4 +1,6 @@
-<!-- pre-align:aligned sig=b61af28ba765 -->
+<!-- machine_translated: true -->
+
+<!-- pre-align:aligned sig=1dc1c0f63720 -->
 
 <a id="ai-service-ocr-document-ocr-release-notes"></a>
 ## AI Service > OCR > Document OCR > Release Notes { #ai-service-ocr-document-ocr-release-notes }
@@ -6,10 +8,10 @@
 <a id="september-8-2026"></a>
 ## September 8, 2026 { #september-8-2026 }
 
-- Password serial number required for driver's license verification
-  - From September 7, 2026, the password serial number must be included in driver's license verification requests.
-  - This change applies because the National Police Agency strengthened its driver's license verification procedure.
-  - The password serial number is available in the driver's license analysis result.
+- Encrypted serial number now required for driver license authenticity verification
+  - Starting September 7, 2026, the encrypted serial number must be included in driver license authenticity verification requests.
+  - This change reflects the strengthened driver license authenticity verification procedures of the National Police Agency.
+  - The encrypted serial number can be found in the driver license analysis results.
   - For more information, see the [API Guide](./document-ocr-api-guide-v2.1.md).
 
 <a id="august-11-2026"></a>

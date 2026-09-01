@@ -1,12 +1,17 @@
-## AI Service > OCR > Document OCR > コンソール使用ガイド
+<!-- pre-align:aligned sig=0aa4a7e7a7e7 -->
+
+<a id="ai-service-ocr-document-ocr-console-user-guide"></a>
+## AI Service > OCR > Document OCR > コンソール使用ガイド { #ai-service-ocr-document-ocr-console-user-guide }
 
 コンソールに事業者登録証、クレジットカード、身分証の画像ファイルをアップロードし、分析結果を取得できます。
 
 
-## 事業者登録証の分析
+<a id="business-registration-certificate-analysis"></a>
+## 事業者登録証の分析 { #business-registration-certificate-analysis }
 
 
-### 分析のための画像アップロード
+<a id="upload-an-image-for-analysis"></a>
+### 分析のための画像アップロード { #upload-an-image-for-analysis }
 
 分析する事業者登録証の画像をアップロードします。
 
@@ -14,7 +19,8 @@
     1. **画像アップロード**ボタンをクリック
     2. 画像をドラッグアンドドロップ
 
-### 分析
+<a id="analysis"></a>
+### 分析 { #analysis }
 
 画像をアップロードした後、**分析**ボタンをクリックすると、分析結果が画面右側に表示されます。
 
@@ -70,19 +76,23 @@
   
 * 分析結果のコピーおよびダウンロード(Excel, JSON)機能を提供します。
 
-### 修正
+<a id="modify"></a>
+### 修正 { #modify }
 
 事業者登録証を分析した後、分析された事業者登録証の内容を修正できます。**修正**ボタンをクリックすると、分析された事業者登録証の内容を修正できます。
 
-### 休/廃業照会
+<a id="retrieve-stoppageclosure"></a>
+### 休/廃業照会 { #retrieve-stoppageclosure }
 
 事業者登録証を分析した後、分析された事業者登録証の内容で休業/廃業しているかを照会できます。**休業/廃業照会**ボタンをクリックすると、照会結果がボタンの右に表示されます。
 
 
-## クレジットカード分析
+<a id="credit-card-analysis"></a>
+## クレジットカード分析 { #credit-card-analysis }
 
 
-### 分析のための画像アップロード
+<a id="credit-card-analysis-upload-an-image-for-analysis"></a>
+### 分析のための画像アップロード { #credit-card-analysis-upload-an-image-for-analysis }
 
 分析するクレジットカード画像をアップロードします。
 
@@ -90,7 +100,8 @@
     1. **画像アップロード** ボタンをクリック
     2. 画像をドラッグアンドドロップ
 
-### 分析
+<a id="credit-card-analysis-analysis"></a>
+### 分析 { #credit-card-analysis-analysis }
 
 画像をアップロードした後、**分析**ボタンをクリックすると分析結果が画面右側に表示されます。
 
@@ -167,10 +178,12 @@
   
 * 分析結果のコピーおよびダウンロード(JSON)機能を提供します。
 
-## 身分証分析
+<a id="analyze-id-card"></a>
+## 身分証分析 { #analyze-id-card }
 
 
-### 分析のための写真アップロード
+<a id="analyze-id-card-upload-an-image-for-analysis"></a>
+### 分析のための写真アップロード { #analyze-id-card-upload-an-image-for-analysis }
 
 分析する身分証画像をアップロードします。
 
@@ -178,7 +191,8 @@
     1. **画像アップロード**ボタンをクリック
     2. 画像ドラッグ&ドロップ
 
-### 分析
+<a id="analyze-id-card-analysis"></a>
+### 分析 { #analyze-id-card-analysis }
 
 写真をアップロードした後、**分析**ボタンをクリックすると、分析結果が画面右側に表示されます。
 
@@ -249,10 +263,12 @@
   
 * 分析結果のコピーおよびダウンロード(JSON)機能を提供します。
 
-### 修正
+<a id="analyze-id-card-modify"></a>
+### 修正 { #analyze-id-card-modify }
 
 身分証を分析した後、分析された身分証の内容を修正できます。**修正**ボタンをクリックすると、分析された身分証の内容を修正できます。 
 
-### 真偽確認
+<a id="verify-authenticity"></a>
+### 真偽確認 { #verify-authenticity }
 
 身分証を分析した後、分析された身分証(住民登録証、運転免許証)の内容で身分証の真偽確認ができます。 **真偽確認**ボタンをクリックすると真偽確認結果がボタン右側に表示されます。

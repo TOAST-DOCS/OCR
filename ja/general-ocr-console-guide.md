@@ -1,10 +1,15 @@
-## AI Service > OCR > General OCR > コンソール使用ガイド
+<!-- pre-align:aligned sig=1e79fcef4bcf -->
+
+<a id="ai-service-ocr-general-ocr-console-user-guide"></a>
+## AI Service > OCR > General OCR > コンソール使用ガイド { #ai-service-ocr-general-ocr-console-user-guide }
 
 コンソールに画像ファイルをアップロードして画像に含まれるテキストの分析結果を得ることができます。
 
-## 画像分析
+<a id="image-analysis"></a>
+## 画像分析 { #image-analysis }
 
-### 分析のための画像アップロード
+<a id="upload-an-image-for-analysis"></a>
+### 分析のための画像アップロード { #upload-an-image-for-analysis }
 
 分析する画像をアップロードします。
 
@@ -13,7 +18,8 @@
     2. 画像のドラッグ＆ドロップ
 
 
-### 分析
+<a id="analysis"></a>
+### 分析 { #analysis }
 
 写真をアップロードした後、**分析**ボタンをクリックすると、分析結果が画面右側に表示されます。
 

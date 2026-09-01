@@ -1,4 +1,7 @@
-## AI Service > OCR > Document AI > Error Code
+<!-- pre-align:aligned sig=52b1fe16bad9 -->
+
+<a id="ai-service-ocr-document-ai-error-code"></a>
+## AI Service > OCR > Document AI > Error Code { #ai-service-ocr-document-ai-error-code }
 
 | resultCode | resultKey                          | resultMessage                                                             |
 | ---------- | ---------------------------------- | ------------------------------------------------------------------------- |

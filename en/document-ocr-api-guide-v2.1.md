@@ -476,14 +476,14 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 |--------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
 | fileType           | String | File extension (.jpg, .png)                                                                                                         |                          |
 | resolution         | String | normal: the resolution is the recommended resolution (760\*480px) or above, low: the resolution is below the recommended resolution |                          |
-| idType             | String | resident(resident registration certificate), driver(driver's license), passport (passport)                                            |                          |
+| idType             | String | resident(resident registration certificate), driver(driver's license), passport (passport)                                          |                          |
 | keyValues          | List   |                                                                                                                                     |                          |
 | keyValues[0].key   | String |                                                                                                                                     |                          |
 | keyValues[0].value | String |                                                                                                                                     | O                        |
-| keyValues[0].bbox  | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                   |                          |
-| keyValues[0].conf  | Double | Confidence of the recognition result                                                                                                |                          | |  |
-| boxes              | List   | List of bounding box coordinates                                                                                                    |
-| boxes[0]           | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                   |
+| keyValues[0].bbox  | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                 |                          |
+| keyValues[0].conf  | Double | Confidence of the recognition result                                                                                                |                          |
+| boxes              | List   | List of bounding box coordinates                                                                                                    |                          |
+| boxes[0]           | Object | Coordinates of recognized area { x1, y1, x2, y2, x3, y3, x4, y4 }                                                                 |                          |
 
 - **List included in KeyValues when "idType" is recognized as "resident"**
 
@@ -577,7 +577,8 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.1/appkeys/{appKey}/id-card'
 | serialNum           | String | Cipher serial number between 5 and 6 digits                                                                                                                                              | driver             | O           | O         |
 
 - A field that requires encryption must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
-- The initialization vector (IV) uses the first 16 bytes (i.e., bytes 0-15) of the symmetric key.
+- The IV (initialization vector) uses the first 16 bytes of the symmetric key (that is, bytes 0 to 15).
+- The encryption serial number can be found in the driver license analysis results. If the encryption serial number is not present in the analysis results, you can ask the user to enter it directly and include it in the request.
 
 [Request Body]
 

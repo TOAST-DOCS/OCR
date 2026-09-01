@@ -583,7 +583,8 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v2.0/appkeys/{appKey}/id-card'
 | serialNum           | String | Serial number between 5 and 6 digits                                                                                                                                              | driver             | O           | O         |
 
 - A field that requires encryption must be encrypted with the **AES-256/CBC/PKCS7Padding** method (using a symmetric key).
-- The initialization vector (IV) uses the first 16 bytes (i.e., bytes 0-15) of the symmetric key.
+- The IV (initialization vector) uses the first 16 bytes of the symmetric key (bytes 0 through 15).
+- You can find the encryption serial number in the driver license analysis results. If the encryption serial number is not included in the analysis results, you can receive it directly from the user and include it in the request.
 
 [Request Body]
 

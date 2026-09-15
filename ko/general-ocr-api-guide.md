@@ -1,7 +1,12 @@
-## AI Service > OCR > General OCR > API 가이드
+<!-- pre-align:aligned sig=8eec8a51e376 -->
 
-### General OCR API
+<a id="ai-service-ocr-general-ocr-api-guide"></a>
+## AI Service > OCR > General OCR > API 가이드 { #ai-service-ocr-general-ocr-api-guide }
 
+<a id="general-ocr-api"></a>
+### General OCR API { #general-ocr-api }
+
+<a id="general-ocr-api-request"></a>
 #### 요청
 
 [URI]
@@ -10,6 +15,7 @@
 |------|-------------------------------------------------------------------|
 | POST | https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general |
 
+<a id="general-ocr-api-request-with-image-files"></a>
 #### 이미지 파일을 이용한 요청
 
 [요청 헤더]
@@ -36,6 +42,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 |-------|---------------------|--------|
 | image | multipart/form–data | 이미지 파일 |
 
+<a id="general-ocr-api-request-with-image-urls"></a>
 #### 이미지 URL을 이용한 요청
 [요청 헤더]
 
@@ -63,6 +70,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 * 이미지 URL에 포트를 직접 지정하는 경우 80, 443, 10000~12000 포트만 사용 가능합니다.
 
+<a id="general-ocr-api-response"></a>
 #### 응답
 
 [응답 본문]
@@ -138,8 +146,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 * boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### General OCR 분할 인식 API
+<a id="general-ocr-segmentation-recognition-api"></a>
+### General OCR 분할 인식 API { #general-ocr-segmentation-recognition-api }
 
+<a id="general-ocr-segmentation-recognition-api-request"></a>
 #### 요청
 
 [URI]
@@ -148,6 +158,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 |------|----------------------------------------------------------------------------|
 | POST | https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping |
 
+<a id="general-ocr-segmentation-recognition-api-request-with-image-files"></a>
 #### 이미지 파일을 이용한 요청
 
 [요청 헤더]
@@ -174,6 +185,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 |-------|---------------------|--------|
 | image | multipart/form–data | 이미지 파일 |
 
+<a id="general-ocr-segmentation-recognition-api-request-with-image-urls"></a>
 #### 이미지 URL을 이용한 요청
 
 [요청 헤더]
@@ -202,6 +214,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 
 * 이미지 URL에 포트를 직접 지정하는 경우 80, 443, 10000~12000 포트만 사용 가능합니다.
 
+<a id="general-ocr-segmentation-recognition-api-response"></a>
 #### 응답
 
 [응답 본문]

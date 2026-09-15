@@ -1,6 +1,10 @@
-## AI Service > OCR > General OCR > Release Notes
+<!-- pre-align:aligned sig=ad130f02548c -->
 
-### August 11, 2026
+<a id="ai-service-ocr-general-ocr-release-notes"></a>
+## AI Service > OCR > General OCR > Release Notes { #ai-service-ocr-general-ocr-release-notes }
+
+<a id="august-11-2026"></a>
+### August 11, 2026 { #august-11-2026 }
 
 - API endpoint domain change
   - Added the new endpoint `https://api-ocr.nhncloudservice.com`.
@@ -9,29 +13,35 @@
 - Increased the maximum request file size
   - Increased the maximum request file size from 5 MB to 20 MB.
 
-### March 10, 2026
+<a id="march-10-2026"></a>
+### March 10, 2026 { #march-10-2026 }
 
 - API v1.1 released
   - Added API using User Access Key token authentication.
   - For more information on issuing and using User Access Key tokens, please refer to the [User Access Key Token](/nhncloud/en/public-api/user-access-key-token).
 
-### April 15, 2025
+<a id="april-15-2025"></a>
+### April 15, 2025 { #april-15-2025 }
 
 - Improved the speed of image recognition
 
-### March 11, 2025
+<a id="march-11-2025"></a>
+### March 11, 2025 { #march-11-2025 }
 
 - Improved the speed of image recognition
 
-### November 28, 2023
+<a id="november-28-2023"></a>
+### November 28, 2023 { #november-28-2023 }
 
 - Added the analysis feature with image URLs
 - Added the segmentation analysis API
 
-### September 26, 2023
+<a id="september-26-2023"></a>
+### September 26, 2023 { #september-26-2023 }
 
 - Improved the performance of image recognition
 
-### June 27, 2023
+<a id="june-27-2023"></a>
+### June 27, 2023 { #june-27-2023 }
 
 - General OCR service released

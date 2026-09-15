@@ -1,10 +1,15 @@
-## AI Service > OCR > Document AI > 콘솔 사용 가이드
+<!-- pre-align:aligned sig=dbef1ffc99ce -->
+
+<a id="ai-service-ocr-document-ai-console-user-guide"></a>
+## AI Service > OCR > Document AI > 콘솔 사용 가이드 { #ai-service-ocr-document-ai-console-user-guide }
 
 콘솔에 이미지 파일을 업로드하고 문서 유형과 질문을 입력하여 답변을 얻을 수 있습니다.
 
-## Document AI 분석
+<a id="document-ai-analysis"></a>
+## Document AI 분석 { #document-ai-analysis }
 
-### 분석을 위한 문서 유형 선택
+<a id="select-document-types-for-analysis"></a>
+### 분석을 위한 문서 유형 선택 { #select-document-types-for-analysis }
 
 분석할 이미지의 문서 유형을 선택합니다.
 
@@ -12,18 +17,21 @@
 * 사업자등록증
 * 명함
 
-### 분석을 위한 이미지 업로드
+<a id="upload-an-image-for-analysis"></a>
+### 분석을 위한 이미지 업로드 { #upload-an-image-for-analysis }
 
 분석할 이미지를 업로드합니다.<br>
 이미지는 다음 2가지 방법으로 업로드할 수 있습니다.
 1. **이미지 업로드** 클릭
 2. 이미지 드래그 앤드 드롭
 
-### 질문 입력
+<a id="enter-a-question"></a>
+### 질문 입력 { #enter-a-question }
 
 질문을 입력합니다.
 
-### 분석
+<a id="analysis"></a>
+### 분석 { #analysis }
 
 **분석**을 클릭하면 분석 결과가 화면 오른쪽에 나타납니다.
 
@@ -40,6 +48,7 @@
 }
 ```
 
-### 초기화
+<a id="initialize"></a>
+### 초기화 { #initialize }
 
 **초기화**를 클릭하면 입력하신 이미지, 질문 및 답변 결과가 모두 초기화됩니다.

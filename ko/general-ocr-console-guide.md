@@ -1,10 +1,15 @@
-## AI Service > OCR > General OCR > 콘솔 사용 가이드
+<!-- pre-align:aligned sig=1e79fcef4bcf -->
+
+<a id="ai-service-ocr-general-ocr-console-user-guide"></a>
+## AI Service > OCR > General OCR > 콘솔 사용 가이드 { #ai-service-ocr-general-ocr-console-user-guide }
 
 콘솔에 이미지 파일을 올려 이미지에 포함된 텍스트 분석 결과를 얻을 수 있습니다.
 
-## 이미지 분석
+<a id="image-analysis"></a>
+## 이미지 분석 { #image-analysis }
 
-### 분석을 위한 이미지 업로드
+<a id="upload-an-image-for-analysis"></a>
+### 분석을 위한 이미지 업로드 { #upload-an-image-for-analysis }
 
 분석할 이미지를 업로드합니다.
 
@@ -13,7 +18,8 @@
     2. 이미지 드래그 앤드 드롭
 
 
-### 분석
+<a id="analysis"></a>
+### 분석 { #analysis }
 
 사진을 업로드한 후 **분석** 버튼을 클릭하면 분석 결과가 화면 오른쪽에 나타납니다.
 

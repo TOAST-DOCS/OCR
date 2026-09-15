@@ -1,18 +1,25 @@
-## AI Service > OCR > General OCR > API v1.1 가이드
+<!-- pre-align:aligned sig=2e88c3fa0965 -->
 
-## General OCR API 공통 정보
+<a id="ai-service-ocr-general-ocr-api-v11-guide"></a>
+## AI Service > OCR > General OCR > API v1.1 가이드 { #ai-service-ocr-general-ocr-api-v11-guide }
 
-### API 엔드포인트
+<a id="general-ocr-api-common-information"></a>
+## General OCR API 공통 정보 { #general-ocr-api-common-information }
+
+<a id="api-endpoints"></a>
+### API 엔드포인트 { #api-endpoints }
 
 | 리전            | 엔드포인트                          |
 | --------------- | ----------------------------------- |
 | 한국(판교) 리전 | https://api-ocr.nhncloudservice.com |
 
-### 인증 및 권한
+<a id="authentication-and-authorization"></a>
+### 인증 및 권한 { #authentication-and-authorization }
 
 General OCR은 API 호출 시 인증/인가를 위해 User Access Key 토큰을 사용합니다. User Access Key 토큰은 User Access Key를 기반으로 발급되는 Bearer 타입의 일시적 액세스 토큰입니다. User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Access Key 토큰](/nhncloud/ko/public-api/user-access-key-token)을 참고하세요.
 
-### 응답 공통 정보
+<a id="common-response-information"></a>
+### 응답 공통 정보 { #common-response-information }
 
 모든 API 요청 응답으로 HTTP 200 OK를 전달합니다. API 요청 성공 여부는 Response Body의 header 항목을 참고하여 판단할 수 있습니다.
 
@@ -58,8 +65,10 @@ Content-Type: application/json
 | resultMessage | String  | 응답 메시지                                   |
 | isSuccessful  | boolean | 성공 여부                                     |
 
-### 오류 코드
+<a id="error-codes"></a>
+### 오류 코드 { #error-codes }
 
+<a id="error-codes-common"></a>
 #### 공통
 
 | 오류 코드 | 오류 메시지                                                                                | 설명                            |
@@ -73,8 +82,10 @@ Content-Type: application/json
 | 4000006   | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API 호출 한도 초과              |
 | 4131000   | Request size is larger than permissible limit.                                             | 요청 크기가 허용 한도 초과                 |
 
-### General OCR API
+<a id="general-ocr-api"></a>
+### General OCR API { #general-ocr-api }
 
+<a id="general-ocr-api-request"></a>
 #### 요청
 
 [URI]
@@ -83,6 +94,7 @@ Content-Type: application/json
 | ------ | ------------------------------ |
 | POST   | /v1.1/appkeys/{appKey}/general |
 
+<a id="general-ocr-api-request-with-image-file"></a>
 #### 이미지 파일을 이용한 요청
 
 [요청 헤더]
@@ -109,6 +121,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general'
 | ----- | ------------------- | ----------- |
 | image | multipart/form-data | 이미지 파일 |
 
+<a id="general-ocr-api-request-with-image-url"></a>
 #### 이미지 URL을 이용한 요청
 
 [요청 헤더]
@@ -137,6 +150,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general'
 
 - 이미지 URL에 포트를 직접 지정하는 경우 80, 443, 10000~12000 포트만 사용 가능합니다.
 
+<a id="general-ocr-api-response"></a>
 #### 응답
 
 [응답 본문]
@@ -212,8 +226,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general'
 - boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### General OCR 분할 인식 API
+<a id="general-ocr-segmentation-recognition-api"></a>
+### General OCR 분할 인식 API { #general-ocr-segmentation-recognition-api }
 
+<a id="general-ocr-segmentation-recognition-api-request"></a>
 #### 요청
 
 [URI]
@@ -222,6 +238,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general'
 | ------ | --------------------------------------- |
 | POST   | /v1.1/appkeys/{appKey}/general/cropping |
 
+<a id="general-ocr-segmentation-recognition-api-request-with-image-file"></a>
 #### 이미지 파일을 이용한 요청
 
 [요청 헤더]
@@ -248,6 +265,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general/
 | ----- | ------------------- | ----------- |
 | image | multipart/form-data | 이미지 파일 |
 
+<a id="general-ocr-segmentation-recognition-api-request-with-image-url"></a>
 #### 이미지 URL을 이용한 요청
 
 [요청 헤더]
@@ -276,6 +294,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/general/
 
 - 이미지 URL에 포트를 직접 지정하는 경우 80, 443, 10000~12000 포트만 사용 가능합니다.
 
+<a id="general-ocr-segmentation-recognition-api-response"></a>
 #### 응답
 
 [응답 본문]

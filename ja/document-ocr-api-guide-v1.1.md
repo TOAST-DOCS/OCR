@@ -1,19 +1,26 @@
-## AI Service > OCR > Document OCR > API v1.1 ガイド
+<!-- pre-align:aligned sig=c609b65a9475 -->
 
-## Document OCR API 共通情報
+<a id="ai-service-ocr-document-ocr-api-v11-guide"></a>
+## AI Service > OCR > Document OCR > API v1.1 ガイド { #ai-service-ocr-document-ocr-api-v11-guide }
 
-### APIエンドポイント
+<a id="document-ocr-api-common-information"></a>
+## Document OCR API 共通情報 { #document-ocr-api-common-information }
+
+<a id="api-endpoints"></a>
+### APIエンドポイント { #api-endpoints }
 
 | リージョン      | エンドポイント                       |
 | --------------- | ----------------------------------- |
 | 韓国(板橋)リージョン | https://api-ocr.nhncloudservice.com |
 
-### 認証及び権限
+<a id="authentication-and-authorization"></a>
+### 認証及び権限 { #authentication-and-authorization }
 
 Document OCRは、API呼び出し時の認証/認可のためにUser Access Keyトークンを使用します。User Access Keyトークンは、User Access Keyに基づいて発行されるBearerタイプの一時的なアクセストークンです。
 User Access Keyトークンの発行及び使用に関する詳細は、[User Access Keyトークン](/nhncloud/ja/public-api/user-access-key-token)を参照してください。
 
-### レスポンス共通情報
+<a id="common-response-information"></a>
+### レスポンス共通情報 { #common-response-information }
 
 すべてのAPIリクエストレスポンスとしてHTTP 200 OKを返します。APIリクエストの成否はResponse Bodyのheader項目を参照して判断できます。
 
@@ -59,8 +66,10 @@ Content-Type: application/json
 | resultMessage | String  | レスポンスメッセージ                        |
 | isSuccessful  | boolean | 成否                                       |
 
-### エラーコード
+<a id="error-codes"></a>
+### エラーコード { #error-codes }
 
+<a id="error-codes-common"></a>
 #### 共通
 
 | エラーコード | エラーメッセージ                                                                           | 説明                          |
@@ -76,8 +85,10 @@ Content-Type: application/json
 | 4010007      | Permission denied.                                                                         | 権限なし                      |
 | 4131000      | Request size is larger than permissible limit.                                             | リクエストサイズが許容限度超過               |
 
-### 事業者登録証分析API
+<a id="business-registration-certificate-analysis-api"></a>
+### 事業者登録証分析API { #business-registration-certificate-analysis-api }
 
+<a id="business-registration-certificate-analysis-api-request"></a>
 #### リクエスト
 
 [URI]
@@ -114,6 +125,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 |-------|---------------------|--------|
 | image | multipart/form–data | 画像ファイル |
 
+<a id="business-registration-certificate-analysis-api-response"></a>
 #### レスポンス
 
 [レスポンス本文]
@@ -184,8 +196,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 * boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### 事業者登録証 休/廃業照会API
+<a id="retrieve-business-registration-stoppageclosure-api"></a>
+### 事業者登録証 休/廃業照会API { #retrieve-business-registration-stoppageclosure-api }
 
+<a id="retrieve-business-registration-stoppageclosure-api-request"></a>
 #### リクエスト
 
 [URI]
@@ -222,6 +236,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 }'
 ```
 
+<a id="retrieve-business-registration-stoppageclosure-api-response"></a>
 #### レスポンス
 
 [レスポンス本文]
@@ -268,8 +283,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/business
 | 06   | 廃業者                                  |
 | 09   | その他                                  |
 
-### クレジットカード分析API
+<a id="credit-card-analysis-api"></a>
+### クレジットカード分析API { #credit-card-analysis-api }
 
+<a id="credit-card-analysis-api-request"></a>
 #### リクエスト
 
 [URI]
@@ -306,6 +323,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.1/appkeys/{appKey}/credit-c
 |-------|---------------------|--------|
 | image | multipart/form–data | 画像ファイル |
 
+<a id="credit-card-analysis-api-response"></a>
 #### レスポンス
 
 [レスポンス本文]

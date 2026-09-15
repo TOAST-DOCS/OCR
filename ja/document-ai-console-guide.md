@@ -1,10 +1,15 @@
-## AI Service > OCR > Document AI > コンソール使用ガイド
+<!-- pre-align:aligned sig=dbef1ffc99ce -->
+
+<a id="ai-service-ocr-document-ai-console-user-guide"></a>
+## AI Service > OCR > Document AI > コンソール使用ガイド { #ai-service-ocr-document-ai-console-user-guide }
 
 コンソールに画像ファイルをアップロードし、文書の種類と質問を入力して回答を得ることができます。
 
-## Document AI分析
+<a id="document-ai-analysis"></a>
+## Document AI分析 { #document-ai-analysis }
 
-### 分析のための文書タイプ選択
+<a id="select-document-types-for-analysis"></a>
+### 分析のための文書タイプ選択 { #select-document-types-for-analysis }
 
 分析する画像の文書タイプを選択します。
 
@@ -12,18 +17,21 @@
 * 事業者登録証
 * 名刺
 
-### 分析のための画像アップロード
+<a id="upload-an-image-for-analysis"></a>
+### 分析のための画像アップロード { #upload-an-image-for-analysis }
 
 分析する画像をアップロードします。
 画像は次の2つの方法でアップロードできます。
 1. **画像アップロード**クリック
 2. 画像をドラッグ＆ドロップ
 
-### 質問の入力
+<a id="enter-a-question"></a>
+### 質問の入力 { #enter-a-question }
 
 質問を入力します。
 
-### 分析
+<a id="analysis"></a>
+### 分析 { #analysis }
 
 **分析**をクリックすると、分析結果が画面右側に表示されます。
 
@@ -40,6 +48,7 @@
 }
 ```
 
-### 初期化
+<a id="initialize"></a>
+### 初期化 { #initialize }
 
 **初期化**をクリックすると、入力された画像、質問、回答結果がすべて初期化されます。

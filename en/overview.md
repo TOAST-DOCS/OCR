@@ -1,11 +1,16 @@
-## AI Service > OCR > Overview
+<!-- pre-align:aligned sig=1d3b19d4c47d -->
+
+<a id="ai-service-ocr-overview"></a>
+## AI Service > OCR > Overview { #ai-service-ocr-overview }
 
 OCR provides a feature to recognize the text area of images and documents and extract the text for each area. 
 It can be used by customers who need to create a database for recognized documents or implement document processing automation.
 
-## General OCR
+<a id="general-ocr"></a>
+## General OCR { #general-ocr }
 
-### Main Features
+<a id="main-features"></a>
+### Main Features { #main-features }
 
 * **Recognition of text areas in image**
     * Recognizes the text areas (bounding boxes) in an image and provides the coordinates of the areas.
@@ -14,7 +19,8 @@ It can be used by customers who need to create a database for recognized documen
 * **Analysis results download**
     * You can download the results extracted from an image file as a Text or JSON file.
 
-### Input Image Guide
+<a id="input-image-guide"></a>
+### Input Image Guide { #input-image-guide }
 
 For more accurate image analysis, please refer to the guide below.
 
@@ -34,10 +40,13 @@ For more accurate image analysis, please refer to the guide below.
     * The service supports result analysis for black-and-white and color images, but color images are recommended for accurate analysis.
     * General OCR provides analysis results only for Korean and English.
 
-## Document OCR
+<a id="document-ocr"></a>
+## Document OCR { #document-ocr }
 
-### Business Registration Certificate Analysis
+<a id="business-registration-certificate-analysis"></a>
+### Business Registration Certificate Analysis { #business-registration-certificate-analysis }
 
+<a id="business-registration-certificate-analysis-main-features"></a>
 #### Main Features
 
 * **Recognition of text areas in a business registration certificate**
@@ -49,6 +58,7 @@ For more accurate image analysis, please refer to the guide below.
 * **Analysis results download**
     * You can download the results extracted from a business registration certificate image file as an Excel or JSON file.
 
+<a id="business-registration-certificate-analysis-input-image-guide"></a>
 #### Input Image Guide
 
 For more accurate business registration analysis, please refer to the guide below.
@@ -64,8 +74,10 @@ For more accurate business registration analysis, please refer to the guide belo
 * The service supports result analysis for black-and-white and color images, but color images are recommended for accurate analysis.
 * The service provides analysis results for the business registration certificate in Korean only.
 
-### Credit Card Analysis
+<a id="credit-card-analysis"></a>
+### Credit Card Analysis { #credit-card-analysis }
 
+<a id="credit-card-analysis-main-features"></a>
 #### Main Features
 
 * **Recognition of text areas in a credit card**
@@ -77,6 +89,7 @@ For more accurate business registration analysis, please refer to the guide belo
 * **Analysis results download**
     * You can download the results extracted from a credit card image file as a JSON file.
 
+<a id="credit-card-analysis-input-image-guide"></a>
 #### Input Image Guide
 
 For more accurate credit card analysis, please refer to the guide below.
@@ -94,8 +107,10 @@ For more accurate credit card analysis, please refer to the guide below.
 
 ![Image Example](http://static.toastoven.net/prod_ocr/DocumentRecognizer_ex_img_en.png)
 
-### Analyze ID Card
+<a id="analyze-id-card"></a>
+### Analyze ID Card { #analyze-id-card }
 
+<a id="analyze-id-card-main-features"></a>
 #### Main Features
 
 * **Recognition of text areas in an ID card**
@@ -110,6 +125,7 @@ For more accurate credit card analysis, please refer to the guide below.
 * **Analysis results download**
 	* You can download the results extracted from an ID card image file as a JSON file.
 
+<a id="analyze-id-card-input-image-guide"></a>
 #### Input Image Guide
 
 For more accurate ID card analysis, please refer to the guide below.
@@ -126,15 +142,18 @@ For more accurate ID card analysis, please refer to the guide below.
     * The service provides analysis results for ID cards (resident registration certificate/driver license) in Korean only.
         * Passport can be analyzed for domestic and foreign passports, and analysis results are provided only for machine reading area (MRZ).
 
-## Document AI
+<a id="document-ai"></a>
+## Document AI { #document-ai }
 
-### Main Features
+<a id="document-ai-main-features"></a>
+### Main Features { #document-ai-main-features }
 
 * Extracts characters from images through OCR and provides question and answer services such as summarizing the content and extracting information based on the extracted information in conjunction with the LLM model.
 * Extracts information in key-value form from images of structured documents such as business licenses, business cards, and more.
 * Support for handwriting recognition enables analysis of handwritten images.
 
-### Input Image Guide
+<a id="document-ai-input-image-guide"></a>
+### Input Image Guide { #document-ai-input-image-guide }
 
 For more accurate image analysis, please refer to the guide below.
 
@@ -150,23 +169,27 @@ For more accurate image analysis, please refer to the guide below.
     * The service supports result analysis for black-and-white and color images, but color images are recommended for accurate analysis.
     * The text embedded in the image provides analysis results in Korean and English only.
 
-### Cautions for using the service
+<a id="cautions-for-using-the-service"></a>
+### Cautions for using the service { #cautions-for-using-the-service }
 
 * Answers generated by Document AI are extracted based on the embedded text within the images you upload.
 * Due to the inherent nature of the generative AI (LLM) technology utilized in Document AI, inappropriate or inaccurate answers may be generated. Please double-check your answers to ensure they meet your intent before using them.
 
-## Service Targets
+<a id="service-targets"></a>
+## Service Targets { #service-targets }
 * When you need to register documents (business registration certificate, credit card, and ID card) in the customer's system automatically
 * When you need to implement document processing automation
 * When you need to build an accounting/financial management automation solution
 * when you need to quickly analyze key information from various images and get the information you need in a question-and-answer format,
 
-## Privacy Policy
+<a id="privacy-policy"></a>
+## Privacy Policy { #privacy-policy }
 * While using the OCR service, the customer may collect personal and sensitive information of their users. Therefore, the customer of this service must inform a legal notice to their users as per the Personal Information Protection Act and acquire their consent regarding the matter. Also during this process, work consignment relation regarding the processing of personal information may arise between the customer and NHN Cloud. The customer who assumes the position of consignor may enter into a consignment contract with the consignee, NHN Cloud, separately in writing, and post a privacy policy notice by referencing the following:
     - Consignee: NHN Cloud Corp.
     - Consignment Description: Providing OCR service
 
-## Agreement on technical/administrative level
+<a id="agreement-on-technicaladministrative-level"></a>
+## Agreement on technical/administrative level { #agreement-on-technicaladministrative-level }
 * The customer must fully implement technical and administrative protection measures considering the sensitive nature of information collected/used while using the OCR service.
 * To receive the information recognized by the OCR service, the customer must complete the encryption of the communication section before starting to use the OCR service.
 * The original data that the customer requests for recognition to the OCR service must be stored in a secure location and must not be accessible through a URL that can be exposed externally.

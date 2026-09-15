@@ -1,14 +1,20 @@
-## AI Service > OCR > Document OCR > API v1.0 가이드
+<!-- pre-align:aligned sig=bc8e72c02866 -->
 
-## Document OCR API 공통 정보
+<a id="ai-service-ocr-document-ocr-api-v10-guide"></a>
+## AI Service > OCR > Document OCR > API v1.0 가이드 { #ai-service-ocr-document-ocr-api-v10-guide }
 
-### API 엔드포인트
+<a id="document-ocr-api-common-information"></a>
+## Document OCR API 공통 정보 { #document-ocr-api-common-information }
+
+<a id="api-endpoints"></a>
+### API 엔드포인트 { #api-endpoints }
 
 | 리전            | 엔드포인트                          |
 | --------------- | ----------------------------------- |
 | 한국(판교) 리전 | https://api-ocr.nhncloudservice.com |
 
-### 인증 및 권한
+<a id="authentication-and-authorization"></a>
+### 인증 및 권한 { #authentication-and-authorization }
 
 Document OCR API를 사용하려면 Appkey와 SecretKey가 필요합니다.
 Appkey는 NHN Cloud의 각 서비스별로 발급되는 고유 인증 키로 API 요청 시 서비스 식별과 유효성 검증에 사용됩니다. SecretKey는 API에 대한 접근을 제어하는 비밀 키입니다.
@@ -17,7 +23,8 @@ Appkey 및 SecretKey 확인 및 사용에 대한 자세한 내용은 [Appkey](/n
 Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프로젝트 통합 Appkey는 NHN Cloud에서 하나의 프로젝트 내 여러 서비스에 대해 공통으로 사용할 수 있는 인증 키입니다.
 프로젝트 통합 Appkey 생성 및 사용에 대한 자세한 내용은 [프로젝트 통합 Appkey](/nhncloud/ko/public-api/project-appkey)를 참고하세요.
 
-### 응답 공통 정보
+<a id="common-response-information"></a>
+### 응답 공통 정보 { #common-response-information }
 
 모든 API 요청 응답으로 HTTP 200 OK를 전달합니다. API 요청 성공 여부는 Response Body의 header 항목을 참고하여 판단할 수 있습니다.
 
@@ -63,8 +70,10 @@ Content-Type: application/json
 | resultMessage | String  | 응답 메시지                                   |
 | isSuccessful  | boolean | 성공 여부                                     |
 
-### 오류 코드
+<a id="error-codes"></a>
+### 오류 코드 { #error-codes }
 
+<a id="error-codes-common"></a>
 #### 공통
 
 | 오류 코드 | 오류 메시지                                                                                | 설명                            |
@@ -78,8 +87,10 @@ Content-Type: application/json
 | 4000006   | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API 호출 한도 초과              |
 | 4131000   | Request size is larger than permissible limit.                                             | 요청 크기가 허용 한도 초과                 |
 
-### 사업자등록증 분석 API
+<a id="business-registration-certificate-analysis-api"></a>
+### 사업자등록증 분석 API { #business-registration-certificate-analysis-api }
 
+<a id="business-registration-certificate-analysis-api-request"></a>
 #### 요청
 
 [URI]
@@ -116,6 +127,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 | ----- | ------------------- | ----------- |
 | image | multipart/form–data | 이미지 파일 |
 
+<a id="business-registration-certificate-analysis-api-response"></a>
 #### 응답
 
 [응답 본문]
@@ -186,8 +198,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 - boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### 사업자등록증 휴/폐업 조회 API
+<a id="retrieve-business-registration-stoppageclosure-api"></a>
+### 사업자등록증 휴/폐업 조회 API { #retrieve-business-registration-stoppageclosure-api }
 
+<a id="retrieve-business-registration-stoppageclosure-api-request"></a>
 #### 요청
 
 [URI]
@@ -224,6 +238,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 }'
 ```
 
+<a id="retrieve-business-registration-stoppageclosure-api-response"></a>
 #### 응답
 
 [응답 본문]
@@ -270,8 +285,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/business
 | 06     | 폐업자                                                                      |
 | 09     | 기타                                                                        |
 
-### 신용카드 분석 API
+<a id="credit-card-analysis-api"></a>
+### 신용카드 분석 API { #credit-card-analysis-api }
 
+<a id="credit-card-analysis-api-request"></a>
 #### 요청
 
 [URI]
@@ -308,6 +325,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/credit-c
 | ----- | ------------------- | ----------- |
 | image | multipart/form–data | 이미지 파일 |
 
+<a id="credit-card-analysis-api-response"></a>
 #### 응답
 
 [응답 본문]

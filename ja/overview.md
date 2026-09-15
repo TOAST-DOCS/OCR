@@ -1,10 +1,15 @@
-## AI Service > OCR > 概要
+<!-- pre-align:aligned sig=1d3b19d4c47d -->
+
+<a id="ai-service-ocr-overview"></a>
+## AI Service > OCR > 概要 { #ai-service-ocr-overview }
 
 OCRは、NHN Cloudの 光学文字認識(OCR)技術を利用して画像や文書の文字領域を認識し、領域ごとに文字を抽出する機能を提供します。認識した文書のDB化や、文書処理の自動化を実装する顧客社で活用できます。
 
-## General OCR
+<a id="general-ocr"></a>
+## General OCR { #general-ocr }
 
-### 主な機能
+<a id="main-features"></a>
+### 主な機能 { #main-features }
 
 * **画像の文字領域認識**
     * 画像の文字領域(bounding box)を認識し、その領域の座標を提供します。
@@ -13,7 +18,8 @@ OCRは、NHN Cloudの 光学文字認識(OCR)技術を利用して画像や文�
 * **分析結果のダウンロード**
     * 画像ファイルから抽出した結果をTextおよびJSONファイルでダウンロードできます。
 
-### 入力画像ガイド
+<a id="input-image-guide"></a>
+### 入力画像ガイド { #input-image-guide }
 
 より正確な画像分析のために下記のガイドをご参考ください。
 
@@ -33,10 +39,13 @@ OCRは、NHN Cloudの 光学文字認識(OCR)技術を利用して画像や文�
     * 白黒、カラー画像の両方で結果分析が可能ですが、正確な分析のためにはカラー画像を推奨します。
     * General OCRは韓国語と英語のみ分析結果を提供します。
 
-## Document OCR
+<a id="document-ocr"></a>
+## Document OCR { #document-ocr }
 
-### 事業者登録証の分析
+<a id="business-registration-certificate-analysis"></a>
+### 事業者登録証の分析 { #business-registration-certificate-analysis }
 
+<a id="business-registration-certificate-analysis-main-features"></a>
 #### 主な機能
 
 * **事業者登録証の文字領域認識**
@@ -48,6 +57,7 @@ OCRは、NHN Cloudの 光学文字認識(OCR)技術を利用して画像や文�
 * **分析結果ダウンロード**
 	* 事業者登録証ファイルから抽出した結果をExcelおよびJSONファイルでダウンロードできます。
 
+<a id="business-registration-certificate-analysis-input-image-guide"></a>
 #### 入力画像ガイド
     
 より正確な事業者登録証分析を行うために、以下のガイドを参照してください。
@@ -63,8 +73,10 @@ OCRは、NHN Cloudの 光学文字認識(OCR)技術を利用して画像や文�
 * 白黒/カラー画像の結果分析が可能ですが、正確な分析を行うためにカラーの画像を推奨します。
 * 事業者登録証は韓国語に限り分析結果を提供します。
 
-### クレジットカードの分析
+<a id="credit-card-analysis"></a>
+### クレジットカードの分析 { #credit-card-analysis }
 
+<a id="credit-card-analysis-main-features"></a>
 #### 主な機能
 
 * **クレジットカード文字領域認識**
@@ -76,6 +88,7 @@ OCRは、NHN Cloudの 光学文字認識(OCR)技術を利用して画像や文�
 * **分析結果のダウンロード**
 	* クレジットカード画像ファイルから抽出した結果をJSONファイルでダウンロードできます。
 
+<a id="credit-card-analysis-input-image-guide"></a>
 #### 入力画像ガイド
 
 より正確なクレジットカード分析を行うために、以下のガイドを参照してください。
@@ -93,8 +106,10 @@ OCRは、NHN Cloudの 光学文字認識(OCR)技術を利用して画像や文�
 
 ![Image Example](http://static.toastoven.net/prod_ocr/DocumentRecognizer_ex_img_jp.png)
 
-### 身分証分析
+<a id="analyze-id-card"></a>
+### 身分証分析 { #analyze-id-card }
 
+<a id="analyze-id-card-main-features"></a>
 #### 主な機能
 
 * **身分証文字領域認識**
@@ -109,6 +124,7 @@ OCRは、NHN Cloudの 光学文字認識(OCR)技術を利用して画像や文�
 * **分析結果のダウンロード**
 	* 身分証画像ファイルから抽出した結果をJSONファイルでダウンロードできます。
 
+<a id="analyze-id-card-input-image-guide"></a>
 #### 入力画像ガイド
 
 身分証をより正確に分析するために以下のガイドを参考にしてください。
@@ -126,15 +142,18 @@ OCRは、NHN Cloudの 光学文字認識(OCR)技術を利用して画像や文�
     * 身分証(住民登録証/運転免許証/パスポート)は韓国語に限り分析結果を提供します。
         * パスポートは国内、外国人パスポートの分析が可能で、外国人パスポートの場合、MRZ(機械読み取り領域)のみ分析結果を提供します。
 
-## Document AI
+<a id="document-ai"></a>
+## Document AI { #document-ai }
 
-### 主な機能
+<a id="document-ai-main-features"></a>
+### 主な機能 { #document-ai-main-features }
 
 * OCRを通じて画像から文字を抽出し、抽出した情報を基にLLMモデルと連動して内容の要約、情報抽出などの質疑応答サービスを提供します。
 * 事業者登録証、名刺などの定型化された文書画像からkey-valueの形で情報を抽出できます。
 * 手書き文字認識をサポートし、手書きで作成された画像に対する分析が可能です。
 
-### 入力画像ガイド
+<a id="document-ai-input-image-guide"></a>
+### 入力画像ガイド { #document-ai-input-image-guide }
 
 より正確な画像分析のために、以下のガイドを参照してください。
 
@@ -150,23 +169,27 @@ OCRは、NHN Cloudの 光学文字認識(OCR)技術を利用して画像や文�
     * 白黒、カラー画像の両方で結果分析が可能ですが、正確な分析にはカラー画像を推奨します。
     * 画像に含まれるテキストは、韓国語と英語に限り分析結果を提供します。
 
-### サービス利用時の注意事項
+<a id="cautions-for-using-the-service"></a>
+### サービス利用時の注意事項 { #cautions-for-using-the-service }
 
 * Document AIで作成された回答は、利用者がアップロードした画像内に含まれるテキストを基に抽出された回答です。
 * Document AIに活用された生成型AI(LLM)技術の根本的な特性により、不適切または不正確な回答が生成される場合があります。利用者の意図に合致した回答かどうか、もう一度検証してご利用ください。
 
-## サービス対象
+<a id="service-targets"></a>
+## サービス対象 { #service-targets }
 * 文書(事業者登録証、クレジットカード、身分証)を自動的に顧客社のシステムに登録する場合
 * 文書処理の自動化を実装する場合
 * 会計/財務管理自動化ソリューションを構築する場合
 * 様々な画像から主要情報を素早く分析し、質疑応答の形で必要な情報を確認したい場合。
 
-## 個人情報処理についての案内
+<a id="privacy-policy"></a>
+## 個人情報処理についての案内 { #privacy-policy }
 * OCRを利用する過程で、お客様は利用者の個人情報およびデリケートな情報を収集する場合があります。したがってこのサービスを利用するお客様は、個人情報保護法に基づいて利用者に法的告知事項を伝え、同意を得る必要があります。また、この過程でお客様とNHN Cloudの間に個人情報処理に関する業務委受託関係が発生する場合があります。委託者であるお客様は受託社NHN Cloudと別途書面による委託契約を締結する場合があり、下記の内容を参考にしてお客様が運営する個人情報処理方針に告知できます。
     - 受託業者：NHN Cloud(株) 
     - 委託業務の内容：OCR提供業務
     
-## 技術的/管理的水準についての合意書
+<a id="agreement-on-technicaladministrative-level"></a>
+## 技術的/管理的水準についての合意書 { #agreement-on-technicaladministrative-level }
 * お客様は、OCRサービスを利用する過程で収集/利用する情報の機密性を考慮して技術的、管理的保護措置を忠実に履行する必要があります。
 * お客様は、OCRサービスを通して認識された情報を伝受け取るために、OCRサービスの利用開始前に通信区間の暗号化を完了する必要があります。
 * お客様は、OCRサービスに認識リクエストを行う原本データを安全な場所に保存しなければならず、外部表示可能なURLを介してアクセスできないようにする必要があります。

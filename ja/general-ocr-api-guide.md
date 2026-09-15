@@ -1,8 +1,13 @@
-## AI Service > OCR > General OCR > APIガイド
+<!-- pre-align:aligned sig=8eec8a51e376 -->
+
+<a id="ai-service-ocr-general-ocr-api-guide"></a>
+## AI Service > OCR > General OCR > APIガイド { #ai-service-ocr-general-ocr-api-guide }
 
 
-### General OCR API
+<a id="general-ocr-api"></a>
+### General OCR API { #general-ocr-api }
 
+<a id="general-ocr-api-request"></a>
 #### リクエスト
 
 [URI]
@@ -11,6 +16,7 @@
 |------|-------------------------------------------------------------------|
 | POST | https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general |
 
+<a id="general-ocr-api-request-with-image-files"></a>
 #### 画像ファイルを利用したリクエスト
 
 [リクエストヘッダ]
@@ -37,6 +43,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 |-------|---------------------|--------|
 | image | multipart/form–data | 画像ファイル |
 
+<a id="general-ocr-api-request-with-image-urls"></a>
 #### 画像URLを利用したリクエスト
 
 [リクエストヘッダ]
@@ -65,6 +72,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 
 * イメージURLにポートを直接指定する場合は80、443、10000～12000ポートのみ使用できます。
 
+<a id="general-ocr-api-response"></a>
 #### レスポンス
 
 [レスポンス本文]
@@ -140,8 +148,10 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 * boxes[0]
   ![Bounding box](http://static.toastoven.net/prod_ocr/bbox.png)
 
-### General OCR分割認識API
+<a id="general-ocr-segmentation-recognition-api"></a>
+### General OCR分割認識API { #general-ocr-segmentation-recognition-api }
 
+<a id="general-ocr-segmentation-recognition-api-request"></a>
 #### リクエスト
 
 - appKey} と {secretKey}はコンソール上部の**URL & Appkey**メニューで確認できます。
@@ -152,6 +162,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general'
 |------|----------------------------------------------------------------------------|
 | POST | https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/cropping |
 
+<a id="general-ocr-segmentation-recognition-api-request-with-image-files"></a>
 #### 画像ファイルを利用したリクエスト
 
 [リクエストヘッダ]
@@ -178,6 +189,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 |-------|---------------------|--------|
 | image | multipart/form–data | 画像ファイル |
 
+<a id="general-ocr-segmentation-recognition-api-request-with-image-urls"></a>
 #### 画像URLを利用したリクエスト
 
 [リクエストヘッダ]
@@ -206,6 +218,7 @@ curl -X POST 'https://api-ocr.nhncloudservice.com/v1.0/appkeys/{appKey}/general/
 
 * イメージURLにポートを直接指定する場合は80、443、10000～12000ポートのみ使用できます。
 
+<a id="general-ocr-segmentation-recognition-api-response"></a>
 #### レスポンス
 
 [レスポンス本文]

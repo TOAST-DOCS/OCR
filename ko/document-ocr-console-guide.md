@@ -1,10 +1,15 @@
-## AI Service > OCR > Document OCR > 콘솔 사용 가이드
+<!-- pre-align:aligned sig=0aa4a7e7a7e7 -->
+
+<a id="ai-service-ocr-document-ocr-console-user-guide"></a>
+## AI Service > OCR > Document OCR > 콘솔 사용 가이드 { #ai-service-ocr-document-ocr-console-user-guide }
 
 콘솔에 사업자등록증, 신용카드, 신분증의 이미지 파일을 올려 분석 결과를 얻을 수 있습니다.
 
-## 사업자등록증 분석
+<a id="business-registration-certificate-analysis"></a>
+## 사업자등록증 분석 { #business-registration-certificate-analysis }
 
-### 분석을 위한 사진 업로드
+<a id="upload-an-image-for-analysis"></a>
+### 분석을 위한 사진 업로드 { #upload-an-image-for-analysis }
 
 분석할 사업자등록증 이미지를 업로드합니다.
 
@@ -12,7 +17,8 @@
     1. **이미지 업로드** 버튼 클릭
     2. 이미지 드래그 앤 드롭
 
-### 분석
+<a id="analysis"></a>
+### 분석 { #analysis }
 
 사진을 업로드한 후 **분석** 버튼을 클릭하면 분석 결과가 화면 오른쪽에 나타납니다.
 
@@ -68,17 +74,21 @@
 
 * 분석 결과 복사 및 다운로드(Excel, JSON) 기능을 제공합니다.
 
-### 수정
+<a id="modify"></a>
+### 수정 { #modify }
 
 사업자등록증 분석 이후 **수정** 버튼을 클릭하면 분석된 사업자등록증의 내용을 수정할 수 있습니다.
 
-### 휴/폐업 조회
+<a id="retrieve-stoppageclosure"></a>
+### 휴/폐업 조회 { #retrieve-stoppageclosure }
 
 사업자등록증 분석 이후 분석된 내용으로 휴/폐업 여부를 조회할 수 있습니다. **휴/폐업 조회** 버튼을 클릭하면 조회 결과가 버튼 오른쪽에 나타납니다.
 
-## 신용카드 분석
+<a id="credit-card-analysis"></a>
+## 신용카드 분석 { #credit-card-analysis }
 
-### 분석을 위한 사진 업로드
+<a id="credit-card-analysis-upload-an-image-for-analysis"></a>
+### 분석을 위한 사진 업로드 { #credit-card-analysis-upload-an-image-for-analysis }
 
 분석할 신용카드 이미지를 업로드합니다.
 
@@ -86,7 +96,8 @@
     1. **이미지 업로드** 버튼 클릭
     2. 이미지 드래그 앤 드롭
 
-### 분석
+<a id="credit-card-analysis-analysis"></a>
+### 분석 { #credit-card-analysis-analysis }
 
 사진을 업로드한 후 **분석** 버튼을 클릭하면 분석 결과가 화면 오른쪽에 나타납니다.
 
@@ -163,9 +174,11 @@
 
 * 분석 결과 복사 및 다운로드(JSON) 기능을 제공합니다.
 
-## 신분증 분석
+<a id="analyze-id-card"></a>
+## 신분증 분석 { #analyze-id-card }
 
-### 분석을 위한 사진 업로드
+<a id="analyze-id-card-upload-an-image-for-analysis"></a>
+### 분석을 위한 사진 업로드 { #analyze-id-card-upload-an-image-for-analysis }
 
 분석할 신분증 이미지를 업로드합니다.
 
@@ -173,7 +186,8 @@
     1. **이미지 업로드** 버튼 클릭
     2. 이미지 드래그 앤 드롭
 
-### 분석
+<a id="analyze-id-card-analysis"></a>
+### 분석 { #analyze-id-card-analysis }
 
 사진을 업로드한 후 **분석** 버튼을 클릭하면 분석 결과가 화면 오른쪽에 나타납니다.
 
@@ -243,10 +257,12 @@
 
 * 분석 결과 복사 및 다운로드(JSON) 기능을 제공합니다.
 
-### 수정
+<a id="analyze-id-card-modify"></a>
+### 수정 { #analyze-id-card-modify }
 
 신분증 분석 이후 **수정** 버튼을 클릭하면 분석된 신분증의 내용을 수정할 수 있습니다.
 
-### 진위 확인
+<a id="verify-authenticity"></a>
+### 진위 확인 { #verify-authenticity }
 
 신분증 분석 이후 분석된 신분증(주민등록증, 운전면허증)의 내용으로 신분증의 진위를 확인할 수 있습니다. **진위 확인** 버튼을 클릭하면 진위 확인 결과가 버튼 오른쪽에 나타납니다.

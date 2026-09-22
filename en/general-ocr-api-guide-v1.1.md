@@ -81,8 +81,6 @@ Content-Type: application/json
 | 4000004    | Uploaded file is empty.                                                                    | Uploaded file is empty                     |
 | 4000005    | Required headers are missing.                                                              | Required headers are missing               |
 | 4000006    | Api call limit exceeded. If you need to adjust the limit, please contact customer service. | API call limit exceeded                    |
-| 4010006    | Invalid token.                                                                             | Invalid token                              |
-| 4010007    | Permission denied.                                                                         | Permission denied                          |
 | 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds the permissible limit |
 
 <a id="general-ocr-api"></a>

@@ -82,9 +82,7 @@ Content-Type: application/json
 | 4000004      | Uploaded file is empty.                                                                    | アップロードされたファイルが空      |
 | 4000005      | Required headers is missing.                                                               | 必須ヘッダ不足                      |
 | 4000006      | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API呼び出し上限超過                 |
-| 4010006      | Invalid token.                                                                             | 無効なトークン                      |
-| 4010007      | Permission denied.                                                                         | 権限なし                            |
-| 4131000      | Request size is larger than permissible limit.                                             | リクエストサイズが許容上限超過                     |
+| 4131000      | Request size is larger than permissible limit.                                             | リクエストサイズが許容上限超過      |
 
 <a id="document-ai-analysis-api"></a>
 ### Document AI 分析 API { #document-ai-analysis-api }

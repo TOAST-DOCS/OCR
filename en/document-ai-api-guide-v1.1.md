@@ -80,10 +80,8 @@ Content-Type: application/json
 | 4000002    | Invalid file.                                                                              | Invalid file               |
 | 4000003    | Invalid file type.                                                                         | Invalid file type          |
 | 4000004    | Uploaded file is empty.                                                                    | Uploaded file is empty     |
-| 4000005    | Required headers are missing.                                                              | Required headers missing   |
-| 4000006    | Api call limit exceeded. If you need to adjust the limit, please contact customer service. | API call limit exceeded    |
-| 4010006    | Invalid token.                                                                             | Invalid token              |
-| 4010007    | Permission denied.                                                                         | Permission denied          |
+| 4000005    | Required headers is missing.                                                               | Required headers missing   |
+| 4000006    | Api call limit exceeded, If you need to adjust the limit, please contact customer service. | API call limit exceeded    |
 | 4131000    | Request size is larger than permissible limit.                                             | Request size exceeds limit |
 
 <a id="document-ai-analysis-api"></a>
